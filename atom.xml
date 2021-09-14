@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://silin.github.io/"/>
+  <link href="https://silin001.github.io/"/>
   <updated>2021-09-14T02:23:40.784Z</updated>
-  <id>https://silin.github.io/</id>
+  <id>https://silin001.github.io/</id>
   
   <author>
     <name>Sisi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>vim</title>
-    <link href="https://silin.github.io/posts/9cde.html"/>
-    <id>https://silin.github.io/posts/9cde.html</id>
+    <link href="https://silin001.github.io/posts/9cde.html"/>
+    <id>https://silin001.github.io/posts/9cde.html</id>
     <published>2020-03-09T11:44:31.000Z</published>
     <updated>2021-09-14T02:23:40.784Z</updated>
     
@@ -37,14 +37,14 @@
     
     
     
-      <category term="vim" scheme="https://silin.github.io/tags/vim/"/>
+      <category term="vim" scheme="https://silin001.github.io/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>CMD\Linux\git常用命令</title>
-    <link href="https://silin.github.io/posts/c9f9.html"/>
-    <id>https://silin.github.io/posts/c9f9.html</id>
+    <link href="https://silin001.github.io/posts/c9f9.html"/>
+    <id>https://silin001.github.io/posts/c9f9.html</id>
     <published>2020-03-09T02:18:31.000Z</published>
     <updated>2021-09-14T03:54:53.849Z</updated>
     
@@ -62,14 +62,14 @@
     
     
     
-      <category term="cmd" scheme="https://silin.github.io/tags/cmd/"/>
+      <category term="cmd" scheme="https://silin001.github.io/tags/cmd/"/>
     
   </entry>
   
   <entry>
     <title>Markdown基础</title>
-    <link href="https://silin.github.io/posts/f82e.html"/>
-    <id>https://silin.github.io/posts/f82e.html</id>
+    <link href="https://silin001.github.io/posts/f82e.html"/>
+    <id>https://silin001.github.io/posts/f82e.html</id>
     <published>2019-12-11T13:56:43.000Z</published>
     <updated>2021-09-14T03:12:36.572Z</updated>
     
@@ -87,14 +87,14 @@
     
     
     
-      <category term="Markdown" scheme="https://silin.github.io/tags/Markdown/"/>
+      <category term="Markdown" scheme="https://silin001.github.io/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://silin.github.io/posts/3eeb.html"/>
-    <id>https://silin.github.io/posts/3eeb.html</id>
+    <link href="https://silin001.github.io/posts/3eeb.html"/>
+    <id>https://silin001.github.io/posts/3eeb.html</id>
     <published>2019-12-07T14:15:57.000Z</published>
     <updated>2021-09-14T01:04:02.347Z</updated>
     
@@ -112,7 +112,7 @@
     
     
     
-      <category term="hello-world" scheme="https://silin.github.io/tags/hello-world/"/>
+      <category term="hello-world" scheme="https://silin001.github.io/tags/hello-world/"/>
     
   </entry>
   
