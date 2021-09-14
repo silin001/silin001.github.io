@@ -246,7 +246,7 @@
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
+        <div style='height:100px;' class="brand">
             <div class="title center-align">
                 
             </div>
@@ -257,11 +257,11 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['自律即自由·',''],
+                        strings: ['自律即自由！','学习是为了有更多的选择，让生活变的更美好！'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
-                        backSpeed: 80,
+                        backSpeed: 70,
                         showCursor: true
                     });
                 </script>
@@ -295,11 +295,6 @@
 
 
 
-<div class="statis">
-    <span class="count"><a href="/categories">1</a></span>
-    <span class="name">分类</span>
-</div>
-
 
 
 <div class="statis">
@@ -324,11 +319,6 @@
 </div>
 
 
-
-<div class="statis">
-    <span class="count"><a href="/categories">1</a></span>
-    <span class="name">分类</span>
-</div>
 
 
 
@@ -414,224 +404,6 @@
 
                 <div class="introduction center-align" data-aos="fade-up">从来没有真正的绝境，只有心灵的迷途</div>
 
-                <style type="text/css">
-    #posts-chart,
-    #categories-chart,
-    #tags-chart {
-        width: 100%;
-        height: 300px;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-</style>
-
-<div id="postCharts" class="post-charts">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-bar-chart"></i>&nbsp;&nbsp;文章统计图
-    </div>
-    <div class="row">
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="posts-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="categories-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="tags-chart"></div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script>
-    let postsChart = echarts.init(document.getElementById('posts-chart'));
-    let categoriesChart = echarts.init(document.getElementById('categories-chart'));
-    let tagsChart = echarts.init(document.getElementById('tags-chart'));
-
-    
-
-    let postsOption = {
-        title: {
-            text: '文章发布统计图',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        xAxis: {
-            type: 'category',
-            data: ["2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09"]
-        },
-        yAxis: {
-            type: 'value',
-        },
-        series: [
-            {
-                name: '文章篇数',
-                type: 'line',
-                color: ['#6772e5'],
-                data: [1,0,0,0,0,0,0,0,0,0,0,0,2],
-                markPoint: {
-                    symbolSize: 45,
-                    color: ['#fa755a','#3ecf8e','#82d3f4'],
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: '最大值'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: '最小值'
-                    }]
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    
-
-    let categoriesOption = {
-        title: {
-            text: '文章分类统计图',
-            top: -4,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        series: [
-            {
-                name: '分类',
-                type: 'pie',
-                radius: '50%',
-                color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"hello-world","value":1}],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-
-    
-
-    let tagsOption = {
-        title: {
-            text: 'TOP10 标签统计图',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {},
-        xAxis: [
-            {
-                type: 'category',
-                data: ["hello-world","hexo-myBlog","test","234"]
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                type: 'bar',
-                color: ['#82d3f4'],
-                barWidth : 18,
-                data: [1,1,1,1],
-                markPoint: {
-                    symbolSize: 45,
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: '最大值'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: '最小值'
-                    }],
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    // render the charts
-    postsChart.setOption(postsOption);
-    categoriesChart.setOption(categoriesOption);
-    tagsChart.setOption(tagsOption);
-</script>
-
-                
-                
-<div class="my-projects">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fas fa-gift"></i>&nbsp;&nbsp;我的项目
-    </div>
-    <div class="row">
-        
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="http://github.com/axh2018/hexo_blog" class="icon"
-                   style="background: linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)" target="_blank">
-                    <i class="fas fa-file-alt"></i>
-                </a>
-                <div class="info-title">
-                    <a href="http://github.com/axh2018/hexo_blog" target="_blank">opensourse blog</a>
-                </div>
-                <div class="info-desc">我的开源博客项目</div>
-            </div>
-        </div>
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/axh2018/arch_install_sh" class="icon"
-                   style="background: linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)" target="_blank">
-                    <i class="fas fa-database"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/axh2018/arch_install_sh" target="_blank">arch_install_sh</a>
-                </div>
-                <div class="info-desc">ArchLinux安装的脚本</div>
-            </div>
-        </div>
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/axh2018/shell" class="icon"
-                   style="background: linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)" target="_blank">
-                    <i class="fas fa-file-alt"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/axh2018/shell" target="_blank">shell</a>
-                </div>
-                <div class="info-desc">一些实用的的shell脚本</div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
                 
 
                 
@@ -647,10 +419,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 60%">
-                    <span>Java</span>
+                     style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 90%">
+                    <span>Vue</span>
                 </div>
-                <div class="skill-bar-percent">60%</div>
+                <div class="skill-bar-percent">90%</div>
             </div>
         </div>
         
@@ -658,10 +430,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 60%">
+                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 95%">
                     <span>JavaScript</span>
                 </div>
-                <div class="skill-bar-percent">60%</div>
+                <div class="skill-bar-percent">95%</div>
             </div>
         </div>
         
@@ -669,10 +441,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 70%">
-                    <span>HTML5</span>
+                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 85%">
+                    <span>微信小程序</span>
                 </div>
-                <div class="skill-bar-percent">70%</div>
+                <div class="skill-bar-percent">85%</div>
             </div>
         </div>
         
@@ -680,10 +452,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 60%">
-                    <span>CSS</span>
+                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 30%">
+                    <span>React</span>
                 </div>
-                <div class="skill-bar-percent">60%</div>
+                <div class="skill-bar-percent">30%</div>
             </div>
         </div>
         
@@ -691,10 +463,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 80%">
-                    <span>SQL</span>
+                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 30%">
+                    <span>NodeJs</span>
                 </div>
-                <div class="skill-bar-percent">80%</div>
+                <div class="skill-bar-percent">30%</div>
             </div>
         </div>
         
@@ -702,10 +474,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 75%">
-                    <span>C</span>
+                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 50%">
+                    <span>WebPack</span>
                 </div>
-                <div class="skill-bar-percent">75%</div>
+                <div class="skill-bar-percent">50%</div>
             </div>
         </div>
         
@@ -726,20 +498,20 @@
             
             
             
-            <a href="/tags/hexo-myBlog/">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo-myBlog</span>
+            <a href="/tags/Markdown/">
+                <span class="chip center-align waves-effect waves-light chip-default">Markdown</span>
             </a>
             
             
             
-            <a href="/tags/test/">
-                <span class="chip center-align waves-effect waves-light chip-default">test</span>
+            <a href="/tags/cmd/">
+                <span class="chip center-align waves-effect waves-light chip-default">cmd</span>
             </a>
             
             
             
-            <a href="/tags/234/">
-                <span class="chip center-align waves-effect waves-light chip-default">234</span>
+            <a href="/tags/vim/">
+                <span class="chip center-align waves-effect waves-light chip-default">vim</span>
             </a>
             
             
@@ -750,48 +522,59 @@
 </div>
 
                 
-
                 
                 
-<div id="myGallery" class="my-gallery">
+<div class="my-projects">
     <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-image"></i>&nbsp;&nbsp;相册
+        <i class="fas fa-gift"></i>&nbsp;&nbsp;我的项目
     </div>
     <div class="row">
         
         
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/banner/0.jpg">
-                <img src="/images/loading.gif" data-original="/medias/banner/0.jpg" class="responsive-img">
+        <div class="col s12 m6 l4" data-aos="fade-up">
+            <div class="info center-align">
+                <a href="https://github.com/silin001/nodeServer_reactDemo" class="icon"
+                   style="background: linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)" target="_blank">
+                    <i class="fas fa-file-alt"></i>
+                </a>
+                <div class="info-title">
+                    <a href="https://github.com/silin001/nodeServer_reactDemo" target="_blank">node</a>
+                </div>
+                <div class="info-desc">基于nodeJs的接口服务</div>
             </div>
         </div>
         
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/banner/1.jpg">
-                <img src="/images/loading.gif" data-original="/medias/banner/1.jpg" class="responsive-img">
+        <div class="col s12 m6 l4" data-aos="fade-up">
+            <div class="info center-align">
+                <a href="https://github.com/silin001/vue2-mySourceCode-v1" class="icon"
+                   style="background: linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)" target="_blank">
+                    <i class="fas fa-database"></i>
+                </a>
+                <div class="info-title">
+                    <a href="https://github.com/silin001/vue2-mySourceCode-v1" target="_blank">vue源码</a>
+                </div>
+                <div class="info-desc">vue2.x源码探秘</div>
             </div>
         </div>
         
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/banner/3.jpg">
-                <img src="/images/loading.gif" data-original="/medias/banner/3.jpg" class="responsive-img">
+        <div class="col s12 m6 l4" data-aos="fade-up">
+            <div class="info center-align">
+                <a href="http://github.com/silin001/ssr" class="icon"
+                   style="background: linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)" target="_blank">
+                    <i class="fas fa-file-alt"></i>
+                </a>
+                <div class="info-title">
+                    <a href="http://github.com/silin001/ssr" target="_blank">ssr</a>
+                </div>
+                <div class="info-desc">ssr-demo</div>
             </div>
         </div>
         
         
     </div>
 </div>
+                
 
-<script>
-    $(function () {
-        let animateClass = 'animated pulse';
-        $('#myGallery .photo').hover(function () {
-            $(this).addClass(animateClass);
-        }, function () {
-            $(this).removeClass(animateClass);
-        });
-    });
-</script>
                 
 
             </div>
@@ -804,13 +587,13 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://yoursite.com" target="_blank">Sisi</a>
+            <a href="https://silin.github.io" target="_blank">Sisi</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">494</span>&nbsp;字
+                class="white-color">2.6k</span>&nbsp;字
             
             
             

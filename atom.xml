@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2021-09-09T02:19:41.235Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://silin.github.io/"/>
+  <updated>2021-09-14T02:23:40.784Z</updated>
+  <id>https://silin.github.io/</id>
   
   <author>
     <name>Sisi</name>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test2</title>
-    <link href="http://yoursite.com/posts/c9f9.html"/>
-    <id>http://yoursite.com/posts/c9f9.html</id>
-    <published>2021-09-09T02:18:31.000Z</published>
-    <updated>2021-09-09T02:19:41.235Z</updated>
+    <title>vim</title>
+    <link href="https://silin.github.io/posts/9cde.html"/>
+    <id>https://silin.github.io/posts/9cde.html</id>
+    <published>2020-03-09T11:44:31.000Z</published>
+    <updated>2021-09-14T02:23:40.784Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;hr&gt;
-&lt;h1 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h1&gt;&lt;p&gt;文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256
+          &lt;h1 id=&quot;vim是什么？&quot;&gt;&lt;a href=&quot;#vim是什么？&quot; class=&quot;headerlink&quot; title=&quot;vim是什么？&quot;&gt;&lt;/a&gt;vim是什么？&lt;/h1&gt;&lt;p&gt;vim/vi是Unix /
         
       
     
@@ -38,16 +37,16 @@
     
     
     
-      <category term="234" scheme="http://yoursite.com/tags/234/"/>
+      <category term="vim" scheme="https://silin.github.io/tags/vim/"/>
     
   </entry>
   
   <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/posts/f82e.html"/>
-    <id>http://yoursite.com/posts/f82e.html</id>
-    <published>2021-09-09T01:56:43.000Z</published>
-    <updated>2021-09-09T02:08:52.248Z</updated>
+    <title>CMD\Linux\git常用命令</title>
+    <link href="https://silin.github.io/posts/c9f9.html"/>
+    <id>https://silin.github.io/posts/c9f9.html</id>
+    <published>2020-03-09T02:18:31.000Z</published>
+    <updated>2021-09-14T03:54:53.849Z</updated>
     
     <summary type="html">
     
@@ -55,7 +54,7 @@
       
         
         
-          &lt;h1 id=&quot;test&quot;&gt;&lt;a href=&quot;#test&quot; class=&quot;headerlink&quot; title=&quot;test&quot;&gt;&lt;/a&gt;test&lt;/h1&gt;&lt;p&gt;文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256
+          &lt;h1 id=&quot;常用终端命令&quot;&gt;&lt;a href=&quot;#常用终端命令&quot; class=&quot;headerlink&quot; title=&quot;常用终端命令&quot;&gt;&lt;/a&gt;常用终端命令&lt;/h1&gt;&lt;h2 id=&quot;一、git&quot;&gt;&lt;a href=&quot;#一、git&quot; class=&quot;headerlink&quot;
         
       
     
@@ -63,16 +62,16 @@
     
     
     
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+      <category term="cmd" scheme="https://silin.github.io/tags/cmd/"/>
     
   </entry>
   
   <entry>
-    <title>hexo+gitPage搭建my-blog</title>
-    <link href="http://yoursite.com/posts/9cde.html"/>
-    <id>http://yoursite.com/posts/9cde.html</id>
-    <published>2020-09-09T01:44:31.000Z</published>
-    <updated>2021-09-09T02:16:10.435Z</updated>
+    <title>Markdown基础</title>
+    <link href="https://silin.github.io/posts/f82e.html"/>
+    <id>https://silin.github.io/posts/f82e.html</id>
+    <published>2019-12-11T13:56:43.000Z</published>
+    <updated>2021-09-14T03:12:36.572Z</updated>
     
     <summary type="html">
     
@@ -80,7 +79,7 @@
       
         
         
-          &lt;h1 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h1&gt;&lt;p&gt;文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256
+          &lt;h1 id=&quot;什么是Markdown？&quot;&gt;&lt;a href=&quot;#什么是Markdown？&quot; class=&quot;headerlink&quot; title=&quot;什么是Markdown？&quot;&gt;&lt;/a&gt;什么是Markdown？&lt;/h1&gt;&lt;p&gt;Markdown
         
       
     
@@ -88,16 +87,16 @@
     
     
     
-      <category term="hexo-myBlog" scheme="http://yoursite.com/tags/hexo-myBlog/"/>
+      <category term="Markdown" scheme="https://silin.github.io/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/posts/3eeb.html"/>
-    <id>http://yoursite.com/posts/3eeb.html</id>
+    <link href="https://silin.github.io/posts/3eeb.html"/>
+    <id>https://silin.github.io/posts/3eeb.html</id>
     <published>2019-12-07T14:15:57.000Z</published>
-    <updated>2021-09-07T09:04:10.789Z</updated>
+    <updated>2021-09-14T01:04:02.347Z</updated>
     
     <summary type="html">
     
@@ -112,10 +111,8 @@
     </summary>
     
     
-      <category term="hello-world" scheme="http://yoursite.com/categories/hello-world/"/>
     
-    
-      <category term="hello-world" scheme="http://yoursite.com/tags/hello-world/"/>
+      <category term="hello-world" scheme="https://silin.github.io/tags/hello-world/"/>
     
   </entry>
   

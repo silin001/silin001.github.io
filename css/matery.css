@@ -34,7 +34,8 @@
 }
 
 body {
-    background-color: #eaeaea;
+    /* background-color: #eaeaea; */
+    background-color: #C1E6C6;
     margin: 0;
     color: #34495e;
 }
@@ -269,7 +270,8 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #f0f 0%, #FF5E3A 100%);
+    /* background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%); */
     opacity: 0.8;
 }
 
@@ -373,6 +375,7 @@ header .side-nav .social-link {
     font-size: 1.2rem;
     display: inline;
     padding: 0 12px;
+    cursor: pointer;
 }
 
 .cover-btns {
@@ -604,9 +607,9 @@ header .go-back i {
 
 .bg-cover .description {
     font-weight: 300;
-    font-size: 1.25rem;
+    font-size: 1.55rem;
     line-height: 1.4em;
-    color: #eee;
+    color:#fff
 }
 
 .bg-cover .post-title {

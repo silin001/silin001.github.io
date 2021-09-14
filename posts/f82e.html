@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="test, si">
-    <meta name="description" content="test文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
-
-  ">
+    <meta name="keywords" content="Markdown">
+    <meta name="description" content="什么是Markdown？Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>test | si</title>
+    <title>Markdown基础 | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -238,15 +236,28 @@
 </header>
 
             
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">test</h1>
+                    <h1 class="description center-align post-title">Markdown基础</h1>
                 </div>
             </div>
         </div>
@@ -256,10 +267,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -268,8 +374,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/test/">
-                                <span class="chip bg-color">test</span>
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
                             </a>
                         
                     </div>
@@ -284,45 +390,75 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2019-12-11
                 </div>
                 
 
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
-                </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    119
+                    710
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
 
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><p>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项</p>
-<script>
+                <h1 id="什么是Markdown？"><a href="#什么是Markdown？" class="headerlink" title="什么是Markdown？"></a>什么是Markdown？</h1><p>Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文档。</p>
+<p>简单来说，Markdown 是由一些简单的符号（如*/-&gt;[]()#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p>
+<p>Markdown 相当于简化了的 HTML，它只提供用户最常用的语法格式，更易读和易写，用户可以不必关心复杂的 HTML 标签，只专注于写作就行了。</p>
+<p>常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+<h1 id="Markdown优点"><a href="#Markdown优点" class="headerlink" title="Markdown优点"></a>Markdown优点</h1><p>直接创建，没啥限制和要求。<br>排版简单，可读、直观、学习成本低<br>支持插入图片，视频等等（根据平台不同而定）<br>轻松的导出 HTML、.md 文件<br>可跨平台同步数据<br>随时可修改（不必像word等易混乱）</p>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><pre><code>一级标题对应一个 # 号；
+二级标题对应两个 # 号；
+以此类推。。。一共六级标题。</code></pre><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>*斜体文本*
+
+_斜体文本_
+
+**粗体文本**
+
+__粗体文本__
+
+***粗斜体文本***
+
+___粗斜体文本___</code></pre><h2 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h2><pre><code>&lt;font face="黑体" color=green size=5&gt;黑体，绿色，尺寸为5（任意内容）&lt;/font&gt;
+or
+$\color{red}{红色字}$</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><pre><code>[name:大话卷积神经网络CNN（title:干货满满）](url:https://blog.csdn.net/TeFuirnever/article/details/100057229)
+
+or
+
+&lt;https://blog.csdn.net/TeFuirnever/article/details/100057229&gt;</code></pre><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><pre><code>![图片描述](图片地址)
+支持 jpg、png、gif、svg 等图片格式，其中 svg 文件仅可在微信公众平台中使用。</code></pre><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><pre><code>单行代码：代码之间分别用一个反引号包起来即可
+Use the `printf()` function.
+
+代码块高亮：
+``` key  支持多种语言 js java bash ....
+代码块
+```</code></pre><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><pre><code>可以在一行中用3个 - 或者 * 来建立一个分隔线，同时需要在分隔线的上面空一行，如下：
+
+---
+或者
+
+***
+* * *
+*****
+- - -</code></pre><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><pre><code>删除线的使用，在需要删除的文字前后各使用两个 ~
+~~这是要被删除的内容。~~</code></pre><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><pre><code>下划线的使用，在需要添加下划线的文字首部和尾部加上 &lt;u&gt;文本&lt;/u&gt;，如下：
+
+&lt;u&gt;这行文字已被添加下划线&lt;/u&gt;</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -355,7 +491,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com" rel="external nofollow noreferrer">Sisi</a>
+                    <a href="https://silin.github.io" rel="external nofollow noreferrer">Sisi</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -365,7 +501,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/posts/f82e.html">http://yoursite.com/posts/f82e.html</a>
+                    <a href="https://silin.github.io/posts/f82e.html">https://silin.github.io/posts/f82e.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -378,7 +514,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://yoursite.com" target="_blank">Sisi</a>
+                    <a href="https://silin.github.io" target="_blank">Sisi</a>
                     !
                 </span>
             </div>
@@ -403,8 +539,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/test/">
-                                    <span class="chip bg-color">test</span>
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
                                 </a>
                             
                         </div>
@@ -450,7 +586,7 @@
         repo: 'blog-comments',
         owner: 'silin001',
         admin: "silin001",
-        id: '2021-09-09T09-56-43',
+        id: '2019-12-11T21-56-43',
 
           // my
             // clientID: '392cce3ecc3ff4841cf2',
@@ -488,23 +624,23 @@
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="test2">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="CMD\Linux\git常用命令">
                         
-                        <span class="card-title">test2</span>
+                        <span class="card-title">CMD\Linux\git常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
+                            常用终端命令一、gitgit其他github浏览器快捷查看文件方式： github后面添加1s
+地址栏直接  https://github.com/ 修改为github1s.com
 
- 
+我的git-pages地址: https://silin
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
                         </span>
                         <span class="publish-author">
                             
@@ -517,8 +653,8 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/234/">
-                        <span class="chip bg-color">234</span>
+                    <a href="/tags/cmd/">
+                        <span class="chip bg-color">cmd</span>
                     </a>
                     
                 </div>
@@ -532,26 +668,24 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9cde.html">
+                <a href="/posts/3eeb.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="hexo+gitPage搭建my-blog">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">hexo+gitPage搭建my-blog</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
-
-  
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-07
                             </span>
                         <span class="publish-author">
                             
@@ -564,8 +698,8 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo-myBlog/">
-                        <span class="chip bg-color">hexo-myBlog</span>
+                    <a href="/tags/hello-world/">
+                        <span class="chip bg-color">hello-world</span>
                     </a>
                     
                 </div>
@@ -605,6 +739,100 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </style>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -616,13 +844,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://yoursite.com" target="_blank">Sisi</a>
+            <a href="https://silin.github.io" target="_blank">Sisi</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">494</span>&nbsp;字
+                class="white-color">2.6k</span>&nbsp;字
             
             
             

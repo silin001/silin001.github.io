@@ -4,55 +4,55 @@
   
     
     <entry>
-      <title>test2</title>
-      <link href="/posts/c9f9.html"/>
-      <url>/posts/c9f9.html</url>
-      
-        <content type="html"><![CDATA[<hr><h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 234 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test</title>
-      <link href="/posts/f82e.html"/>
-      <url>/posts/f82e.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><p>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hexo+gitPage搭建my-blog</title>
+      <title>vim</title>
       <link href="/posts/9cde.html"/>
       <url>/posts/9cde.html</url>
       
-        <content type="html"><![CDATA[<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="vim是什么？"><a href="#vim是什么？" class="headerlink" title="vim是什么？"></a>vim是什么？</h1><p>vim/vi是Unix / Linux上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单。】</p><h1 id="Vscode-vim使用："><a href="#Vscode-vim使用：" class="headerlink" title="Vscode vim使用："></a>Vscode vim使用：</h1><p>y复制（先选中）<br>yy复制一行<br>nyy复制多行（n为行数）<br>p粘贴<br>u撤销<br>移动光标至所选行的开头，按v进入视图，键盘上按向下键，选中所需行即可。<br>恢复刚才的操做 ctrl+r<br>v+w 打开选中模式，并向后移动一个单词<br>v+b 打开选中模型，并向前移动一个单词<br>v+i+w 打开选中模式，并选中当前单词</p><h1 id="vim的模式"><a href="#vim的模式" class="headerlink" title="vim的模式"></a>vim的模式</h1><h2 id="一、默认normal模式"><a href="#一、默认normal模式" class="headerlink" title="一、默认normal模式"></a>一、默认normal模式</h2><p>  正常模式一般用于浏览文件，也包括一些复制、粘贴、删除等操作。这时击键时，一般的键/键组合会被当成功能键，而不会键入对应的字符。在这个模式下，我们可能通过键盘在文本中跳来跳去，跳动的范围从小到大是字符、单词、行、句子、段落和屏幕。启动vim后默认位于正常模式。不论位于什么模式，按下<esc>键(有时需要按两下）都会进入正常模式。</esc></p><h3 id="1、移动"><a href="#1、移动" class="headerlink" title="1、移动"></a>1、移动</h3><p>  <font color="red">单词:</font><br>  w=  word 向后移动单词<br>  b=  back word向前后移动单词<br>  <font color="red">行:</font><br>  0行首<br>  I单词行首<br>  $ 行尾<br>  A单词行尾<br>  15gg跳转到15行<br>  :18 = 进入18行<br>  18G =进入18行<br>  gg文件首行<br>  G文件末行<br>  Shift + [] 是以「代码块」为单位跳行<br>  Ctrl + u 和 Ctrl + d 实现上下滚动页面，滚动行数默认为半页大小<br>  [[ 跳到文件首行，而 ]] 则是行末。<br>  gd: 函数的跳转 go to defined<br>  ctr+o 退出到原先的函数位置<br>  当前行下移一行 :m+<br>  当前行上移一行 :m-2</p><h3 id="2、增"><a href="#2、增" class="headerlink" title="2、增"></a>2、增</h3><p>  d = delete 删除 d是开启剪切模式<br>  x= 删除一个字符<br>  dG = 删除全部<br>  3x = 3个字符<br>  dd= 剪切一行/ndd删除n是数字<br>  dw = delete word 删除一个单词-光标在单词位置<br>  diw = delete inner word 删除一个单词进入插入模式<br>  daw = delete around word 包含空格<br>  s是删除当前光标所指并转为 insert 模式</p><h3 id="3、删"><a href="#3、删" class="headerlink" title="3、删"></a>3、删</h3><h3 id="4、改"><a href="#4、改" class="headerlink" title="4、改"></a>4、改</h3><p>  c= change<br>  cc= 删除一行并且进入写入模式<br>  i(  =会选中括号里面的单词<br>  i”  = 会选中””引号里内容</p><p>  a(  =会选中括弧以及括弧里面的单词<br>  a”  = 会选中””和内容<br>  iw  = 会选中一个单词<br>  aw=会选中单词以及单词前面的一个空格</p><p>  ciw=删除一个单词并进入插入模式<br>  ct) = 光标不在括号内，修改到右括号，<br>  ct) =光标在括号内容第一个字符，删除()内容进入插入模式 </p><p>  以下命令可以对标点内的内容进行操作。<br>  ci’、ci”、ci(、ci[、ci{、ci&lt; - 分别更改这些配对标点符号中的文本内容<br>  di’、di”、di(或dib、di[、di{或diB、di&lt; - 分别删除这些配对标点符号中的文本内容<br>  yi’、yi”、yi(、yi[、yi{、yi&lt; - 分别复制这些配对标点符号中的文本内容<br>  vi’、vi”、vi(、vi[、vi{、vi&lt; - 分别选中这些配对标点符号中的文本内容</p><h3 id="5、查"><a href="#5、查" class="headerlink" title="5、查"></a>5、查</h3><h2 id="二、insert插入模式"><a href="#二、insert插入模式" class="headerlink" title="二、insert插入模式"></a>二、insert插入模式</h2><p>  在正常模式中按下i, I, a, A等键，会进入插入模式。<br>  小写包含空格，大写不包含空格<br>  a/A = append： 后面插入<br>  i /I = insert :前面插入<br>  o/O = open a line ：另起一行<br>  现在只用记住按i键会进行插入模式。插入模式中，击键时会写入相应的字符。</p><h2 id="三、visual可视模式"><a href="#三、visual可视模式" class="headerlink" title="三、visual可视模式"></a>三、visual可视模式</h2><p>  在正常模式按下v, V, <ctrl>+v，可以进入可视模式。可视模式中的<br>  操作有点像拿鼠标进行操作，选择文本的时候有一种鼠标选择的即视感，有时候会很方便。</ctrl></p><h2 id="四、command命令模式"><a href="#四、command命令模式" class="headerlink" title="四、command命令模式"></a>四、command命令模式</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       
         <tags>
             
-            <tag> hexo-myBlog </tag>
+            <tag> vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CMD\Linux\git常用命令</title>
+      <link href="/posts/c9f9.html"/>
+      <url>/posts/c9f9.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="常用终端命令"><a href="#常用终端命令" class="headerlink" title="常用终端命令"></a>常用终端命令</h1><h2 id="一、git"><a href="#一、git" class="headerlink" title="一、git"></a>一、git</h2><h3 id="git其他"><a href="#git其他" class="headerlink" title="git其他"></a>git其他</h3><pre><code>github浏览器快捷查看文件方式： github后面添加1s地址栏直接  https://github.com/ 修改为github1s.com我的git-pages地址: https://silin001.github.io</code></pre><p>git本地查找密钥：gitbash打开终端窗口：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> ~/.ssh<span class="token function">cat</span> id_rsa.pub 查看<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="git初始化"><a href="#git初始化" class="headerlink" title="git初始化"></a>git初始化</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init<span class="token function">git</span> status<span class="token function">git</span> log  <span class="token comment" spellcheck="true"># 显示提交日志</span><span class="token function">git</span> config --global user.name <span class="token string">"xxx"</span>    <span class="token comment" spellcheck="true"># 配置用户名</span><span class="token function">git</span> config --global user.email <span class="token string">"xxx@xxx.com"</span>  <span class="token comment" spellcheck="true"># 配置邮件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="git-push、git-pull"><a href="#git-push、git-pull" class="headerlink" title="git push、git pull"></a>git push、git pull</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone URL  <span class="token comment" spellcheck="true">#拉取远程代码到本地</span><span class="token function">git</span> commit -m <span class="token string">"提交内容"</span> <span class="token comment" spellcheck="true">#提交暂存区的更改，并记录下备注</span><span class="token function">git</span> push origin main <span class="token comment" spellcheck="true">#将完成的项目推送到远程仓库中</span><span class="token function">git</span> pull <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>远程分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>  <span class="token comment" spellcheck="true">#从远程仓库拉取代码并合并到本地，可简写为 git pull 等同于 git fetch &amp;&amp; git merge</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> branch ：查看本地分支<span class="token function">git</span> branch -r ：查看远程分支<span class="token function">git</span> branch -a ：查看本地和远程分支<span class="token function">git</span> branch 分支名字 ：新建本地分支<span class="token function">git</span> branch -d 分支名字 ：删除本地分支 （分支被合并后才允许删除 ，把 -d 改成 -D 强制删除）<span class="token function">git</span> branch -m 旧的分支名字 新的分支名字 ：重新命名分支<span class="token function">git</span> branch --merged：查看哪些分支已经合并到当前分支<span class="token function">git</span> branch --no-merged：查看当前哪些分支还没有合并到当前分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout --<span class="token operator">&lt;</span>file<span class="token operator">></span> ：撤销上一次对文件的操作<span class="token function">git</span> checkout  想要切换的分支名：从当前所处的分支切换到其他分支（当切换分支的时候，需要把暂存区里面的文件进行提交,不然暂存区里面的文件会跟着到切换的这条分支上<span class="token punctuation">)</span><span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>branch-name<span class="token operator">></span>：新建并切换到新建分支上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="二、cmd"><a href="#二、cmd" class="headerlink" title="二、cmd"></a>二、cmd</h2><font color="red">ps: cmd和vscode终端部分操作不同！</font><p>dir -查看目录</p><h3 id="1、文件夹："><a href="#1、文件夹：" class="headerlink" title="1、文件夹："></a>1、文件夹：</h3><p>md  - 创建文件夹<br>rm - 只能删除空文件夹      /   cmd：rd 删除文件夹<br>rm /s  删整个文件夹  /q不提示</p><h3 id="2、文件："><a href="#2、文件：" class="headerlink" title="2、文件："></a>2、文件：</h3><p>del [filename] - 删除文件<br>首先是创建空文件，命令type nul&gt;[filename]<br>命令echo [fileContent]&gt;[filename] 向文件写入内容</p><h2 id="三、Linux"><a href="#三、Linux" class="headerlink" title="三、Linux"></a>三、Linux</h2><p>mkdir ‘’  创建目录<br>rm -r test 删除目录<br>touch ‘’ 创建文件<br>rm  文件名 删除<br>打开文件： vi　文件名　<br>退出打开的文件　　ｑ：　不报错强制　退出　ｑ！<br>搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> cmd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown基础</title>
+      <link href="/posts/f82e.html"/>
+      <url>/posts/f82e.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="什么是Markdown？"><a href="#什么是Markdown？" class="headerlink" title="什么是Markdown？"></a>什么是Markdown？</h1><p>Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文档。</p><p>简单来说，Markdown 是由一些简单的符号（如*/-&gt;[]()#）组成的用于排版的标记语言，其最重要的特点就是可读性强。</p><p>Markdown 相当于简化了的 HTML，它只提供用户最常用的语法格式，更易读和易写，用户可以不必关心复杂的 HTML 标签，只专注于写作就行了。</p><p>常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p><h1 id="Markdown优点"><a href="#Markdown优点" class="headerlink" title="Markdown优点"></a>Markdown优点</h1><p>直接创建，没啥限制和要求。<br>排版简单，可读、直观、学习成本低<br>支持插入图片，视频等等（根据平台不同而定）<br>轻松的导出 HTML、.md 文件<br>可跨平台同步数据<br>随时可修改（不必像word等易混乱）</p><h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><pre><code>一级标题对应一个 # 号；二级标题对应两个 # 号；以此类推。。。一共六级标题。</code></pre><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>*斜体文本*_斜体文本_**粗体文本**__粗体文本__***粗斜体文本***___粗斜体文本___</code></pre><h2 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h2><pre><code>&lt;font face="黑体" color=green size=5&gt;黑体，绿色，尺寸为5（任意内容）&lt;/font&gt;or$\color{red}{红色字}$</code></pre><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><pre><code>[name:大话卷积神经网络CNN（title:干货满满）](url:https://blog.csdn.net/TeFuirnever/article/details/100057229)or&lt;https://blog.csdn.net/TeFuirnever/article/details/100057229&gt;</code></pre><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><pre><code>![图片描述](图片地址)支持 jpg、png、gif、svg 等图片格式，其中 svg 文件仅可在微信公众平台中使用。</code></pre><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><pre><code>单行代码：代码之间分别用一个反引号包起来即可Use the `printf()` function.代码块高亮：``` key  支持多种语言 js java bash ....代码块```</code></pre><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><pre><code>可以在一行中用3个 - 或者 * 来建立一个分隔线，同时需要在分隔线的上面空一行，如下：---或者**** * ******- - -</code></pre><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><pre><code>删除线的使用，在需要删除的文字前后各使用两个 ~~~这是要被删除的内容。~~</code></pre><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><pre><code>下划线的使用，在需要添加下划线的文字首部和尾部加上 &lt;u&gt;文本&lt;/u&gt;，如下：&lt;u&gt;这行文字已被添加下划线&lt;/u&gt;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -67,12 +67,6 @@
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
-      
-      <categories>
-          
-          <category> hello-world </category>
-          
-      </categories>
       
       
         <tags>

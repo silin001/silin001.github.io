@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: hello-world, si">
-    <meta name="description" content="分类: hello-world | si">
+    <meta name="keywords" content="标签: vim, si">
+    <meta name="description" content="标签: vim | si">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类: hello-world | si</title>
+    <title>标签: vim | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -239,7 +239,7 @@
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
+        <div style='height:100px;' class="brand">
             <div class="title center-align">
                 
             </div>
@@ -250,11 +250,11 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['自律即自由·',''],
+                        strings: ['自律即自由！','学习是为了有更多的选择，让生活变的更美好！'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
-                        backSpeed: 80,
+                        backSpeed: 70,
                         showCursor: true
                     });
                 </script>
@@ -277,24 +277,49 @@
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/categories/hello-world/" title="hello-world: 1">
+                <a href="/tags/hello-world/" title="hello-world: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F9EBEA;">hello-world
+                             chip-default "
+                            data-tagname="hello-world" style="background-color: #F9EBEA;">hello-world
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
+                
+                <a href="/tags/Markdown/" title="Markdown: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Markdown" style="background-color: #F5EEF8;">Markdown
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/cmd/" title="cmd: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="cmd" style="background-color: #D5F5E3;">cmd
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/vim/" title="vim: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="vim" style="background-color: #E8F8F5;">vim
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
@@ -306,49 +331,31 @@
     <article id="articles" class="container articles">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="vim" data-aos="fade-up">
                 <div class="card">
-                    <a href="/posts/3eeb.html">
+                    <a href="/posts/9cde.html">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                            <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
                             
-                            <span class="card-title">Hello World</span>
+                            <span class="card-title">vim</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                            
-                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/hello-world/" class="post-category">
-                                    hello-world
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                Sisi
                                 
                             </span>
                         </div>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/hello-world/">
-                            <span class="chip bg-color">hello-world</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
             
@@ -364,13 +371,13 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://yoursite.com" target="_blank">Sisi</a>
+            <a href="https://silin.github.io" target="_blank">Sisi</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">494</span>&nbsp;字
+                class="white-color">2.6k</span>&nbsp;字
             
             
             

@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="test2, si">
-    <meta name="description" content="
-hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
+    <meta name="keywords" content="CMD\Linux\git常用命令, si">
+    <meta name="description" content="常用终端命令一、gitgit其他github浏览器快捷查看文件方式： github后面添加1s
+地址栏直接  https://github.com/ 修改为github1s.com
 
- ">
+我的git-pages地址: https://silin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>test2 | si</title>
+    <title>CMD\Linux\git常用命令 | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -239,15 +239,28 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
 </header>
 
             
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">test2</h1>
+                    <h1 class="description center-align post-title">CMD\Linux\git常用命令</h1>
                 </div>
             </div>
         </div>
@@ -257,10 +270,105 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -269,8 +377,8 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/234/">
-                                <span class="chip bg-color">234</span>
+                            <a href="/tags/cmd/">
+                                <span class="chip bg-color">cmd</span>
                             </a>
                         
                     </div>
@@ -285,45 +393,67 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2020-03-09
                 </div>
                 
 
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
-                </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    119
+                    683
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
 
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <hr>
-<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项</p>
+                <h1 id="常用终端命令"><a href="#常用终端命令" class="headerlink" title="常用终端命令"></a>常用终端命令</h1><h2 id="一、git"><a href="#一、git" class="headerlink" title="一、git"></a>一、git</h2><h3 id="git其他"><a href="#git其他" class="headerlink" title="git其他"></a>git其他</h3><pre><code>github浏览器快捷查看文件方式： github后面添加1s
+地址栏直接  https://github.com/ 修改为github1s.com
+
+我的git-pages地址: https://silin001.github.io</code></pre><p>git本地查找密钥：gitbash打开终端窗口：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> ~/.ssh
+<span class="token function">cat</span> id_rsa.pub 查看<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="git初始化"><a href="#git初始化" class="headerlink" title="git初始化"></a>git初始化</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
+<span class="token function">git</span> status
+<span class="token function">git</span> log  <span class="token comment" spellcheck="true"># 显示提交日志</span>
+<span class="token function">git</span> config --global user.name <span class="token string">"xxx"</span>    <span class="token comment" spellcheck="true"># 配置用户名</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"xxx@xxx.com"</span>  <span class="token comment" spellcheck="true"># 配置邮件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="git-push、git-pull"><a href="#git-push、git-pull" class="headerlink" title="git push、git pull"></a>git push、git pull</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone URL  <span class="token comment" spellcheck="true">#拉取远程代码到本地</span>
+<span class="token function">git</span> commit -m <span class="token string">"提交内容"</span> <span class="token comment" spellcheck="true">#提交暂存区的更改，并记录下备注</span>
+<span class="token function">git</span> push origin main <span class="token comment" spellcheck="true">#将完成的项目推送到远程仓库中</span>
+<span class="token function">git</span> pull <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>远程分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>  <span class="token comment" spellcheck="true">#从远程仓库拉取代码并合并到本地，可简写为 git pull 等同于 git fetch &amp;&amp; git merge</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> branch ：查看本地分支
+<span class="token function">git</span> branch -r ：查看远程分支
+<span class="token function">git</span> branch -a ：查看本地和远程分支
+<span class="token function">git</span> branch 分支名字 ：新建本地分支
+<span class="token function">git</span> branch -d 分支名字 ：删除本地分支 （分支被合并后才允许删除 ，把 -d 改成 -D 强制删除）
+<span class="token function">git</span> branch -m 旧的分支名字 新的分支名字 ：重新命名分支
+<span class="token function">git</span> branch --merged：查看哪些分支已经合并到当前分支
+<span class="token function">git</span> branch --no-merged：查看当前哪些分支还没有合并到当前分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout --<span class="token operator">&lt;</span>file<span class="token operator">></span> ：撤销上一次对文件的操作
+<span class="token function">git</span> checkout  想要切换的分支名：从当前所处的分支切换到其他分支（当切换分支的时候，需要把暂存区里面的文件进行提交,不然暂存区里面的文件会跟着到切换的这条分支上<span class="token punctuation">)</span>
+<span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>branch-name<span class="token operator">></span>：新建并切换到新建分支上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、cmd"><a href="#二、cmd" class="headerlink" title="二、cmd"></a>二、cmd</h2><font color="red">
+ps: cmd和vscode终端部分操作不同！
+</font>
+
+<p>dir -查看目录</p>
+<h3 id="1、文件夹："><a href="#1、文件夹：" class="headerlink" title="1、文件夹："></a>1、文件夹：</h3><p>md  - 创建文件夹<br>rm - 只能删除空文件夹      /   cmd：rd 删除文件夹<br>rm /s  删整个文件夹  /q不提示</p>
+<h3 id="2、文件："><a href="#2、文件：" class="headerlink" title="2、文件："></a>2、文件：</h3><p>del [filename] - 删除文件<br>首先是创建空文件，命令type nul&gt;[filename]<br>命令echo [fileContent]&gt;[filename] 向文件写入内容</p>
+<h2 id="三、Linux"><a href="#三、Linux" class="headerlink" title="三、Linux"></a>三、Linux</h2><p>mkdir ‘’  创建目录<br>rm -r test 删除目录<br>touch ‘’ 创建文件<br>rm  文件名 删除<br>打开文件： vi　文件名　<br>退出打开的文件　　ｑ：　不报错强制　退出　ｑ！<br>搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -357,7 +487,7 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com" rel="external nofollow noreferrer">Sisi</a>
+                    <a href="https://silin.github.io" rel="external nofollow noreferrer">Sisi</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -367,7 +497,7 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/posts/c9f9.html">http://yoursite.com/posts/c9f9.html</a>
+                    <a href="https://silin.github.io/posts/c9f9.html">https://silin.github.io/posts/c9f9.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -380,7 +510,7 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://yoursite.com" target="_blank">Sisi</a>
+                    <a href="https://silin.github.io" target="_blank">Sisi</a>
                     !
                 </span>
             </div>
@@ -405,8 +535,8 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/234/">
-                                    <span class="chip bg-color">234</span>
+                                <a href="/tags/cmd/">
+                                    <span class="chip bg-color">cmd</span>
                                 </a>
                             
                         </div>
@@ -452,7 +582,7 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
         repo: 'blog-comments',
         owner: 'silin001',
         admin: "silin001",
-        id: '2021-09-09T10-18-31',
+        id: '2020-03-09T10-18-31',
 
           // my
             // clientID: '392cce3ecc3ff4841cf2',
@@ -482,33 +612,30 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/c9f9.html">
+                <a href="/posts/9cde.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="test2">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
                         
-                        <span class="card-title">test2</span>
+                        <span class="card-title">vim</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
-
- 
+                            vim是什么？vim/vi是Unix / Linux上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单。】
+Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行数）p粘贴u撤销移动光标至所选行的开头，按v
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -517,12 +644,11 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/234/">
-                        <span class="chip bg-color">234</span>
+                    <a href="/tags/vim/">
+                        <span class="chip bg-color">vim</span>
                     </a>
                     
                 </div>
@@ -540,22 +666,20 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/10.jpg" class="responsive-img" alt="test">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="Markdown基础">
                         
-                        <span class="card-title">test</span>
+                        <span class="card-title">Markdown基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            test文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
-
-  
+                            什么是Markdown？Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-11
                             </span>
                         <span class="publish-author">
                             
@@ -568,8 +692,8 @@ hexo文章阅读密码，如果要对文章设置阅读验证密码的话，就�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/test/">
-                        <span class="chip bg-color">test</span>
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -609,6 +733,100 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </style>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -620,13 +838,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://yoursite.com" target="_blank">Sisi</a>
+            <a href="https://silin.github.io" target="_blank">Sisi</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">494</span>&nbsp;字
+                class="white-color">2.6k</span>&nbsp;字
             
             
             
