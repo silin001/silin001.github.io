@@ -32,6 +32,8 @@
 
 
     <body>
+
+<img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg">
         <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper head-container">
@@ -313,10 +315,10 @@
                 </a>
                 
                 
-                <a href="/tags/cmd/" title="cmd: 1">
+                <a href="/tags/Vue-node/" title="Vue+node: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="cmd" style="background-color: #E8F8F5;">cmd
+                            data-tagname="Vue+node" style="background-color: #E8F8F5;">Vue+node
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -326,6 +328,15 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="h5" style="background-color: #FEF9E7;">h5
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/cmd%E3%80%81git/" title="cmd、git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="cmd、git" style="background-color: #F8F9F9;">cmd、git
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -355,7 +366,7 @@
                     <div class="card-content article-content">
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-30
                             </span>
                             <span class="publish-author">
                                 
@@ -386,7 +397,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.7k</span>&nbsp;字
             
             
             
@@ -418,7 +429,7 @@
                     var startYear = "2019";
                     var startMonth = "8";
                     var startDate = "30";
-                    var startHour = "12";
+                    var startHour = "18";
                     var startMinute = "0";
                     var startSecond = "0";
                     var todayYear = today.getFullYear();
@@ -608,4 +619,23 @@ $(function () {
             };
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
+<script>
+$(function () {
+    const dom  = $('body #mywx')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1000)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '40%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
 </html>

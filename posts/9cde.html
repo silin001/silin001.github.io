@@ -33,6 +33,8 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
 
 
     <body>
+
+<img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg">
         <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper head-container">
@@ -384,6 +386,15 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                其他
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -400,14 +411,14 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -427,7 +438,10 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
 <p>  a(  =会选中括弧以及括弧里面的单词<br>  a”  = 会选中””和内容<br>  iw  = 会选中一个单词<br>  aw=会选中单词以及单词前面的一个空格</p>
 <p>  ciw=删除一个单词并进入插入模式<br>  ct) = 光标不在括号内，修改到右括号，<br>  ct) =光标在括号内容第一个字符，删除()内容进入插入模式 </p>
 <p>  以下命令可以对标点内的内容进行操作。<br>  ci’、ci”、ci(、ci[、ci{、ci&lt; - 分别更改这些配对标点符号中的文本内容<br>  di’、di”、di(或dib、di[、di{或diB、di&lt; - 分别删除这些配对标点符号中的文本内容<br>  yi’、yi”、yi(、yi[、yi{、yi&lt; - 分别复制这些配对标点符号中的文本内容<br>  vi’、vi”、vi(、vi[、vi{、vi&lt; - 分别选中这些配对标点符号中的文本内容</p>
-<h3 id="5、查"><a href="#5、查" class="headerlink" title="5、查"></a>5、查</h3><h2 id="二、insert插入模式"><a href="#二、insert插入模式" class="headerlink" title="二、insert插入模式"></a>二、insert插入模式</h2><p>  在正常模式中按下i, I, a, A等键，会进入插入模式。<br>  小写包含空格，大写不包含空格<br>  a/A = append： 后面插入<br>  i /I = insert :前面插入<br>  o/O = open a line ：另起一行<br>  现在只用记住按i键会进行插入模式。插入模式中，击键时会写入相应的字符。</p>
+<h3 id="5、查"><a href="#5、查" class="headerlink" title="5、查"></a>5、查</h3><h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p>  查找’name’: <code>/name</code>  n向下 N向上<br>  取消查找高亮命令: <code>:nohl</code><br>  在normal模式下按下*即可查找光标所在单词<br>  在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。<br>  例如：<code>/foo\c</code> 将会查找所有的”foo”,”FOO”,”Foo”等字符串。</p>
+<h4 id="查找替换"><a href="#查找替换" class="headerlink" title="查找替换"></a>查找替换</h4><p>  :s（substitute）命令用来查找和替换字符串<br>  例如:<code>%s/foo/bar/g</code> 会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）<br>  g即是替换标志之一，如： i表示大小写不敏感查找，I表示大小写敏感。<br>  还有空替换标志表示只替换从光标位置开始，目标的第一次出现：<br>  <code>:%s/foo/bar</code></p>
+<p>  作用范围分为当前行、全文、选区等等。<br>  当前行：<br>  <code>:s/foo/bar/g</code><br>  全文：<br>  <code>:%s/foo/bar/g</code><br>  选区，在Visual模式下选择区域后输入:，Vim即可自动补全为 :’&lt;,’&gt;。<br>  <code>:'&lt;,'&gt;s/foo/bar/g</code><br>  2-11行：<br>  <code>:5,12s/foo/bar/g</code><br>  当前行.与接下来两行+2：<br>  <code>:.,+2s/foo/bar/g</code></p>
+<h2 id="二、insert插入模式"><a href="#二、insert插入模式" class="headerlink" title="二、insert插入模式"></a>二、insert插入模式</h2><p>  在正常模式中按下i, I, a, A等键，会进入插入模式。<br>  小写包含空格，大写不包含空格<br>  a/A = append： 后面插入<br>  i /I = insert :前面插入<br>  o/O = open a line ：另起一行<br>  现在只用记住按i键会进行插入模式。插入模式中，击键时会写入相应的字符。</p>
 <h2 id="三、visual可视模式"><a href="#三、visual可视模式" class="headerlink" title="三、visual可视模式"></a>三、visual可视模式</h2><p>  在正常模式按下v, V, <ctrl>+v，可以进入可视模式。可视模式中的<br>  操作有点像拿鼠标进行操作，选择文本的时候有一种鼠标选择的即视感，有时候会很方便。</ctrl></p>
 <h2 id="四、command命令模式"><a href="#四、command命令模式" class="headerlink" title="四、command命令模式"></a>四、command命令模式</h2><script>
         document.querySelectorAll('.github-emoji')
@@ -538,41 +552,6 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
     </div>
 
     
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '392cce3ecc3ff4841cf2',
-        clientSecret: '79ad99ceb1dc1bd318c67b979a5c95a1c9e50f01',
-        repo: 'blog-comments',
-        owner: 'silin001',
-        admin: "silin001",
-        id: '2020-03-09T19-44-31',
-
-          // my
-            // clientID: '392cce3ecc3ff4841cf2',
-            // clientSecret: '79ad99ceb1dc1bd318c67b979a5c95a1c9e50f01',
-            // repo: 'blog-comments', // 存放博客评论的仓库名称 不是地址
-            // owner: 'silin001',
-            // admin: 'silin001',
-            // labels: ['gitalk'],
-            // id: md5(location.pathname),
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
 
     
 
@@ -591,29 +570,34 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/a6b9.html">
+                <a href="/posts/e22d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="浙里办H5接入爬坑">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="vue-node多服务启动">
                         
-                        <span class="card-title">浙里办H5接入爬坑</span>
+                        <span class="card-title">vue-node多服务启动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接到一个公司之前使用vue2.0  vue-cli2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。说难吧 刚开始可能由于该项目的经理没有讲的太清除，导致我
+                            vue项目+nodejs服务，如何前后端服务同时启动？前言有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？
+解决方案使用 concurrently
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-18
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Sisi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -621,8 +605,8 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/h5/">
-                        <span class="chip bg-color">h5</span>
+                    <a href="/tags/Vue-node/">
+                        <span class="chip bg-color">Vue+node</span>
                     </a>
                     
                 </div>
@@ -636,32 +620,33 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/c9f9.html">
+                <a href="/posts/f82e.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="CMD\Linux\git常用命令">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="Markdown基础">
                         
-                        <span class="card-title">CMD\Linux\git常用命令</span>
+                        <span class="card-title">Markdown基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用终端命令一、gitgit其他github浏览器快捷查看文件方式： github后面添加1s
-地址栏直接  https://github.com/ 修改为github1s.com
-
-我的git-pages地址: https://silin
+                            什么是Markdown？Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Sisi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                    其他
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -669,8 +654,8 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cmd/">
-                        <span class="chip bg-color">cmd</span>
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -821,7 +806,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.7k</span>&nbsp;字
             
             
             
@@ -853,7 +838,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     var startYear = "2019";
                     var startMonth = "8";
                     var startDate = "30";
-                    var startHour = "12";
+                    var startHour = "18";
                     var startMinute = "0";
                     var startSecond = "0";
                     var todayYear = today.getFullYear();
@@ -1043,4 +1028,23 @@ $(function () {
             };
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
+<script>
+$(function () {
+    const dom  = $('body #mywx')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1000)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '40%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
 </html>

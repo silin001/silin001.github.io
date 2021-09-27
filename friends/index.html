@@ -32,6 +32,8 @@
 
 
     <body>
+
+<img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg">
         <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper head-container">
@@ -546,41 +548,6 @@
         <div class="card">
 
             
-            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '392cce3ecc3ff4841cf2',
-        clientSecret: '79ad99ceb1dc1bd318c67b979a5c95a1c9e50f01',
-        repo: 'blog-comments',
-        owner: 'silin001',
-        admin: "silin001",
-        id: '2020-01-29T20-35-28',
-
-          // my
-            // clientID: '392cce3ecc3ff4841cf2',
-            // clientSecret: '79ad99ceb1dc1bd318c67b979a5c95a1c9e50f01',
-            // repo: 'blog-comments', // 存放博客评论的仓库名称 不是地址
-            // owner: 'silin001',
-            // admin: 'silin001',
-            // labels: ['gitalk'],
-            // id: md5(location.pathname),
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-            
 
             
 
@@ -614,7 +581,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4k</span>&nbsp;字
+                class="white-color">4.7k</span>&nbsp;字
             
             
             
@@ -646,7 +613,7 @@
                     var startYear = "2019";
                     var startMonth = "8";
                     var startDate = "30";
-                    var startHour = "12";
+                    var startHour = "18";
                     var startMinute = "0";
                     var startSecond = "0";
                     var todayYear = today.getFullYear();
@@ -836,4 +803,23 @@ $(function () {
             };
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
+<script>
+$(function () {
+    const dom  = $('body #mywx')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1000)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '40%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
 </html>

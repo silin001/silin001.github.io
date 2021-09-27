@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://silin001.github.io/"/>
-  <updated>2021-09-19T07:42:06.828Z</updated>
+  <updated>2021-09-27T03:50:21.953Z</updated>
   <id>https://silin001.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://silin001.github.io/posts/a6b9.html"/>
     <id>https://silin001.github.io/posts/a6b9.html</id>
     <published>2021-09-19T05:35:54.000Z</published>
-    <updated>2021-09-19T07:42:06.828Z</updated>
+    <updated>2021-09-27T03:50:21.953Z</updated>
     
     <summary type="html">
     
@@ -36,8 +36,37 @@
     </summary>
     
     
+      <category term="H5" scheme="https://silin001.github.io/categories/H5/"/>
+    
     
       <category term="h5" scheme="https://silin001.github.io/tags/h5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-node多服务启动</title>
+    <link href="https://silin001.github.io/posts/e22d.html"/>
+    <id>https://silin001.github.io/posts/e22d.html</id>
+    <published>2020-03-18T12:53:30.000Z</published>
+    <updated>2021-09-19T13:51:24.277Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;vue项目-nodejs服务，如何前后端服务同时启动？&quot;&gt;&lt;a href=&quot;#vue项目-nodejs服务，如何前后端服务同时启动？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://silin001.github.io/categories/Vue/"/>
+    
+    
+      <category term="Vue+node" scheme="https://silin001.github.io/tags/Vue-node/"/>
     
   </entry>
   
@@ -46,7 +75,7 @@
     <link href="https://silin001.github.io/posts/9cde.html"/>
     <id>https://silin001.github.io/posts/9cde.html</id>
     <published>2020-03-09T11:44:31.000Z</published>
-    <updated>2021-09-14T02:23:40.784Z</updated>
+    <updated>2021-09-20T05:35:28.379Z</updated>
     
     <summary type="html">
     
@@ -61,33 +90,10 @@
     </summary>
     
     
+      <category term="其他" scheme="https://silin001.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
     
       <category term="vim" scheme="https://silin001.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CMD\Linux\git常用命令</title>
-    <link href="https://silin001.github.io/posts/c9f9.html"/>
-    <id>https://silin001.github.io/posts/c9f9.html</id>
-    <published>2020-03-09T02:18:31.000Z</published>
-    <updated>2021-09-14T03:54:53.849Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;常用终端命令&quot;&gt;&lt;a href=&quot;#常用终端命令&quot; class=&quot;headerlink&quot; title=&quot;常用终端命令&quot;&gt;&lt;/a&gt;常用终端命令&lt;/h1&gt;&lt;h2 id=&quot;一、git&quot;&gt;&lt;a href=&quot;#一、git&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="cmd" scheme="https://silin001.github.io/tags/cmd/"/>
     
   </entry>
   
@@ -95,8 +101,8 @@
     <title>Markdown基础</title>
     <link href="https://silin001.github.io/posts/f82e.html"/>
     <id>https://silin001.github.io/posts/f82e.html</id>
-    <published>2019-12-11T13:56:43.000Z</published>
-    <updated>2021-09-14T03:12:36.572Z</updated>
+    <published>2019-10-18T13:56:43.000Z</published>
+    <updated>2021-09-19T12:50:46.175Z</updated>
     
     <summary type="html">
     
@@ -111,8 +117,37 @@
     </summary>
     
     
+      <category term="其他" scheme="https://silin001.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
     
       <category term="Markdown" scheme="https://silin001.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CMD\Linux\git常用命令</title>
+    <link href="https://silin001.github.io/posts/c9f9.html"/>
+    <id>https://silin001.github.io/posts/c9f9.html</id>
+    <published>2019-09-04T02:18:31.000Z</published>
+    <updated>2021-09-19T13:55:02.020Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常用终端命令&quot;&gt;&lt;a href=&quot;#常用终端命令&quot; class=&quot;headerlink&quot; title=&quot;常用终端命令&quot;&gt;&lt;/a&gt;常用终端命令&lt;/h1&gt;&lt;h2 id=&quot;一、git&quot;&gt;&lt;a href=&quot;#一、git&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="终端命令" scheme="https://silin001.github.io/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="cmd、git" scheme="https://silin001.github.io/tags/cmd%E3%80%81git/"/>
     
   </entry>
   
@@ -120,8 +155,8 @@
     <title>Hello World</title>
     <link href="https://silin001.github.io/posts/3eeb.html"/>
     <id>https://silin001.github.io/posts/3eeb.html</id>
-    <published>2019-12-07T14:15:57.000Z</published>
-    <updated>2021-09-14T01:04:02.347Z</updated>
+    <published>2019-08-30T14:15:57.000Z</published>
+    <updated>2021-09-19T12:41:26.784Z</updated>
     
     <summary type="html">
     
