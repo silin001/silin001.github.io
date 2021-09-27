@@ -410,14 +410,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -434,9 +434,40 @@
 <h3 id="2-环境准备"><a href="#2-环境准备" class="headerlink" title="2.环境准备"></a>2.环境准备</h3><p>首先问项目负责人要文档中说的 应用开发管理平台相关账号，这个平台也就是浙里办的应用中台。我们的h5应用开发完打包后需要上传到这个平台，然后测试、发布上线。<br>我们应用一部分内容需要调用浙里办的JSBridge API调用原生功能。所以需要官网提供的debug工具后续接口调试用到。</p>
 <h3 id="3-单点登录"><a href="#3-单点登录" class="headerlink" title="3.单点登录"></a>3.单点登录</h3><p>浙里办是硬性要求用户数据都是要走他那边的登录的，针对这个要求，前需要把登录操作的页面跳转直接改为浙里办提供的登录地址。<em>参考文档 1.1.7.3 个人登录</em><br>首先单点登录分为：个人用户的单点登录和法人用户的单点登录。我这里只做了个人用户登录。<br>个人登录又分为：浙里办app环境登录 和 浙里办-支付宝小程序环境登录。<br><em>环境判断见文档：1.1.7.1.浙里办APP、支付宝-浙里办小程序的判断代码</em></p>
 <p>⭐⭐⭐个人登录注意点：<br>需要用到接入码、这个接入码也是找项目负责人由甲方配置提供；goto跳转地址就是我们前端应用的首页，这个地址需要提供给甲方让他们配置好。<br>这样我们就按照文档拼接成了一个登录的跳转地址。<br>等他们把跳转地址配置完之后，用户操作一个涉及到用户读取却没有登录的地方时，就跳转到了浙里办的登录页面地址，然后输入自己的账号密码点击登录，这时候登录成功后页面会自动的跳转到你在第二部分goto设置的回调地址上，也就是我们h5应用的（一般为）首页。<br>在跳回来的过程中会在 URL 路径上带有登录时返回给你的 ticket 等参数，此时前端需要从url里取出这个标识传给后端进行①票据认证 ②票据认证完会返回一个token 这时就可以拿这个token 获取到用户信息了。 为了简洁操作 这里我们做的时候直接把ticket传给服务端，服务端处理完 直接把用户信息返回给了我客户端。</p>
-<h3 id="4-接口调试"><a href="#4-接口调试" class="headerlink" title="4.接口调试"></a>4.接口调试</h3><p>调试JSBridge API时，就需要用到上面提到的debug工具。调试的过程中手机浙里办app 需要全程在线才能一直连接调试、屏幕熄灭也会断开。<br>所有关于浙里办的 JSBridge API 的原生访问接口都需在真机上测试，浏览器是不行的！c通过登录浙里办app 应用平台上传测试版本生成的二维码，可以查看效果。在扫码之前确定项目里引入了JSBridge API 资源。</p>
-<h3 id="5-支付宝小程序测试问题"><a href="#5-支付宝小程序测试问题" class="headerlink" title="5.支付宝小程序测试问题"></a>5.支付宝小程序测试问题</h3><p>应用管理平台发布上线后生成的访问地址二维码是给浙里办APP用的！！！支付宝扫码访问需要自己去转换：（<a target="_blank" rel="noopener" href="https://3pwls.csb.app/）">https://3pwls.csb.app/）</a> 在这个网页中输入你浙里办预览二维码的网址，然后转换成支付宝能识别的二维码就可以在支付宝中看效果了。<br>原理：其实就是浙里办的支付宝小程序内嵌了一个浏览器，用这个内嵌的浏览器就可以调用浙里办的JSBridge了。</p>
-<h3 id="6-打包发布"><a href="#6-打包发布" class="headerlink" title="6.打包发布"></a>6.打包发布</h3><p>前端应用不需要打包，只需要将项目src static index.html package.json gbc.json .postcssrc.js .babelrc 等资源依赖压缩为.zip的包 且不能大于40M,然后上传到 政务中台应用管理等编译通过后就生产二维码和链接可以查看测试版本了。<br>⭐⭐⭐这里我遇到了一个大坑！！！ 之前其他前端开发好的h5应用使用的图片有部分是中文命名，结果windows系统打包zip压缩后中文乱码了，导致上传应用平台编译失败，而Mac系统打包不会乱码！</p>
+<h3 id="4-埋点"><a href="#4-埋点" class="headerlink" title="4.埋点"></a>4.埋点</h3><p>这里要吐槽一下他们提供的文档了，怎么埋点文档应该是写的可以看得懂，主要是没有说明白如何测试埋点，如何判断埋点是否成功，我在初次接触这块的时候还是在网上查找了大量资料完成。<br>基础埋点如下：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> q<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> f <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>j <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    j<span class="token punctuation">.</span><span class="token keyword">async</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    j<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'beacon-aplus'</span><span class="token punctuation">;</span>
+    j<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://alidt.alicdn.com/alilog/mlog/aplus_cloud.js'</span><span class="token punctuation">;</span>
+    f<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'aplus_queue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
+    arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aplus-rhost-v'</span><span class="token punctuation">,</span> <span class="token string">'alog.zjzwfw.gov.cn'</span><span class="token punctuation">]</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
+    arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aplus-rhost-g'</span><span class="token punctuation">,</span> <span class="token string">'alog.zjzwfw.gov.cn'</span><span class="token punctuation">]</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> u <span class="token operator">=</span> navigator<span class="token punctuation">.</span>userAgent
+  <span class="token keyword">var</span> isAndroid <span class="token operator">=</span> u<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'Android'</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span>
+  <span class="token keyword">var</span> isIOS <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">!</span>u<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span><span class="token punctuation">)</span>
+
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
+    arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'appId'</span><span class="token punctuation">,</span> <span class="token string">'your appid'</span><span class="token punctuation">]</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其他pv\uv相关埋点建议写成单独js文件需要的埋点的页面引入，在vue项目里直接写到vue实例里可能导致埋点不成功。</p>
+<h3 id="5-接口调试"><a href="#5-接口调试" class="headerlink" title="5.接口调试"></a>5.接口调试</h3><p>调试JSBridge API时，就需要用到上面提到的debug工具。调试的过程中手机浙里办app 需要全程在线才能一直连接调试、屏幕熄灭也会断开。<br>所有关于浙里办的 JSBridge API 的原生访问接口都需在真机上测试，浏览器是不行的！c通过登录浙里办app 应用平台上传测试版本生成的二维码，可以查看效果。在扫码之前确定项目里引入了JSBridge API 资源。</p>
+<h3 id="6-支付宝小程序测试问题"><a href="#6-支付宝小程序测试问题" class="headerlink" title="6.支付宝小程序测试问题"></a>6.支付宝小程序测试问题</h3><p>应用管理平台发布上线后生成的访问地址二维码是给浙里办APP用的！！！支付宝扫码访问需要自己去转换：（<a target="_blank" rel="noopener" href="https://3pwls.csb.app/）">https://3pwls.csb.app/）</a> 在这个网页中输入你浙里办预览二维码的网址，然后转换成支付宝能识别的二维码就可以在支付宝中看效果了。<br>原理：其实就是浙里办的支付宝小程序内嵌了一个浏览器，用这个内嵌的浏览器就可以调用浙里办的JSBridge了。</p>
+<h3 id="7-打包发布"><a href="#7-打包发布" class="headerlink" title="7.打包发布"></a>7.打包发布</h3><p>前端应用不需要打包，只需要将项目src static index.html package.json gbc.json .postcssrc.js .babelrc 等资源依赖压缩为.zip的包 且不能大于40M,然后上传到 政务中台应用管理等编译通过后就生产二维码和链接可以查看测试版本了。<br>⭐⭐⭐这里我遇到了一个大坑！！！ 之前其他前端开发好的h5应用使用的图片有部分是中文命名，结果windows系统打包zip压缩后中文乱码了，导致上传应用平台编译失败，而Mac系统打包不会乱码！</p>
+<!-- ### 8.申请上架 -->
+<!-- 上架也挺繁琐，需要对照文档准备好相关材料，缺一不可，给到对应的负责人。所有流程走完审批通过了才会上架成功 -->
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然开始是懵逼和无奈的，过程是崎岖和痛苦的，但是完成的那一刻心里还是挺开心的！东西没多难，但是我觉得初次接触一个新事物、新项目的时候还是得先整明白 是什么？干什么？完成什么？ 只有清楚这些才能理清思路和步骤然后再去进阶完成。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -803,7 +834,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">5k</span>&nbsp;字
             
             
             
