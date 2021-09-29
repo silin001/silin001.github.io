@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sisi001.gitee.io/"/>
-  <updated>2021-09-27T08:48:41.631Z</updated>
+  <updated>2021-09-29T09:56:21.850Z</updated>
   <id>https://sisi001.gitee.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sisi001.gitee.io/posts/a6b9.html"/>
     <id>https://sisi001.gitee.io/posts/a6b9.html</id>
     <published>2021-09-19T05:35:54.000Z</published>
-    <updated>2021-09-27T08:48:41.631Z</updated>
+    <updated>2021-09-29T09:56:21.850Z</updated>
     
     <summary type="html">
     
@@ -44,11 +44,65 @@
   </entry>
   
   <entry>
+    <title>vue3-study</title>
+    <link href="https://sisi001.gitee.io/posts/8d7.html"/>
+    <id>https://sisi001.gitee.io/posts/8d7.html</id>
+    <published>2021-03-28T06:36:31.000Z</published>
+    <updated>2021-09-29T08:48:14.596Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;vue3-x-开始&quot;&gt;&lt;a href=&quot;#vue3-x-开始&quot; class=&quot;headerlink&quot; title=&quot;vue3.x 开始&quot;&gt;&lt;/a&gt;vue3.x 开始&lt;/h2&gt;&lt;p&gt;2020年 9.18发布3.0版本、代号： One Piece
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue3" scheme="https://sisi001.gitee.io/categories/vue3/"/>
+    
+    
+      <category term="vue3" scheme="https://sisi001.gitee.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ts入门</title>
+    <link href="https://sisi001.gitee.io/posts/4d03.html"/>
+    <id>https://sisi001.gitee.io/posts/4d03.html</id>
+    <published>2021-01-19T08:40:33.000Z</published>
+    <updated>2021-09-29T09:49:29.743Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;什么是typeScript&quot;&gt;&lt;a href=&quot;#什么是typeScript&quot; class=&quot;headerlink&quot; title=&quot;什么是typeScript?&quot;&gt;&lt;/a&gt;什么是typeScript?&lt;/h1&gt;&lt;p&gt;官方网站的定义是:TypeScript 是
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ts" scheme="https://sisi001.gitee.io/categories/ts/"/>
+    
+    
+      <category term="ts" scheme="https://sisi001.gitee.io/tags/ts/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vue-node多服务启动</title>
     <link href="https://sisi001.gitee.io/posts/e22d.html"/>
     <id>https://sisi001.gitee.io/posts/e22d.html</id>
     <published>2020-03-18T12:53:30.000Z</published>
-    <updated>2021-09-19T13:51:24.277Z</updated>
+    <updated>2021-09-29T09:51:21.750Z</updated>
     
     <summary type="html">
     

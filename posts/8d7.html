@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue-node多服务启动, si">
-    <meta name="description" content="vue项目+nodejs服务，如何前后端服务同时启动？前言有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？
-解决方案使用 concurrently">
+    <meta name="keywords" content="vue3-study, si">
+    <meta name="description" content="vue3.x 开始2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。
+vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue-node多服务启动 | si</title>
+    <title>vue3-study | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -192,12 +192,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue-node多服务启动</h1>
+                    <h1 class="description center-align post-title">vue3-study</h1>
                 </div>
             </div>
         </div>
@@ -314,8 +314,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue-node/">
-                                <span class="chip bg-color">Vue+node</span>
+                            <a href="/tags/vue3/">
+                                <span class="chip bg-color">vue3</span>
                             </a>
                         
                     </div>
@@ -326,8 +326,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/vue3/" class="post-category">
+                                vue3
                             </a>
                         
                     </div>
@@ -339,7 +339,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-18
+                    2021-03-28
                 </div>
                 
 
@@ -348,14 +348,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -366,21 +366,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vue项目-nodejs服务，如何前后端服务同时启动？"><a href="#vue项目-nodejs服务，如何前后端服务同时启动？" class="headerlink" title="vue项目+nodejs服务，如何前后端服务同时启动？"></a>vue项目+nodejs服务，如何前后端服务同时启动？</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用 concurrently 并行地运行多个命令。</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> concurrently
+                <h2 id="vue3-x-开始"><a href="#vue3-x-开始" class="headerlink" title="vue3.x 开始"></a>vue3.x 开始</h2><p>2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。</p>
+<h2 id="vue2-x-面临的问题"><a href="#vue2-x-面临的问题" class="headerlink" title="vue2.x 面临的问题"></a>vue2.x 面临的问题</h2><p>vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问题，在某些功能方面做了一些妥协：</p>
+<ul>
+<li>监听数据的方法<code>Object.definePerproty</code>, 不能对Object类型做深度监听。而为了深度监听，以及为了达到目的所要付出的代价，也就是<strong>递归遍历</strong>侦听数据</li>
+<li><code>optionsApi</code>存在问题，功能分块混乱，我们需要把逻辑分别散落在<code>data，methods、computed</code>对象里，新增一个需求就需要分别在各项里修改，来回滚动</li>
+<li>vue2.0缺少一种较为简洁的低成本的机制来完成逻辑复用，虽然可以minxis完成逻辑复用，但是当mixin变多的时候，会使得难以找到对应的data、computed或者method来源于哪个mixin，使得类型推断难以进行</li>
+<li>ts支持不友好<h2 id="vue3带来了什么？"><a href="#vue3带来了什么？" class="headerlink" title="vue3带来了什么？"></a>vue3带来了什么？</h2>打包大小减少41%、初次渲染快55%、更新渲染快133%、内存减少54%。<h2 id="Vue3-0-是如何变快的？"><a href="#Vue3-0-是如何变快的？" class="headerlink" title="Vue3.0 是如何变快的？"></a>Vue3.0 是如何变快的？</h2><ul>
+<li>重构响应式系统，使用<code>Proxy</code>代理+ <code>Reflect</code>反射，替换<code>Object.defineProperty</code><br>使用Proxy代理优势：<br>可直接监听数组类型的数据变化<br>监听的目标为对象本身，不需要像Object.defineProperty一样递归遍历每个属性，有一定的性能提升<br>可拦截apply、ownKeys、has等13种方法，而Object.defineProperty不行<br>直接实现对象属性的新增/删除 等</li>
+<li>新增<code>Composition API</code>更好的逻辑复用和代码组织<br>Vue2.0中，随着功能的增加，组件变得越来越复杂，越来越难维护，而难以维护的根本原因是Vue的API设计迫使开发者使用watch，computed，methods选项组织代码，而不是实际的业务逻辑。<br><code>Composition Api</code>的出现，主要是也是为了解决Option API带来的问题<br>第一个是代码组织问题，Compostion API可以让开发者根据业务逻辑组织自己的代码，让代码具备更好的可读性和可扩展性，也就是说当下一个开发者接触这一段不是他自己写的代码时，他可以更好的利用代码的组织反推出实际的业务逻辑，或者根据业务逻辑更好的理解代码。<br>第二个是实现代码的逻辑提取与复用，当然mixin也可以实现逻辑提取与复用，但是像前面所说的，多个mixin作用在同一个组件时，很难看出property是来源于哪个mixin，来源不清楚，另外，多个mixin的property存在变量命名冲突的风险。而Composition API刚好解决了这两个问题。</li>
+<li>重构<code>Virtual DOM</code><br>Vue2 中的虚拟dom 是进行全量对比<br>Vue3 新增静态标记，模板编译时的优化，将一些静态节点编译成常量<br>slot优化，将slot编译为lazy函数，将slot的渲染的决定权交给子组件<br>模板中内联事件的提取并重用（原本每次渲染都重新生成内联函数）</li>
+</ul>
+</li>
+</ul>
+<h2 id="SSR有了解吗？原理是什么？"><a href="#SSR有了解吗？原理是什么？" class="headerlink" title="SSR有了解吗？原理是什么？"></a>SSR有了解吗？原理是什么？</h2><p>在客户端请求服务器的时候，服务器到数据库中获取到相关的数据，并且在服务器内部将Vue组件渲染成HTML，并且将数据、HTML一并返回给客户端，这个在服务器将数据和组件转化为HTML的过程，叫做服务端渲染SSR。<br>而当客户端拿到服务器渲染的HTML和数据之后，由于数据已经有了，客户端不需要再一次请求数据，而只需要将数据同步到组件或者Vuex内部即可。除了数据意外，HTML也结构已经有了，客户端在渲染组件的时候，也只需要将HTML的DOM节点映射到Virtual DOM即可，不需要重新创建DOM节点，这个将数据和HTML同步的过程，又叫做客户端激活。<br>使用SSR的好处：</p>
+<ul>
+<li>有利于SEO：其实就是有利于爬虫来爬你的页面，因为部分页面爬虫是不支持执行JavaScript的，这种不支持执行JavaScript的爬虫抓取到的非SSR的页面会是一个空的HTML页面，而有了SSR以后，这些爬虫就可以获取到完整的HTML结构的数据，进而收录到搜索引擎中。</li>
+<li>白屏时间更短：相对于客户端渲染，服务端渲染在浏览器请求URL之后已经得到了一个带有数据的HTML文本，浏览器只需要解析HTML，直接构建DOM树就可以。而客户端渲染，需要先得到一个空的HTML页面，这个时候页面已经进入白屏，之后还需要经过加载并执行 JavaScript、请求后端服务器获取数据、JavaScript 渲染页面几个过程才可以看到最后的页面。特别是在复杂应用中，由于需要加载 JavaScript 脚本，越是复杂的应用，需要加载的 JavaScript 脚本就越多、越大，这会导致应用的首屏加载时间非常长，进而降低了体验感。<h2 id="Vue3-x搭建起步"><a href="#Vue3-x搭建起步" class="headerlink" title="Vue3.x搭建起步"></a>Vue3.x搭建起步</h2>安装好vue-cli后， 终端输入vue -V  出现4.5.x以上版本为3.x的脚手架。</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">使用脚手架创建第一个3.x项目：
+Vue create vue3demo01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>使用<code>Vite</code>创建项目:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">全局安装vite：
+<span class="token function">npm</span> <span class="token function">install</span> -g create-vite-app
+创建项目
+create-vite-app yourProjectName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>npm:<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> init @vitejs/app  按照提示操作
 or
-yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>然后更改 package.json 文件，scripts如下：</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">"scripts": &#123;
-  "start": "craco start",
-  "build": "scraco build",
-  "test": "craco test",
-  "eject": "react-scripts eject",
-  "node": "npm run serve --prefix nodeServer",
-  "dev": "concurrently npm:node yarn:start"
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>有了 –prefix nodeServer 就不用 cd nodeServer 文件夹了，也就是说运行 <strong>npm run node</strong> 就会跑后端的服务，相当于：<strong>npm run serve</strong><br>此时只需要<strong>npm run dev</strong> 就会执行 <strong>npm run node</strong> 和 <strong>npm run start</strong>  也就实现了同时启动了服务端和客户端。<br>ps:这里命令我有用了yarn也是可以的。</p>
+<span class="token function">npm</span> init @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>yarn:<pre class="line-numbers language-bash"><code class="language-bash">yarn create @vitejs/app  按照提示操作
+or
+yarn create @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>你还可以通过附加的命令行选项直接指定项目名称和你想要使用的模板</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">例如，要构建一个 Vite + Vue 项目运行:
+yarn create @vitejs/app my-vue-app --template vue
+例如创建 vue+ts：
+yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -424,7 +449,7 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sisi001.gitee.io/posts/e22d.html">https://sisi001.gitee.io/posts/e22d.html</a>
+                    <a href="https://sisi001.gitee.io/posts/8d7.html">https://sisi001.gitee.io/posts/8d7.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,8 +487,8 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue-node/">
-                                    <span class="chip bg-color">Vue+node</span>
+                                <a href="/tags/vue3/">
+                                    <span class="chip bg-color">vue3</span>
                                 </a>
                             
                         </div>
@@ -508,6 +533,55 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/posts/a6b9.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="浙里办H5接入爬坑">
+                        
+                        <span class="card-title">浙里办H5接入爬坑</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接到一个公司之前使用vue2.0  vue-cli2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。说难吧 刚开始可能由于该项目的经理没有讲的太清除，导致我
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/H5/" class="post-category">
+                                    H5
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/h5/">
+                        <span class="chip bg-color">h5</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/posts/4d03.html">
                     <div class="card-image">
                         
@@ -524,9 +598,9 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -544,56 +618,6 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                     <a href="/tags/ts/">
                         <span class="chip bg-color">ts</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/9cde.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
-                        
-                        <span class="card-title">vim</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            vim是什么？vim/vi是Unix / Linux上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单。】
-Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行数）p粘贴u撤销移动光标至所选行的开头，按v
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-                                    其他
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/vim/">
-                        <span class="chip bg-color">vim</span>
                     </a>
                     
                 </div>

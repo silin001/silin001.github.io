@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue-node多服务启动, si">
-    <meta name="description" content="vue项目+nodejs服务，如何前后端服务同时启动？前言有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？
-解决方案使用 concurrently">
+    <meta name="keywords" content="ts入门, si">
+    <meta name="description" content="什么是typeScript?官方网站的定义是:TypeScript 是 js 类型的超集。简单说你可以将 TypeScript 看作是 JavaScript 之上的一个外壳。TypeScript 是一个外壳，因为编写 TypeScript ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue-node多服务启动 | si</title>
+    <title>ts入门 | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -192,12 +191,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue-node多服务启动</h1>
+                    <h1 class="description center-align post-title">ts入门</h1>
                 </div>
             </div>
         </div>
@@ -314,8 +313,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue-node/">
-                                <span class="chip bg-color">Vue+node</span>
+                            <a href="/tags/ts/">
+                                <span class="chip bg-color">ts</span>
                             </a>
                         
                     </div>
@@ -326,8 +325,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/ts/" class="post-category">
+                                ts
                             </a>
                         
                     </div>
@@ -339,7 +338,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-18
+                    2021-01-19
                 </div>
                 
 
@@ -348,14 +347,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -366,21 +365,140 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vue项目-nodejs服务，如何前后端服务同时启动？"><a href="#vue项目-nodejs服务，如何前后端服务同时启动？" class="headerlink" title="vue项目+nodejs服务，如何前后端服务同时启动？"></a>vue项目+nodejs服务，如何前后端服务同时启动？</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用 concurrently 并行地运行多个命令。</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> concurrently
-or
-yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>然后更改 package.json 文件，scripts如下：</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">"scripts": &#123;
-  "start": "craco start",
-  "build": "scraco build",
-  "test": "craco test",
-  "eject": "react-scripts eject",
-  "node": "npm run serve --prefix nodeServer",
-  "dev": "concurrently npm:node yarn:start"
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>有了 –prefix nodeServer 就不用 cd nodeServer 文件夹了，也就是说运行 <strong>npm run node</strong> 就会跑后端的服务，相当于：<strong>npm run serve</strong><br>此时只需要<strong>npm run dev</strong> 就会执行 <strong>npm run node</strong> 和 <strong>npm run start</strong>  也就实现了同时启动了服务端和客户端。<br>ps:这里命令我有用了yarn也是可以的。</p>
+                <h1 id="什么是typeScript"><a href="#什么是typeScript" class="headerlink" title="什么是typeScript?"></a>什么是typeScript?</h1><p>官方网站的定义是:TypeScript 是 js 类型的超集。简单说你可以将 TypeScript 看作是 JavaScript 之上的一个外壳。<br>TypeScript 是一个外壳，因为编写 TypeScript 的代码，在编译之后，，剩下的只是简单的 js 代码。<br>但是 JS 引擎无法读取 TypeScript 代码，因此任何 TypeScript 文件都应该经过预翻译过程，即编译。只有在第一个编译步骤之后，才剩下纯 JS 代码，可以在浏览器中运行。<br>Ps: 浏览器只能运行js、无法直接运行ts，因此需要ts编译js后运行。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">全局安装
+<span class="token function">npm</span> i -g typescript
+查看版本
+tsc -v
+运行ts
+tsc xxx.ts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="开发运行环境"><a href="#开发运行环境" class="headerlink" title="开发运行环境"></a>开发运行环境</h2><p><strong>因为ts代码不能直接在node里运行 需要先编译为js再执行</strong></p>
+<ul>
+<li>运行方式1：<pre class="line-numbers language-bash"><code class="language-bash">tsc  a.ts  <span class="token operator">=</span><span class="token operator">></span> 编译为 a.js
+node  a.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li>运行方式2：<br>如上操作每次执行很麻烦，  (这个依赖包会在内部把ts编译为js，不再输出js文件)<pre class="line-numbers language-bash"><code class="language-bash">全局安装
+<span class="token function">npm</span> i -g ts-node
+查看版本好
+ts-node -v
+直接运行
+ts-node xxx.ts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="vscode里配置自动编译ts为js"><a href="#vscode里配置自动编译ts为js" class="headerlink" title="vscode里配置自动编译ts为js"></a>vscode里配置自动编译ts为js</h2>vsCode  新建ts文件 –&gt; ts文件目录cmd，初始化 tsc –init，生成一个tsconfig.json文件 –&gt; 修改tsconfig.json文件的 “outDir”: “./js”,  ./js为要生成的文件夹 –&gt;点击vsCode终端 》点击运行任务》点击选择typescript 》点击选择监视typescript </li>
+</ul>
+<p>好处：没事修改ts文件不会像方法一每次在控制台输入tsc index.js，这个是自动的方式<br>tsc –init  生成配置文件 做以下修改</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">"outDir": "./js" // 把ts编译后放js文件夹下
+"strict": false //改为不严格模式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>该目录终端-运行任务-所有任务-tsc监视  <strong>ps:这里目录不能有&amp;符号会报错</strong><br>修改配置文件后执行指定文件 tsc 不生效。 要执行tsc</p>
+<h2 id="ts里的一些概念"><a href="#ts里的一些概念" class="headerlink" title="ts里的一些概念"></a>ts里的一些概念</h2><ul>
+<li><p>类型注解？<br><strong>是一种轻量级的为函数或者变量添加的约束</strong></p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function test (str: string) &#123;
+return 'hell------' + str
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>隐式类型推断？</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">let age = 18 //   我们赋值变量数字18， 那么这个变量ts会推断为number类型
+// age ='qweq'   // 语法不允许
+let name // 如，我们声明变量name 没有赋值，ts无法推断当前变量类型 默认为any类型
+name = 18
+name = true
+// ps: 虽然ts会做隐式类型推断， 但是建议为每个变量明确类型，便于后期更直观的理解代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>类型断言？<br><strong>在有些特殊情况下，ts无法推断出一个变量的具体类型，而我们开发者根据代码的使用情况知道这个变量到底什么类型的。从而辅助ts更加明确代码中每个成员的类型。</strong><br><strong>!!!重点!!!类型断言并不是类型转换，类型转换是代码运行时的概念，类型断言是编译过程中的概念， 编译后这个断言也就不存在了</strong></p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">const nums = [1, 2, 4]
+const res = nums.find(i => i > 0)
+//此时res类型可能是number 或者 undefined 所以要使用断言指定类型
+
+// 断言写法:
+// as 关键字
+const num1 = res as number
+// jsx时不能使用 有语法冲突
+const num2 = <number>res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>类型声明？<br><strong>在实际开发中  ts中引入第三方模块，有的不是那ts写的， 就没有强类型的提示体验！！！</strong><br><strong>在使用第三方库过程中，如果当前模块不包含类型声明文件， 我们可以尝试安装对应模块的类型声明模块（一般为：＠types/…/）， 如果没有的话我们只能使用declare语法进行类型声明。 具体使用查看官方文档</strong></p>
+</li>
+</ul>
+<h2 id="ts基础类型"><a href="#ts基础类型" class="headerlink" title="ts基础类型"></a>ts基础类型</h2><h3 id="一、原始类型7个"><a href="#一、原始类型7个" class="headerlink" title="一、原始类型7个"></a>一、原始类型7个</h3><pre class="line-numbers language-javaScript"><code class="language-javaScript"> const a: string = '123'
+ const b: number = 123
+ const c: boolean = true
+ const d: null = null
+ const e: undefined = undefined
+ const f: void = undefined
+ const g: symbol = Symbol('123')
+ console.log(a, b, c, d, e, f, g)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二、其他类型"><a href="#二、其他类型" class="headerlink" title="二、其他类型"></a>二、其他类型</h3><h4 id="1-Object类型"><a href="#1-Object类型" class="headerlink" title="1.Object类型"></a>1.Object类型</h4><p>  不是单指普通的对象，可以是对象 数组  fun<br>  <code>const foo: object = {}  // []  // function() { }</code></p>
+<h4 id="2-Array类型"><a href="#2-Array类型" class="headerlink" title="2.Array类型"></a>2.Array类型</h4><p>  <code>const arr1: number[] = [1, 2, 3]</code><br>  <code>const arr2: Array&lt;number&gt; = [1, 2, 3] // 泛型写法</code></p>
+<h4 id="3-元组类型"><a href="#3-元组类型" class="headerlink" title="3.元组类型"></a>3.元组类型</h4><p>  明确元素数量以及元素类型的数组<br>  <code>const tuple: [number, string] = [2, '2']</code></p>
+<h4 id="4-枚举类型"><a href="#4-枚举类型" class="headerlink" title="4. 枚举类型"></a>4. 枚举类型</h4><p>  特点：给有一组数值给上更好理解的名字，一个枚举中只会出现固定的几个值不会出现超出范围的可能性</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  enum postState &#123;
+  draft = 0, // 值可以不指定， 默认从0累加。 如果初始化值是 字符串 必须手动给每个成员指定值 -不常见。
+  unpublished = 1
+  &#125;
+  // 常量枚举
+  const enum postState2 &#123;
+  draft = 0,
+  unpublished = 1
+  &#125;
+  // 使用
+  const obj = &#123;
+  title: '',
+  state: postState.draft, // 0 1 2
+  state1: postState[0] // 可以使用索引值访问，
+  &#125;
+  // ps:我们在ts中使用的大部分类型经过编译转换后都会被移除掉，因为他只是为了我们在编译过程中做类型检查！而枚举不会，枚举会影响我们编译后的结果，他最终编译成一个双向的键值对对象：其实就是可以用键获取值 用值获取键。
+  // 如果确认我们代码中不会使用索引值方式获取枚举值 我们建议使用常量枚举，enum前面添加const。使用常量枚举，编译后枚举会被移除掉。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="5-函数类型"><a href="#5-函数类型" class="headerlink" title="5.函数类型"></a>5.函数类型</h4><p>  // 定义分为：1声明函数， 2函数表达式</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  // d参数可选， 必须放最后
+  // rest任意个数参数使用es6的
+  function func1 (a: number, b: number, d?: number, ...rest: number[]): string &#123;
+  return 'func1'
+  &#125;
+  func1(1, 2)
+  // 函数表达式，接收这个函数的变量也需要类型注解  vscode会推断出这个变量类型 (a: number, b: number) => string
+  const func2: (a: number, b: number) => string = function (a: number, b: number) &#123;
+  return 'func2'
+  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="6-任意类型any"><a href="#6-任意类型any" class="headerlink" title="6.任意类型any"></a>6.任意类型any</h4><p>  属于动态类型，ts不会对any做类型检查， 兼容js老代码时需要any类型</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function func3 (val: any) &#123;
+  return JSON.stringify(val)  // stringify方法接收任意类型参数
+  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="7-接口类型-interface"><a href="#7-接口类型-interface" class="headerlink" title="7.接口类型-interface"></a>7.接口类型-interface</h4><p>  一种规范契约，可以用来约定对象的结构，我们使用一个接口就必须遵守这个接口的全部约定。</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  interface userFace &#123;
+    age: number,
+    name: string,
+    title?: string // 可选成员
+    readonly content?: string // 只读成员,初始化后不可改变
+  &#125;
+  // 参数user使用接口
+  function getUser (user: userFace) &#123;
+    return user.age + user.name
+  &#125;
+  console.log(getUser(&#123; age: 18, name: 's' &#125;))
+  // 动态接口写法：
+  interface userFace2 &#123;
+    [key: string]: string // key代表属性名称任意名称string代表可以的类型， 第二个string代表键值的类型
+  &#125;
+  const cache: userFace2 = &#123;&#125;
+  cache.foo = 'val1'
+  cache.bar = 'val2'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="8-泛型"><a href="#8-泛型" class="headerlink" title="8.泛型"></a>8.泛型</h4><p>  把我们定义时不明确的类型变成一个参数 ，使用时在传递这样的类型参数！</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function createNumberArray (length: number, value: number) &#123;
+    // 因为Array对象默认创建是的any类型，所以我们要指定下他默认的类型  使用泛型指定
+    // const arr = Array(length).fill(value)
+    const arr = Array<number>(length).fill(value)
+    return arr
+  &#125;
+  const rest = createNumberArray(3, 100)
+  console.log(rest)
+  // ps:此时 createNumberArray函数只能创建数字类型的数组。 如果还想创建字符串类型的数组 就可以使用泛型参数，
+  // ！！！！！！泛型参数方法  改进 createNumberArray！！！！
+  // 一般泛型参数为T ，然后把函数中不明确的参数类型都改为T
+  function createArray<T> (length: number, value: T) &#123;
+    const arr = Array<T>(length).fill(value)
+    return arr
+  &#125;
+  // 泛型使用
+  const rest2 = createArray<string>(3, 'foo')
+  console.log(rest2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -424,7 +542,7 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sisi001.gitee.io/posts/e22d.html">https://sisi001.gitee.io/posts/e22d.html</a>
+                    <a href="https://sisi001.gitee.io/posts/4d03.html">https://sisi001.gitee.io/posts/4d03.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,8 +580,8 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue-node/">
-                                    <span class="chip bg-color">Vue+node</span>
+                                <a href="/tags/ts/">
+                                    <span class="chip bg-color">ts</span>
                                 </a>
                             
                         </div>
@@ -508,31 +626,32 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/4d03.html">
+                <a href="/posts/8d7.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="ts入门">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="vue3-study">
                         
-                        <span class="card-title">ts入门</span>
+                        <span class="card-title">vue3-study</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是typeScript?官方网站的定义是:TypeScript 是 js 类型的超集。简单说你可以将 TypeScript 看作是 JavaScript 之上的一个外壳。TypeScript 是一个外壳，因为编写 TypeScript 
+                            vue3.x 开始2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。
+vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ts/" class="post-category">
-                                    ts
+                            <a href="/categories/vue3/" class="post-category">
+                                    vue3
                                 </a>
                             
                             
@@ -542,8 +661,8 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ts/">
-                        <span class="chip bg-color">ts</span>
+                    <a href="/tags/vue3/">
+                        <span class="chip bg-color">vue3</span>
                     </a>
                     
                 </div>
@@ -557,32 +676,32 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9cde.html">
+                <a href="/posts/e22d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="vue-node多服务启动">
                         
-                        <span class="card-title">vim</span>
+                        <span class="card-title">vue-node多服务启动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vim是什么？vim/vi是Unix / Linux上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单。】
-Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行数）p粘贴u撤销移动光标至所选行的开头，按v
+                            vue项目+nodejs服务，如何前后端服务同时启动？前言有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？
+解决方案使用 concurrently
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-                                    其他
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -592,8 +711,8 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vim/">
-                        <span class="chip bg-color">vim</span>
+                    <a href="/tags/Vue-node/">
+                        <span class="chip bg-color">Vue+node</span>
                     </a>
                     
                 </div>

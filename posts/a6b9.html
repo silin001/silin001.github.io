@@ -164,74 +164,11 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/silin001/" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/silin001/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -435,7 +372,8 @@
 <h3 id="3-单点登录"><a href="#3-单点登录" class="headerlink" title="3.单点登录"></a>3.单点登录</h3><p>浙里办是硬性要求用户数据都是要走他那边的登录的，针对这个要求，前需要把登录操作的页面跳转直接改为浙里办提供的登录地址。<em>参考文档 1.1.7.3 个人登录</em><br>首先单点登录分为：个人用户的单点登录和法人用户的单点登录。我这里只做了个人用户登录。<br>个人登录又分为：浙里办app环境登录 和 浙里办-支付宝小程序环境登录。<br><em>环境判断见文档：1.1.7.1.浙里办APP、支付宝-浙里办小程序的判断代码</em></p>
 <p>⭐⭐⭐个人登录注意点：<br>需要用到接入码、这个接入码也是找项目负责人由甲方配置提供；goto跳转地址就是我们前端应用的首页，这个地址需要提供给甲方让他们配置好。<br>这样我们就按照文档拼接成了一个登录的跳转地址。<br>等他们把跳转地址配置完之后，用户操作一个涉及到用户读取却没有登录的地方时，就跳转到了浙里办的登录页面地址，然后输入自己的账号密码点击登录，这时候登录成功后页面会自动的跳转到你在第二部分goto设置的回调地址上，也就是我们h5应用的（一般为）首页。<br>在跳回来的过程中会在 URL 路径上带有登录时返回给你的 ticket 等参数，此时前端需要从url里取出这个标识传给后端进行①票据认证 ②票据认证完会返回一个token 这时就可以拿这个token 获取到用户信息了。 为了简洁操作 这里我们做的时候直接把ticket传给服务端，服务端处理完 直接把用户信息返回给了我客户端。</p>
 <h3 id="4-埋点"><a href="#4-埋点" class="headerlink" title="4.埋点"></a>4.埋点</h3><p>这里要吐槽一下他们提供的文档了，怎么埋点文档应该是写的可以看得懂，主要是没有说明白如何测试埋点，如何判断埋点是否成功，我在初次接触这块的时候还是在网上查找了大量资料完成。<br>基础埋点如下：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<pre class="line-numbers language-js"><code class="language-js">
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> q<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> f <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>j <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -461,7 +399,8 @@
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'appId'</span><span class="token punctuation">,</span> <span class="token string">'your appid'</span><span class="token punctuation">]</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其他pv\uv相关埋点建议写成单独js文件需要的埋点的页面引入，在vue项目里直接写到vue实例里可能导致埋点不成功。</p>
 <h3 id="5-接口调试"><a href="#5-接口调试" class="headerlink" title="5.接口调试"></a>5.接口调试</h3><p>调试JSBridge API时，就需要用到上面提到的debug工具。调试的过程中手机浙里办app 需要全程在线才能一直连接调试、屏幕熄灭也会断开。<br>所有关于浙里办的 JSBridge API 的原生访问接口都需在真机上测试，浏览器是不行的！c通过登录浙里办app 应用平台上传测试版本生成的二维码，可以查看效果。在扫码之前确定项目里引入了JSBridge API 资源。</p>
 <h3 id="6-支付宝小程序测试问题"><a href="#6-支付宝小程序测试问题" class="headerlink" title="6.支付宝小程序测试问题"></a>6.支付宝小程序测试问题</h3><p>应用管理平台发布上线后生成的访问地址二维码是给浙里办APP用的！！！支付宝扫码访问需要自己去转换：（<a target="_blank" rel="noopener" href="https://3pwls.csb.app/）">https://3pwls.csb.app/）</a> 在这个网页中输入你浙里办预览二维码的网址，然后转换成支付宝能识别的二维码就可以在支付宝中看效果了。<br>原理：其实就是浙里办的支付宝小程序内嵌了一个浏览器，用这个内嵌的浏览器就可以调用浙里办的JSBridge了。</p>
@@ -647,32 +586,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e22d.html">
+                <a href="/posts/8d7.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="vue-node多服务启动">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="vue3-study">
                         
-                        <span class="card-title">vue-node多服务启动</span>
+                        <span class="card-title">vue3-study</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue项目+nodejs服务，如何前后端服务同时启动？前言有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？
-解决方案使用 concurrently
+                            vue3.x 开始2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。
+vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/vue3/" class="post-category">
+                                    vue3
                                 </a>
                             
                             
@@ -682,8 +621,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue-node/">
-                        <span class="chip bg-color">Vue+node</span>
+                    <a href="/tags/vue3/">
+                        <span class="chip bg-color">vue3</span>
                     </a>
                     
                 </div>
@@ -834,7 +773,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5k</span>&nbsp;字
+                class="white-color">8.5k</span>&nbsp;字
             
             
             
