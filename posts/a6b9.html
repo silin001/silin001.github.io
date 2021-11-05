@@ -26,7 +26,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="si" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="si" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -347,7 +347,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
@@ -366,48 +366,46 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！"><a href="#记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！" class="headerlink" title="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！"></a>记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近接到一个公司之前使用vue2.0  vue-cli2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。说难吧 刚开始可能由于该项目的经理没有讲的太清除，导致我和后端哥们二脸懵逼！！！<br>就简单告诉我们app改造接入浙里办，然后群发了 语雀(<a target="_blank" rel="noopener" href="https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8">https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8</a>) 这篇文档。  也没和我们讲’浙里办’是什么？之前的app是干嘛用的！对于没接触过这个方向的同学来说简直是懵逼和无奈，直接阅读这么长一篇文档的话那就是浪费很多时间。 无从下手的我们只能先请教了之前接触过的项目经理给我们大致讲了讲流程才大致明白了。接下来在开发过程中发现要注意的东西还是挺多的，踩了很多坑，特以此篇记录，也为能帮助到初次接触这方面的同学。</p>
-<h2 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h2><p>这里我主要讲我前端开发中遇到的问题，以及我个人的一些理解。</p>
-<h3 id="1-文档阅读"><a href="#1-文档阅读" class="headerlink" title="1.文档阅读"></a>1.文档阅读</h3><p>拿到技术对接浙里办的文档时，一定要多阅读几遍！！！因为第一次接触这方面，内容也多，理解能力不是特别强的没几遍还真整不明白。整个文档内容基本了解以后就可以专注前端开发部分了。</p>
-<h3 id="2-环境准备"><a href="#2-环境准备" class="headerlink" title="2.环境准备"></a>2.环境准备</h3><p>首先问项目负责人要文档中说的 应用开发管理平台相关账号，这个平台也就是浙里办的应用中台。我们的h5应用开发完打包后需要上传到这个平台，然后测试、发布上线。<br>我们应用一部分内容需要调用浙里办的JSBridge API调用原生功能。所以需要官网提供的debug工具后续接口调试用到。</p>
-<h3 id="3-单点登录"><a href="#3-单点登录" class="headerlink" title="3.单点登录"></a>3.单点登录</h3><p>浙里办是硬性要求用户数据都是要走他那边的登录的，针对这个要求，前需要把登录操作的页面跳转直接改为浙里办提供的登录地址。<em>参考文档 1.1.7.3 个人登录</em><br>首先单点登录分为：个人用户的单点登录和法人用户的单点登录。我这里只做了个人用户登录。<br>个人登录又分为：浙里办app环境登录 和 浙里办-支付宝小程序环境登录。<br><em>环境判断见文档：1.1.7.1.浙里办APP、支付宝-浙里办小程序的判断代码</em></p>
+<h3 id="文档阅读"><a href="#文档阅读" class="headerlink" title="文档阅读"></a>文档阅读</h3><p>拿到技术对接浙里办的文档时，一定要多阅读几遍！！！因为第一次接触这方面，内容也多，理解能力不是特别强的同学没几遍还真整不明白。整个文档内容基本了解以后就可以专注前端开发部分了。</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>首先问项目负责人要文档中说的 应用开发管理平台相关账号，这个平台也就是浙里办的应用中台。我们的h5应用开发完打包后需要上传到这个平台，然后测试、发布上线。<br>我们应用一部分内容需要调用浙里办的JSBridge API调用原生功能。所以需要官网提供的debug工具后续接口调试用到。</p>
+<h3 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h3><p>浙里办是硬性要求用户数据都是要走他那边的登录的，针对这个要求，前需要把登录操作的页面跳转直接改为浙里办提供的登录地址。<em>参考文档 1.1.7.3 个人登录</em><br>首先单点登录分为：个人用户的单点登录和法人用户的单点登录。我这里只做了个人用户登录。<br>个人登录又分为：浙里办app环境登录 和 浙里办-支付宝小程序环境登录。<br><em>环境判断见文档：1.1.7.1.浙里办APP、支付宝-浙里办小程序的判断代码</em></p>
 <p>⭐⭐⭐个人登录注意点：<br>需要用到接入码、这个接入码也是找项目负责人由甲方配置提供；goto跳转地址就是我们前端应用的首页，这个地址需要提供给甲方让他们配置好。<br>这样我们就按照文档拼接成了一个登录的跳转地址。<br>等他们把跳转地址配置完之后，用户操作一个涉及到用户读取却没有登录的地方时，就跳转到了浙里办的登录页面地址，然后输入自己的账号密码点击登录，这时候登录成功后页面会自动的跳转到你在第二部分goto设置的回调地址上，也就是我们h5应用的（一般为）首页。<br>在跳回来的过程中会在 URL 路径上带有登录时返回给你的 ticket 等参数，此时前端需要从url里取出这个标识传给后端进行①票据认证 ②票据认证完会返回一个token 这时就可以拿这个token 获取到用户信息了。 为了简洁操作 这里我们做的时候直接把ticket传给服务端，服务端处理完 直接把用户信息返回给了我客户端。</p>
-<h3 id="4-埋点"><a href="#4-埋点" class="headerlink" title="4.埋点"></a>4.埋点</h3><p>这里要吐槽一下他们提供的文档了，怎么埋点文档应该是写的可以看得懂，主要是没有说明白如何测试埋点，如何判断埋点是否成功，我在初次接触这块的时候还是在网上查找了大量资料完成。<br>基础埋点如下：</p>
-<pre class="line-numbers language-js"><code class="language-js">
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> q<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<h3 id="埋点"><a href="#埋点" class="headerlink" title="埋点"></a>埋点</h3><p>他们提供的文档很模糊，我在初次接触这块的时候还是在网上查找了大量资料完成。<br>基础埋点如下：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> q<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> f <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>j <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     j<span class="token punctuation">.</span><span class="token keyword">async</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     j<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'beacon-aplus'</span><span class="token punctuation">;</span>
     j<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://alidt.alicdn.com/alilog/mlog/aplus_cloud.js'</span><span class="token punctuation">;</span>
     f<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'aplus_queue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'aplus_queue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aplus-rhost-v'</span><span class="token punctuation">,</span> <span class="token string">'alog.zjzwfw.gov.cn'</span><span class="token punctuation">]</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aplus-rhost-g'</span><span class="token punctuation">,</span> <span class="token string">'alog.zjzwfw.gov.cn'</span><span class="token punctuation">]</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> u <span class="token operator">=</span> navigator<span class="token punctuation">.</span>userAgent
   <span class="token keyword">var</span> isAndroid <span class="token operator">=</span> u<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'Android'</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span>
   <span class="token keyword">var</span> isIOS <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">!</span>u<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span><span class="token punctuation">)</span>
 
-  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'appId'</span><span class="token punctuation">,</span> <span class="token string">'your appid'</span><span class="token punctuation">]</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其他pv\uv相关埋点建议写成单独js文件需要的埋点的页面引入，在vue项目里直接写到vue实例里可能导致埋点不成功。</p>
-<h3 id="5-接口调试"><a href="#5-接口调试" class="headerlink" title="5.接口调试"></a>5.接口调试</h3><p>调试JSBridge API时，就需要用到上面提到的debug工具。调试的过程中手机浙里办app 需要全程在线才能一直连接调试、屏幕熄灭也会断开。<br>所有关于浙里办的 JSBridge API 的原生访问接口都需在真机上测试，浏览器是不行的！c通过登录浙里办app 应用平台上传测试版本生成的二维码，可以查看效果。在扫码之前确定项目里引入了JSBridge API 资源。</p>
-<h3 id="6-支付宝小程序测试问题"><a href="#6-支付宝小程序测试问题" class="headerlink" title="6.支付宝小程序测试问题"></a>6.支付宝小程序测试问题</h3><p>应用管理平台发布上线后生成的访问地址二维码是给浙里办APP用的！！！支付宝扫码访问需要自己去转换：（<a target="_blank" rel="noopener" href="https://3pwls.csb.app/）">https://3pwls.csb.app/）</a> 在这个网页中输入你浙里办预览二维码的网址，然后转换成支付宝能识别的二维码就可以在支付宝中看效果了。<br>原理：其实就是浙里办的支付宝小程序内嵌了一个浏览器，用这个内嵌的浏览器就可以调用浙里办的JSBridge了。</p>
-<h3 id="7-打包发布"><a href="#7-打包发布" class="headerlink" title="7.打包发布"></a>7.打包发布</h3><p>前端应用不需要打包，只需要将项目src static index.html package.json gbc.json .postcssrc.js .babelrc 等资源依赖压缩为.zip的包 且不能大于40M,然后上传到 政务中台应用管理等编译通过后就生产二维码和链接可以查看测试版本了。<br>⭐⭐⭐这里我遇到了一个大坑！！！ 之前其他前端开发好的h5应用使用的图片有部分是中文命名，结果windows系统打包zip压缩后中文乱码了，导致上传应用平台编译失败，而Mac系统打包不会乱码！</p>
-<!-- ### 8.申请上架 -->
-<!-- 上架也挺繁琐，需要对照文档准备好相关材料，缺一不可，给到对应的负责人。所有流程走完审批通过了才会上架成功 -->
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然开始是懵逼和无奈的，过程是崎岖和痛苦的，但是完成的那一刻心里还是挺开心的！东西没多难，但是我觉得初次接触一个新事物、新项目的时候还是得先整明白 是什么？干什么？完成什么？ 只有清楚这些才能理清思路和步骤然后再去进阶完成。</p>
+<h3 id="接口调试"><a href="#接口调试" class="headerlink" title="接口调试"></a>接口调试</h3><p>调试JSBridge API时，就需要用到上面提到的debug工具。调试的过程中手机浙里办app 需要全程在线才能一直连接调试、屏幕熄灭也会断开。<br>所有关于浙里办的 JSBridge API 的原生访问接口都需在真机上测试，浏览器是不行的！通过登录浙里办app 应用平台上传测试版本生成的二维码，可以查看效果。在扫码之前确定项目里引入了JSBridge API 资源。</p>
+<h3 id="二次回退问题"><a href="#二次回退问题" class="headerlink" title="二次回退问题"></a>二次回退问题</h3><p>我这里遇到的问题是 应用首页返回浙里办app时需要2次或者多次点击才可返回，解决方案：利用router.beforeEach 判断路由然后调用 政务api的close关闭接口</p>
+<h3 id="支付宝小程序测试问题"><a href="#支付宝小程序测试问题" class="headerlink" title="支付宝小程序测试问题"></a>支付宝小程序测试问题</h3><p>应用管理平台发布上线后生成的访问地址二维码是给浙里办APP用的！！！支付宝扫码访问需要自己去转换：（<a target="_blank" rel="noopener" href="https://3pwls.csb.app/）">https://3pwls.csb.app/）</a> 在这个网页中输入你浙里办预览二维码的网址，然后转换成支付宝能识别的二维码就可以在支付宝中看效果了。<br>原理：其实就是浙里办的支付宝小程序内嵌了一个浏览器，用这个内嵌的浏览器就可以调用浙里办的JSBridge了。</p>
+<h3 id="h5适老化"><a href="#h5适老化" class="headerlink" title="h5适老化"></a>h5适老化</h3><p>自建h5应用接入浙里办以后还需要‘适老化’版本的开发，所谓‘适老化’ 主要是适应于年龄稍微大点的长辈，也就是长辈版。适老化版本内容、功能要求和标准版一致，标准版下架后理应适老化版本也一同下架，应为一个系统应用。这里我是利用了<em>动态路由</em>实现了不同环境的版本切换。</p>
+<h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><p>前端应用不需要打包，只需要将项目src static index.html package.json gbc.json .postcssrc.js .babelrc 等资源依赖压缩为.zip的包 且不能大于40M,然后上传到 政务中台应用管理等编译通过后就生产二维码和链接可以查看测试版本了。<br>⭐⭐⭐这里我遇到了一个坑！！！ 之前公司前端开发好的h5应用使用的图片有部分是中文命名，结果windows系统打包zip压缩后中文乱码了，导致上传应用平台编译失败，而mac系统打包不会乱码！切记开发中不要使用中文资源！！！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然整个项目最开始是懵逼和无奈的，过程是崎岖和痛苦的，但是完成的那一刻心里还是挺开心的！说实话东西没多难，但是我觉得初次接触一个新事物、新项目的时候还是得先整明白 是什么？干什么？完成什么？ 只有清楚这些才能理清思路和步骤然后再去进阶完成。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -531,48 +529,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/a6b9.html">
+                <a href="/posts/7a45.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="浙里办H5接入爬坑">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="js常用方法">
                         
-                        <span class="card-title">浙里办H5接入爬坑</span>
+                        <span class="card-title">js常用方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接到一个公司之前使用vue2.0  vue-cli2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。说难吧 刚开始可能由于该项目的经理没有讲的太清除，导致我
+                            记录js常用方法Object对象
+Object.defineProperty(obj,prop,descriptor)vue2.0数据劫持就是使用此方法
+hasOwnProperty()
+判断对象自身属性中是否具有指定的属性。obj.has
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/H5/" class="post-category">
-                                    H5
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Sisi
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/h5/">
-                        <span class="chip bg-color">h5</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -773,7 +768,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">12.5k</span>&nbsp;字
             
             
             

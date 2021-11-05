@@ -26,7 +26,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="si" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="si" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -391,9 +391,9 @@ ts-node xxx.ts<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <p>该目录终端-运行任务-所有任务-tsc监视  <strong>ps:这里目录不能有&amp;符号会报错</strong><br>修改配置文件后执行指定文件 tsc 不生效。 要执行tsc</p>
 <h2 id="ts里的一些概念"><a href="#ts里的一些概念" class="headerlink" title="ts里的一些概念"></a>ts里的一些概念</h2><ul>
 <li><p>类型注解？<br><strong>是一种轻量级的为函数或者变量添加的约束</strong></p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">function test (str: string) &#123;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function test (str: string) {
 return 'hell------' + str
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>隐式类型推断？</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">let age = 18 //   我们赋值变量数字18， 那么这个变量ts会推断为number类型
@@ -429,73 +429,73 @@ const num2 = <number>res<span aria-hidden="true" class="line-numbers-rows"><span
 <h4 id="2-Array类型"><a href="#2-Array类型" class="headerlink" title="2.Array类型"></a>2.Array类型</h4><p>  <code>const arr1: number[] = [1, 2, 3]</code><br>  <code>const arr2: Array&lt;number&gt; = [1, 2, 3] // 泛型写法</code></p>
 <h4 id="3-元组类型"><a href="#3-元组类型" class="headerlink" title="3.元组类型"></a>3.元组类型</h4><p>  明确元素数量以及元素类型的数组<br>  <code>const tuple: [number, string] = [2, '2']</code></p>
 <h4 id="4-枚举类型"><a href="#4-枚举类型" class="headerlink" title="4. 枚举类型"></a>4. 枚举类型</h4><p>  特点：给有一组数值给上更好理解的名字，一个枚举中只会出现固定的几个值不会出现超出范围的可能性</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  enum postState &#123;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  enum postState {
   draft = 0, // 值可以不指定， 默认从0累加。 如果初始化值是 字符串 必须手动给每个成员指定值 -不常见。
   unpublished = 1
-  &#125;
+  }
   // 常量枚举
-  const enum postState2 &#123;
+  const enum postState2 {
   draft = 0,
   unpublished = 1
-  &#125;
+  }
   // 使用
-  const obj = &#123;
+  const obj = {
   title: '',
   state: postState.draft, // 0 1 2
   state1: postState[0] // 可以使用索引值访问，
-  &#125;
+  }
   // ps:我们在ts中使用的大部分类型经过编译转换后都会被移除掉，因为他只是为了我们在编译过程中做类型检查！而枚举不会，枚举会影响我们编译后的结果，他最终编译成一个双向的键值对对象：其实就是可以用键获取值 用值获取键。
   // 如果确认我们代码中不会使用索引值方式获取枚举值 我们建议使用常量枚举，enum前面添加const。使用常量枚举，编译后枚举会被移除掉。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="5-函数类型"><a href="#5-函数类型" class="headerlink" title="5.函数类型"></a>5.函数类型</h4><p>  // 定义分为：1声明函数， 2函数表达式</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">  // d参数可选， 必须放最后
   // rest任意个数参数使用es6的
-  function func1 (a: number, b: number, d?: number, ...rest: number[]): string &#123;
+  function func1 (a: number, b: number, d?: number, ...rest: number[]): string {
   return 'func1'
-  &#125;
+  }
   func1(1, 2)
   // 函数表达式，接收这个函数的变量也需要类型注解  vscode会推断出这个变量类型 (a: number, b: number) => string
-  const func2: (a: number, b: number) => string = function (a: number, b: number) &#123;
+  const func2: (a: number, b: number) => string = function (a: number, b: number) {
   return 'func2'
-  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="6-任意类型any"><a href="#6-任意类型any" class="headerlink" title="6.任意类型any"></a>6.任意类型any</h4><p>  属于动态类型，ts不会对any做类型检查， 兼容js老代码时需要any类型</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function func3 (val: any) &#123;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function func3 (val: any) {
   return JSON.stringify(val)  // stringify方法接收任意类型参数
-  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="7-接口类型-interface"><a href="#7-接口类型-interface" class="headerlink" title="7.接口类型-interface"></a>7.接口类型-interface</h4><p>  一种规范契约，可以用来约定对象的结构，我们使用一个接口就必须遵守这个接口的全部约定。</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  interface userFace &#123;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  interface userFace {
     age: number,
     name: string,
     title?: string // 可选成员
     readonly content?: string // 只读成员,初始化后不可改变
-  &#125;
+  }
   // 参数user使用接口
-  function getUser (user: userFace) &#123;
+  function getUser (user: userFace) {
     return user.age + user.name
-  &#125;
-  console.log(getUser(&#123; age: 18, name: 's' &#125;))
+  }
+  console.log(getUser({ age: 18, name: 's' }))
   // 动态接口写法：
-  interface userFace2 &#123;
+  interface userFace2 {
     [key: string]: string // key代表属性名称任意名称string代表可以的类型， 第二个string代表键值的类型
-  &#125;
-  const cache: userFace2 = &#123;&#125;
+  }
+  const cache: userFace2 = {}
   cache.foo = 'val1'
   cache.bar = 'val2'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="8-泛型"><a href="#8-泛型" class="headerlink" title="8.泛型"></a>8.泛型</h4><p>  把我们定义时不明确的类型变成一个参数 ，使用时在传递这样的类型参数！</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function createNumberArray (length: number, value: number) &#123;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function createNumberArray (length: number, value: number) {
     // 因为Array对象默认创建是的any类型，所以我们要指定下他默认的类型  使用泛型指定
     // const arr = Array(length).fill(value)
     const arr = Array<number>(length).fill(value)
     return arr
-  &#125;
+  }
   const rest = createNumberArray(3, 100)
   console.log(rest)
   // ps:此时 createNumberArray函数只能创建数字类型的数组。 如果还想创建字符串类型的数组 就可以使用泛型参数，
   // ！！！！！！泛型参数方法  改进 createNumberArray！！！！
   // 一般泛型参数为T ，然后把函数中不明确的参数类型都改为T
-  function createArray<T> (length: number, value: T) &#123;
+  function createArray<T> (length: number, value: T) {
     const arr = Array<T>(length).fill(value)
     return arr
-  &#125;
+  }
   // 泛型使用
   const rest2 = createArray<string>(3, 'foo')
   console.log(rest2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -676,32 +676,33 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e22d.html">
+                <a href="/posts/9108.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="vue-node多服务启动">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="Vue2.0相关探秘">
                         
-                        <span class="card-title">vue-node多服务启动</span>
+                        <span class="card-title">Vue2.0相关探秘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vue项目+nodejs服务，如何前后端服务同时启动？前言有时我们在vue项目里使用了Nodejs 提供接口服务时，这时就需要执行node服务命令和前端项目服务。那有没有同时跑前端和后端的服务方法呢？
-解决方案使用 concurrently
+                            vue2.0 相关实现原理记录vue底层渲染过程大致可以分成4个阶段：
+template 模板解析后生成AST语法树模板解析：通过正则等方式提取出  模板里的标签元素、属性、变量等信息，并解析成抽象语法树 AST
+AST树解析生成对应的re
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/vue2-0/" class="post-category">
+                                    vue2.0
                                 </a>
                             
                             
@@ -711,8 +712,8 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue-node/">
-                        <span class="chip bg-color">Vue+node</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -863,7 +864,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">12.5k</span>&nbsp;字
             
             
             

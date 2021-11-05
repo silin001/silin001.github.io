@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue3-study, si">
-    <meta name="description" content="vue3.x 开始2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。
-vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问">
+    <meta name="keywords" content="Vue2.0相关探秘, si">
+    <meta name="description" content="vue2.0 相关实现原理记录vue底层渲染过程大致可以分成4个阶段：
+template 模板解析后生成AST语法树模板解析：通过正则等方式提取出  模板里的标签元素、属性、变量等信息，并解析成抽象语法树 AST
+AST树解析生成对应的re">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue3-study | si</title>
+    <title>Vue2.0相关探秘 | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -197,7 +198,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue3-study</h1>
+                    <h1 class="description center-align post-title">Vue2.0相关探秘</h1>
                 </div>
             </div>
         </div>
@@ -314,8 +315,8 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue3/">
-                                <span class="chip bg-color">vue3</span>
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -326,8 +327,8 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/vue3/" class="post-category">
-                                vue3
+                            <a href="/categories/vue2-0/" class="post-category">
+                                vue2.0
                             </a>
                         
                     </div>
@@ -339,7 +340,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2020-11-23
                 </div>
                 
 
@@ -348,14 +349,14 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    5 分
                 </div>
                 
 
@@ -366,77 +367,138 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="vue3-x-开始"><a href="#vue3-x-开始" class="headerlink" title="vue3.x 开始"></a>vue3.x 开始</h2><p>2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。</p>
-<h2 id="vue2-x-面临的问题"><a href="#vue2-x-面临的问题" class="headerlink" title="vue2.x 面临的问题"></a>vue2.x 面临的问题</h2><p>vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问题，在某些功能方面做了一些妥协：</p>
-<ul>
-<li>监听数据的方法<code>Object.definePerproty</code>, 不能对Object类型做深度监听。而为了深度监听，以及为了达到目的所要付出的代价，也就是<strong>递归遍历</strong>侦听数据</li>
-<li><code>optionsApi</code>存在问题，功能分块混乱，我们需要把逻辑分别散落在<code>data，methods、computed</code>对象里，新增一个需求就需要分别在各项里修改，来回滚动</li>
-<li>vue2.0缺少一种较为简洁的低成本的机制来完成逻辑复用，虽然可以minxis完成逻辑复用，但是当mixin变多的时候，会使得难以找到对应的data、computed或者method来源于哪个mixin，使得类型推断难以进行</li>
-<li>ts支持不友好</li>
+                <h1 id="vue2-0-相关实现原理记录"><a href="#vue2-0-相关实现原理记录" class="headerlink" title="vue2.0 相关实现原理记录"></a>vue2.0 相关实现原理记录</h1><h2 id="vue底层渲染过程大致可以分成4个阶段："><a href="#vue底层渲染过程大致可以分成4个阶段：" class="headerlink" title="vue底层渲染过程大致可以分成4个阶段："></a>vue底层渲染过程大致可以分成4个阶段：</h2><ul>
+<li>template 模板解析后生成AST语法树<br>模板解析：通过正则等方式提取出 <template></template> 模板里的标签元素、属性、变量等信息，并解析成抽象语法树 AST</li>
+<li>AST树解析生成对应的render函数：<br>AST是Abstract Syntax Tree的简称，Vue使用HTML的Parser将HTML模板解析为<strong>AST语法树</strong>，并且对AST进行一些优化的标记处理，提取最大的静态树，方便Virtual DOM时直接跳过Diff。</li>
+<li>数据通过render函数（渲染函数）解析生成VNode<br>Virtual DOM：虚拟DOM树，Vue的Virtual DOM Patching算法是基于<code>Snabbdom</code>库的实现，并在些基础上作了很多的调整和改进。</li>
+<li>VNode经过diff和patch后生成真实DOM展示</li>
 </ul>
-<h2 id="2-0-3-0-实现原理"><a href="#2-0-3-0-实现原理" class="headerlink" title="2.0 / 3.0 实现原理"></a>2.0 / 3.0 实现原理</h2><ul>
-<li><p>Vue2.0： 实现MVVM(双向数据绑定)的原理是通过 <code>Object.defineProperty</code> 来劫持各个属性的<code>setter、getter</code>在数据变动时发布消息给订阅者，触发相应的监听回调。<br>缺点：<br>基于<code>Object.defineProperty</code> 不具备监听数组的能力，需要重写数组的原型方法来达到响应式。<br><code>Object.defineProperty</code> 无法检测到对象属性的添加和删除 。<br>由于Vue会在初始化实例时对属性执行getter/setter转化，所有属性必须在data对象上存在才能让Vue将它转换为响应式。<br>深度监听需要一次性递归，对性能影响比较大</p>
-</li>
-<li><p>Vue3.0： 重构响应式系统，使用<code>Proxy</code>代理 + <code>Reflect</code>反射，替换<code>Object.defineProperty</code><br>使用Proxy代理优势：<br>可直接监听数组类型的数据变化<br>监听的目标为对象本身，不需要像Object.defineProperty一样<em>递归遍历每个属性</em>，有一定的性能提升<br>可拦截apply、ownKeys、has等13种方法，而Object.defineProperty不行<br>不需要一次性遍历data的属性，可以显著提高性能。<br>因为Proxy是ES6新增的属性，有些浏览器还不支持,只能兼容到IE11<br>源码:</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> proxyData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">{</span>
- <span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span><span class="token punctuation">{</span> 
-   <span class="token comment" spellcheck="true">// 只处理本身(非原型)的属性</span>
-   <span class="token keyword">const</span> ownKeys <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">ownKeys</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
-   <span class="token keyword">if</span><span class="token punctuation">(</span>ownKeys<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 监听</span>
-   <span class="token punctuation">}</span>
-   <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span>
-   <span class="token keyword">return</span> result
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- <span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span> reveive<span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">// 重复的数据，不处理</span>
-   <span class="token keyword">const</span> oldVal <span class="token operator">=</span> target<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
-   <span class="token keyword">if</span><span class="token punctuation">(</span>val <span class="token operator">==</span> oldVal<span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">return</span> <span class="token boolean">true</span>
-   <span class="token punctuation">}</span>
-   <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span>reveive<span class="token punctuation">)</span>
-   <span class="token keyword">return</span> result
- <span class="token punctuation">}</span><span class="token punctuation">,</span>
- <span class="token comment" spellcheck="true">// 删除属性</span>
- <span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">{</span>
-   <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">)</span>
-   <span class="token keyword">return</span> result
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<h2 id="vue3带来了什么？"><a href="#vue3带来了什么？" class="headerlink" title="vue3带来了什么？"></a>vue3带来了什么？</h2><p>打包大小减少41%、初次渲染快55%、更新渲染快133%、内存减少54%</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h3><p>用js模拟dom结构，计算最小变更，操作dom</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"div1"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span> style<span class="token operator">=</span><span class="token string">"color: red"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p<span class="token operator">></span>vdom<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+    <span class="token operator">&lt;</span>ul style<span class="token operator">=</span><span class="token string">"font-size: 20px"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>li<span class="token operator">></span>a<span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+js描述如下：
+<span class="token punctuation">{</span>
+    tag<span class="token punctuation">:</span> <span class="token string">'div'</span><span class="token punctuation">,</span>
+    sel<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">'div1'</span><span class="token punctuation">,</span>
+        className<span class="token punctuation">:</span> <span class="token string">'container'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    props<span class="token punctuation">:</span> <span class="token punctuation">{</span> style<span class="token punctuation">:</span> <span class="token string">'color: red'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            tag<span class="token punctuation">:</span> <span class="token string">'p'</span><span class="token punctuation">,</span>
+            children<span class="token punctuation">:</span> <span class="token string">'vdom'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            tag<span class="token punctuation">:</span> <span class="token string">'ul'</span><span class="token punctuation">,</span>
+            props<span class="token punctuation">:</span> <span class="token punctuation">{</span> style<span class="token punctuation">:</span> <span class="token string">'font-size: 20px'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    tag<span class="token punctuation">:</span> <span class="token string">'li'</span><span class="token punctuation">,</span>
+                    children<span class="token punctuation">:</span> <span class="token string">'a'</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="vue中-diff算法"><a href="#vue中-diff算法" class="headerlink" title="vue中 diff算法"></a>vue中 diff算法</h3><p>只比较同一层级，不跨级比较。<br>tag不相同，直接删除重建，不做再深度比较。<br>tag和key相同，认为是同一节点，不做再深度比较。</p>
 <ul>
-<li>新增<code>Composition API</code>更好的逻辑复用和代码组织<br>Vue2.0中，随着功能的增加，组件变得越来越复杂，越来越难维护，而难以维护的根本原因是Vue的API设计迫使开发者使用watch，computed，methods选项组织代码，而不是实际的业务逻辑。<br><code>Composition Api</code>的出现，主要是也是为了解决Option API带来的问题<br>第一个是代码组织问题，Compostion API可以让开发者根据业务逻辑组织自己的代码，让代码具备更好的可读性和可扩展性，也就是说当下一个开发者接触这一段不是他自己写的代码时，他可以更好的利用代码的组织反推出实际的业务逻辑，或者根据业务逻辑更好的理解代码。<br>第二个是实现代码的逻辑提取与复用，当然mixin也可以实现逻辑提取与复用，但是像前面所说的，多个mixin作用在同一个组件时，很难看出property是来源于哪个mixin，来源不清楚，另外，多个mixin的property存在变量命名冲突的风险。而Composition API刚好解决了这两个问题。</li>
-<li>重构<code>Virtual DOM</code><br>Vue2 中的虚拟dom 是进行全量对比<br>Vue3 新增静态标记，模板编译时的优化，将一些静态节点编译成常量<br>slot优化，将slot编译为lazy函数，将slot的渲染的决定权交给子组件<br>模板中内联事件的提取并重用（原本每次渲染都重新生成内联函数）</li>
+<li>最小量更新，key很重要是节点的唯一标识，在更改前后告诉diff他是同一节点</li>
+<li>只有是同一个虚拟节点才进行精细化比较，否则就暴力删除旧的插入新的，<br>同一虚拟节点？选择器相同，且key相同</li>
+<li>只进行同层比较，不进行跨层级比较。<br>即使是同一片虚拟节点， 跨层了也不会进行diff 暴力删除旧的插入新的</li>
 </ul>
-<h2 id="Vue3-x搭建起步"><a href="#Vue3-x搭建起步" class="headerlink" title="Vue3.x搭建起步"></a>Vue3.x搭建起步</h2><p>安装好vue-cli后， 终端输入vue -V  出现4.5.x以上版本为3.x的脚手架。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">使用脚手架创建第一个3.x项目：
-Vue create vue3demo01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>使用<code>Vite</code>创建项目:</p>
-<pre class="line-numbers language-bash"><code class="language-bash">全局安装vite：
-<span class="token function">npm</span> <span class="token function">install</span> -g create-vite-app
-创建项目
-create-vite-app yourProjectName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>npm:<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> init @vitejs/app  按照提示操作
-or
-<span class="token function">npm</span> init @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li>yarn:<pre class="line-numbers language-bash"><code class="language-bash">yarn create @vitejs/app  按照提示操作
-or
-yarn create @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li>你还可以通过附加的命令行选项直接指定项目名称和你想要使用的模板</li>
+<h3 id="vue中的-render函数"><a href="#vue中的-render函数" class="headerlink" title="vue中的 render函数"></a>vue中的 render函数</h3><ul>
+<li>什么是render函数？<br>vue中在一些复杂场景下使用template模板不太方便，例如需要引入大量子组件时，使用template模板会使代码重复冗余，这时用render函数就可以轻松解决问题，而用render函数构建DOM，vue也免了去转译的过程。<br>在vue中我们使用模板HTML语法组建页面的，使用render函数我们可以用js语言来构建DOM。</li>
+<li>render函数作用？<br>生成虚拟DOM<br>当使用render函数描述虚拟DOM时，vue提供一个函数，这个函数是就构建虚拟DOM所需要的工具。官网上给他起了个名字叫<code>createElement</code> 还有约定的简写叫<code>h</code>, vm中有一个方法<code>_c</code>,也是这个函数的别名。</li>
+<li><code>render</code>函数的使用<br>比如说我们需要写很多 if 判断的时候</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">例如，要构建一个 Vite + Vue 项目运行:
-yarn create @vitejs/app my-vue-app --template vue
-例如创建 vue+ts：
-yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="SSR有了解吗？原理是什么？"><a href="#SSR有了解吗？原理是什么？" class="headerlink" title="SSR有了解吗？原理是什么？"></a>SSR有了解吗？原理是什么？</h2><p>在客户端请求服务器的时候，服务器到数据库中获取到相关的数据，并且在服务器内部将Vue组件渲染成HTML，并且将数据、HTML一并返回给客户端，这个在服务器将数据和组件转化为HTML的过程，叫做服务端渲染SSR。<br>而当客户端拿到服务器渲染的HTML和数据之后，由于数据已经有了，客户端不需要再一次请求数据，而只需要将数据同步到组件或者Vuex内部即可。除了数据意外，HTML也结构已经有了，客户端在渲染组件的时候，也只需要将HTML的DOM节点映射到Virtual DOM即可，不需要重新创建DOM节点，这个将数据和HTML同步的过程，又叫做客户端激活。<br>使用SSR的好处：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>h1 v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"level === 1"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>slot<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2 v<span class="token operator">-</span><span class="token keyword">else</span><span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"level === 2"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>slot<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+    <span class="token operator">&lt;</span>h3 v<span class="token operator">-</span><span class="token keyword">else</span><span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"level === 3"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>slot<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>slot<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'level'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>直接写 render</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'level'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token function">render</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'h'</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>level<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$slots<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="数组数据响应式的处理原理"><a href="#数组数据响应式的处理原理" class="headerlink" title="数组数据响应式的处理原理"></a>数组数据响应式的处理原理</h3><p>重新数组方法，以<code>Arrap.prototype</code>为原型创建了一个<code>arrayMethods</code>的对象，在使用<code>es6</code>的一个强硬的方法<code>object.setPrototytypeOf(o,arrayMethods)</code>,让数组的<strong>proto</strong>指向<code>arrayMethods</code></p>
+<h2 id="vue2-0-源码地址"><a href="#vue2-0-源码地址" class="headerlink" title="vue2.0 源码地址"></a>vue2.0 源码地址</h2><ul>
+<li>项目地址：<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue">https://github.com/vuejs/vue</a></li>
+<li>文件结构核心部分<pre><code>src
+compiler 编译器相关
+core 核心代码
+  components 通用组件，如 keep-alive
+  global-api 全局 api，如$set、$delete
+  instance 构造函数等
+  observer 响应式相关
+  util
+  vdom 虚拟 dom</code></pre></li>
+</ul>
+<h2 id="vue2响应式原理-底层源码核心类"><a href="#vue2响应式原理-底层源码核心类" class="headerlink" title="vue2响应式原理-底层源码核心类"></a>vue2响应式原理-底层源码核心类</h2><p>栗子：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"mvvm-app"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"word"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>word<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+  <span class="token operator">&lt;</span>button v<span class="token operator">-</span>on<span class="token punctuation">:</span>click<span class="token operator">=</span><span class="token string">"sayHi"</span><span class="token operator">></span>change model<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span> <span class="token comment" spellcheck="true">//点击这个button，word的值会发生改变</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./js/observer.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./js/watcher.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./js/compile.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./js/mvvm.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MVVM</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">'#mvvm-app'</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      word<span class="token punctuation">:</span> <span class="token string">'Hello World!'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      sayHi<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>word <span class="token operator">=</span> <span class="token string">'Hi, everybody!'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>实现这种数据双向绑定的效果，需要以下几大模块：</p>
 <ul>
-<li>有利于SEO：其实就是有利于爬虫来爬你的页面，因为部分页面爬虫是不支持执行JavaScript的，这种不支持执行JavaScript的爬虫抓取到的非SSR的页面会是一个空的HTML页面，而有了SSR以后，这些爬虫就可以获取到完整的HTML结构的数据，进而收录到搜索引擎中。</li>
-<li>白屏时间更短：相对于客户端渲染，服务端渲染在浏览器请求URL之后已经得到了一个带有数据的HTML文本，浏览器只需要解析HTML，直接构建DOM树就可以。而客户端渲染，需要先得到一个空的HTML页面，这个时候页面已经进入白屏，之后还需要经过加载并执行 JavaScript、请求后端服务器获取数据、JavaScript 渲染页面几个过程才可以看到最后的页面。特别是在复杂应用中，由于需要加载 JavaScript 脚本，越是复杂的应用，需要加载的 JavaScript 脚本就越多、越大，这会导致应用的首屏加载时间非常长，进而降低了体验感。</li>
+<li><p><code>Compile -模板编译</code>：对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数.<br>Compile主要做的事情是解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的<em>观察者watcher</em>，将来一旦数据有变动，收到通知触发回调函数进行更新视图。</p>
+</li>
+<li><p><code>Observer -数据劫持</code>：能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者.<br>Observer的核心是通过Obeject.defineProperty()来监听数据的变动，这个函数内部可以定义setter和getter，每当数据发生变化，就会触发setter。这时候Observer就要通知订阅者，订阅者就是Watcher。<br>get里: 初始化订阅数据变化时 往dep里添加观察者与其关联<br>set里: 通知；数据发生变化时dep去通知<em>观察者watcher</em></p>
+</li>
+<li><p><code>dep类 -发布者</code>：<br>作用：收集对应<em>观察者watcher</em>、通知watcher更新。<br>有多少属性dep里就有多少个watcher</p>
+</li>
+<li><p>订阅：addSub()*</p>
+</li>
+<li><p>发布：notify()*</p>
+</li>
+<li><p><code>Watcher -观察者（订阅者）</code>：作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，在更改数据时进行watcher监听，把新值callback。</p>
+</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -481,7 +543,7 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sisi001.gitee.io/posts/8d7.html">https://sisi001.gitee.io/posts/8d7.html</a>
+                    <a href="https://sisi001.gitee.io/posts/9108.html">https://sisi001.gitee.io/posts/9108.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -519,8 +581,8 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue3/">
-                                    <span class="chip bg-color">vue3</span>
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -565,55 +627,6 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/a6b9.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="浙里办H5接入爬坑">
-                        
-                        <span class="card-title">浙里办H5接入爬坑</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接到一个公司之前使用vue2.0  vue-cli2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。说难吧 刚开始可能由于该项目的经理没有讲的太清除，导致我
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/H5/" class="post-category">
-                                    H5
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/h5/">
-                        <span class="chip bg-color">h5</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/4d03.html">
                     <div class="card-image">
                         
@@ -630,9 +643,9 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -650,6 +663,57 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
                     
                     <a href="/tags/ts/">
                         <span class="chip bg-color">ts</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e9a0.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="js相关">
+                        
+                        <span class="card-title">js相关</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            js重点js-DOM事件流事件发生时，会在元素节点之间按照特定的顺序传播，这个传播过程既‘DOM事件流’
+
+事件传播三个阶段w3c将 事件传播 分成3个阶段：捕获：从最外层祖先元素向目标元素进行捕获此时不会触发事件目标：事件捕获到目标元素，
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/js/" class="post-category">
+                                    js
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>

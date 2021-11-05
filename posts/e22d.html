@@ -27,7 +27,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="si" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="si" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -348,7 +348,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    273
                 </div>
                 
 
@@ -372,14 +372,14 @@
 or
 yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>然后更改 package.json 文件，scripts如下：</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">"scripts": &#123;
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">"scripts": {
   "start": "craco start",
   "build": "scraco build",
   "test": "craco test",
   "eject": "react-scripts eject",
   "node": "npm run serve --prefix nodeServer",
   "dev": "concurrently npm:node yarn:start"
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>有了 –prefix nodeServer 就不用 cd nodeServer 文件夹了，也就是说运行 <strong>npm run node</strong> 就会跑后端的服务，相当于：<strong>npm run serve</strong><br>此时只需要<strong>npm run dev</strong> 就会执行 <strong>npm run node</strong> 和 <strong>npm run start</strong>  也就实现了同时启动了服务端和客户端。<br>ps:这里命令我有用了yarn也是可以的。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -508,31 +508,33 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/4d03.html">
+                <a href="/posts/e9a0.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="ts入门">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="js相关">
                         
-                        <span class="card-title">ts入门</span>
+                        <span class="card-title">js相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是typeScript?官方网站的定义是:TypeScript 是 js 类型的超集。简单说你可以将 TypeScript 看作是 JavaScript 之上的一个外壳。TypeScript 是一个外壳，因为编写 TypeScript 
+                            js重点js-DOM事件流事件发生时，会在元素节点之间按照特定的顺序传播，这个传播过程既‘DOM事件流’
+
+事件传播三个阶段w3c将 事件传播 分成3个阶段：捕获：从最外层祖先元素向目标元素进行捕获此时不会触发事件目标：事件捕获到目标元素，
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ts/" class="post-category">
-                                    ts
+                            <a href="/categories/js/" class="post-category">
+                                    js
                                 </a>
                             
                             
@@ -542,8 +544,8 @@ yarn add concurrently<span aria-hidden="true" class="line-numbers-rows"><span></
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ts/">
-                        <span class="chip bg-color">ts</span>
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -744,7 +746,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">12.5k</span>&nbsp;字
             
             
             

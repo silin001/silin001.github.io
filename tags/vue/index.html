@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: ts, si">
-    <meta name="description" content="分类: ts | si">
+    <meta name="keywords" content="标签: vue, si">
+    <meta name="description" content="标签: vue | si">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类: ts | si</title>
+    <title>标签: vue | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -216,87 +216,103 @@
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/categories/vue2-0/" title="vue2.0: 1">
+                <a href="/tags/hello-world/" title="hello-world: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">vue2.0
+                            data-tagname="hello-world" style="background-color: #F9EBEA;">hello-world
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/js/" title="js: 1">
+                <a href="/tags/vue/" title="vue: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">js
+                             chip-active "
+                            data-tagname="vue" style="background-color: #F5EEF8;">vue
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E5%85%B6%E4%BB%96/" title="其他: 2">
+                <a href="/tags/js/" title="js: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">其他
+                            data-tagname="js" style="background-color: #D5F5E3;">js
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/ts/" title="ts: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #E8F8F5;">ts
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Vue/" title="Vue: 1">
+                <a href="/tags/Markdown/" title="Markdown: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">Vue
+                            data-tagname="Markdown" style="background-color: #E8F8F5;">Markdown
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/vue3/" title="vue3: 1">
+                <a href="/tags/ts/" title="ts: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8F9F9;">vue3
+                            data-tagname="ts" style="background-color: #FEF9E7;">ts
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" title="终端命令: 1">
+                <a href="/tags/vim/" title="vim: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">终端命令
+                            data-tagname="vim" style="background-color: #F8F9F9;">vim
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/H5/" title="H5: 1">
+                <a href="/tags/Vue-node/" title="Vue+node: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D7BDE2;">H5
+                            data-tagname="Vue+node" style="background-color: #82E0AA;">Vue+node
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
+                
+                <a href="/tags/vue3/" title="vue3: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="vue3" style="background-color: #D7BDE2;">vue3
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/cmd%E3%80%81git/" title="cmd、git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="cmd、git" style="background-color: #A3E4D7;">cmd、git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/h5/" title="h5: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="h5" style="background-color: #85C1E9;">h5
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
@@ -308,49 +324,35 @@
     <article id="articles" class="container articles">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="vue" data-aos="fade-up">
                 <div class="card">
-                    <a href="/posts/4d03.html">
+                    <a href="/posts/9108.html">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="ts入门">
+                            <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="Vue2.0相关探秘">
                             
-                            <span class="card-title">ts入门</span>
+                            <span class="card-title">Vue2.0相关探秘</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是typeScript?官方网站的定义是:TypeScript 是 js 类型的超集。简单说你可以将 TypeScript 看作是 JavaScript 之上的一个外壳。TypeScript 是一个外壳，因为编写 TypeScript 
-                            
-                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/ts/" class="post-category">
-                                    ts
+                                <a href="/categories/vue2-0/" class="post-category">
+                                vue2.0
                                 </a>
                                 
                                 
                             </span>
                         </div>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/ts/">
-                            <span class="chip bg-color">ts</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
             
