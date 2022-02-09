@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="js常用方法, si">
-    <meta name="description" content="记录js常用方法Object对象
-Object.defineProperty(obj,prop,descriptor)vue2.0数据劫持就是使用此方法
-hasOwnProperty()
-判断对象自身属性中是否具有指定的属性。obj.has">
+    <meta name="description" content="记录js常用方法js类型判断
+Object.prototype.toString// 以下是11种：
+var number = 1;          // [object Number]
+var string = &#39;123&#39;;      ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -332,7 +332,7 @@ hasOwnProperty()
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-02
+                    2019-12-25
                 </div>
                 
 
@@ -341,14 +341,14 @@ hasOwnProperty()
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    865
+                    979
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -359,45 +359,56 @@ hasOwnProperty()
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="记录js常用方法"><a href="#记录js常用方法" class="headerlink" title="记录js常用方法"></a>记录js常用方法</h2><h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><ul>
-<li>Object.defineProperty(obj,prop,descriptor)<br>vue2.0数据劫持就是使用此方法</li>
-<li>hasOwnProperty()<blockquote>
-<p>判断对象自身属性中是否具有指定的属性。<br>obj.hasOwnProperty(‘name’)</p>
-</blockquote>
+                <h2 id="记录js常用方法"><a href="#记录js常用方法" class="headerlink" title="记录js常用方法"></a>记录js常用方法</h2><h2 id="js类型判断"><a href="#js类型判断" class="headerlink" title="js类型判断"></a>js类型判断</h2><ul>
+<li>Object.prototype.toString<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 以下是11种：</span>
+<span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object Number]</span>
+<span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// [object String]</span>
+<span class="token keyword">var</span> boolean <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// [object Boolean]</span>
+<span class="token keyword">var</span> und <span class="token operator">=</span> undefined<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// [object Undefined]</span>
+<span class="token keyword">var</span> nul <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object Null]</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span>         <span class="token comment" spellcheck="true">// [object Object]</span>
+<span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// [object Array]</span>
+<span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// [object Date]</span>
+<span class="token keyword">var</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Error]</span>
+<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex">/a/g</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object RegExp]</span>
+<span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Function]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>Object.is()<blockquote>
-<p>判断两个值是否相对返回布尔值</p>
-</blockquote>
-</li>
-<li>Object.keys()、Object.values()<blockquote>
-<p>方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for…in循环的顺序相同 ( 区别在于 for-in循环枚举原型链中的属性 )</p>
-</blockquote>
-</li>
-<li>Object.freeze()<blockquote>
-<p>冻结一个对象，阻止修改现有属性特性的值，并阻止添加新属性</p>
-</blockquote>
-</li>
-<li>Object.assign(target,source1,source2,…)<br>对象合并</li>
 </ul>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
-<li><p>slice()<br>截取数组，不改变原数组</p>
-</li>
-<li><p>splice() 更新数组，改变原数组</p>
-</li>
-<li><p>forEach()、map()、filter()、some()、every() 迭代方法，不改变原数组</p>
-</li>
-<li><p>every</p>
-<blockquote>
-<p>arr.every((currentValue , index , arr) =&gt; {}, thisValue) 判断数组中的每一项是否都满足条件，全部符合就会返回true，否则false。</p>
-</blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
-<span class="token keyword">const</span> str <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>some</p>
-<blockquote>
+<p>function checkType() {<br>    for (var i = 0; i &lt; arguments.length; i++) {<br>        console.log(Object.prototype.toString.call(arguments[i]))<br>    }<br>}</p>
+<p>checkType(number, string, boolean, und, nul, obj, array, date, error, reg, func)</p>
+<pre><code>
+## Object对象
+* Object.defineProperty(obj,prop,descriptor)
+  vue2.0数据劫持就是使用此方法
+* hasOwnProperty()
+  &gt; 判断对象自身属性中是否具有指定的属性。
+  obj.hasOwnProperty('name')
+* Object.is()
+  &gt; 判断两个值是否相对返回布尔值
+* Object.keys()、Object.values()
+  &gt; 方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for...in循环的顺序相同 ( 区别在于 for-in循环枚举原型链中的属性 )
+* Object.freeze()
+  &gt; 冻结一个对象，阻止修改现有属性特性的值，并阻止添加新属性
+* Object.assign(target,source1,source2,...)
+  对象合并
+
+
+## 数组
+* slice()
+截取数组，不改变原数组
+* splice() 更新数组，改变原数组
+* forEach()、map()、filter()、some()、every() 迭代方法，不改变原数组
+
+* every
+&gt; arr.every((currentValue , index , arr) =&gt; {}, thisValue) 判断数组中的每一项是否都满足条件，全部符合就会返回true，否则false。
+```javascript
+const arr = [1, 2, 3]
+const str = arr.every((currentValue) =&gt; {
+    return currentValue &gt; 1
+})
+console.log(str) // false</code></pre><ul>
+<li>some<blockquote>
 <p>判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回true，不再往下执行</p>
 </blockquote>
 <pre class="line-numbers language-javascript"><code class="language-javascript">arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue <span class="token punctuation">,</span> index <span class="token punctuation">,</span> arr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> thisValue<span class="token punctuation">)</span>
@@ -410,8 +421,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">// 2</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>keys()、values()、entries() 遍历数组方法,不改变原数组。 （es6新增方法）</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token string">"d"</span><span class="token punctuation">]</span>
+<li>keys()、values()、entries() 遍历数组方法,不改变原数组。 （es6新增方法）<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token string">"d"</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
@@ -585,47 +595,47 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7a45.html">
+                <a href="/posts/9cde.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="js常用方法">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vim">
                         
-                        <span class="card-title">js常用方法</span>
+                        <span class="card-title">vim</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录js常用方法Object对象
-Object.defineProperty(obj,prop,descriptor)vue2.0数据劫持就是使用此方法
-hasOwnProperty()
-判断对象自身属性中是否具有指定的属性。obj.has
+                            vim是什么？vim/vi是Unix / Linux上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单。】
+Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行数）p粘贴u撤销移动光标至所选行的开头，按v
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-09
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Sisi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                    其他
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js/">
-                        <span class="chip bg-color">js</span>
+                    <a href="/tags/vim/">
+                        <span class="chip bg-color">vim</span>
                     </a>
                     
                 </div>
@@ -639,31 +649,31 @@ hasOwnProperty()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a6b9.html">
+                <a href="/posts/f82e.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="浙里办H5接入爬坑">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="Markdown基础">
                         
-                        <span class="card-title">浙里办H5接入爬坑</span>
+                        <span class="card-title">Markdown基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接到一个公司之前使用vue2.0  vue-cli2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。说难吧 刚开始可能由于该项目的经理没有讲的太清除，导致我
+                            什么是Markdown？Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/H5/" class="post-category">
-                                    H5
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                    其他
                                 </a>
                             
                             
@@ -673,8 +683,8 @@ hasOwnProperty()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/h5/">
-                        <span class="chip bg-color">h5</span>
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -825,7 +835,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.5k</span>&nbsp;字
+                class="white-color">15.2k</span>&nbsp;字
             
             
             
