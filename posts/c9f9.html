@@ -5,10 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="cmd\linux\git\vscode等相关常用命令, si">
-    <meta name="description" content="常用终端命令一、gitgit其他github浏览器快捷查看文件方式： github后面添加1s
-地址栏直接  https://github.com/ 修改为github1s.com
+    <meta name="description" content="常用终端命令node版本管理工具nvm
+nvm工具使用
 
-我的git-pages地址: https://silin">
+
+nvm list available 显示所有可安装的node版本
+nvm install 14.17.6 下载指定版本
+nvm uninstall &amp;lt;version&gt; ：卸">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -350,14 +353,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    737
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -368,7 +371,50 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="常用终端命令"><a href="#常用终端命令" class="headerlink" title="常用终端命令"></a>常用终端命令</h1><h2 id="一、git"><a href="#一、git" class="headerlink" title="一、git"></a>一、git</h2><h3 id="git其他"><a href="#git其他" class="headerlink" title="git其他"></a>git其他</h3><pre><code>github浏览器快捷查看文件方式： github后面添加1s
+                <h1 id="常用终端命令"><a href="#常用终端命令" class="headerlink" title="常用终端命令"></a>常用终端命令</h1><h2 id="node版本管理工具nvm"><a href="#node版本管理工具nvm" class="headerlink" title="node版本管理工具nvm"></a>node版本管理工具nvm</h2><ul>
+<li>nvm工具使用</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js">
+nvm list available 显示所有可安装的node版本
+nvm install <span class="token number">14.17</span><span class="token punctuation">.</span><span class="token number">6</span> 下载指定版本
+nvm uninstall <span class="token operator">&lt;</span>version<span class="token operator">></span> ：卸载指定版本node
+nvm use xxx 使用当前下载的某个版本
+nvm install stable 安装最新稳定版本node
+
+nvm ls 查看已安装的node版本
+nvm current 查看当前版本
+
+nvm arch 显示node是运行在<span class="token number">32</span>位还是<span class="token number">64</span>位
+
+nvm on：开启node<span class="token punctuation">.</span>js版本管理。
+nvm off：关闭node<span class="token punctuation">.</span>js版本管理。
+
+nvm默认node镜像源是https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nodejs<span class="token punctuation">.</span>org<span class="token operator">/</span>dist，从默认的镜像缘源下载会很慢，所以可以通过更换镜像源加快下载
+where nvm 找到nvm安装路径
+找到settings<span class="token punctuation">.</span>txt文件
+将下面这两句话复制到settings<span class="token punctuation">.</span>txt<span class="token punctuation">,</span>并保存
+node_mirror<span class="token punctuation">:</span> https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>mirrors<span class="token regex">/node/</span>
+npm_mirror<span class="token punctuation">:</span> https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>mirrors<span class="token regex">/npm/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>yarn<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//这样才是安装到全局环境</span>
+yarn global add xxx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<p>// yarn查看所有版本<br>npm view yarn versions<br>// yarn更新到最新版<br>npm install yarn@latest -g</p>
+<pre><code>* 设置淘宝镜像
+
+```js
+npm config set registry http://registry.npm.taobao.org/
+
+// 设置yarn淘宝镜像
+yarn config set registry http://registry.npm.taobao.org/
+
+// 查询当前配置的镜像
+npm get registry
+yarn config get registry
+</code></pre><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="git其他"><a href="#git其他" class="headerlink" title="git其他"></a>git其他</h3><pre><code>github浏览器快捷查看文件方式： github后面添加1s
 地址栏直接  https://github.com/ 修改为github1s.com
 
 我的git-pages地址: https://silin001.github.io</code></pre><p>git本地查找密钥：gitbash打开终端窗口：</p>
@@ -394,7 +440,7 @@
 <h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout --<span class="token operator">&lt;</span>file<span class="token operator">></span> ：撤销上一次对文件的操作
 <span class="token function">git</span> checkout  想要切换的分支名：从当前所处的分支切换到其他分支（当切换分支的时候，需要把暂存区里面的文件进行提交,不然暂存区里面的文件会跟着到切换的这条分支上<span class="token punctuation">)</span>
 <span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>branch-name<span class="token operator">></span>：新建并切换到新建分支上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、cmd"><a href="#二、cmd" class="headerlink" title="二、cmd"></a>二、cmd</h2><font color="red">
+<h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><font color="red">
 ps: cmd和vscode终端部分操作不同！
 </font>
 
@@ -404,7 +450,7 @@ rimraf node_modules<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>dir -查看目录</p>
 <h3 id="1、文件夹："><a href="#1、文件夹：" class="headerlink" title="1、文件夹："></a>1、文件夹：</h3><p>md  - 创建文件夹<br>rm - 只能删除空文件夹      /   cmd：rd 删除文件夹<br>rm /s  删整个文件夹  /q不提示</p>
 <h3 id="2、文件："><a href="#2、文件：" class="headerlink" title="2、文件："></a>2、文件：</h3><p>del [filename] - 删除文件<br>首先是创建空文件，命令type nul&gt;[filename]<br>命令echo [fileContent]&gt;[filename] 向文件写入内容</p>
-<h2 id="三、linux"><a href="#三、linux" class="headerlink" title="三、linux"></a>三、linux</h2><p>rm -rf node_modules 快速删除node_modules<br>mkdir ‘’  创建目录<br>rm -r test 删除目录<br>touch ‘’ 创建文件<br>rm  文件名 删除<br>打开文件： vi　文件名　<br>退出打开的文件　　ｑ：　不报错强制　退出　ｑ！<br>搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件</p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>rm -rf node_modules 快速删除node_modules<br>mkdir ‘’  创建目录<br>rm -r test 删除目录<br>touch ‘’ 创建文件<br>rm  文件名 删除<br>打开文件： vi　文件名　<br>退出打开的文件　　ｑ：　不报错强制　退出　ｑ！<br>搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*’    查找/usr/tmp目录下的所有以a开头的目录或文件</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -593,10 +639,13 @@ rimraf node_modules<span aria-hidden="true" class="line-numbers-rows"><span></sp
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用终端命令一、gitgit其他github浏览器快捷查看文件方式： github后面添加1s
-地址栏直接  https://github.com/ 修改为github1s.com
+                            常用终端命令node版本管理工具nvm
+nvm工具使用
 
-我的git-pages地址: https://silin
+
+nvm list available 显示所有可安装的node版本
+nvm install 14.17.6 下载指定版本
+nvm uninstall &lt;version> ：卸
                         
                     </div>
                     <div class="publish-info">
@@ -771,7 +820,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.2k</span>&nbsp;字
+                class="white-color">16.3k</span>&nbsp;字
             
             
             

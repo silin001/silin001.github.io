@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sisi001.gitee.io/"/>
-  <updated>2021-11-26T02:53:04.872Z</updated>
+  <updated>2022-03-01T10:00:47.131Z</updated>
   <id>https://sisi001.gitee.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>node服务部署记录</title>
+    <title>关于服务端遇到的相关问题记录</title>
     <link href="https://sisi001.gitee.io/posts/b032.html"/>
     <id>https://sisi001.gitee.io/posts/b032.html</id>
     <published>2021-11-23T09:05:13.000Z</published>
-    <updated>2021-11-26T02:53:04.872Z</updated>
+    <updated>2022-03-01T10:00:47.131Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;node服务部署服务器&quot;&gt;&lt;a href=&quot;#node服务部署服务器&quot; class=&quot;headerlink&quot; title=&quot;node服务部署服务器&quot;&gt;&lt;/a&gt;node服务部署服务器&lt;/h2&gt;&lt;h3 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot;
+          &lt;h2 id=&quot;关于服务端遇到的相关问题&quot;&gt;&lt;a href=&quot;#关于服务端遇到的相关问题&quot; class=&quot;headerlink&quot; title=&quot;关于服务端遇到的相关问题&quot;&gt;&lt;/a&gt;关于服务端遇到的相关问题&lt;/h2&gt;&lt;h3 id=&quot;axios相关&quot;&gt;&lt;a
         
       
     
@@ -75,7 +75,7 @@
     <link href="https://sisi001.gitee.io/posts/8d7.html"/>
     <id>https://sisi001.gitee.io/posts/8d7.html</id>
     <published>2021-03-28T06:36:31.000Z</published>
-    <updated>2021-11-05T07:57:41.324Z</updated>
+    <updated>2021-11-15T06:12:36.171Z</updated>
     
     <summary type="html">
     
@@ -181,7 +181,7 @@
     <link href="https://sisi001.gitee.io/posts/ba1f.html"/>
     <id>https://sisi001.gitee.io/posts/ba1f.html</id>
     <published>2020-06-02T08:07:04.000Z</published>
-    <updated>2021-12-10T13:57:05.197Z</updated>
+    <updated>2022-03-02T15:26:13.806Z</updated>
     
     <summary type="html">
     
@@ -189,7 +189,7 @@
       
         
         
-          &lt;h1 id=&quot;开发中问题记录&quot;&gt;&lt;a href=&quot;#开发中问题记录&quot; class=&quot;headerlink&quot; title=&quot;开发中问题记录&quot;&gt;&lt;/a&gt;开发中问题记录&lt;/h1&gt;&lt;h2 id=&quot;vue相关&quot;&gt;&lt;a href=&quot;#vue相关&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;开发中问题记录&quot;&gt;&lt;a href=&quot;#开发中问题记录&quot; class=&quot;headerlink&quot; title=&quot;开发中问题记录&quot;&gt;&lt;/a&gt;开发中问题记录&lt;/h1&gt;&lt;h2 id=&quot;npm项目依赖问题&quot;&gt;&lt;a href=&quot;#npm项目依赖问题&quot;
         
       
     
@@ -339,7 +339,7 @@
     <link href="https://sisi001.gitee.io/posts/c9f9.html"/>
     <id>https://sisi001.gitee.io/posts/c9f9.html</id>
     <published>2019-09-04T02:18:31.000Z</published>
-    <updated>2022-02-09T02:25:48.240Z</updated>
+    <updated>2022-03-02T16:48:08.658Z</updated>
     
     <summary type="html">
     
@@ -347,7 +347,7 @@
       
         
         
-          &lt;h1 id=&quot;常用终端命令&quot;&gt;&lt;a href=&quot;#常用终端命令&quot; class=&quot;headerlink&quot; title=&quot;常用终端命令&quot;&gt;&lt;/a&gt;常用终端命令&lt;/h1&gt;&lt;h2 id=&quot;一、git&quot;&gt;&lt;a href=&quot;#一、git&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;常用终端命令&quot;&gt;&lt;a href=&quot;#常用终端命令&quot; class=&quot;headerlink&quot; title=&quot;常用终端命令&quot;&gt;&lt;/a&gt;常用终端命令&lt;/h1&gt;&lt;h2 id=&quot;node版本管理工具nvm&quot;&gt;&lt;a href=&quot;#node版本管理工具nvm&quot;
         
       
     

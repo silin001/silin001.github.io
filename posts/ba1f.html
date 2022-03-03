@@ -5,12 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="开发中遇到的问题, si">
-    <meta name="description" content="开发中问题记录vue相关
-会议列表进入会议按钮连续点击多次触发事件？使用 lodash中的debounce（防抖函数）解决
+    <meta name="description" content="开发中问题记录npm项目依赖问题
+yarn 安装依赖后启动报错如下Could not resolve &#34;pdfast&#34; (mark it as external to exclude it from the bundle)
 
-引用第三方类库api时初始化方法多处需要使用？onReady方法封装到全局函数中，使用到的地方直接使用全局函数
-
-">
+@antv/g">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -343,7 +341,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    936
+                    1.1k
                 </div>
                 
 
@@ -361,7 +359,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="开发中问题记录"><a href="#开发中问题记录" class="headerlink" title="开发中问题记录"></a>开发中问题记录</h1><h2 id="vue相关"><a href="#vue相关" class="headerlink" title="vue相关"></a>vue相关</h2><ul>
+                <h1 id="开发中问题记录"><a href="#开发中问题记录" class="headerlink" title="开发中问题记录"></a>开发中问题记录</h1><h2 id="npm项目依赖问题"><a href="#npm项目依赖问题" class="headerlink" title="npm项目依赖问题"></a>npm项目依赖问题</h2><ul>
+<li>yarn 安装依赖后启动报错如下<br><code>Could not resolve "pdfast" (mark it as external to exclude it from the bundle)</code></li>
+</ul>
+<p><code>@antv/g2plot</code> 使用此依赖源码中引用了 <code>pdfast</code>, 重新单独 yarn add ‘依赖库’<br>一般出现<code>Could not resolve "xxx"</code> 大部分原因是依赖下载失败，就重新下载对应的依赖就行。</p>
+<h2 id="vue相关"><a href="#vue相关" class="headerlink" title="vue相关"></a>vue相关</h2><ul>
 <li><p>会议列表进入会议按钮连续点击多次触发事件？<br>使用 lodash中的debounce（防抖函数）解决</p>
 </li>
 <li><p>引用第三方类库api时初始化方法多处需要使用？<br>onReady方法封装到全局函数中，使用到的地方直接使用全局函数</p>
@@ -452,7 +454,10 @@
   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="js相关"><a href="#js相关" class="headerlink" title="js相关"></a>js相关</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<h2 id="js相关"><a href="#js相关" class="headerlink" title="js相关"></a>js相关</h2><h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><ul>
+<li>vue项目使用axios请求设置请求头为 <code>application/json;charset=utf-8;</code>结尾包含分号导致服务端node拿不到req.body的值</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>windows系统文件压缩zip后，其中中文图片乱码，导致编译时报错无法解析； mac系统则正常</li>
 <li>h5应用接入浙里办，适老化。根据浙里办不同版本环境展示不同版本<br>一个项目两个版本路由，根据不同环境跳转不同路由。</li>
 </ul>
@@ -820,7 +825,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.2k</span>&nbsp;字
+                class="white-color">16.3k</span>&nbsp;字
             
             
             

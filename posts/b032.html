@@ -4,11 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="node服务部署记录, si">
-    <meta name="description" content="node服务部署服务器遇到的问题
-添加5000端口外网访问不到？宝塔面板启动后，默认linux服务器防火墙开启了，需手动关闭防火墙
-
-my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemctl">
+    <meta name="keywords" content="关于服务端遇到的相关问题记录, si">
+    <meta name="description" content="关于服务端遇到的相关问题axios相关
+请求头相关axios 使用 post 发送数据时，默认是直接把 json 放到请求体中提交到后端的。也就是说，我们的 Content-Type 变成了 application/json;charset">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@ my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemct
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>node服务部署记录 | si</title>
+    <title>关于服务端遇到的相关问题记录 | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -199,7 +197,7 @@ my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemct
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">node服务部署记录</h1>
+                    <h1 class="description center-align post-title">关于服务端遇到的相关问题记录</h1>
                 </div>
             </div>
         </div>
@@ -350,14 +348,14 @@ my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemct
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    453
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -368,7 +366,65 @@ my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemct
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="node服务部署服务器"><a href="#node服务部署服务器" class="headerlink" title="node服务部署服务器"></a>node服务部署服务器</h2><h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
+                <h2 id="关于服务端遇到的相关问题"><a href="#关于服务端遇到的相关问题" class="headerlink" title="关于服务端遇到的相关问题"></a>关于服务端遇到的相关问题</h2><h3 id="axios相关"><a href="#axios相关" class="headerlink" title="axios相关"></a>axios相关</h3><ul>
+<li>请求头相关<br>axios 使用 post 发送数据时，默认是直接把 json 放到请求体中提交到后端的。<br>也就是说，我们的 <code>Content-Type</code> 变成了 <code>application/json;charset=utf-8</code>  （注意结尾不要带分号;）,这是axios默认的请求头content-type类型。</li>
+</ul>
+<p>post请求常见的数据格式、请求头（content-type）<br>  <code>Content-Type: application/json</code>： 请求体中的数据会以json字符串的形式发送到后端 如： {a:123}<br>  <code>Content-Type: application/x-www-form-urlencoded</code>：请求体中的数据会以普通表单形式（键值对，k=v写法）发送到后端  body中：a=100<br>  <code>Content-Type: multipart/form-data</code>： 它会将请求体的数据处理为一条消息，以标签为单元，用分隔符分开。既可以上传键值对，也可以上传文件。</p>
+<p>客户端解决 <code>Content-Type: multipart/form-data</code> 的数据类型传参 ？</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 方式  formData</span>
+<span class="token comment" spellcheck="true">/* FormData对象的使用：
+  用一些键值对来模拟一系列表单控件：即把form中所有的元素的name与value组成一个queryString。
+  异步上传二进制文件。
+  对于这种类型的数据，我们常见前端页面上传个人图像，然后点击保存发送后端修改原始数据 如下：
+*/</span>
+   <span class="token keyword">let</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// const name = params.get("userName") // 还可以获取</span>
+        params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>file<span class="token punctuation">)</span>
+        params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'userID'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'userName'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>sex<span class="token punctuation">)</span>
+        params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>email<span class="token punctuation">)</span>
+        params<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'qq'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>qq<span class="token punctuation">)</span>
+        axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>URL<span class="token punctuation">,</span> params<span class="token punctuation">,</span> <span class="token punctuation">{</span>headers<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'multipart/form-data'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'更新用户数据失败'</span> <span class="token operator">+</span> error<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>客户端解决<code>application/x-www-form-urlencoded</code> 形式的传参？</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 方式1：  URLSearchParams</span>
+<span class="token comment" spellcheck="true">// 需要注意的是： URLSearchParams 不支持所有的浏览器，但是总体的支持情况还是 OK 的，所以优先推荐这种简单直接的解决方案</span>
+<span class="token keyword">let</span> param <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+param<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">)</span>
+param<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">)</span>
+<span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    method<span class="token punctuation">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">:</span> <span class="token string">'/api/lockServer/search'</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> param
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 方式2：qs 转换数据为key=value格式</span>
+<span class="token comment" spellcheck="true">// 引入 qs ，这个库是 axios 里面包含的，不需要再下载。</span>
+<span class="token keyword">import</span> Qs <span class="token keyword">from</span> <span class="token string">'qs'</span>
+<span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"username"</span><span class="token punctuation">:</span> <span class="token string">"cc"</span><span class="token punctuation">,</span>
+    <span class="token string">"psd"</span><span class="token punctuation">:</span> <span class="token string">"123456"</span>
+<span class="token punctuation">}</span>
+<span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/x-www-form-urlencoded'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    method<span class="token punctuation">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">:</span> <span class="token string">'/api/lockServer/search'</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> Qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="部署服务器后遇到的问题记录"><a href="#部署服务器后遇到的问题记录" class="headerlink" title="部署服务器后遇到的问题记录"></a>部署服务器后遇到的问题记录</h3><ul>
+<li>客户端代码部署服务器后代理访问接口未授权？<br>客户端代码请求了第三方服务接口，接口请求头添加了自定义请求头类似 <code>__s__</code> <code>__token__</code> <code>_token_</code>，浏览器里可以看到这些请求头，但是接口是服务端nginx代理，nginx默认会过滤掉请求头包含<code>_ 、 -</code> 的字段，导致这些参数消失请求失败。</li>
+</ul>
+<h3 id="node服务部署服务器遇到问题"><a href="#node服务部署服务器遇到问题" class="headerlink" title="node服务部署服务器遇到问题"></a>node服务部署服务器遇到问题</h3><ul>
 <li><p>添加5000端口外网访问不到？<br>宝塔面板启动后，默认linux服务器防火墙开启了，需手动关闭防火墙</p>
 <blockquote>
 <p>my服务器配置<br>1vCPUs | 2GB<br>CentOS 8.2 64bit<br>命令：<br>查看防火状态<br><code>systemctl status firewalld</code><br>暂时关闭防火墙<br><code>systemctl stop firewalld</code><br>永久关闭防火墙<br><code>systemctl disable firewalld</code><br>重启防火墙<br><code>systemctl enable firewalld</code></p>
@@ -379,19 +435,14 @@ my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemct
 <p>curl <a target="_blank" rel="noopener" href="http://123.60.111.103:5000">http://123.60.111.103:5000</a><br>curl <a target="_blank" rel="noopener" href="http://localhost:5000">http://localhost:5000</a></p>
 </blockquote>
 </li>
-<li><p>node服务启动文件监听ip？<br>node服务启动文件 监听ip一定要写成 <code>0.0.0.0</code> 或者可以省略不写；由于我写成了127.0.0.0 导致部署服务器后访问失败！</p>
+<li><p>node服务启动文件监听ip？<br>node服务启动文件 监听ip一定要写成 <code>0.0.0.0</code> 或者可以省略不写；由于我写成了<code>127.0.0.0</code>导致部署服务器后访问失败！</p>
 </li>
-</ul>
-<h3 id="一般外网无法访问服务器指定端口排查如下"><a href="#一般外网无法访问服务器指定端口排查如下" class="headerlink" title="一般外网无法访问服务器指定端口排查如下"></a>一般外网无法访问服务器指定端口排查如下</h3><ul>
-<li>排查服务商对应端口安全组是否开放？</li>
-<li>排查服务器对应端口是否放行</li>
-<li>排查服务器防火墙是否关闭</li>
-</ul>
-<h3 id="服务器使用pm2"><a href="#服务器使用pm2" class="headerlink" title="服务器使用pm2"></a>服务器使用pm2</h3><ul>
-<li>服务器使用pm2启动node服务失败<br>在云服务器上使用pm2管理node服务器进程，启动时失败。mysql连接 host为localhost时可以，换成服务器公网ip就不行了。排查后发现是因为服务器数据库权限没添加对应ip！！</li>
-</ul>
-<h3 id="mysql数据库自动关闭"><a href="#mysql数据库自动关闭" class="headerlink" title="mysql数据库自动关闭"></a>mysql数据库自动关闭</h3><ul>
-<li>解决nodejs的Connection lost: The server closed the connection<br>原因：mysql自带一段时间无动作会自动关闭的机制<br>node服务部署服务器后默认8小时不操作数据库会自动关闭，解决方法：使用连接池</li>
+<li><p>一般外网无法访问服务器指定端口排查如下<br>排查服务商对应端口安全组是否开放？<br>排查服务器对应端口是否放行<br>排查服务器防火墙是否关闭</p>
+</li>
+<li><p>服务器使用pm2<br>服务器使用pm2启动node服务失败<br>在云服务器上使用pm2管理node服务器进程，启动时失败。mysql连接 host为localhost时可以，换成服务器公网ip就不行了。排查后发现是因为服务器数据库权限没添加对应ip！！</p>
+</li>
+<li><p>mysql数据库自动关闭<br>解决<code>nodejs的Connection lost: The server closed the connection</code><br>原因：mysql自带一段时间无动作会自动关闭的机制<br>node服务部署服务器后默认8小时不操作数据库会自动关闭，解决方法：使用连接池</p>
+</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -525,18 +576,16 @@ my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemct
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="node服务部署记录">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="关于服务端遇到的相关问题记录">
                         
-                        <span class="card-title">node服务部署记录</span>
+                        <span class="card-title">关于服务端遇到的相关问题记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            node服务部署服务器遇到的问题
-添加5000端口外网访问不到？宝塔面板启动后，默认linux服务器防火墙开启了，需手动关闭防火墙
-
-my服务器配置1vCPUs | 2GBCentOS 8.2 64bit命令：查看防火状态systemctl
+                            关于服务端遇到的相关问题axios相关
+请求头相关axios 使用 post 发送数据时，默认是直接把 json 放到请求体中提交到后端的。也就是说，我们的 Content-Type 变成了 application/json;charset
                         
                     </div>
                     <div class="publish-info">
@@ -760,7 +809,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.2k</span>&nbsp;字
+                class="white-color">16.3k</span>&nbsp;字
             
             
             
