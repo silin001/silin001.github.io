@@ -4,11 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="js常用方法、, si">
+    <meta name="keywords" content="js常用方法, si">
     <meta name="description" content="记录js常用方法js类型判断
-Object.prototype.toString// 以下是11种：
+Object.prototype.toString
+
+// 以下是11种：
 var number = 1;          // [object Number]
-var string = &#39;123&#39;;      ">
+var string = &#39;123&#39;;    ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@ var string = &#39;123&#39;;      ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>js常用方法、 | si</title>
+    <title>js常用方法 | si</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -194,12 +196,12 @@ var string = &#39;123&#39;;      ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">js常用方法、</h1>
+                    <h1 class="description center-align post-title">js常用方法</h1>
                 </div>
             </div>
         </div>
@@ -360,7 +362,9 @@ var string = &#39;123&#39;;      ">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="记录js常用方法"><a href="#记录js常用方法" class="headerlink" title="记录js常用方法"></a>记录js常用方法</h2><h2 id="js类型判断"><a href="#js类型判断" class="headerlink" title="js类型判断"></a>js类型判断</h2><ul>
-<li>Object.prototype.toString<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 以下是11种：</span>
+<li>Object.prototype.toString</li>
+</ul>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 以下是11种：</span>
 <span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object Number]</span>
 <span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// [object String]</span>
 <span class="token keyword">var</span> boolean <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// [object Boolean]</span>
@@ -372,58 +376,70 @@ var string = &#39;123&#39;;      ">
 <span class="token keyword">var</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Error]</span>
 <span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex">/a/g</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object RegExp]</span>
 <span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Function]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token keyword">function</span> <span class="token function">checkType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">checkType</span><span class="token punctuation">(</span>number<span class="token punctuation">,</span> string<span class="token punctuation">,</span> boolean<span class="token punctuation">,</span> und<span class="token punctuation">,</span> nul<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> array<span class="token punctuation">,</span> date<span class="token punctuation">,</span> error<span class="token punctuation">,</span> reg<span class="token punctuation">,</span> func<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><ul>
+<li>Object.defineProperty(obj,prop,descriptor)<br>vue2.0数据劫持就是使用此方法</li>
+<li>hasOwnProperty()<blockquote>
+<p>判断对象自身属性中是否具有指定的属性。<br>obj.hasOwnProperty(‘name’)</p>
+</blockquote>
 </li>
+<li>Object.is()<blockquote>
+<p>判断两个值是否相对返回布尔值</p>
+</blockquote>
+</li>
+<li>Object.keys()、Object.values()<blockquote>
+<p>方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for…in循环的顺序相同 ( 区别在于 for-in循环枚举原型链中的属性 )</p>
+</blockquote>
+</li>
+<li>Object.freeze()<blockquote>
+<p>冻结一个对象，阻止修改现有属性特性的值，并阻止添加新属性</p>
+</blockquote>
+</li>
+<li>Object.assign(target,source1,source2,…)<br>对象合并</li>
 </ul>
-<p>function checkType() {<br>    for (var i = 0; i &lt; arguments.length; i++) {<br>        console.log(Object.prototype.toString.call(arguments[i]))<br>    }<br>}</p>
-<p>checkType(number, string, boolean, und, nul, obj, array, date, error, reg, func)</p>
-<pre><code>
-## Object对象
-* Object.defineProperty(obj,prop,descriptor)
-  vue2.0数据劫持就是使用此方法
-* hasOwnProperty()
-  &gt; 判断对象自身属性中是否具有指定的属性。
-  obj.hasOwnProperty('name')
-* Object.is()
-  &gt; 判断两个值是否相对返回布尔值
-* Object.keys()、Object.values()
-  &gt; 方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for...in循环的顺序相同 ( 区别在于 for-in循环枚举原型链中的属性 )
-* Object.freeze()
-  &gt; 冻结一个对象，阻止修改现有属性特性的值，并阻止添加新属性
-* Object.assign(target,source1,source2,...)
-  对象合并
-
-
-## 数组
-* slice()  截取数组，不改变原数组
-* splice() 更新数组，改变原数组
-* forEach()、map()、filter()、some()、every() 迭代方法，不改变原数组
-
-* every
-&gt; arr.every((currentValue , index , arr) =&gt; {}, thisValue) 判断数组中的每一项是否都满足条件，全部符合就会返回true，否则false。
-
-```javascript
-const arr = [1, 2, 3]
-const str = arr.every((currentValue) =&gt; {
-    return currentValue &gt; 1
-})
-console.log(str) // false</code></pre><ul>
-<li>some<blockquote>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>slice()  截取数组，不改变原数组</li>
+<li>splice() 更新数组，改变原数组</li>
+<li>forEach()、map()、filter()、some()、every() 迭代方法，不改变原数组</li>
+<li>every</li>
+</ul>
+<blockquote>
+<p>arr.every((currentValue , index , arr) =&gt; {}, thisValue) 判断数组中的每一项是否都满足条件，全部符合就会返回true，否则false。</p>
+</blockquote>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>some</li>
+</ul>
+<blockquote>
 <p>判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回true，不再往下执行</p>
 </blockquote>
 <pre class="line-numbers language-javascript"><code class="language-javascript">arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue <span class="token punctuation">,</span> index <span class="token punctuation">,</span> arr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> thisValue<span class="token punctuation">)</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
 <span class="token keyword">const</span> str <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span>
-  <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true">// 1</span>
 <span class="token comment" spellcheck="true">// 2</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li>keys()、values()、entries() 遍历数组方法,不改变原数组。 （es6新增方法）<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token string">"d"</span><span class="token punctuation">]</span>
+<ul>
+<li>keys()、values()、entries() 遍历数组方法,不改变原数组。 （es6新增方法）</li>
+</ul>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token string">"d"</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//打印：</span>
 <span class="token comment" spellcheck="true">// [0, "a"]</span>
@@ -431,7 +447,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">// [2, "c"]</span>
 <span class="token comment" spellcheck="true">// [3, "d"]</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>idx<span class="token punctuation">,</span>item<span class="token punctuation">]</span> <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token string">":"</span><span class="token operator">+</span>item<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token string">":"</span><span class="token operator">+</span>item<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//打印：</span>
 <span class="token comment" spellcheck="true">// 0:a</span>
@@ -439,20 +455,23 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">// 2:c</span>
 <span class="token comment" spellcheck="true">// 3:d</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<ul>
+<li>Array.from() （es6新增方法）</li>
 </ul>
-<pre><code>*  Array.from() （es6新增方法）
-&gt; Array.from() 用于类似数组的对象（即有length属性的对象）和可遍历对象转为真正的数组。
-```javascript
-  const json ={
-    '0':'喜',
-    '1':'欢',
-    '2':'你',
-    length:3
-}
-const arr = Array.from(json)
-console.log(arr) // ["喜", "欢", "你"]</code></pre><ul>
-<li><p>includes() 不改变原数组。 （es6新增方法）</p>
+<blockquote>
+<p>Array.from() 用于类似数组的对象（即有length属性的对象）和可遍历对象转为真正的数组。</p>
+</blockquote>
+<pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">const</span> json <span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token string">'0'</span><span class="token punctuation">:</span><span class="token string">'喜'</span><span class="token punctuation">,</span>
+    <span class="token string">'1'</span><span class="token punctuation">:</span><span class="token string">'欢'</span><span class="token punctuation">,</span>
+    <span class="token string">'2'</span><span class="token punctuation">:</span><span class="token string">'你'</span><span class="token punctuation">,</span>
+    length<span class="token punctuation">:</span><span class="token number">3</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ["喜", "欢", "你"]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>includes() 不改变原数组。 （es6新增方法）</li>
+</ul>
 <blockquote>
 <p>arr.includes(searchElement , fromIndex) 用来判断一个数组是否包含一个指定的值，如果是返回 true，否则false。</p>
 </blockquote>
@@ -465,13 +484,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result3<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// flase</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result4<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>reduce()、reduceRight() 归并方法，不改变原数组<br>这两个方法都会迭代数组中的所有项，然后生成一个最终返回值。他们都接收两个参数，第一个参数是每一项调用的函数，函数接受四个参数分别是初始值，当前值，索引值，和当前数组，函数需要返回一个值，这个值会在下一次迭代中作为初始值。第二个参数是迭代初始值，参数可选，如果缺省，初始值为数组第一项，从数组第一个项开始叠加，缺省参数要比正常传值少一次运算。<br>[total] 必须项，初始值, 或者计算结束后的返回值。<br>[cur] 必须项，当前元素。<br>[index] 可选。当前元素的索引值<br>[arr] 可选。当前元素所属的数组对象<br>[initialValue] 可选。传递给函数的初始值。</p>
+<ul>
+<li>reduce()、reduceRight() 归并方法，不改变原数组<br>这两个方法都会迭代数组中的所有项，然后生成一个最终返回值。他们都接收两个参数，第一个参数是每一项调用的函数，函数接受四个参数分别是初始值，当前值，索引值，和当前数组，函数需要返回一个值，这个值会在下一次迭代中作为初始值。第二个参数是迭代初始值，参数可选，如果缺省，初始值为数组第一项，从数组第一个项开始叠加，缺省参数要比正常传值少一次运算。<br>[total] 必须项，初始值, 或者计算结束后的返回值。<br>[cur] 必须项，当前元素。<br>[index] 可选。当前元素的索引值<br>[arr] 可选。当前元素所属的数组对象<br>[initialValue] 可选。传递给函数的初始值。</li>
+</ul>
 <blockquote>
 <p>arr.reduce((total , cur , index , arr) =&gt; {}, initialValue) 从数组的第一项开始，逐个遍历到最后<br>arr.reduceRight((total , cur , index , arr) =&gt; {}, initialValue) 从数组的最后一项开始，向前遍历到第一项</p>
 </blockquote>
-</li>
-</ul>
 <h2 id="ES2017-ES8"><a href="#ES2017-ES8" class="headerlink" title="ES2017(ES8)"></a>ES2017(ES8)</h2><ul>
 <li>Object.entries() 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值对数组。</li>
 </ul>
@@ -483,20 +501,24 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console.log(Object.entries(obj)); // [ [ 'name', 'jimmy' ], [ 'age', 18 ], [ 'height', 188 ] ]
 console.log(Object.entries([1, 2, 3])); // [ [ '0', 1 ], [ '1', 2 ], [ '2', 3 ] ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>String.prototype.padStart<br>把指定字符串填充到字符串头部，返回新字符串。<pre class="line-numbers language-javaScript"><code class="language-javaScript">'abc'.padStart(10);         // "       abc"
+<li>String.prototype.padStart<br>把指定字符串填充到字符串头部，返回新字符串。</li>
+</ul>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">'abc'.padStart(10);         // "       abc"
 'abc'.padStart(10, "foo");  // "foofoofabc"
 'abc'.padStart(6,"123465"); // "123abc"
 'abc'.padStart(8, "0");     // "00000abc"
 'abc'.padStart(1);          // "abc"
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+
+// 应用场景：
+// 数字替换(手机号，银行卡号等）
+const tel = '18781268679'
+const newTel = tel.slice(-4).padStart(tel.length, '*')
+console.log(newTel) // *******5678
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ES2018-ES9"><a href="#ES2018-ES9" class="headerlink" title="ES2018(ES9)"></a>ES2018(ES9)</h2><ul>
+<li>Object Rest<br>Object rest 的示例：</li>
 </ul>
-<p>// 应用场景：<br>// 数字替换(手机号，银行卡号等）<br>const tel = ‘18781268679’<br>const newTel = tel.slice(-4).padStart(tel.length, ‘<em>‘)<br>console.log(newTel) // <strong>**</strong></em>5678</p>
-<pre><code>## ES2018(ES9)
-* Object Rest
-Object rest 的示例：
-```javaScript
-const input = {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">const input = {
   a: 1,
   b: 2,
   c: 3
@@ -505,7 +527,8 @@ const input = {
 let { a, ...rest } = input
 
 console.log(a, rest) // 1 {b: 2, c: 3}
-// 当对象 key-value 不确定的时候，把必选的 key 赋值给变量，用一个变量收敛其他可选的 key 数据，这在之前是做不到的。注意，rest 属性必须始终出现在对象的末尾，否则将抛出错误。</code></pre><ul>
+// 当对象 key-value 不确定的时候，把必选的 key 赋值给变量，用一个变量收敛其他可选的 key 数据，这在之前是做不到的。注意，rest 属性必须始终出现在对象的末尾，否则将抛出错误。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
 <li>for await of<br>异步迭代器(for-await-of)：循环等待每个Promise对象变为resolved状态才进入下一步。</li>
 </ul>
 <p>我们知道 for…of 是同步运行的，看如下代码</p>
@@ -551,31 +574,27 @@ test()
 
 // for await of 环等待每个Promise对象变为resolved状态才进入下一步。所有打印的结果为 2000，1000，3000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>Promise.prototype.finally()<br>Promise.prototype.finally() 方法返回一个Promise，在promise执行结束时，无论结果是fulfilled或者是rejected，在执行then()和catch()后，都会执行finally指定的回调函数。这为指定执行完promise后，无论结果是fulfilled还是rejected都需要执行的代码提供了一种方式，避免同样的语句需要在then()和catch()中各写一次的情况。<pre class="line-numbers language-javaScript"><code class="language-javaScript">new Promise((resolve, reject) => {
-  setTimeout(() => {
-      resolve('success')
-      // reject('fail')
-  }, 1000)
+<li>Promise.prototype.finally()<br>Promise.prototype.finally() 方法返回一个Promise，在promise执行结束时，无论结果是fulfilled或者是rejected，在执行then()和catch()后，都会执行finally指定的回调函数。这为指定执行完promise后，无论结果是fulfilled还是rejected都需要执行的代码提供了一种方式，避免同样的语句需要在then()和catch()中各写一次的情况。</li>
+</ul>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('success')
+        // reject('fail')
+    }, 1000)
 }).then(res => {
-  console.log(res)
+    console.log(res)
 }).catch(err => {
-  console.log(err)
+    console.log(err)
 }).finally(() => {
-  console.log('finally')
+    console.log('finally')
 })
 // 使用场景
 // loading关闭
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<p>// 需要每次发送请求，都会有loading提示，请求发送完毕，就需要关闭loading提示框，不然界面就无法被点击。不管请求成功或是失败，这个loading都需要关闭掉，这时把关闭loading的代码写在finally里再合适不过了</p>
-<pre><code>## ES2019(ES10)
 
-*Object.fromEntries()
-方法 Object.fromEntries() 把键值对列表转换为一个对象，这个方法是和 Object.entries() 相对的。
-
-```javaScript
-Object.fromEntries([
+// 需要每次发送请求，都会有loading提示，请求发送完毕，就需要关闭loading提示框，不然界面就无法被点击。不管请求成功或是失败，这个loading都需要关闭掉，这时把关闭loading的代码写在finally里再合适不过了
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ES2019-ES10"><a href="#ES2019-ES10" class="headerlink" title="ES2019(ES10)"></a>ES2019(ES10)</h2><p>*Object.fromEntries()<br>方法 Object.fromEntries() 把键值对列表转换为一个对象，这个方法是和 Object.entries() 相对的。</p>
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">Object.fromEntries([
     ['foo', 1],
     ['bar', 2]
 ])
@@ -600,7 +619,7 @@ console.log(fromEntries)
 const map = new Map()
 map.set('name', 'jimmy')
 map.set('age', 18)
-console.log(map) // {'name' =&gt; 'jimmy', 'age' =&gt; 18}
+console.log(map) // {'name' => 'jimmy', 'age' => 18}
 
 const obj = Object.fromEntries(map)
 console.log(obj)
@@ -613,20 +632,21 @@ const course = {
     english: 85,
     chinese: 90
 }
-const res = Object.entries(course).filter(([key, val]) =&gt; val &gt; 80)
+const res = Object.entries(course).filter(([key, val]) => val > 80)
 console.log(res) // [ [ 'english', 85 ], [ 'chinese', 90 ] ]
 console.log(Object.fromEntries(res)) // { english: 85, chinese: 90 }
 
 
 
 // 案例4：url的search参数转换
-// let url = "https://www.baidu.com?name=jimmy&amp;age=18&amp;height=1.88"
+// let url = "https://www.baidu.com?name=jimmy&age=18&height=1.88"
 // queryString 为 window.location.search
-const queryString = "?name=jimmy&amp;age=18&amp;height=1.88";
+const queryString = "?name=jimmy&age=18&height=1.88";
 const queryParams = new URLSearchParams(queryString);
 const paramObj = Object.fromEntries(queryParams);
 console.log(paramObj); // { name: 'jimmy', age: '18', height: '1.88' }
-</code></pre><p>*Array.prototype.flat()<br>let newArray = arr.flat([depth])<br>depth 可选  指定要提取嵌套数组的结构深度，默认值为 1。<br>flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>*Array.prototype.flat()<br>let newArray = arr.flat([depth])<br>depth 可选  指定要提取嵌套数组的结构深度，默认值为 1。<br>flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">const arr1 = [0, 1, 2, [3, 4]];
 console.log(arr1.flat());  //  [0, 1, 2, 3, 4]
 const arr2 = [0, 1, 2, [[[3, 4]]]];
@@ -864,8 +884,6 @@ Promise.any()跟Promise.race()方法很像，只有一点不同，就是Promise.
 ```javaScript
 
 ``` -->
-
-
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1229,7 +1247,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.2k</span>&nbsp;字
+                class="white-color">17.9k</span>&nbsp;字
             
             
             
@@ -1422,7 +1440,13 @@ $(function () {
                                                                                                             src="/libs/instantpage/instantpage.js"
                                                                                                             type="module"></script>
                                                                                                         
-    
+    <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script>
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
         const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
@@ -1443,13 +1467,7 @@ $(function () {
             }
           }
         });
-        </script><script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                preloadRatio: 1,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script></body>
 
 <script>
 $(function () {

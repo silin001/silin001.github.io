@@ -428,28 +428,28 @@ yarn config get registry
 <span class="token function">cat</span> id_rsa.pub 查看公钥
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="git初始化"><a href="#git初始化" class="headerlink" title="git初始化"></a>git初始化</h3><ul>
-<li>初始化<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
+<li>初始化</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
 <span class="token function">git</span> status
 <span class="token function">git</span> log  <span class="token comment" spellcheck="true"># 显示提交日志</span>
 <span class="token function">git</span> config --global user.name <span class="token string">"xxx"</span>    <span class="token comment" spellcheck="true"># 配置用户名</span>
 <span class="token function">git</span> config --global user.email <span class="token string">"xxx@xxx.com"</span>  <span class="token comment" spellcheck="true"># 配置邮件</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<ul>
+<li>本地创建 git 仓库?</li>
 </ul>
-<pre><code>
-* 本地创建 git 仓库?
-```bash
-mkdir xxx
-cd xxx
-git init
-touch README.md
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">mkdir</span> xxx
+<span class="token function">cd</span> xxx
+<span class="token function">git</span> init
+<span class="token function">touch</span> README.md
 
 添加文件：
-
-git add README.md
-git commit -m "first commit"
-git remote add origin git@gitee.com:sisi001/xxx.git
-git push -u origin "main" （注意gitee 远程主分支是 master  github是main）</code></pre><ul>
+<span class="token function">git</span> add README.md
+<span class="token function">git</span> commit -m <span class="token string">"first commit"</span>
+<span class="token function">git</span> remote add origin git@gitee.com:sisi001/xxx.git
+<span class="token function">git</span> push -u origin <span class="token string">"main"</span> （注意gitee 远程主分支是 master  github是main）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
 <li>远程已有仓库?</li>
 </ul>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> existing_git_repo
@@ -891,7 +891,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.2k</span>&nbsp;字
+                class="white-color">17.9k</span>&nbsp;字
             
             
             
@@ -1084,7 +1084,13 @@ $(function () {
                                                                                                             src="/libs/instantpage/instantpage.js"
                                                                                                             type="module"></script>
                                                                                                         
-    
+    <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script>
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
         const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
@@ -1105,13 +1111,7 @@ $(function () {
             }
           }
         });
-        </script><script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                preloadRatio: 1,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script></body>
 
 <script>
 $(function () {
