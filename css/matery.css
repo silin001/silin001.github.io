@@ -311,6 +311,7 @@ header .brand-logo .logo-img {
 
 header .brand-logo .logo-span {
     font-size: 2rem;
+    margin-left: 20px;
 }
 
 header .button-collapse i {
