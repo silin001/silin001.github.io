@@ -433,7 +433,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                         // 区分是否有年份.
                         var language = 'zh-CN';
                         if (startYear === String(todayYear)) {
-                            document.getElementById("year").innerHTML = todayYear;
+                            // document.getElementById("year").innerHTML = todayYear;
                             var daysTip = 'This site has been running for ' + diffDays + ' days';
                             if (language === 'zh-CN') {
                                 daysTip = '本站已运行 ' + diffDays + ' 天';
@@ -442,7 +442,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                             }
                             document.getElementById("sitetime").innerHTML = daysTip;
                         } else {
-                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
                                 + diffDays + ' days';
                             if (language === 'zh-CN') {
@@ -554,6 +554,20 @@ $(function () {
                                 <!-- Baidu Analytics -->
 
                                     <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
                                         
                                                 
