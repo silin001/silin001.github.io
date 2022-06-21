@@ -374,19 +374,18 @@ Vscode vim使用：y复制（先选中）yy复制一行nyy复制多行（n为行
 </li>
 <li><p>选中<br>v+i+w      放在一个单词的任意位置时均可选中本单词<br>v+e      光标放在一个单词的开头时可选中本单词<br>v+h/j/k/l      进入视图模式后使用方向键容易选中你想选的部分</p>
 </li>
-<li><p>增<br>d = delete 删除 d是开启剪切模式<br>x= 删除一个字符<br>dG = 删除全部<br>3x = 3个字符<br>dd= 剪切一行/ndd删除n是数字<br>dw = delete word 删除一个单词-光标在单词位置<br>diw = delete inner word 删除一个单词进入插入模式<br>daw = delete around word 包含空格<br>s是删除当前光标所指并转为 insert 模式</p>
+<li><p>删除<br>d = delete 删除 d是开启剪切模式<br>x= 删除一个字符<br>dG = 删除全部<br>3x = 3个字符<br>dd= 剪切一行/ndd删除n是数字<br>dw = delete word 删除一个单词-光标在单词位置<br>diw = delete inner word 删除一个单词进入插入模式<br>daw = delete around word 包含空格<br>s是删除当前光标所指并转为 insert 模式</p>
 </li>
 <li><p>改<br>c= change<br>cc= 删除一行并且进入写入模式<br>ciw=删除一个单词并进入插入模式<br>ct) = 光标不在括号内，修改到右括号，<br>ct) =光标在括号内容第一个字符，删除()内容进入插入模式<br>以下命令可以对标点内的内容进行操作。<br>ci’、ci”、ci(、ci[、ci{、ci&lt; - 分别更改这些配对标点符号中的文本内容<br>di’、di”、di(或dib、di[、di{或diB、di&lt; - 分别删除这些配对标点符号中的文本内容<br>yi’、yi”、yi(、yi[、yi{、yi&lt; - 分别复制这些配对标点符号中的文本内容<br>vi’、vi”、vi(、vi[、vi{、vi&lt; - 分别选中这些配对标点符号中的文本内容</p>
 </li>
 <li><p>查</p>
-</li>
-<li><ul>
-<li>查找<br>查找’name’: <code>/name</code>  n向下 N向上<br>取消查找高亮命令: <code>:nohl</code><br>在normal模式下按下*即可查找光标所在单词<br>在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。<br>例如：<code>/foo\c</code> 将会查找所有的”foo”,”FOO”,”Foo”等字符串。</li>
-</ul>
-</li>
-<li><ul>
-<li>查找替换<br>:s（substitute）命令用来查找和替换字符串<br>例如:<code>%s/foo/bar/g</code> 会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）<br>g即是替换标志之一，如： i表示大小写不敏感查找，I表示大小写敏感。<br>还有空替换标志表示只替换从光标位置开始，目标的第一次出现：<br><code>:%s/foo/bar</code></li>
-</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>查<br>查找’name’: <code>/name</code>  n向下 N向上<br>取消查找高亮命令: <code>:nohl</code><br>在normal模式下按下*即可查找光标所在单词<br>在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。<br>例如：<code>/foo\c</code> 将会查找所有的”foo”,”FOO”,”Foo”等字符串。<br>查找替换<br>:s（substitute）命令用来查找和替换字符串<br>例如:<code>%s/foo/bar/g</code> 会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）<br>g即是替换标志之一，如： i表示大小写不敏感查找，I表示大小写敏感。<br>还有空替换标志表示只替换从光标位置开始，目标的第一次出现：<br><code>:%s/foo/bar</code></p>
+</blockquote>
+</blockquote>
+</blockquote>
 <p>作用范围分为当前行、全文、选区等等。<br>当前行：<br><code>:s/foo/bar/g</code><br>全文：<br><code>:%s/foo/bar/g</code><br>选区，在Visual模式下选择区域后输入:，Vim即可自动补全为 :’&lt;,’&gt;。<br><code>:'&lt;,'&gt;s/foo/bar/g</code><br>2-11行：<br><code>:5,12s/foo/bar/g</code><br>当前行.与接下来两行+2：<br><code>:.,+2s/foo/bar/g</code></p>
 <h2 id="二、insert插入模式"><a href="#二、insert插入模式" class="headerlink" title="二、insert插入模式"></a>二、insert插入模式</h2><p>在正常模式中按下i, I, a, A等键，会进入插入模式。<br>小写包含空格，大写不包含空格<br>a/A = append： 后面插入<br>i /I = insert :前面插入<br>o/O = open a line ：另起一行<br>现在只用记住按i键会进行插入模式。插入模式中，击键时会写入相应的字符。</p>
 <h2 id="三、visual可视模式"><a href="#三、visual可视模式" class="headerlink" title="三、visual可视模式"></a>三、visual可视模式</h2><p>在正常模式按下v, V, <ctrl>+v，可以进入可视模式。可视模式中的<br>操作有点像拿鼠标进行操作，选择文本的时候有一种鼠标选择的即视感，有时候会很方便。</ctrl></p>
@@ -758,7 +757,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.5k</span>&nbsp;字
+                class="white-color">18.4k</span>&nbsp;字
             
             
             
