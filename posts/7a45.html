@@ -5,12 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="js常用方法, 尖椒土豆sss">
-    <meta name="description" content="记录js常用方法js类型判断
+    <meta name="description" content="记录 js 常用方法js 类型判断
 Object.prototype.toString
 
 // 以下是11种：
-var number = 1;          // [object Number]
-var string = &#39;123&#39;;    ">
+var number = 1; // [object Number]
+var string = &#34;123&#34;; // [objec">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -363,32 +363,43 @@ var string = &#39;123&#39;;    ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="记录js常用方法"><a href="#记录js常用方法" class="headerlink" title="记录js常用方法"></a>记录js常用方法</h2><h2 id="js类型判断"><a href="#js类型判断" class="headerlink" title="js类型判断"></a>js类型判断</h2><ul>
+                <h2 id="记录-js-常用方法"><a href="#记录-js-常用方法" class="headerlink" title="记录 js 常用方法"></a>记录 js 常用方法</h2><h2 id="js-类型判断"><a href="#js-类型判断" class="headerlink" title="js 类型判断"></a>js 类型判断</h2><ul>
 <li>Object.prototype.toString</li>
 </ul>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 以下是11种：</span>
-<span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object Number]</span>
-<span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// [object String]</span>
-<span class="token keyword">var</span> boolean <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// [object Boolean]</span>
-<span class="token keyword">var</span> und <span class="token operator">=</span> undefined<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// [object Undefined]</span>
-<span class="token keyword">var</span> nul <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object Null]</span>
-<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span>         <span class="token comment" spellcheck="true">// [object Object]</span>
-<span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// [object Array]</span>
-<span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// [object Date]</span>
+<span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Number]</span>
+<span class="token keyword">var</span> string <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object String]</span>
+<span class="token keyword">var</span> boolean <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Boolean]</span>
+<span class="token keyword">var</span> und <span class="token operator">=</span> undefined<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Undefined]</span>
+<span class="token keyword">var</span> nul <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Null]</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Object]</span>
+<span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Array]</span>
+<span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Date]</span>
 <span class="token keyword">var</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Error]</span>
-<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex">/a/g</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// [object RegExp]</span>
-<span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Function]</span>
+<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex">/a/g</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object RegExp]</span>
+<span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Function]</span>
 
 <span class="token keyword">function</span> <span class="token function">checkType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token function">checkType</span><span class="token punctuation">(</span>number<span class="token punctuation">,</span> string<span class="token punctuation">,</span> boolean<span class="token punctuation">,</span> und<span class="token punctuation">,</span> nul<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> array<span class="token punctuation">,</span> date<span class="token punctuation">,</span> error<span class="token punctuation">,</span> reg<span class="token punctuation">,</span> func<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><ul>
-<li>Object.defineProperty(obj,prop,descriptor)<br>vue2.0数据劫持就是使用此方法</li>
+<span class="token function">checkType</span><span class="token punctuation">(</span>
+  number<span class="token punctuation">,</span>
+  string<span class="token punctuation">,</span>
+  boolean<span class="token punctuation">,</span>
+  und<span class="token punctuation">,</span>
+  nul<span class="token punctuation">,</span>
+  obj<span class="token punctuation">,</span>
+  array<span class="token punctuation">,</span>
+  date<span class="token punctuation">,</span>
+  error<span class="token punctuation">,</span>
+  reg<span class="token punctuation">,</span>
+  func
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h2><ul>
+<li>Object.defineProperty(obj,prop,descriptor)<br>vue2.0 数据劫持就是使用此方法</li>
 <li>hasOwnProperty()<blockquote>
 <p>判断对象自身属性中是否具有指定的属性。<br>obj.hasOwnProperty(‘name’)</p>
 </blockquote>
@@ -398,7 +409,7 @@ var string = &#39;123&#39;;    ">
 </blockquote>
 </li>
 <li>Object.keys()、Object.values()<blockquote>
-<p>方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for…in循环的顺序相同 ( 区别在于 for-in循环枚举原型链中的属性 )</p>
+<p>方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用 for…in 循环的顺序相同 ( 区别在于 for-in 循环枚举原型链中的属性 )</p>
 </blockquote>
 </li>
 <li>Object.freeze()<blockquote>
@@ -408,84 +419,83 @@ var string = &#39;123&#39;;    ">
 <li>Object.assign(target,source1,source2,…)<br>对象合并</li>
 </ul>
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
-<li>slice()  截取数组，不改变原数组</li>
+<li>slice() 截取数组，不改变原数组</li>
 <li>splice() 更新数组，改变原数组</li>
 <li>forEach()、map()、filter()、some()、every() 迭代方法，不改变原数组</li>
 <li>every</li>
 </ul>
 <blockquote>
-<p>arr.every((currentValue , index , arr) =&gt; {}, thisValue) 判断数组中的每一项是否都满足条件，全部符合就会返回true，否则false。</p>
+<p>arr.every((currentValue , index , arr) =&gt; {}, thisValue) 判断数组中的每一项是否都满足条件，全部符合就会返回 true，否则 false。</p>
 </blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> str <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>some</li>
 </ul>
 <blockquote>
-<p>判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回true，不再往下执行</p>
+<p>判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回 true，不再往下执行</p>
 </blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript">arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue <span class="token punctuation">,</span> index <span class="token punctuation">,</span> arr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> thisValue<span class="token punctuation">)</span>
-<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript">arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">,</span> index<span class="token punctuation">,</span> arr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> thisValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> str <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>currentValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> currentValue <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 1</span>
 <span class="token comment" spellcheck="true">// 2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>keys()、values()、entries() 遍历数组方法,不改变原数组。 （es6新增方法）</li>
+<li>keys()、values()、entries() 遍历数组方法,不改变原数组。 （es6 新增方法）</li>
 </ul>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token string">"d"</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//打印：</span>
 <span class="token comment" spellcheck="true">// [0, "a"]</span>
 <span class="token comment" spellcheck="true">// [1, "b"]</span>
 <span class="token comment" spellcheck="true">// [2, "c"]</span>
 <span class="token comment" spellcheck="true">// [3, "d"]</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>idx<span class="token punctuation">,</span>item<span class="token punctuation">]</span> <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token string">":"</span><span class="token operator">+</span>item<span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>idx<span class="token punctuation">,</span> item<span class="token punctuation">]</span> <span class="token keyword">of</span> arr<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token string">":"</span> <span class="token operator">+</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">//打印：</span>
 <span class="token comment" spellcheck="true">// 0:a</span>
 <span class="token comment" spellcheck="true">// 1:b</span>
 <span class="token comment" spellcheck="true">// 2:c</span>
-<span class="token comment" spellcheck="true">// 3:d</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">// 3:d</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>Array.from() （es6新增方法）</li>
+<li>Array.from() （es6 新增方法）</li>
 </ul>
 <blockquote>
-<p>Array.from() 用于类似数组的对象（即有length属性的对象）和可遍历对象转为真正的数组。</p>
+<p>Array.from() 用于类似数组的对象（即有 length 属性的对象）和可遍历对象转为真正的数组。</p>
 </blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">const</span> json <span class="token operator">=</span><span class="token punctuation">{</span>
-    <span class="token string">'0'</span><span class="token punctuation">:</span><span class="token string">'喜'</span><span class="token punctuation">,</span>
-    <span class="token string">'1'</span><span class="token punctuation">:</span><span class="token string">'欢'</span><span class="token punctuation">,</span>
-    <span class="token string">'2'</span><span class="token punctuation">:</span><span class="token string">'你'</span><span class="token punctuation">,</span>
-    length<span class="token punctuation">:</span><span class="token number">3</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">const</span> arr <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ["喜", "欢", "你"]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> json <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token number">0</span><span class="token punctuation">:</span> <span class="token string">"喜"</span><span class="token punctuation">,</span>
+  <span class="token number">1</span><span class="token punctuation">:</span> <span class="token string">"欢"</span><span class="token punctuation">,</span>
+  <span class="token number">2</span><span class="token punctuation">:</span> <span class="token string">"你"</span><span class="token punctuation">,</span>
+  length<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ["喜", "欢", "你"]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>includes() 不改变原数组。 （es6新增方法）</li>
+<li>includes() 不改变原数组。 （es6 新增方法）</li>
 </ul>
 <blockquote>
-<p>arr.includes(searchElement , fromIndex) 用来判断一个数组是否包含一个指定的值，如果是返回 true，否则false。</p>
+<p>arr.includes(searchElement , fromIndex) 用来判断一个数组是否包含一个指定的值，如果是返回 true，否则 false。</p>
 </blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token string">"d"</span><span class="token punctuation">]</span>
-<span class="token keyword">const</span> result1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> result2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> result3 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> result4 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// true</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// false</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result3<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// flase</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result4<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result3 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result4 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// flase</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>reduce()、reduceRight() 归并方法，不改变原数组<br>这两个方法都会迭代数组中的所有项，然后生成一个最终返回值。他们都接收两个参数，第一个参数是每一项调用的函数，函数接受四个参数分别是初始值，当前值，索引值，和当前数组，函数需要返回一个值，这个值会在下一次迭代中作为初始值。第二个参数是迭代初始值，参数可选，如果缺省，初始值为数组第一项，从数组第一个项开始叠加，缺省参数要比正常传值少一次运算。<br>[total] 必须项，初始值, 或者计算结束后的返回值。<br>[cur] 必须项，当前元素。<br>[index] 可选。当前元素的索引值<br>[arr] 可选。当前元素所属的数组对象<br>[initialValue] 可选。传递给函数的初始值。</li>
 </ul>
@@ -531,7 +541,7 @@ let { a, ...rest } = input
 console.log(a, rest) // 1 {b: 2, c: 3}
 // 当对象 key-value 不确定的时候，把必选的 key 赋值给变量，用一个变量收敛其他可选的 key 数据，这在之前是做不到的。注意，rest 属性必须始终出现在对象的末尾，否则将抛出错误。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>for await of<br>异步迭代器(for-await-of)：循环等待每个Promise对象变为resolved状态才进入下一步。</li>
+<li>for await of<br>异步迭代器(for-await-of)：循环等待每个 Promise 对象变为 resolved 状态才进入下一步。</li>
 </ul>
 <p>我们知道 for…of 是同步运行的，看如下代码</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">function TimeOut(time){
@@ -544,7 +554,7 @@ console.log(a, rest) // 1 {b: 2, c: 3}
 
 async function test() {
     let arr = [TimeOut(2000), TimeOut(1000), TimeOut(3000)]
-    for (let item of arr) {  
+    for (let item of arr) {
      console.log(Date.now(),item.then(console.log))
     }
 }
@@ -576,7 +586,7 @@ test()
 
 // for await of 环等待每个Promise对象变为resolved状态才进入下一步。所有打印的结果为 2000，1000，3000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>Promise.prototype.finally()<br>Promise.prototype.finally() 方法返回一个Promise，在promise执行结束时，无论结果是fulfilled或者是rejected，在执行then()和catch()后，都会执行finally指定的回调函数。这为指定执行完promise后，无论结果是fulfilled还是rejected都需要执行的代码提供了一种方式，避免同样的语句需要在then()和catch()中各写一次的情况。</li>
+<li>Promise.prototype.finally()<br>Promise.prototype.finally() 方法返回一个 Promise，在 promise 执行结束时，无论结果是 fulfilled 或者是 rejected，在执行 then()和 catch()后，都会执行 finally 指定的回调函数。这为指定执行完 promise 后，无论结果是 fulfilled 还是 rejected 都需要执行的代码提供了一种方式，避免同样的语句需要在 then()和 catch()中各写一次的情况。</li>
 </ul>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -648,7 +658,7 @@ const queryParams = new URLSearchParams(queryString);
 const paramObj = Object.fromEntries(queryParams);
 console.log(paramObj); // { name: 'jimmy', age: '18', height: '1.88' }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>*Array.prototype.flat()<br>let newArray = arr.flat([depth])<br>depth 可选  指定要提取嵌套数组的结构深度，默认值为 1。<br>flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</p>
+<p>*Array.prototype.flat()<br>let newArray = arr.flat([depth])<br>depth 可选 指定要提取嵌套数组的结构深度，默认值为 1。<br>flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">const arr1 = [0, 1, 2, [3, 4]];
 console.log(arr1.flat());  //  [0, 1, 2, 3, 4]
 const arr2 = [0, 1, 2, [[[3, 4]]]];
@@ -661,7 +671,7 @@ arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // `flat()` 方法会移除数组中的空项:
 var arr5 = [1, 2, , 4, 5];
 arr5.flat(); // [1, 2, 4, 5]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>*Array.prototype.flatMap()<br>flatMap() 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。从方法的名字上也可以看出来它包含两部分功能一个是 map，一个是 flat（深度为1）。</p>
+<p>*Array.prototype.flatMap()<br>flatMap() 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。从方法的名字上也可以看出来它包含两部分功能一个是 map，一个是 flat（深度为 1）。</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">const numbers = [1, 2, 3]
 numbers.map(x => [x * 2]) // [[2], [4], [6]]
 numbers.flatMap(x => [x * 2]) // [2, 4, 6]
@@ -681,7 +691,7 @@ console.log(str.length) // 8
 str = str.trimStart() // 或str.trimLeft()
 console.log(str.length) // 5
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>*可选的Catch Binding<br>在 ES10 之前我们都是这样捕获异常的：</p>
+<p>*可选的 Catch Binding<br>在 ES10 之前我们都是这样捕获异常的：</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">try {
     // tryCode
 } catch (err) {
@@ -707,24 +717,23 @@ const validJSON = json => {
     }
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="ES2020-ES11"><a href="#ES2020-ES11" class="headerlink" title="ES2020(ES11)"></a>ES2020(ES11)</h2><p>*可选链操作符( ?. )<br>?. 操作符的功能类似于 . 链式操作符，不同之处在于，在引用为 null 或者 undefined 的情况下不会引起错误，该表达式短路返回值是 undefined。与函数调用一起使用时，如果给定的函数不存在，则返回 undefined。<br>*空值合并运算符（Nullish coalescing Operator）<br>空值合并操作符（ ?? ）是一个逻辑操作符，当左侧的操作数为 null或者undefined时，返回其右侧操作数，否则返回左侧操作数。</p>
-<pre class="line-numbers language-js"><code class="language-js">与空值合并操作符一起使用
+<h2 id="ES2020-ES11"><a href="#ES2020-ES11" class="headerlink" title="ES2020(ES11)"></a>ES2020(ES11)</h2><p>*可选链操作符( ?. )<br>?. 操作符的功能类似于 . 链式操作符，不同之处在于，在引用为 null 或者 undefined 的情况下不会引起错误，该表达式短路返回值是 undefined。与函数调用一起使用时，如果给定的函数不存在，则返回 undefined。<br>*空值合并运算符（Nullish coalescing Operator）<br>空值合并操作符（ ?? ）是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。</p>
+<pre class="line-numbers language-js"><code class="language-js">与空值合并操作符一起使用<span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> customer <span class="token operator">=</span> <span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> <span class="token string">"jimmy"</span><span class="token punctuation">,</span>
-  details<span class="token punctuation">:</span> <span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token number">18</span> <span class="token punctuation">}</span>
+  details<span class="token punctuation">:</span> <span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token number">18</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> customerCity <span class="token operator">=</span> customer<span class="token operator">?</span><span class="token punctuation">.</span>city <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">"成都"</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>customerCity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "成都"</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>customerCity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "成都"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">const foo = undefined ?? "foo"
 const bar = null ?? "bar"
 console.log(foo) // foo
 console.log(bar) // bar
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>*Promise.allSettled()<br>我们都知道 Promise.all() 具有并发执行异步任务的能力。但它的最大问题就是如果其中某个任务出现异常(reject)，所有任务都会挂掉，Promise直接进入reject 状态。</p>
+<p>*Promise.allSettled()<br>我们都知道 Promise.all() 具有并发执行异步任务的能力。但它的最大问题就是如果其中某个任务出现异常(reject)，所有任务都会挂掉，Promise 直接进入 reject 状态。</p>
 <p>场景：现在页面上有三个请求，分别请求不同的数据，如果一个接口服务异常，整个都是失败的，都无法渲染出数据</p>
-<p>我们需要一种机制，如果并发任务中，无论一个任务正常或者异常，都会返回对应的的状态，这就是Promise.allSettled的作用</p>
+<p>我们需要一种机制，如果并发任务中，无论一个任务正常或者异常，都会返回对应的的状态，这就是 Promise.allSettled 的作用</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">const promise1 = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -753,25 +762,25 @@ const promise3 = () => {
 //  Promise.all 会走到catch里面
 Promise.all([promise1(), promise2(), promise3()])
   .then((res) => {
-    console.log(res); 
+    console.log(res);
   })
   .catch((error) => {
-    console.log("error", error); // error promise3 
+    console.log("error", error); // error promise3
   });
 
 // Promise.allSettled 不管有没有错误，三个的状态都会返回
 Promise.allSettled([promise1(), promise2(), promise3()])
   .then((res) => {
-    console.log(res);  
-    // 打印结果 
+    console.log(res);
+    // 打印结果
     // [
-    //    {status: 'fulfilled', value: 'promise1'}, 
+    //    {status: 'fulfilled', value: 'promise1'},
     //    {status: 'fulfilled',value: 'promise2'},
     //    {status: 'rejected', reason: 'error promise3 '}
     // ]
   })
   .catch((error) => {
-    console.log("error", error); 
+    console.log("error", error);
   });
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>*import()可以在需要的时候，再加载某个模块。</p>
@@ -833,7 +842,7 @@ function config(options) {
 config({ duration: 125 }); // { duration: 125, speed: 25 }
 config({}); // { duration: 100, speed: 25 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>*String.prototype.replaceAll()<br>replaceAll()  方法返回一个新字符串，新字符串中所有满足 pattern 的部分都会被replacement 替换。pattern可以是一个字符串或一个RegExp，replacement可以是一个字符串或一个在每次匹配被调用的函数。</p>
+<p>*String.prototype.replaceAll()<br>replaceAll() 方法返回一个新字符串，新字符串中所有满足 pattern 的部分都会被 replacement 替换。pattern 可以是一个字符串或一个 RegExp，replacement 可以是一个字符串或一个在每次匹配被调用的函数。</p>
 <p>原始字符串保持不变。</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">'aabbcc'.replaceAll('b', '.'); // 'aa..cc'
 // 使用正则表达式搜索值时，它必须是全局的。
@@ -1256,7 +1265,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.5k</span>&nbsp;字
+                class="white-color">19k</span>&nbsp;字
             
             
             
