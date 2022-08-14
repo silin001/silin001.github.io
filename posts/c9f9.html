@@ -6,12 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="nvm指令,git指令">
     <meta name="description" content="
-个人常用终端命令node 版本管理工具 nvm
-nvm 工具使用
-
-nvm list available 显示所有可安装的node版本
-nvm install 14.17.6 下载指定版本
-nvm uninstall &amp;lt;versio">
+个人常用方法、终端指令记录快速删除 node_moduleswindows 系统在项目目录下打开 cmd 窗口， 使用如下命令快速删除：rd /s /q node_modulesor如果是 powershell，使用命令：rd -r no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@ nvm uninstall &amp;lt;versio">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- 必应网站 -->
     <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
-    <title>个人常用终端指令 | 尖椒土豆sss</title>
+    <title>个人常用方法、终端指令记录 | 尖椒土豆sss</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -199,12 +194,12 @@ nvm uninstall &amp;lt;versio">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">个人常用终端指令</h1>
+                    <h1 class="description center-align post-title">个人常用方法、终端指令记录</h1>
                 </div>
             </div>
         </div>
@@ -371,14 +366,14 @@ nvm uninstall &amp;lt;versio">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    491
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
 
@@ -390,179 +385,20 @@ nvm uninstall &amp;lt;versio">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <hr>
-<h1 id="个人常用终端命令"><a href="#个人常用终端命令" class="headerlink" title="个人常用终端命令"></a>个人常用终端命令</h1><h2 id="node-版本管理工具-nvm"><a href="#node-版本管理工具-nvm" class="headerlink" title="node 版本管理工具 nvm"></a>node 版本管理工具 nvm</h2><ul>
-<li>nvm 工具使用</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js">nvm list available 显示所有可安装的node版本
-nvm install <span class="token number">14.17</span><span class="token punctuation">.</span><span class="token number">6</span> 下载指定版本
-nvm uninstall <span class="token operator">&lt;</span>version<span class="token operator">></span> ：卸载指定版本node
-nvm use xxx 使用当前下载的某个版本
-nvm install stable 安装最新稳定版本node
-
-nvm ls 查看已安装的node版本
-nvm current 查看当前版本
-
-nvm arch 显示node是运行在<span class="token number">32</span>位还是<span class="token number">64</span>位
-
-nvm on：开启node<span class="token punctuation">.</span>js版本管理。
-nvm off：关闭node<span class="token punctuation">.</span>js版本管理。
-
-nvm默认node镜像源是 <span class="token template-string"><span class="token string">`https://nodejs.org/dist`</span></span> 从默认的镜像缘源下载会很慢，所以可以通过更换镜像源加快下载<span class="token punctuation">:</span>
-<span class="token template-string"><span class="token string">`where nvm`</span></span> 找到nvm安装路径<span class="token punctuation">,</span>找到settings<span class="token punctuation">.</span>txt文件
-将下面这两句话复制到settings<span class="token punctuation">.</span>txt 并保存。
-<span class="token template-string"><span class="token string">`node_mirror: https://npm.taobao.org/mirrors/node/`</span></span>
-<span class="token template-string"><span class="token string">`npm_mirror: https://npm.taobao.org/mirrors/npm/`</span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>yarn 相关</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 查看安装的全局包</span>
-yarn global list
-
-yarn global bin <span class="token comment" spellcheck="true">// 全局安装目录</span>
-<span class="token comment" spellcheck="true">//这样才是安装到全局环境</span>
-yarn global add xxx
-
-<span class="token comment" spellcheck="true">// yarn查看所有版本</span>
-npm view yarn versions
-<span class="token comment" spellcheck="true">// yarn更新到最新版</span>
-npm install yarn@latest <span class="token operator">-</span>g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>设置淘宝镜像</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js">
-<span class="token comment" spellcheck="true">// 查看全局包安装目录</span>
-npm config <span class="token keyword">get</span> prefix
-
-npm config <span class="token keyword">set</span> prefix <span class="token string">"目录路径"</span> 来设置
-
-npm config <span class="token keyword">set</span> registry http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>registry<span class="token punctuation">.</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>
-
-<span class="token comment" spellcheck="true">// 设置yarn淘宝镜像</span>
-yarn config <span class="token keyword">set</span> registry http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>registry<span class="token punctuation">.</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>
-
-<span class="token comment" spellcheck="true">// 查询当前配置的镜像</span>
-npm <span class="token keyword">get</span> registry
-yarn config <span class="token keyword">get</span> registry
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="git-相关"><a href="#git-相关" class="headerlink" title="git 相关"></a>git 相关</h2><h3 id="git-初始化"><a href="#git-初始化" class="headerlink" title="git 初始化"></a>git 初始化</h3><ul>
-<li>初始化</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
-<span class="token function">git</span> status
-<span class="token function">git</span> log  <span class="token comment" spellcheck="true"># 显示提交日志</span>
-<span class="token function">git</span> config --global user.name <span class="token string">"xxx"</span>    <span class="token comment" spellcheck="true"># 配置用户名</span>
-<span class="token function">git</span> config --global user.email <span class="token string">"xxx@xxx.com"</span>  <span class="token comment" spellcheck="true"># 配置邮件</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>本地创建 git 仓库?</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">mkdir</span> xxx
-<span class="token function">cd</span> xxx
-<span class="token function">git</span> init
-<span class="token function">touch</span> README.md
-
-添加文件：
-<span class="token function">git</span> add README.md
-<span class="token function">git</span> commit -m <span class="token string">"first commit"</span>
-<span class="token function">git</span> remote add origin git@gitee.com:sisi001/xxx.git
-<span class="token function">git</span> push -u origin <span class="token string">"main"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>（注意 gitee 远程主分支是 master github 已经修改为 main）</strong></p>
-<ul>
-<li>远程已有仓库?</li>
-</ul>
-<p>本地创建文件夹关联远程库</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> existing_git_repo
-<span class="token function">git</span> remote add origin git@gitee.com:sisi001/xxx.git
-<span class="token function">git</span> push -u origin <span class="token string">"main"</span>  （注意gitee 远程主分支是 master  github是main）
-
-<span class="token comment" spellcheck="true"># git提交时报错：</span>
-<span class="token comment" spellcheck="true">#Updates were rejected because the tip of your current branch is behind......解决方案</span>
-
-<span class="token function">git</span> push -u origin master -f  <span class="token comment" spellcheck="true">#-f意为强制推送。</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>直接从远程仓库拉取现有内容（gitee 远程创建的仓库主分支为 master）</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone git@gitee.com:sisi001/xxx.git
-<span class="token function">cd</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="git-push、git-pull"><a href="#git-push、git-pull" class="headerlink" title="git push、git pull"></a>git push、git pull</h3><pre class="line-numbers language-bash"><code class="language-bash">
-<span class="token function">git</span> clone URL  <span class="token comment" spellcheck="true">#拉取远程代码到本地</span>
-<span class="token function">git</span> commit -m <span class="token string">"提交内容"</span> <span class="token comment" spellcheck="true">#提交暂存区的更改，并记录下备注</span>
-<span class="token function">git</span> push origin main  <span class="token comment" spellcheck="true">#将完成的项目推送到远程仓库中（注意github默认主分支为main，gitee为matser ）</span>
-<span class="token function">git</span> push -u origin main <span class="token comment" spellcheck="true">#第一次提交， 加上 -f 强制推送</span>
-
-<span class="token comment" spellcheck="true"># 更新</span>
-<span class="token function">git</span> fetch
-<span class="token function">git</span> merge
-<span class="token function">git</span> pull <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>远程分支名<span class="token operator">></span>/<span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>
-<span class="token comment" spellcheck="true">#从远程仓库拉取代码并合并到本地，可简写为 git pull 等同于 git fetch &amp;&amp; git merge 拉去并且合并</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>git pull 的时候多次碰见下面的情况：</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 错误信息：</span>
-There is no tracking information <span class="token keyword">for</span> the current branch.
-Please specify <span class="token function">which</span> branch you want to merge with.
-See git-pull<span class="token punctuation">(</span>1<span class="token punctuation">)</span> <span class="token keyword">for</span> details.
-<span class="token function">git</span> pull <span class="token operator">&lt;</span>remote<span class="token operator">></span> <span class="token operator">&lt;</span>branch<span class="token operator">></span>
-If you wish to <span class="token keyword">set</span> tracking information <span class="token keyword">for</span> this branch you can <span class="token keyword">do</span> so with:
-<span class="token function">git</span> branch --set-upstream-to<span class="token operator">=</span>origin/<span class="token operator">&lt;</span>branch<span class="token operator">></span> release
-
-    <span class="token comment" spellcheck="true">#解决：git branch --set-upstream 本地关联远程分支</span>
-    <span class="token function">git</span> branch --set-upstream-to<span class="token operator">=</span>origin/remote_branch main
-    <span class="token comment" spellcheck="true">#其中，origin/remote_branch是你本地分支对应的远程分支； main是你当前的本地分支。</span>
-
-
-<span class="token comment" spellcheck="true"># 然后就会提示这个错误信息：</span>
-fatal: branch <span class="token string">'main'</span> does not exist
-    <span class="token comment" spellcheck="true"># 出现这个问题原因就是本地没有 main 分支导致的。</span>
-    输入 <span class="token function">git</span> branch -a 发现只有远程分支。
-
-    解决方式就是：输入  <span class="token function">git</span> checkout master
-
-<span class="token comment" spellcheck="true"># 错误信息：</span>
-出现 Already on <span class="token string">'master'</span> ,Branch <span class="token string">'master'</span> <span class="token keyword">set</span> up to track remote branch <span class="token string">'master'</span> from <span class="token string">'origin'</span>.，说明已经切换到 master 上。
-再次输入 <span class="token function">git</span> branch -a 发现已经有本地分支
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> branch ：查看本地分支
-<span class="token function">git</span> branch -r ：查看远程分支
-<span class="token function">git</span> branch -a ：查看本地和远程分支
-<span class="token function">git</span> branch 分支名字 ：新建本地分支
-<span class="token function">git</span> branch -d 分支名字 ：删除本地分支 （分支被合并后才允许删除 ，把 -d 改成 -D 强制删除）
-<span class="token function">git</span> branch -m 旧的分支名字 新的分支名字 ：重新命名分支
-<span class="token function">git</span> branch --merged：查看哪些分支已经合并到当前分支
-<span class="token function">git</span> branch --no-merged：查看当前哪些分支还没有合并到当前分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout --<span class="token operator">&lt;</span>file<span class="token operator">></span> ：撤销上一次对文件的操作
-<span class="token function">git</span> checkout  想要切换的分支名：从当前所处的分支切换到其他分支（当切换分支的时候，需要把暂存区里面的文件进行提交,不然暂存区里面的文件会跟着到切换的这条分支上<span class="token punctuation">)</span>
-<span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>branch-name<span class="token operator">></span>：新建并切换到新建分支上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="git-其他"><a href="#git-其他" class="headerlink" title="git 其他"></a>git 其他</h3><ul>
-<li><p>git 密钥<br>显示出在.ssh 文件下的文件，如果存在的话<br><code>$ ls -al ~/.ssh</code><br>git 本地查找钥：gitbash 打开终端窗口：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> ~/.ssh
-<span class="token function">cat</span> id_rsa.pub  查看生成的 ssh公钥，可用于git添加到SSH Keys到github账户中，之后使用git协议+ssh密钥不就不用每次输入密码了。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<!-- - git pages
-  我的 github，git-pages 地址: https://silin001.github.io -->
-
-</li>
-</ul>
-<h2 id="快速删除-node-modules"><a href="#快速删除-node-modules" class="headerlink" title="快速删除 node_modules"></a>快速删除 node_modules</h2><p>windows 系统在项目目录下打开 cmd 窗口， 使用如下命令快速删除：<br><code>rd /s /q node_modules</code><br>or<br>如果是 powershell，使用命令：<br><code>rd -r node_modules</code><br>or<br>使用 node 插件 rimraf 以包的形式包装 rm -rf 命令，用来删除文件和文件夹的，不管文件夹是否为空，都可删除；</p>
+<h1 id="个人常用方法、终端指令记录"><a href="#个人常用方法、终端指令记录" class="headerlink" title="个人常用方法、终端指令记录"></a>个人常用方法、终端指令记录</h1><h2 id="快速删除-node-modules"><a href="#快速删除-node-modules" class="headerlink" title="快速删除 node_modules"></a>快速删除 node_modules</h2><p>windows 系统在项目目录下打开 cmd 窗口， 使用如下命令快速删除：<br><code>rd /s /q node_modules</code><br>or<br>如果是 powershell，使用命令：<br><code>rd -r node_modules</code><br>or<br>使用 node 插件 rimraf 以包的形式包装 rm -rf 命令，用来删除文件和文件夹的，不管文件夹是否为空，都可删除；</p>
 <pre class="line-numbers language-js"><code class="language-js">npm install rimraf <span class="token operator">-</span>g <span class="token comment" spellcheck="true">// 全局安装</span>
 rimraf node_modules<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="cmd-终端操作"><a href="#cmd-终端操作" class="headerlink" title="cmd 终端操作"></a>cmd 终端操作</h2><font color="red">
-ps: cmd和vscode终端部分操作不同！
-</font>
-
-<ul>
+<h2 id="cmd-终端操作"><a href="#cmd-终端操作" class="headerlink" title="cmd 终端操作"></a>cmd 终端操作</h2><ul>
 <li><p>连接远程 linux 服务器<br>ssh 用户名@服务器地址 如 <code>ssh root@39.123.124.99</code><br>ssh 是以 ssh 模式连接远程服务器的命令<br>如果用户名和服务器地址都对了，那么下一行就会让你输入 password， 需要注意的是，在你输入的时候它并不会显示输入， 只需要输入完后回车不出意外就连接成功了。<br>Linux 或者 Mac OS 系统的本地电脑中通过 SSH 登录 Linux 实例。（本地电脑必须是 Linux 操作系统或者 Mac OS 系统）</p>
 </li>
 <li><p>基础命令：<br>dir 查看目录</p>
 </li>
 <li><p>文件夹相关</p>
+<p>md 创建文件夹<br>rm 只能删除空文件夹 / cmd：rd 删除文件夹<br>rm /s 删整个文件夹 /q 不提示</p>
+</li>
+<li><p>文件相关<br>del [filename] - 删除文件<br>首先是创建空文件，命令 type nul&gt;[filename]<br>命令 echo [fileContent]&gt;[filename] 向文件写入内容</p>
 </li>
 </ul>
-<p>md 创建文件夹<br>rm 只能删除空文件夹 / cmd：rd 删除文件夹<br>rm /s 删整个文件夹 /q 不提示</p>
-<ul>
-<li>文件相关</li>
-</ul>
-<p>del [filename] - 删除文件<br>首先是创建空文件，命令 type nul&gt;[filename]<br>命令 echo [fileContent]&gt;[filename] 向文件写入内容</p>
 <h2 id="linux-系统"><a href="#linux-系统" class="headerlink" title="linux 系统"></a>linux 系统</h2><p>rm -rf node_modules 快速删除 node_modules<br>mkdir ‘’ 创建目录<br>rm -r test 删除目录<br>touch ‘’ 创建文件<br>rm 文件名 删除<br>打开文件： vi 　文件名　<br>退出打开的文件　　ｑ：　不报错强制　退出　ｑ！<br>搜索目录【查】find<br>命令：find 目录 参数 文件名称<br>示例：find /usr/tmp -name ‘a*‘ 查找/usr/tmp 目录下的所有以 a 开头的目录或文件</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -760,21 +596,16 @@ ps: cmd和vscode终端部分操作不同！
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="个人常用终端指令">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/14.jpg" class="responsive-img" alt="个人常用方法、终端指令记录">
                         
-                        <span class="card-title">个人常用终端指令</span>
+                        <span class="card-title">个人常用方法、终端指令记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-个人常用终端命令node 版本管理工具 nvm
-nvm 工具使用
-
-nvm list available 显示所有可安装的node版本
-nvm install 14.17.6 下载指定版本
-nvm uninstall &lt;versio
+个人常用方法、终端指令记录快速删除 node_moduleswindows 系统在项目目录下打开 cmd 窗口， 使用如下命令快速删除：rd /s /q node_modulesor如果是 powershell，使用命令：rd -r no
                         
                     </div>
                     <div class="publish-info">
@@ -967,7 +798,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19k</span>&nbsp;字
+                class="white-color">24k</span>&nbsp;字
             
             
             
@@ -1030,8 +861,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
         </div>
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
         <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/silin001/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
@@ -1099,18 +928,20 @@ $(function () {
                             <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
                             <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
                             <script src="/js/matery.js"></script>
-
+                            <!-- 点击烟花爆炸效果 -->
+                            <!--
                             <canvas class="fireworks"
                                 style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
                             <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
                             <script type="text/javascript" src="/js/fireworks.js"></script>
+                            -->
                             <!-- 樱花飘落效果 -->
                             <!-- <script type="text/javascript">
-        //只在桌面版网页启用特效
-        var windowWidth = $(window).width();
-        if (windowWidth > 768) {
-            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
-    </script> -->
+                                //只在桌面版网页启用特效
+                                var windowWidth = $(window).width();
+                                if (windowWidth > 768) {
+                                    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+                            </script> -->
 
                             <script type="text/javascript">
                                 //只在桌面版网页启用天气
@@ -1143,6 +974,9 @@ $(function () {
 </script>
 
                                         
+                                            <script src="/libs/others/clicklove.js"
+                                                async="async"></script>
+                                            
                                                 
                                                     <script async
                                                         src="/libs/others/busuanzi.pure.mini.js"></script>
@@ -1153,14 +987,6 @@ $(function () {
                                                                 
 
                                                                         
-                                                                            <script type="text/javascript"
-                                                                                color="0,0,255"
-                                                                                pointColor="0,0,255"
-                                                                                opacity='0.7'
-                                                                                zIndex="-1"
-                                                                                count="99"
-                                                                                src="/libs/background/canvas-nest.js"></script>
-                                                                            
 
                                                                                 
 

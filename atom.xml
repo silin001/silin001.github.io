@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sisi001.gitee.io/"/>
-  <updated>2022-06-24T07:15:57.014Z</updated>
+  <updated>2022-08-10T03:59:18.137Z</updated>
   <id>https://sisi001.gitee.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>macOs下环境配置记录</title>
+    <link href="https://sisi001.gitee.io/posts/7817.html"/>
+    <id>https://sisi001.gitee.io/posts/7817.html</id>
+    <published>2022-07-20T14:12:03.000Z</published>
+    <updated>2022-08-10T03:59:18.137Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;记录个人使用-macOs-时配置开发环境&quot;&gt;&lt;a href=&quot;#记录个人使用-macOs-时配置开发环境&quot; class=&quot;headerlink&quot; title=&quot;记录个人使用 macOs 时配置开发环境&quot;&gt;&lt;/a&gt;记录个人使用 macOs
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js" scheme="https://sisi001.gitee.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vite+vue3+ts项目遇到的问题</title>
-    <link href="https://sisi001.gitee.io/posts/69af.html"/>
-    <id>https://sisi001.gitee.io/posts/69af.html</id>
+    <link href="https://sisi001.gitee.io/posts/61cb.html"/>
+    <id>https://sisi001.gitee.io/posts/61cb.html</id>
     <published>2022-03-02T15:05:33.000Z</published>
-    <updated>2022-06-24T07:15:57.014Z</updated>
+    <updated>2022-08-10T03:59:18.147Z</updated>
     
     <summary type="html">
     
@@ -44,6 +69,33 @@
       <category term="eslint" scheme="https://sisi001.gitee.io/tags/eslint/"/>
     
       <category term="vue3" scheme="https://sisi001.gitee.io/tags/vue3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人开发中遇到的问题</title>
+    <link href="https://sisi001.gitee.io/posts/ba1f.html"/>
+    <id>https://sisi001.gitee.io/posts/ba1f.html</id>
+    <published>2022-01-12T08:07:04.000Z</published>
+    <updated>2022-08-14T09:34:45.937Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;个人开发中问题记录&quot;&gt;&lt;a href=&quot;#个人开发中问题记录&quot; class=&quot;headerlink&quot; title=&quot;个人开发中问题记录&quot;&gt;&lt;/a&gt;个人开发中问题记录&lt;/h1&gt;&lt;!-- ## 开发中遇到的难点、痛点技术问题 --&gt;
+
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="个人开发问题记录" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -73,6 +125,35 @@
       <category term="浙里办对接" scheme="https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/"/>
     
       <category term="浙里办" scheme="https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开发环境配置相关</title>
+    <link href="https://sisi001.gitee.io/posts/69af.html"/>
+    <id>https://sisi001.gitee.io/posts/69af.html</id>
+    <published>2021-04-02T13:15:33.000Z</published>
+    <updated>2022-08-10T03:59:18.160Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;日常开发中用到的一些开发工具、环境配置使用等遇到的问题，也借鉴了网上很多资料实践解决；特以此篇记录我的日常踩坑之路/(ㄒ o
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="vscode" scheme="https://sisi001.gitee.io/tags/vscode/"/>
+    
+      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
@@ -109,8 +190,8 @@
     <title>js相关</title>
     <link href="https://sisi001.gitee.io/posts/e9a0.html"/>
     <id>https://sisi001.gitee.io/posts/e9a0.html</id>
-    <published>2020-08-29T01:18:57.000Z</published>
-    <updated>2022-06-28T06:20:02.276Z</updated>
+    <published>2020-08-01T13:18:57.000Z</published>
+    <updated>2022-08-10T03:59:18.121Z</updated>
     
     <summary type="html">
     
@@ -137,7 +218,7 @@
     <link href="https://sisi001.gitee.io/posts/9108.html"/>
     <id>https://sisi001.gitee.io/posts/9108.html</id>
     <published>2020-07-23T14:52:33.000Z</published>
-    <updated>2022-06-09T15:53:29.908Z</updated>
+    <updated>2022-08-10T03:59:18.117Z</updated>
     
     <summary type="html">
     
@@ -241,11 +322,11 @@
   </entry>
   
   <entry>
-    <title>vim入门</title>
+    <title>vim简单使用</title>
     <link href="https://sisi001.gitee.io/posts/9cde.html"/>
     <id>https://sisi001.gitee.io/posts/9cde.html</id>
     <published>2020-04-09T11:44:31.000Z</published>
-    <updated>2022-06-14T03:18:30.501Z</updated>
+    <updated>2022-08-10T03:59:18.151Z</updated>
     
     <summary type="html">
     
@@ -253,7 +334,7 @@
       
         
         
-          &lt;h1 id=&quot;vim是什么？&quot;&gt;&lt;a href=&quot;#vim是什么？&quot; class=&quot;headerlink&quot; title=&quot;vim是什么？&quot;&gt;&lt;/a&gt;vim是什么？&lt;/h1&gt;&lt;p&gt;vim/vi是Unix /
+          &lt;h1 id=&quot;vim-是什么？&quot;&gt;&lt;a href=&quot;#vim-是什么？&quot; class=&quot;headerlink&quot; title=&quot;vim 是什么？&quot;&gt;&lt;/a&gt;vim 是什么？&lt;/h1&gt;&lt;p&gt;vim/vi 是 Unix / Linux
         
       
     
@@ -295,11 +376,11 @@
   </entry>
   
   <entry>
-    <title>个人常用终端指令</title>
+    <title>个人常用方法、终端指令记录</title>
     <link href="https://sisi001.gitee.io/posts/c9f9.html"/>
     <id>https://sisi001.gitee.io/posts/c9f9.html</id>
     <published>2020-04-05T12:18:31.000Z</published>
-    <updated>2022-06-27T08:21:32.664Z</updated>
+    <updated>2022-08-10T03:59:18.157Z</updated>
     
     <summary type="html">
     
@@ -308,7 +389,7 @@
         
         
           &lt;hr&gt;
-&lt;h1 id=&quot;个人常用终端命令&quot;&gt;&lt;a href=&quot;#个人常用终端命令&quot; class=&quot;headerlink&quot; title=&quot;个人常用终端命令&quot;&gt;&lt;/a&gt;个人常用终端命令&lt;/h1&gt;&lt;h2 id=&quot;node-版本管理工具-nvm&quot;&gt;&lt;a
+&lt;h1 id=&quot;个人常用方法、终端指令记录&quot;&gt;&lt;a href=&quot;#个人常用方法、终端指令记录&quot; class=&quot;headerlink&quot; title=&quot;个人常用方法、终端指令记录&quot;&gt;&lt;/a&gt;个人常用方法、终端指令记录&lt;/h1&gt;&lt;h2
         
       
     

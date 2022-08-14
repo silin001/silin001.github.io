@@ -1,0 +1,1053 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="macOs下环境配置记录, 尖椒土豆sss">
+    <meta name="description" content="记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 必应网站 -->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <title>macOs下环境配置记录 | 尖椒土豆sss</title>
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    <body>
+
+<img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg">
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo" style="display: flex">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">尖椒土豆sss</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+            
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">macOs下环境配置记录</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/js/">
+                                <span class="chip bg-color">js</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-20
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="记录个人使用-macOs-时配置开发环境"><a href="#记录个人使用-macOs-时配置开发环境" class="headerlink" title="记录个人使用 macOs 时配置开发环境"></a>记录个人使用 macOs 时配置开发环境</h2><h3 id="mac-环境变量相关"><a href="#mac-环境变量相关" class="headerlink" title="mac 环境变量相关"></a>mac 环境变量相关</h3><p>Mac 系统的环境变量，加载顺序为：<br>系统级别：<br>/etc/profile<br>/etc/paths<br>用户级别：<br>~/.bash_profile<br>~/.bash_login<br>~/.profile ~/.bashrc</p>
+<p>如果没特殊说明,设置 PATH 变量 的语法都为：<br><code>export PATH=&lt;PATH 1&gt;:&lt;PATH 2&gt;:.....:&lt;PATH N&gt;:$PATH</code><br>推荐写法：<br><code>export PATH=${PATH}:/opt/homebrew/opt/mysql@.5.7/bin</code><br>写法 2:<br><code>export PATH="you url:$PATH"</code></p>
+<p>修改配置文件立即生效：<br><code>source ~/.bash_profile</code><br>查看是否生效<br><code>echo $PATH</code></p>
+<p>注意：<br>mac 默认使用的是 bash shell，<br>如果你在 Mac 上使用了 zsh 等其他 shell 工具，需要再做配置，来达到环境变量设置的永久生效。<br>bash 的配置文件是.bashrc, zsh 的配置文件是.zshrc，当你使用 zsh 作为默认的 shell 工具的时候，它启动时并不会加载 bash 的这两个配置文件.bashrc 和.bash_profile，而只会加载自己的配置文件.zshrc；我的终端设置默认为 zsh；</p>
+<p>vim ~/.zshrc</p>
+<h3 id="mac-用户级别的环境变量配置"><a href="#mac-用户级别的环境变量配置" class="headerlink" title="mac 用户级别的环境变量配置"></a>mac 用户级别的环境变量配置</h3><ul>
+<li>.bash_profile 文件<br>~/.bash_profile：用户级，用来设置用户级的环境变量，可以是 PATH，也可以是自定义的环境变量，当用户登录时，会读取该文件，一般只会读取一次，如果不存在可以在～根目录下创建 .bash_profile</li>
+<li>.zshrc 终端<br>我使用了 zsh 作为默认终端，～目录下添加配置文件</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">touch</span> .zshrc
+<span class="token function">open</span> ~/.zshrc  or  vim ~/.zshrc
+shift+ ： wq保存退出
+重载文件：
+<span class="token function">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h3><ul>
+<li>安装使用</li>
+<li>常用指令<br>brew install xxx<br>brew install –cask xxx<br>brew:主要用来下载一些不带界面的命令行下的工具和第三方库来进行二次开发<br>brew –cask:主要用来下载一些<strong>带界面的应用软件</strong>，已经编译好了的应用包 （.dmg/.pkg），仅仅是下载解压，放在统一的目录中（/opt/homebrew-cask/Caskroom），省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在 AppStore 里没有的常用软件。</li>
+</ul>
+<p>ps: 如果安装 mac 图形界面软件，推荐先在苹果官方商店里搜索下载，没有的话去 brew cask 试试，如果还没有，只能去这个软件的官方网站去下载了。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">brew -v
+brew home
+brew list 查看已安装的软件
+brew search xxx  搜索软件包
+brew uninstall xxx 卸载软件包
+brew services list 查看服务
+brew info xxx 查看包的详细信息
+brew update 自身更新
+brew outdated 查看那些包油新版本可更新
+brew upgrade 更新所有包
+brew upgrade xxx 更新指定包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="mongodb-安装"><a href="#mongodb-安装" class="headerlink" title="mongodb 安装"></a>mongodb 安装</h3><p>MacBook M1、M2 芯片的默认配置目录如下：<br>/opt/homebrew/etc/mongod.conf<br>我的 mongodb 安装目录：<br>磁盘：/opt/homebrew/cellor/mongodb/5.0.7<br>brew 目录： opt/homebrew<br>brew 安装软件目录：opt/homebrew/cellor</p>
+<ul>
+<li><p>使用 brew 安装<br>MongoDB 不开源了，<code>brew install mongodb</code> 安装命令失效了，目前 brew 只能安装社区版<br>1：<code>brew tap mongodb/brew</code><br>这里直接安装 5.0 版本</p>
+<p>2：<code>brew install mongodb-community@5.0</code></p>
+<p>一般通过 brew 安装的文件都在 <code>/opt/homebrew/Cellar/目录下，我的在/opt/homebrew/Cellar/mongodb-community/5.0.7/bin</code></p>
+<p>3：mongod -version (如果失败需要配置环境变量)<br>4: 打开环境变量配置文件，配置环境变量,或者</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">open</span> ~/.bash_profile <span class="token punctuation">(</span>根据自己用的什么 shell 决定,我使用的是zsh<span class="token punctuation">)</span>：
+<span class="token function">open</span> ~/.zshrc
+配置环境变量:
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>:/opt/homebrew/Cellar/mongodb/5.0.7/bin
+重新加载配置文件:
+<span class="token function">source</span> ~/.zshrc
+配置成功后会显示刚才配置的路径
+<span class="token keyword">echo</span> <span class="token variable">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>重启终端执行： <code>mongod -version</code><br>我的 mongodb 配置文件路径：<br><code>/opt/homebrew/etc/mongod.conf</code></p>
+</li>
+<li><p>启动方式 1</p>
+<blockquote>
+<p>使用 brew 将 MongoDB 作为 MacOS 的服务器运行</p>
+</blockquote>
+<p>这种方式启动时 start 后面的 必须和按照时对应，我这里安装完修改了目录名称对应执行命令失败<br>启动：<br><code>brew services start mongodb/brew/mongodb-community@5.0</code><br>如果修改目录为 mongodb 执行如下命令失败<br><code>brew services start mongodb/brew/mongodb</code><br>停止：</p>
+<p><code>brew services stop mongodb/brew/mongodb-community@5.0</code></p>
+<p>出现如下说明启动、关闭成功，但不代表可以链接成功：<br>==&gt; <strong>Successfully started</strong> <code>mongodb-community@5.0</code> (label: <a href="mailto:homebrew.mxcl.mongodb-community@5.0">homebrew.mxcl.mongodb-community@5.0</a>)<br>==&gt; <strong>Successfully stopped</strong> <code>mongodb-community@5.0</code> (label: <a href="mailto:homebrew.mxcl.mongodb-community@5.0">homebrew.mxcl.mongodb-community@5.0</a>)</p>
+<p>启动成功访问：<a target="_blank" rel="noopener" href="http://127.0.0.1:27017">http://127.0.0.1:27017</a><br>出现：It looks like you are trying to access MongoDB over HTTP on the native driver port. 则成功。</p>
+</li>
+<li><p>启动方式 2</p>
+<blockquote>
+<p>使用配置文件启动 mongodb 服务，将 MongoDB 作为后端程序运行(我这里没成功待处理)</p>
+</blockquote>
+<p>命令参数，注意这里的目录要换成自己的<br><code>mogond --dbpath $dbpath (数据库数据文件路径)</code><br>  –logpath $logpath(日志文件的路径)<br>  –logappend(以追加的方式打开文件)<br>  –fork(将数据库服务放在后台运行)<br>  如：<br>  <code>mongod --dbpath /opt/homebrew/var/mongodb --logpath /opt/homebrew/var/log/mongodb/mongo.log --fork</code></p>
+<p>启动：<br><code>mongod --config /opt/homebrew/etc/mongod.conf</code><br>停止：<br><code>mongod --config /opt/homebrew/etc/mongod.conf</code></p>
+</li>
+<li><p>启动成功后 终端链接 <code>mongodb</code><br>链接数据库失败问题：<br>MongoDB shell version v5.0.7<br>connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&amp;gssapiServiceName=mongodb<br>Error: couldn’t connect to server 127.0.0.1:27017, connection attempt failed: SocketException: Error connecting to 127.0.0.1:27017 :: caused by :: Connection refused :<br><code>connect@src/mongo/shell/mongo.js:372:17</code><br>@(connect):2:6<br>exception: connect failed<br>exiting with code 1</p>
+<p>出现这个问题时，关闭服务，重新启动命令前加 <code>sudo</code>，启动后 重新打开终端，如果还报错 删除文件 <code>var/mongodb/mongodb.lock</code> 重新启动试试<br><code>mongo</code> 出现一下提示代表链接成功即可操作数据库</p>
+<pre class="line-numbers language-bash"><code class="language-bash">MongoDB shell version v5.0.7
+connecting to: mongodb://127.0.0.1:27017/?compressors<span class="token operator">=</span>disabled<span class="token operator">&amp;</span>gssapiServiceName<span class="token operator">=</span>mongodb
+Implicit session: session <span class="token punctuation">{</span> <span class="token string">"id"</span> <span class="token keyword">:</span> UUID<span class="token punctuation">(</span><span class="token string">"470b3bca-4d34-4371-b954-16c2ea60c230"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输入:<code>show dbs;</code> 查看所有数据库<br>退出: <code>shell： quit();</code></p>
+</li>
+</ul>
+<h3 id="mysql-安装"><a href="#mysql-安装" class="headerlink" title="mysql 安装"></a>mysql 安装</h3><p><code>brew install mysql@5.7</code><br>查看版本：<br><code>mysql -V</code></p>
+<p>启动 mysql：可以使用命令查看提示，<br><code>brew info mysql</code> 根据提示，有两种启动方式：<br>  <code>brew services start mysql</code><br>  <code>mysql.server start</code><br>  <code>mysql.server restart</code> // 重启<br>  关闭数据库：<br>  <code>mysql.server stop</code><br>  链接数据库：<br>  <code>mysql -u root</code><br>  修改密码：<br>  <code>mysql_secure_installation</code></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/7817.html">https://sisi001.gitee.io/posts/7817.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/js/">
+                                    <span class="chip bg-color">js</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/7817.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="macOs下环境配置记录">
+                        
+                        <span class="card-title">macOs下环境配置记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            尖椒土豆sss
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/61cb.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/14.jpg" class="responsive-img" alt="vite+vue3+ts项目遇到的问题">
+                        
+                        <span class="card-title">vite+vue3+ts项目遇到的问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言在自学搭建 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
+从 0 到 1 搭建 vue3+ts 项目配置 eslint
+为
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/eslint-vite-ts/" class="post-category">
+                                    eslint vite ts
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ts/">
+                        <span class="chip bg-color">ts</span>
+                    </a>
+                    
+                    <a href="/tags/eslint/">
+                        <span class="chip bg-color">eslint</span>
+                    </a>
+                    
+                    <a href="/tags/vue3/">
+                        <span class="chip bg-color">vue3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+                <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+             -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">24k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "4";
+                    var startDate = "5";
+                    var startHour = "12";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        // document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <div  id='mywx'  class="tooltipped mydiv">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+                    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+                        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                            <script src="/libs/materialize/materialize.min.js"></script>
+                            <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="/libs/aos/aos.js"></script>
+                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="/js/matery.js"></script>
+                            <!-- 点击烟花爆炸效果 -->
+                            <!--
+                            <canvas class="fireworks"
+                                style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+                            <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+                            <script type="text/javascript" src="/js/fireworks.js"></script>
+                            -->
+                            <!-- 樱花飘落效果 -->
+                            <!-- <script type="text/javascript">
+                                //只在桌面版网页启用特效
+                                var windowWidth = $(window).width();
+                                if (windowWidth > 768) {
+                                    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+                            </script> -->
+
+                            <script type="text/javascript">
+                                //只在桌面版网页启用天气
+                                WIDGET = { FID: 'vwB3EHDqWF' }
+                                var windowWidth = $(window).width();
+                                if (windowWidth > 768) {
+                                    document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+                                }
+                            </script>
+
+                            <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+                                <!-- Baidu Analytics -->
+
+                                    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                        
+                                            <script src="/libs/others/clicklove.js"
+                                                async="async"></script>
+                                            
+                                                
+                                                    <script async
+                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                    
+
+                                                        
+
+                                                                
+
+                                                                        
+
+                                                                                
+
+                                                                                            
+
+                                                                                                    
+                                                                                                        <script
+                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                            type="module"></script>
+                                                                                                        
+    
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+<script>
+$(function () {
+    const dom  = $('body #mywx')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1000)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '40%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>
