@@ -354,7 +354,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    289
+                    239
                 </div>
                 
 
@@ -379,34 +379,16 @@ or
 yarn add concurrently
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>然后在package.json 文件 scripts中, 例如修改：</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">"scripts": {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">"scripts": &#123;
   "start": "craco start",
   "build": "scraco build",
   "test": "craco test",
   "eject": "react-scripts eject",
   "node": "npm run serve --prefix nodeServer",
   "dev": "concurrently npm:node yarn:start"
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>有了 –prefix nodeServer 就不用 cd nodeServer 文件夹了，也就是说运行 <strong>npm run node</strong> 就会跑后端的服务，相当于：<strong>npm run serve</strong><br>此时只需要<strong>npm run dev</strong> 就会执行 <strong>npm run node</strong> 和 <strong>npm run start</strong>  也就实现了同时启动了服务端和客户端。<br>ps:这里命令我有用了yarn也是可以的</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 

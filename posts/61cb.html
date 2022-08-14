@@ -317,16 +317,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ts/">
-                                <span class="chip bg-color">ts</span>
-                            </a>
-                        
                             <a href="/tags/eslint/">
                                 <span class="chip bg-color">eslint</span>
                             </a>
                         
                             <a href="/tags/vue3/">
                                 <span class="chip bg-color">vue3</span>
+                            </a>
+                        
+                            <a href="/tags/ts/">
+                                <span class="chip bg-color">ts</span>
                             </a>
                         
                     </div>
@@ -359,14 +359,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -408,7 +408,7 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li>解决 eslint 和 prettier 冲突<br>eslint-config-prettier: 关闭所有和 prettier 冲突的 eslint 规则<br>eslint-plugin-prettier: 告诉 eslint 应该怎么按照 prettier 的方式去格式化文档。<br><code>pnpm i eslint-config-prettier eslint-plugin-prettier -D</code></li>
 <li>具体 prettierrc 规则配置,根目录创建.prettierrc.js 以及忽略文件.prettierignore</li>
 </ul>
-<pre class="line-numbers language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// printWidth: 100, // 一行最多 100 字符</span>
   <span class="token comment" spellcheck="true">// tabWidth: 2, // 使用 4 个空格缩进</span>
   <span class="token comment" spellcheck="true">// semi: false, // 行尾需要有分号</span>
@@ -430,23 +430,23 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
   <span class="token comment" spellcheck="true">// vueIndentScriptAndStyle: false, //（默认值）对于 .vue 文件，不缩进 &lt;script> 和 &lt;style> 里的内容</span>
   <span class="token comment" spellcheck="true">// // endOfLine: 'lf', // 换行符使用 lf 在Linux和macOS以及git存储库内部通用\n</span>
   <span class="token comment" spellcheck="true">// embeddedLanguageFormatting: 'auto' //（默认值）允许自动格式化内嵌的代码块</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>保证 plugin:prettier/recommended 放在.eslintrc extends 中最后</p>
 <ul>
 <li><p>运行时对代码进行 eslint 校验<br>这样配置完重启编辑器项目应该不会有报错，因为需要执行 eslint 命令去检测文件中不符合规则的代码这不是我们期望的<br>我们期望的是代码运行期间如果不符合 eslint 规范就报错提示。这里使用的是 rollup 的 eslint 插件<br><code>pnpm i @rollup/plugin-eslint -D</code><br>vite 配置文件里 plugins 开启 eslint:</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ...,</span>
-  <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">// 开启eslint</span>
-      <span class="token operator">...</span><span class="token function">eslint</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token operator">...</span><span class="token function">eslint</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// include: ['src</span><span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>vue<span class="token string">', '</span>src<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>js'<span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token comment" spellcheck="true">// fix: true, // 自动修复</span>
         include<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'src/**/*.js'</span><span class="token punctuation">,</span> <span class="token string">'src/**/*.ts'</span><span class="token punctuation">,</span> <span class="token string">'src/**/*.vue'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 需要检查的文件</span>
         <span class="token comment" spellcheck="true">// exclude: ['src</span><span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>js<span class="token string">',  '</span>src<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>vue'<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 忽略文件</span>
         throwOnError<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 有错误抛出</span>
         throwOnWarning<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 有警告抛出</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       enforce<span class="token punctuation">:</span> <span class="token string">'pre'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
@@ -454,7 +454,7 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <blockquote>
 <p>packge.josn 所有依赖</p>
 </blockquote>
-<pre class="line-numbers language-js"><code class="language-js">  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"vite"</span><span class="token punctuation">,</span>
     <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"vue-tsc --noEmit &amp;&amp; vite build"</span><span class="token punctuation">,</span>
     <span class="token string">"preview"</span><span class="token punctuation">:</span> <span class="token string">"vite preview"</span><span class="token punctuation">,</span>
@@ -466,8 +466,8 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="token string">"lint"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext .js,.jsx,.ts,.tsx,.vue ./src"</span><span class="token punctuation">,</span>
     <span class="token comment" spellcheck="true">// eslint  fix修复问题(只能修复部分)</span>
     <span class="token string">"fix"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext .js,.jsx,.ts,.tsx,.vue ./src --fix"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token string">"@element-plus/icons-vue"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.4"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 饿了么plus-icon</span>
     <span class="token string">"@types/node"</span><span class="token punctuation">:</span> <span class="token string">"^17.0.42"</span><span class="token punctuation">,</span>
     <span class="token string">"axios"</span><span class="token punctuation">:</span> <span class="token string">"^0.27.2"</span><span class="token punctuation">,</span>
@@ -477,9 +477,9 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="token string">"vue"</span><span class="token punctuation">:</span> <span class="token string">"^3.2.25"</span><span class="token punctuation">,</span>
     <span class="token string">"vue-router"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.16"</span><span class="token punctuation">,</span>
     <span class="token string">"vuex"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.2"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
 
- <span class="token string">"devDependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+ <span class="token string">"devDependencies"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// rollup插件开启eslint检查</span>
     <span class="token string">"@rollup/plugin-eslint"</span><span class="token punctuation">:</span> <span class="token string">"^8.0.2"</span><span class="token punctuation">,</span>
     <span class="token comment" spellcheck="true">// ts解析器 让eslint支持对ts文件检查</span>
@@ -509,10 +509,10 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="token string">"unplugin-vue-components"</span><span class="token punctuation">:</span> <span class="token string">"^0.19.6"</span><span class="token punctuation">,</span>
     <span class="token string">"vite"</span><span class="token punctuation">:</span> <span class="token string">"^2.9.9"</span><span class="token punctuation">,</span>
     <span class="token string">"vue-tsc"</span><span class="token punctuation">:</span> <span class="token string">"^0.34.7"</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="vue3-ts-项目配置-eslint-遇到的具体问题"><a href="#vue3-ts-项目配置-eslint-遇到的具体问题" class="headerlink" title="vue3+ts 项目配置 eslint 遇到的具体问题"></a>vue3+ts 项目配置 eslint 遇到的具体问题</h3><p>eslint 问题所有相关配置都在根目录 .eslintrc.js 文件下配置<br>此项目 eslint 使用的是 <code>@rollup/plugin-eslint</code> 这个插件依赖</p>
 <ul>
-<li><p>vue3 一直报错 error: Parsing error: Unexpected token ?<br>我在引入 element-plus 类型时 type 这里 eslint 一直报这个错<br><code>import type { FormInstance, FormRules } from 'element-plus'</code><br><strong>vue3+ts 解决方法</strong><br>需要先安装 ts 解析器依赖： <code>yarn add @typescript-eslint/parser -D</code></p>
+<li><p>vue3 一直报错 error: Parsing error: Unexpected token ?<br>我在引入 element-plus 类型时 type 这里 eslint 一直报这个错<br><code>import type &#123; FormInstance, FormRules &#125; from &#39;element-plus&#39;</code><br><strong>vue3+ts 解决方法</strong><br>需要先安装 ts 解析器依赖： <code>yarn add @typescript-eslint/parser -D</code></p>
 <pre class="line-numbers language-js"><code class="language-js">parserOptions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     parser<span class="token punctuation">:</span> <span class="token string">'@typescript-eslint/parser'</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -525,37 +525,37 @@ yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="token string">'plugin:vue/vue3-recommended'</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>error Parsing error: ‘＞‘ expected ？<br>让 eslint 检测.vue 代码<br><strong>解决</strong>：<br><code>parser: 'vue-eslint-parser',</code></p>
+<li><p>error Parsing error: ‘＞‘ expected ？<br>让 eslint 检测.vue 代码<br><strong>解决</strong>：<br><code>parser: &#39;vue-eslint-parser&#39;,</code></p>
 </li>
-<li><p>Missing file extension “ts” for “xxx” import/extensions ？<br>导入/扩展缺少文件扩展名“ts”<br>使用了 airbnb-base 规则后，如引入 <code>import components from './components'</code> 文件报错，必须写到 components 下的 index.ts<br><strong>解决</strong>：rulse 规则配置忽略</p>
-<pre class="line-numbers language-js"><code class="language-js">rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<li><p>Missing file extension “ts” for “xxx” import/extensions ？<br>导入/扩展缺少文件扩展名“ts”<br>使用了 airbnb-base 规则后，如引入 <code>import components from &#39;./components&#39;</code> 文件报错，必须写到 components 下的 index.ts<br><strong>解决</strong>：rulse 规则配置忽略</p>
+<pre class="line-numbers language-js"><code class="language-js">rules<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token string">'import/extensions'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
   <span class="token string">'error'</span><span class="token punctuation">,</span>
   <span class="token string">'ignorePackages'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     js<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span>
     jsx<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span>
     ts<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span>
     tsx<span class="token punctuation">:</span> <span class="token string">'never'</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Unable to resolve path to module xxx import/no-unresolved ？<br>配置别名后：无法解析模块 xxx 导入的路径/未解析路径<br><strong>解决</strong>：<br>vite.config 里配置别名<br>网上说还需要在 ts.config.json paths 配置同上的别名，但是配置了 eslint 还是会不通过；<br>安装： <code>pnpm i eslint-import-resolver-alias</code> 这个包是一个配合 eslint-plugin-import 使用的 resolver，用来 resolve 带别名的路径。<br>配置 eslint</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// .eslomtrc.js</span>
-settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">'import/resolver'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+settings<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token string">'import/resolver'</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 别名同vite.config</span>
-    alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    alias<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       map<span class="token punctuation">:</span> <span class="token punctuation">[</span>
         <span class="token punctuation">[</span><span class="token string">'@'</span><span class="token punctuation">,</span> <span class="token string">'./src'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token punctuation">[</span><span class="token string">'@mock'</span><span class="token punctuation">,</span> <span class="token string">'./src/mock'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token comment" spellcheck="true">//...</span>
       <span class="token punctuation">]</span><span class="token punctuation">,</span>
       extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">,</span> <span class="token string">'.ts'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span><span class="token punctuation">,</span> <span class="token string">'.tsx'</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <!-- -------------------------------------------------------- -->
@@ -563,41 +563,41 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
 <h3 id="其他报错问题"><a href="#其他报错问题" class="headerlink" title="其他报错问题"></a>其他报错问题</h3><ul>
 <li><p>找不到模块“xxx”或其相应的类型声明？<br>没有相关的声明文件，在 ts 项目里面，.ts 文件是识别不了.vue 文件，.vue 文件也识别不了.ts 文件，这时候就需要在 src 下 创建 env.d.ts 声明文件来解决:</p>
 <pre class="line-numbers language-js"><code class="language-js">  <span class="token comment" spellcheck="true">/// &lt;reference types="vite/client" /></span>
-  declare module <span class="token string">'*.vue'</span> <span class="token punctuation">{</span>
-    <span class="token keyword">import</span> type <span class="token punctuation">{</span> DefineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+  declare module <span class="token string">'*.vue'</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> type <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> DefineComponent <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
     <span class="token comment" spellcheck="true">// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types</span>
-    <span class="token keyword">const</span> component<span class="token punctuation">:</span> DefineComponent<span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> any<span class="token operator">></span>
+    <span class="token keyword">const</span> component<span class="token punctuation">:</span> DefineComponent<span class="token operator">&lt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> any<span class="token operator">></span>
     <span class="token keyword">export</span> <span class="token keyword">default</span> component
-  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>但是我遇到的问题是自己写的 ts 文件： <code>import { getProducts, IProduct } from '@mock/pages/shop'</code> 也提示找不到模块“@mock/pages/shop”或其相应的类型声明。 但不影响运行<br>在 ts 文件中定义好有关的 interface 接口使用，在其他文件中引入的时候出现了该问题<br>一般出现这个问题都是路径问题！！！建议别名只配置一个 [‘@’, ‘./src’]</p>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是我遇到的问题是自己写的 ts 文件： <code>import &#123; getProducts, IProduct &#125; from &#39;@mock/pages/shop&#39;</code> 也提示找不到模块“@mock/pages/shop”或其相应的类型声明。 但不影响运行<br>在 ts 文件中定义好有关的 interface 接口使用，在其他文件中引入的时候出现了该问题<br>一般出现这个问题都是路径问题！！！建议别名只配置一个 [‘@’, ‘./src’]</p>
 </li>
 </ul>
 <h2 id="vue3-vite-项目中遇到的代码问题"><a href="#vue3-vite-项目中遇到的代码问题" class="headerlink" title="vue3+vite 项目中遇到的代码问题"></a>vue3+vite 项目中遇到的代码问题</h2><h3 id="Element-Plus-官网推荐的自动引入组件方式部分组件-css-无法引入"><a href="#Element-Plus-官网推荐的自动引入组件方式部分组件-css-无法引入" class="headerlink" title="Element Plus 官网推荐的自动引入组件方式部分组件 css 无法引入"></a>Element Plus 官网推荐的自动引入组件方式部分组件 css 无法引入</h3><p>官网推荐使用这个两个插件 <code>npm install -D unplugin-vue-components unplugin-auto-import</code> 实现自动按需导入</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// vite.config.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vite"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> defineConfig <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"vite"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> AutoImport <span class="token keyword">from</span> <span class="token string">"unplugin-auto-import/vite"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> Components <span class="token keyword">from</span> <span class="token string">"unplugin-vue-components/vite"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ElementPlusResolver <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"unplugin-vue-components/resolvers"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> ElementPlusResolver <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"unplugin-vue-components/resolvers"</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// ...</span>
   plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token comment" spellcheck="true">// ...</span>
-    <span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       resolvers<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Components</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       resolvers<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如：引入 ElMessage 为例<br><code>import { ElMessage } from 'element-plus'</code><br><code>ElMessage.warning('warning')</code><br>如果不采用 import 的方式引入，会直接报错：ElMessage 没有定义，所以这个 import 是省不了的，但是 import 了之后，消息弹窗是出来了，但此时发现没有对应的样式！</p>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如：引入 ElMessage 为例<br><code>import &#123; ElMessage &#125; from &#39;element-plus&#39;</code><br><code>ElMessage.warning(&#39;warning&#39;)</code><br>如果不采用 import 的方式引入，会直接报错：ElMessage 没有定义，所以这个 import 是省不了的，但是 import 了之后，消息弹窗是出来了，但此时发现没有对应的样式！</p>
 <ul>
 <li>解决方案 1 （不推荐）：<br>使用官网说的手动导入的 <code>unplugin-element-plus</code>的插件，但是很麻烦，不同组件需要手动引入不同的 css</li>
 </ul>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">"element-plus/es/components/message/style/css"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// import 'element-plus/es/components/用到的组件/style/css'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ElMessage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"element-plus"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> ElMessage <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"element-plus"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>解决方案 2 （推荐）：<br>使用 <code>vite-plugin-style-import</code> 插件可以实现按需引入 css；<br>安装完成后在 vite.config.js 下 plugins: [] 使用。<br>该插件可以按需引入 VantResolve、 ElementPlusResolve 等 ui 样式<br>因为该插件的使用了 <code>consola</code> 包，所以还需要安装 <code>npm i consola -D OR yarn add consola -D</code></li>
 </ul>
@@ -605,26 +605,26 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
 <p>1.x 写法</p>
 </blockquote>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> styleImport <span class="token keyword">from</span> <span class="token string">'vite-plugin-style-import'</span>
-<span class="token function">styleImport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      libs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+<span class="token function">styleImport</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      libs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         libraryName<span class="token punctuation">:</span> <span class="token string">'element-plus'</span><span class="token punctuation">,</span>
         esModule<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-        resolveStyle<span class="token punctuation">:</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-          <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`element-plus/theme-chalk/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.css`</span></span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">// resolveComponent: (name) => {</span>
-        <span class="token comment" spellcheck="true">//   return `element-plus/lib/components/${name}`</span>
-        <span class="token comment" spellcheck="true">// },</span>
-      <span class="token punctuation">}</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        resolveStyle<span class="token punctuation">:</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`element-plus/theme-chalk/$&amp;#123;name&amp;#125;.css`</span></span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// resolveComponent: (name) => &amp;#123;</span>
+        <span class="token comment" spellcheck="true">//   return `element-plus/lib/components/$&amp;#123;name&amp;#125;`</span>
+        <span class="token comment" spellcheck="true">// &amp;#125;,</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">]</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>2.x 写法</p>
 </blockquote>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStyleImportPlugin<span class="token punctuation">,</span> VantResolve <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vite-plugin-style-import'</span><span class="token punctuation">;</span>
-<span class="token function">createStyleImportPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> createStyleImportPlugin<span class="token punctuation">,</span> VantResolve <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'vite-plugin-style-import'</span><span class="token punctuation">;</span>
+<span class="token function">createStyleImportPlugin</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             resolves<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">VantResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="引入-Element-Plus-遇到的其他问题"><a href="#引入-Element-Plus-遇到的其他问题" class="headerlink" title="引入 Element Plus 遇到的其他问题"></a>引入 Element Plus 遇到的其他问题</h3><h3 id="本地环境无任何报错，部署上线后报错"><a href="#本地环境无任何报错，部署上线后报错" class="headerlink" title="本地环境无任何报错，部署上线后报错"></a>本地环境无任何报错，部署上线后报错</h3><ul>
 <li>报错 Cannot read properties of null (reading ‘insertBefore‘)<br>本地项目启动操作无任何报错，部署后开始报这个错, 经过排查上网查资料原因总结如下：</li>
 </ul>
@@ -640,100 +640,82 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
 <h3 id="jsx-使用"><a href="#jsx-使用" class="headerlink" title="jsx 使用"></a>jsx 使用</h3><ul>
 <li><p>安装<br><code>npm i @vitejs/plugin-vue-jsx</code></p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// vite.config.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vite"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> defineConfig <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">"vite"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// ...</span>
   plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token comment" spellcheck="true">// ...</span>
     <span class="token function">vueJsx</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>然后就可以创建.jsx 文件使用 jsx 语法</p>
-<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token entity" title="&#123;">&amp;#123;</span> defineComponent<span class="token punctuation">,</span> ref <span class="token entity" title="&#125;">&amp;#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token entity" title="&#123;">&amp;#123;</span>
+  props<span class="token punctuation">:</span> <span class="token entity" title="&#123;">&amp;#123;</span>
+    params<span class="token punctuation">:</span> <span class="token entity" title="&#123;">&amp;#123;</span>
       type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
-      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">setup</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span><span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">,</span>
+    <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">,</span>
+  <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token entity" title="&#123;">&amp;#123;</span>
     <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"tsx的使用"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> clickFunc1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> clickFunc1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"没有参数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> clickFunc2 <span class="token operator">=</span> <span class="token punctuation">(</span>msg <span class="token operator">=</span> <span class="token string">"默认值"</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> clickFunc2 <span class="token operator">=</span> <span class="token punctuation">(</span>msg <span class="token operator">=</span> <span class="token string">"默认值"</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"接收到的："</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
       <span class="token operator">&lt;</span><span class="token operator">></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>str<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>clickFunc1<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>不传参数点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc2</span><span class="token punctuation">(</span><span class="token string">"额外参数"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>传参数点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token entity" title="&#123;">&amp;#123;</span>str<span class="token punctuation">.</span>value<span class="token entity" title="&#125;">&amp;#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token attr-value"><span class="token punctuation">=</span>&amp;#123;clickFunc1&amp;#125;</span><span class="token punctuation">></span></span>不传参数点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token entity" title="&#123;">&amp;#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc2</span><span class="token punctuation">(</span><span class="token string">"额外参数"</span><span class="token punctuation">)</span><span class="token entity" title="&#125;">&amp;#125;</span><span class="token operator">></span>传参数点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
       <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">,</span>
+<span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>或者 .vue 里 script 写 jsx</p>
 <pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> lang<span class="token operator">=</span>jsx  tsx好像都可以 <span class="token operator">--</span><span class="token operator">></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jsx<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token script language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<span class="token keyword">import</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> defineComponent<span class="token punctuation">,</span> ref <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  props<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    params<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
-      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  setup <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  setup <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'script lang=jsx写法'</span><span class="token punctuation">)</span>
-    <span class="token keyword">const</span> clickFunc1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> clickFunc1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'没有参数'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">const</span> clickFunc2 <span class="token operator">=</span> <span class="token punctuation">(</span>msg <span class="token operator">=</span> <span class="token string">'默认值'</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> clickFunc2 <span class="token operator">=</span> <span class="token punctuation">(</span>msg <span class="token operator">=</span> <span class="token string">'默认值'</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'接收到的：'</span> <span class="token operator">+</span> msg<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
       <span class="token operator">&lt;</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">'jsxBox'</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>str<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc2</span><span class="token punctuation">(</span><span class="token string">'额外参数'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>传参数点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>str<span class="token punctuation">.</span>value<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">></span>点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc2</span><span class="token punctuation">(</span><span class="token string">'额外参数'</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">></span>传参数点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
       <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
     <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>less<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-  <span class="token selector"><span class="token class">.jsxBox</span></span><span class="token punctuation">{</span>
+  <span class="token number">.</span>jsxBox&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
     <span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid red<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -796,16 +778,16 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ts/">
-                                    <span class="chip bg-color">ts</span>
-                                </a>
-                            
                                 <a href="/tags/eslint/">
                                     <span class="chip bg-color">eslint</span>
                                 </a>
                             
                                 <a href="/tags/vue3/">
                                     <span class="chip bg-color">vue3</span>
+                                </a>
+                            
+                                <a href="/tags/ts/">
+                                    <span class="chip bg-color">ts</span>
                                 </a>
                             
                         </div>

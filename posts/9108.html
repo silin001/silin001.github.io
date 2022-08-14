@@ -351,14 +351,14 @@ AST树解析生成对应的rend">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -383,30 +383,30 @@ AST树解析生成对应的rend">
     <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 js描述如下：
-<span class="token punctuation">{</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     tag<span class="token punctuation">:</span> <span class="token string">'div'</span><span class="token punctuation">,</span>
-    sel<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    sel<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         id<span class="token punctuation">:</span> <span class="token string">'div1'</span><span class="token punctuation">,</span>
         className<span class="token punctuation">:</span> <span class="token string">'container'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    props<span class="token punctuation">:</span> <span class="token punctuation">{</span> style<span class="token punctuation">:</span> <span class="token string">'color: red'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    props<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> style<span class="token punctuation">:</span> <span class="token string">'color: red'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             tag<span class="token punctuation">:</span> <span class="token string">'p'</span><span class="token punctuation">,</span>
             children<span class="token punctuation">:</span> <span class="token string">'vdom'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             tag<span class="token punctuation">:</span> <span class="token string">'ul'</span><span class="token punctuation">,</span>
-            props<span class="token punctuation">:</span> <span class="token punctuation">{</span> style<span class="token punctuation">:</span> <span class="token string">'font-size: 20px'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            props<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> style<span class="token punctuation">:</span> <span class="token string">'font-size: 20px'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
             children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-                <span class="token punctuation">{</span>
+                <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
                     tag<span class="token punctuation">:</span> <span class="token string">'li'</span><span class="token punctuation">,</span>
                     children<span class="token punctuation">:</span> <span class="token string">'a'</span>
-                <span class="token punctuation">}</span>
+                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
             <span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="vue中-diff算法"><a href="#vue中-diff算法" class="headerlink" title="vue中 diff算法"></a>vue中 diff算法</h3><p>只比较同一层级，不跨级比较。<br>tag不相同，直接删除重建，不做再深度比较。<br>tag和key相同，认为是同一节点，不做再深度比较。</p>
 <ul>
 <li>最小量更新，key很重要是节点的唯一标识，在更改前后告诉diff他是同一节点</li>
@@ -436,18 +436,18 @@ js描述如下：
     <span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 <span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'level'</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>直接写 render</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'level'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token function">render</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'h'</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>level<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$slots<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="数组数据响应式的处理原理"><a href="#数组数据响应式的处理原理" class="headerlink" title="数组数据响应式的处理原理"></a>数组数据响应式的处理原理</h3><p>重新数组方法，以<code>Arrap.prototype</code>为原型创建了一个<code>arrayMethods</code>的对象，在使用<code>es6</code>的一个强硬的方法<code>object.setPrototytypeOf(o,arrayMethods)</code>,让数组的<strong>proto</strong>指向<code>arrayMethods</code></p>
 <h2 id="vue2-0-源码地址"><a href="#vue2-0-源码地址" class="headerlink" title="vue2.0 源码地址"></a>vue2.0 源码地址</h2><ul>
@@ -465,7 +465,7 @@ core 核心代码
 <h2 id="vue2响应式原理-底层源码核心类"><a href="#vue2响应式原理-底层源码核心类" class="headerlink" title="vue2响应式原理-底层源码核心类"></a>vue2响应式原理-底层源码核心类</h2><p>栗子：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"mvvm-app"</span><span class="token operator">></span>
   <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"word"</span><span class="token operator">></span>
-  <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>word<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+  <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>word<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
   <span class="token operator">&lt;</span>button v<span class="token operator">-</span>on<span class="token punctuation">:</span>click<span class="token operator">=</span><span class="token string">"sayHi"</span><span class="token operator">></span>change model<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span> <span class="token comment" spellcheck="true">//点击这个button，word的值会发生改变</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
@@ -474,17 +474,17 @@ core 核心代码
 <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./js/compile.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./js/mvvm.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 <span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MVVM</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MVVM</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     el<span class="token punctuation">:</span> <span class="token string">'#mvvm-app'</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    data<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       word<span class="token punctuation">:</span> <span class="token string">'Hello World!'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      sayHi<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      sayHi<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>word <span class="token operator">=</span> <span class="token string">'Hi, everybody!'</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实现这种数据双向绑定的效果，需要以下几大模块：</p>
@@ -502,25 +502,7 @@ core 核心代码
 <li><p><code>Watcher -观察者（订阅者）</code>：作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，在更改数据时进行watcher监听，把新值callback。</p>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 

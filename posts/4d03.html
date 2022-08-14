@@ -393,9 +393,9 @@ ts-node xxx.ts<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <p>该目录终端-运行任务-所有任务-tsc监视  <strong>ps:这里目录不能有&amp;符号会报错</strong><br>修改配置文件后执行指定文件 tsc 不生效。 要执行tsc</p>
 <h2 id="ts里的一些概念"><a href="#ts里的一些概念" class="headerlink" title="ts里的一些概念"></a>ts里的一些概念</h2><ul>
 <li><p>类型注解？<br><strong>是一种轻量级的为函数或者变量添加的约束</strong></p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">function test (str: string) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">function test (str: string) &#123;
 return 'hell------' + str
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>隐式类型推断？</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">let age = 18 //   我们赋值变量数字18， 那么这个变量ts会推断为number类型
@@ -427,99 +427,81 @@ const num2 = <number>res<span aria-hidden="true" class="line-numbers-rows"><span
  const f: void = undefined
  const g: symbol = Symbol('123')
  console.log(a, b, c, d, e, f, g)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="二、其他类型"><a href="#二、其他类型" class="headerlink" title="二、其他类型"></a>二、其他类型</h3><h4 id="1-Object类型"><a href="#1-Object类型" class="headerlink" title="1.Object类型"></a>1.Object类型</h4><p>  不是单指普通的对象，可以是对象 数组  fun<br>  <code>const foo: object = {}  // []  // function() { }</code></p>
+<h3 id="二、其他类型"><a href="#二、其他类型" class="headerlink" title="二、其他类型"></a>二、其他类型</h3><h4 id="1-Object类型"><a href="#1-Object类型" class="headerlink" title="1.Object类型"></a>1.Object类型</h4><p>  不是单指普通的对象，可以是对象 数组  fun<br>  <code>const foo: object = &#123;&#125;  // []  // function() &#123; &#125;</code></p>
 <h4 id="2-Array类型"><a href="#2-Array类型" class="headerlink" title="2.Array类型"></a>2.Array类型</h4><p>  <code>const arr1: number[] = [1, 2, 3]</code><br>  <code>const arr2: Array&lt;number&gt; = [1, 2, 3] // 泛型写法</code></p>
-<h4 id="3-元组类型"><a href="#3-元组类型" class="headerlink" title="3.元组类型"></a>3.元组类型</h4><p>  明确元素数量以及元素类型的数组<br>  <code>const tuple: [number, string] = [2, '2']</code></p>
+<h4 id="3-元组类型"><a href="#3-元组类型" class="headerlink" title="3.元组类型"></a>3.元组类型</h4><p>  明确元素数量以及元素类型的数组<br>  <code>const tuple: [number, string] = [2, &#39;2&#39;]</code></p>
 <h4 id="4-枚举类型"><a href="#4-枚举类型" class="headerlink" title="4. 枚举类型"></a>4. 枚举类型</h4><p>  特点：给有一组数值给上更好理解的名字，一个枚举中只会出现固定的几个值不会出现超出范围的可能性</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  enum postState {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  enum postState &#123;
   draft = 0, // 值可以不指定， 默认从0累加。 如果初始化值是 字符串 必须手动给每个成员指定值 -不常见。
   unpublished = 1
-  }
+  &#125;
   // 常量枚举
-  const enum postState2 {
+  const enum postState2 &#123;
   draft = 0,
   unpublished = 1
-  }
+  &#125;
   // 使用
-  const obj = {
+  const obj = &#123;
   title: '',
   state: postState.draft, // 0 1 2
   state1: postState[0] // 可以使用索引值访问，
-  }
+  &#125;
   // ps:我们在ts中使用的大部分类型经过编译转换后都会被移除掉，因为他只是为了我们在编译过程中做类型检查！而枚举不会，枚举会影响我们编译后的结果，他最终编译成一个双向的键值对对象：其实就是可以用键获取值 用值获取键。
   // 如果确认我们代码中不会使用索引值方式获取枚举值 我们建议使用常量枚举，enum前面添加const。使用常量枚举，编译后枚举会被移除掉。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="5-函数类型"><a href="#5-函数类型" class="headerlink" title="5.函数类型"></a>5.函数类型</h4><p>  // 定义分为：1声明函数， 2函数表达式</p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">  // d参数可选， 必须放最后
   // rest任意个数参数使用es6的
-  function func1 (a: number, b: number, d?: number, ...rest: number[]): string {
+  function func1 (a: number, b: number, d?: number, ...rest: number[]): string &#123;
   return 'func1'
-  }
+  &#125;
   func1(1, 2)
   // 函数表达式，接收这个函数的变量也需要类型注解  vscode会推断出这个变量类型 (a: number, b: number) => string
-  const func2: (a: number, b: number) => string = function (a: number, b: number) {
+  const func2: (a: number, b: number) => string = function (a: number, b: number) &#123;
   return 'func2'
-  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="6-任意类型any"><a href="#6-任意类型any" class="headerlink" title="6.任意类型any"></a>6.任意类型any</h4><p>  属于动态类型，ts不会对any做类型检查， 兼容js老代码时需要any类型</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function func3 (val: any) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function func3 (val: any) &#123;
   return JSON.stringify(val)  // stringify方法接收任意类型参数
-  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="7-接口类型-interface"><a href="#7-接口类型-interface" class="headerlink" title="7.接口类型-interface"></a>7.接口类型-interface</h4><p>  一种规范契约，可以用来约定对象的结构，我们使用一个接口就必须遵守这个接口的全部约定。</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  interface userFace {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  interface userFace &#123;
     age: number,
     name: string,
     title?: string // 可选成员
     readonly content?: string // 只读成员,初始化后不可改变
-  }
+  &#125;
   // 参数user使用接口
-  function getUser (user: userFace) {
+  function getUser (user: userFace) &#123;
     return user.age + user.name
-  }
-  console.log(getUser({ age: 18, name: 's' }))
+  &#125;
+  console.log(getUser(&#123; age: 18, name: 's' &#125;))
   // 动态接口写法：
-  interface userFace2 {
+  interface userFace2 &#123;
     [key: string]: string // key代表属性名称任意名称string代表可以的类型， 第二个string代表键值的类型
-  }
-  const cache: userFace2 = {}
+  &#125;
+  const cache: userFace2 = &#123;&#125;
   cache.foo = 'val1'
   cache.bar = 'val2'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="8-泛型"><a href="#8-泛型" class="headerlink" title="8.泛型"></a>8.泛型</h4><p>  把我们定义时不明确的类型变成一个参数 ，使用时在传递这样的类型参数！</p>
-<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function createNumberArray (length: number, value: number) {
+<pre class="line-numbers language-javaScript"><code class="language-javaScript">  function createNumberArray (length: number, value: number) &#123;
     // 因为Array对象默认创建是的any类型，所以我们要指定下他默认的类型  使用泛型指定
     // const arr = Array(length).fill(value)
     const arr = Array<number>(length).fill(value)
     return arr
-  }
+  &#125;
   const rest = createNumberArray(3, 100)
   console.log(rest)
   // ps:此时 createNumberArray函数只能创建数字类型的数组。 如果还想创建字符串类型的数组 就可以使用泛型参数，
   // ！！！！！！泛型参数方法  改进 createNumberArray！！！！
   // 一般泛型参数为T ，然后把函数中不明确的参数类型都改为T
-  function createArray<T> (length: number, value: T) {
+  function createArray<T> (length: number, value: T) &#123;
     const arr = Array<T>(length).fill(value)
     return arr
-  }
+  &#125;
   // 泛型使用
   const rest2 = createArray<string>(3, 'foo')
   console.log(rest2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 

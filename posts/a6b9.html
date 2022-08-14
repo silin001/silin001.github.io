@@ -360,7 +360,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    7 分
                 </div>
                 
 
@@ -378,31 +378,31 @@
 <p>⭐⭐⭐个人登录注意点：<br>需要用到接入码、这个接入码也是找项目负责人由甲方配置提供；<em>goto跳转地址</em>就是我们前端应用的首页，这个地址需要提供给甲方让他们配置好。<br>这样我们就按照文档拼接成了一个登录的跳转地址,等他们把跳转地址配置完之后,用户操作一个涉及到用户读取却没有登录的地方时，就跳转到了浙里办的登录页面地址;<br>然后输入自己的账号密码点击登录,这时候登录成功后页面会自动的跳转到你在第二部分<code>goto</code>设置的回调地址上，也就是我们h5应用的（一般为）首页。<br>在跳回来的过程中会在 URL 路径上带有登录时返回给你的 <code>ticket</code> 等参数，此时前端需要从url里取出这个标识传给后端进行 ①票据认证  ②票据认证完会返回一个<code>token</code> 这时就可以拿这个<code>token</code> 获取到用户信息了.<br>为了简洁操作 这里我们做的时候直接把ticket传给服务端，服务端处理完 直接把用户信息返回给了我客户端.</p>
 <h3 id="埋点"><a href="#埋点" class="headerlink" title="埋点"></a>埋点</h3><p>他们提供的文档很模糊，我在初次接触这块的时候还是在网上查找了大量资料完成.<br>基础埋点代码如下：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> q<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> q<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> f <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>j <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     j<span class="token punctuation">.</span><span class="token keyword">async</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     j<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'beacon-aplus'</span><span class="token punctuation">;</span>
     j<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://alidt.alicdn.com/alilog/mlog/aplus_cloud.js'</span><span class="token punctuation">;</span>
     f<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'aplus_queue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'aplus_queue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aplus-rhost-v'</span><span class="token punctuation">,</span> <span class="token string">'alog.zjzwfw.gov.cn'</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aplus-rhost-g'</span><span class="token punctuation">,</span> <span class="token string">'alog.zjzwfw.gov.cn'</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> u <span class="token operator">=</span> navigator<span class="token punctuation">.</span>userAgent
   <span class="token keyword">var</span> isAndroid <span class="token operator">=</span> u<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'Android'</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span>
   <span class="token keyword">var</span> isIOS <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">!</span>u<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span><span class="token punctuation">)</span>
 
-  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  aplus_queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     action<span class="token punctuation">:</span> <span class="token string">'aplus.setMetaInfo'</span><span class="token punctuation">,</span>
     arguments<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'appId'</span><span class="token punctuation">,</span> <span class="token string">'your appid'</span><span class="token punctuation">]</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其他pv\uv相关埋点建议写成单独js文件需要的埋点的页面引入，在vue项目里直接写到vue实例里可能导致埋点不成功。</p>
@@ -413,25 +413,7 @@
 <h3 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h3><p>前端应用不需要打包，只需要将项目<code>src static index.html package.json gbc.json .postcssrc.js .babelrc</code> 等资源依赖压缩为.zip的包 且不能大于40M,然后上传到 政务中台应用管理等编译通过后就自动生成二维码和链接可以查看测试版本了。<br>⭐⭐⭐这里我遇到了坑1:<br>之前公司前端开发好的h5应用使用的图片有部分是中文命名，结果windows系统打包zip压缩后中文乱码了，导致上传应用平台编译失败，而mac系统打包不会乱码！切记开发中不要使用中文命名！！！<br>⭐⭐⭐坑2:<br>单点登录时配置的回调地址在发布时需要提供给浙里办的工作人员进行配置，不然如果配置是测试回调地址，发布上线后扫码跳转的还是测试地址!</p>
 <p>注意：浙里办测试环境会有调试按钮，发布线上环境后就没有了.</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然整个项目最开始是懵逼和无奈的，过程是崎岖和痛苦的.但是完成的那一刻心里还是挺开心的！说实话东西没多难，但是我觉得初次接触一个新事物、新项目的时候还是得先整明白 是什么？干什么？完成什么？ 只有清楚这些才能理清思路和步骤然后再去进阶完成目标。另外吐槽一下浙里办的技术支持,有一些问题回答的太官方! 甚至你问到一个不清楚的问题他会直接丢给你对接文档原链接！！！ 还是挺无语的只能和同事探讨或者网上看看相关博客。也可能是因为我比较菜吧, 总之还是要微笑面对生活,要相信没有克服不了的困难! 加油!</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
