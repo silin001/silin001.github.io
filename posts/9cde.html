@@ -352,7 +352,7 @@ Vscode vim 基础使用：y 复制（先选中）yy 复制一行nyy 复制多行
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -372,9 +372,9 @@ Vscode vim 基础使用：y 复制（先选中）yy 复制一行nyy 复制多行
             <div id="articleContent">
                 <h1 id="vim-是什么？"><a href="#vim-是什么？" class="headerlink" title="vim 是什么？"></a>vim 是什么？</h1><p>vim/vi 是 Unix / Linux 上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单】</p>
 <h1 id="Vscode-vim-基础使用："><a href="#Vscode-vim-基础使用：" class="headerlink" title="Vscode vim 基础使用："></a>Vscode vim 基础使用：</h1><p>y 复制（先选中）<br>yy 复制一行<br>nyy 复制多行（n 为行数）<br>p 粘贴<br>u 撤销<br>移动光标至所选行的开头，按 v 进入视图，键盘上按向下键，选中所需行即可。<br>恢复刚才的操做 ctrl+r<br>v+w 打开选中模式，并向后移动一个单词<br>v+b 打开选中模型，并向前移动一个单词<br>v+i+w 打开选中模式，并选中当前单词</p>
-<h1 id="vim-的模式"><a href="#vim-的模式" class="headerlink" title="vim 的模式"></a>vim 的模式</h1><h2 id="一、默认-normal-模式"><a href="#一、默认-normal-模式" class="headerlink" title="一、默认 normal 模式"></a>一、默认 normal 模式</h2><p>正常模式一般用于浏览文件，也包括一些复制、粘贴、删除等操作。这时击键时，一般的键/键组合会被当成功能键，而不会键入对应的字符。在这个模式下，我们可能通过键盘在文本中跳来跳去，跳动的范围从小到大是字符、单词、行、句子、段落和屏幕。启动 vim 后默认位于正常模式。不论位于什么模式，按下<Esc>键(有时需要按两下）都会进入正常模式。</p>
+<h1 id="vim-的模式"><a href="#vim-的模式" class="headerlink" title="vim 的模式"></a>vim 的模式</h1><h2 id="一、默认-normal-模式"><a href="#一、默认-normal-模式" class="headerlink" title="一、默认 normal 模式"></a>一、默认 normal 模式</h2><p>正常模式一般用于浏览文件，也包括一些复制、粘贴、删除等操作。这时击键时，一般的键/键组合会被当成功能键，而不会键入对应的字符。在这个模式下，我们可能通过键盘在文本中跳来跳去，跳动的范围从小到大是字符、单词、行、句子、段落和屏幕。启动 vim 后默认位于正常模式。不论位于什么模式，按下<esc>键(有时需要按两下）都会进入正常模式。</esc></p>
 <ul>
-<li><p>移动<br><font color=red >单词操作:</font><br>w= word 跳到下一个单词的开头<br>e= 跳到下一个单词的结尾<br>b= back word 跳到上一个单词的开头<br><font color=red >行操作:</font><br>0 行首<br>I 单词行首<br>$ 行尾<br>A 单词行尾<br>15gg 跳转到 15 行<br>:18 = 进入 18 行<br>18G =进入 18 行<br>gg 文件首行<br>G 文件末行<br>Shift + [] 是以「代码块」为单位跳行<br>Ctrl + u 和 Ctrl + d 实现上下滚动页面，滚动行数默认为半页大小<br>[[跳到文件首行，而]] 则是行末。<br>gd: 函数的跳转 go to defined<br>ctr+o 退出到原先的函数位置<br>当前行下移一行 :m+<br>当前行上移一行 :m-2</p>
+<li><p>移动<br><font color="red">单词操作:</font><br>w= word 跳到下一个单词的开头<br>e= 跳到下一个单词的结尾<br>b= back word 跳到上一个单词的开头<br><font color="red">行操作:</font><br>0 行首<br>I 单词行首<br>$ 行尾<br>A 单词行尾<br>15gg 跳转到 15 行<br>:18 = 进入 18 行<br>18G =进入 18 行<br>gg 文件首行<br>G 文件末行<br>Shift + [] 是以「代码块」为单位跳行<br>Ctrl + u 和 Ctrl + d 实现上下滚动页面，滚动行数默认为半页大小<br>[[跳到文件首行，而]] 则是行末。<br>gd: 函数的跳转 go to defined<br>ctr+o 退出到原先的函数位置<br>当前行下移一行 :m+<br>当前行上移一行 :m-2</p>
 </li>
 <li><p>选中<br>v+i+w 放在一个单词的任意位置时均可选中本单词<br>v+e 光标放在一个单词的开头时可选中本单词<br>v+h/j/k/l 进入视图模式后使用方向键容易选中你想选的部分</p>
 </li>
@@ -388,11 +388,29 @@ Vscode vim 基础使用：y 复制（先选中）yy 复制一行nyy 复制多行
 </blockquote>
 </li>
 </ul>
-<p>作用范围分为当前行、全文、选区等等。<br>当前行：<br><code>:s/foo/bar/g</code><br>全文：<br><code>:%s/foo/bar/g</code><br>选区，在 Visual 模式下选择区域后输入:，Vim 即可自动补全为 :’&lt;,’&gt;。<br><code>:&#39;&lt;,&#39;&gt;s/foo/bar/g</code><br>2-11 行：<br><code>:5,12s/foo/bar/g</code><br>当前行.与接下来两行+2：<br><code>:.,+2s/foo/bar/g</code></p>
+<p>作用范围分为当前行、全文、选区等等。<br>当前行：<br><code>:s/foo/bar/g</code><br>全文：<br><code>:%s/foo/bar/g</code><br>选区，在 Visual 模式下选择区域后输入:，Vim 即可自动补全为 :’&lt;,’&gt;。<br><code>:'&lt;,'&gt;s/foo/bar/g</code><br>2-11 行：<br><code>:5,12s/foo/bar/g</code><br>当前行.与接下来两行+2：<br><code>:.,+2s/foo/bar/g</code></p>
 <h2 id="二、insert-插入模式"><a href="#二、insert-插入模式" class="headerlink" title="二、insert 插入模式"></a>二、insert 插入模式</h2><p>在正常模式中按下 i, I, a, A 等键，会进入插入模式。<br>小写包含空格，大写不包含空格<br>a/A = append： 后面插入<br>i /I = insert :前面插入<br>o/O = open a line ：另起一行<br>现在只用记住按 i 键会进行插入模式。插入模式中，击键时会写入相应的字符<br>保存：<br>:w 保存文件但不退出vi<br>:w file 将修改另外保存到file中，不退出vi<br>:w! 强制保存，不推出vi<br>:wq 保存文件并退出vi<br>:wq! 强制保存文件，并退出vi<br>:q 不保存文件，退出vi<br>:q! 不保存文件，强制退出vi<br>:e! 放弃所有修改，从上次保存文件开始再编辑命令历史</p>
-<h2 id="三、visual-可视模式"><a href="#三、visual-可视模式" class="headerlink" title="三、visual 可视模式"></a>三、visual 可视模式</h2><p>在正常模式按下 v, V, <Ctrl>+v，可以进入可视模式。可视模式中的<br>操作有点像拿鼠标进行操作，选择文本的时候有一种鼠标选择的即视感，有时候会很方便。</p>
+<h2 id="三、visual-可视模式"><a href="#三、visual-可视模式" class="headerlink" title="三、visual 可视模式"></a>三、visual 可视模式</h2><p>在正常模式按下 v, V, <ctrl>+v，可以进入可视模式。可视模式中的<br>操作有点像拿鼠标进行操作，选择文本的时候有一种鼠标选择的即视感，有时候会很方便。</ctrl></p>
 <p>i( =会选中括号里面的单词<br>i” = 会选中””引号里内容<br>a( =会选中括弧以及括弧里面的单词<br>a” =会选中””和内容<br>aw =会选中单词以及单词前面的一个空格<br>iw = 会选中一个单词 (visual 模式)</p>
-<h2 id="四、command-命令模式"><a href="#四、command-命令模式" class="headerlink" title="四、command 命令模式"></a>四、command 命令模式</h2>
+<h2 id="四、command-命令模式"><a href="#四、command-命令模式" class="headerlink" title="四、command 命令模式"></a>四、command 命令模式</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 

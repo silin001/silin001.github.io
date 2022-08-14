@@ -386,31 +386,31 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
 <li><p>Vue2.0： 实现MVVM(双向数据绑定)的原理是通过 <code>Object.defineProperty</code> 来劫持各个属性的<code>setter、getter</code>在数据变动时发布消息给订阅者，触发相应的监听回调。<br>缺点：<br>基于<code>Object.defineProperty</code> 不具备监听数组的能力，需要重写数组的原型方法来达到响应式。<br><code>Object.defineProperty</code> 无法检测到对象属性的添加和删除 。<br>由于Vue会在初始化实例时对属性执行getter/setter转化，所有属性必须在data对象上存在才能让Vue将它转换为响应式。<br>深度监听需要一次性递归，对性能影响比较大</p>
 </li>
 <li><p>Vue3.0： 重构响应式系统，使用<code>Proxy</code>代理 + <code>Reflect</code>反射，替换<code>Object.defineProperty</code><br>使用Proxy代理优势：<br>可直接监听数组类型的数据变化<br>监听的目标为对象本身，不需要像Object.defineProperty一样<em>递归遍历每个属性</em>，有一定的性能提升<br>可拦截apply、ownKeys、has等13种方法，而Object.defineProperty不行<br>不需要一次性遍历data的属性，可以显著提高性能。<br>因为Proxy是ES6新增的属性，有些浏览器还不支持,只能兼容到IE11<br>源码:</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> proxyData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> proxyData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+ <span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span><span class="token punctuation">{</span> 
    <span class="token comment" spellcheck="true">// 只处理本身(非原型)的属性</span>
    <span class="token keyword">const</span> ownKeys <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">ownKeys</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
-   <span class="token keyword">if</span><span class="token punctuation">(</span>ownKeys<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span>ownKeys<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 监听</span>
-   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
    <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span>
    <span class="token keyword">return</span> result
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
- <span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span> reveive<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span> reveive<span class="token punctuation">)</span><span class="token punctuation">{</span>
    <span class="token comment" spellcheck="true">// 重复的数据，不处理</span>
    <span class="token keyword">const</span> oldVal <span class="token operator">=</span> target<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
-   <span class="token keyword">if</span><span class="token punctuation">(</span>val <span class="token operator">==</span> oldVal<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span>val <span class="token operator">==</span> oldVal<span class="token punctuation">)</span><span class="token punctuation">{</span>
      <span class="token keyword">return</span> <span class="token boolean">true</span>
-   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
    <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span>reveive<span class="token punctuation">)</span>
    <span class="token keyword">return</span> result
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
  <span class="token comment" spellcheck="true">// 删除属性</span>
- <span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">{</span>
    <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">)</span>
    <span class="token keyword">return</span> result
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h2 id="vue3带来了什么？"><a href="#vue3带来了什么？" class="headerlink" title="vue3带来了什么？"></a>vue3带来了什么？</h2><p>打包大小减少41%、初次渲染快55%、更新渲染快133%、内存减少54%</p>
@@ -441,7 +441,25 @@ yarn create @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-r
 yarn create @vitejs/app my-vue-app --template vue
 例如创建 vue+ts：
 yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 

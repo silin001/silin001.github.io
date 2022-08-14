@@ -342,7 +342,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -361,7 +361,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="记录个人使用-macOs-时配置开发环境"><a href="#记录个人使用-macOs-时配置开发环境" class="headerlink" title="记录个人使用 macOs 时配置开发环境"></a>记录个人使用 macOs 时配置开发环境</h2><h3 id="mac-环境变量相关"><a href="#mac-环境变量相关" class="headerlink" title="mac 环境变量相关"></a>mac 环境变量相关</h3><p>Mac 系统的环境变量，加载顺序为：<br>系统级别：<br>/etc/profile<br>/etc/paths<br>用户级别：<br>~/.bash_profile<br>~/.bash_login<br>~/.profile ~/.bashrc</p>
-<p>如果没特殊说明,设置 PATH 变量 的语法都为：<br><code>export PATH=&lt;PATH 1&gt;:&lt;PATH 2&gt;:.....:&lt;PATH N&gt;:$PATH</code><br>推荐写法：<br><code>export PATH=$&#123;PATH&#125;:/opt/homebrew/opt/mysql@.5.7/bin</code><br>写法 2:<br><code>export PATH=&quot;you url:$PATH&quot;</code></p>
+<p>如果没特殊说明,设置 PATH 变量 的语法都为：<br><code>export PATH=&lt;PATH 1&gt;:&lt;PATH 2&gt;:.....:&lt;PATH N&gt;:$PATH</code><br>推荐写法：<br><code>export PATH=${PATH}:/opt/homebrew/opt/mysql@.5.7/bin</code><br>写法 2:<br><code>export PATH="you url:$PATH"</code></p>
 <p>修改配置文件立即生效：<br><code>source ~/.bash_profile</code><br>查看是否生效<br><code>echo $PATH</code></p>
 <p>注意：<br>mac 默认使用的是 bash shell，<br>如果你在 Mac 上使用了 zsh 等其他 shell 工具，需要再做配置，来达到环境变量设置的永久生效。<br>bash 的配置文件是.bashrc, zsh 的配置文件是.zshrc，当你使用 zsh 作为默认的 shell 工具的时候，它启动时并不会加载 bash 的这两个配置文件.bashrc 和.bash_profile，而只会加载自己的配置文件.zshrc；我的终端设置默认为 zsh；</p>
 <p>vim ~/.zshrc</p>
@@ -426,14 +426,32 @@ brew upgrade xxx 更新指定包<span aria-hidden="true" class="line-numbers-row
 <p>出现这个问题时，关闭服务，重新启动命令前加 <code>sudo</code>，启动后 重新打开终端，如果还报错 删除文件 <code>var/mongodb/mongodb.lock</code> 重新启动试试<br><code>mongo</code> 出现一下提示代表链接成功即可操作数据库</p>
 <pre class="line-numbers language-bash"><code class="language-bash">MongoDB shell version v5.0.7
 connecting to: mongodb://127.0.0.1:27017/?compressors<span class="token operator">=</span>disabled<span class="token operator">&amp;</span>gssapiServiceName<span class="token operator">=</span>mongodb
-Implicit session: session <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123; "id" : UUID("470b3bca-4d34-4371-b954-16c2ea60c230") &amp;#125;</span>
+Implicit session: session <span class="token punctuation">{</span> <span class="token string">"id"</span> <span class="token keyword">:</span> UUID<span class="token punctuation">(</span><span class="token string">"470b3bca-4d34-4371-b954-16c2ea60c230"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
 MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>输入:<code>show dbs;</code> 查看所有数据库<br>退出: <code>shell： quit();</code></p>
 </li>
 </ul>
 <h3 id="mysql-安装"><a href="#mysql-安装" class="headerlink" title="mysql 安装"></a>mysql 安装</h3><p><code>brew install mysql@5.7</code><br>查看版本：<br><code>mysql -V</code></p>
 <p>启动 mysql：可以使用命令查看提示，<br><code>brew info mysql</code> 根据提示，有两种启动方式：<br>  <code>brew services start mysql</code><br>  <code>mysql.server start</code><br>  <code>mysql.server restart</code> // 重启<br>  关闭数据库：<br>  <code>mysql.server stop</code><br>  链接数据库：<br>  <code>mysql -u root</code><br>  修改密码：<br>  <code>mysql_secure_installation</code></p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 

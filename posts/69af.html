@@ -358,7 +358,7 @@ nvm list available 显示所有可安装的node版本">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -432,7 +432,7 @@ yarn config <span class="token keyword">get</span> registry
 </ul>
 <h2 id="编辑器浏览器相关"><a href="#编辑器浏览器相关" class="headerlink" title="编辑器浏览器相关"></a>编辑器浏览器相关</h2><ul>
 <li><p>vscode 顶部打开文件多了滚动条太细？<br>修改编辑器样式文件,我的文件地址：<code>D:\vscode\MicrosoftVSCode\resources\app\out\vs\workbench\workbench.desktop.main.css</code><br>在文件最前面添加如下代码：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token number">.</span>visible<span class="token number">.</span>scrollbar<span class="token number">.</span>horizontal,<span class="token number">.</span>invisible<span class="token number">.</span>scrollbar<span class="token number">.</span>horizontal<span class="token number">.</span>fade&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px <span class="token important">!important</span><span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span><span class="token number">.</span>visible<span class="token number">.</span>scrollbar<span class="token number">.</span>horizontal><span class="token number">.</span>slider,<span class="token number">.</span>visible<span class="token number">.</span>scrollbar<span class="token number">.</span>horizontal><span class="token number">.</span>slider<span class="token number">.</span>active,<span class="token number">.</span>invisible<span class="token number">.</span>scrollbar<span class="token number">.</span>horizontal<span class="token number">.</span>fade><span class="token number">.</span>slider,<span class="token number">.</span>slider<span class="token number">.</span>active,invisible<span class="token number">.</span>scrollbar<span class="token number">.</span>horizontal<span class="token number">.</span>fade><span class="token number">.</span>slider<span class="token number">.</span>active &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px <span class="token important">!important</span><span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.visible.scrollbar.horizontal</span>,<span class="token class">.invisible.scrollbar.horizontal.fade</span></span><span class="token punctuation">{</span><span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px <span class="token important">!important</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector"><span class="token class">.visible.scrollbar.horizontal</span>><span class="token class">.slider</span>,<span class="token class">.visible.scrollbar.horizontal</span>><span class="token class">.slider.active</span>,<span class="token class">.invisible.scrollbar.horizontal.fade</span>><span class="token class">.slider</span>,<span class="token class">.slider.active</span>,invisible<span class="token class">.scrollbar.horizontal.fade</span>><span class="token class">.slider.active</span> </span><span class="token punctuation">{</span><span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px <span class="token important">!important</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>保存重启编辑器</p>
 </li>
 <li><p>插件 SynthWave ‘84 主题启动<br>ctrl + shift + P（windows）<br>command + shift + P（mac），<br>输入： Enable Neon Dreams<br>点击重启</p>
@@ -508,7 +508,25 @@ yarn config <span class="token keyword">get</span> registry
 <p>修改完后终端执行刷新 dns 解析：dscacheutil -flushcache</p>
 </li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
