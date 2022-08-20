@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="macOs下环境配置记录, 尖椒土豆sss">
-    <meta name="description" content="记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~">
+    <meta name="keywords" content="PicGo图床工具使用">
+    <meta name="description" content="什么是图床？简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。
+为什么要搭建图床？我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,22 +16,22 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- 必应网站收录-->
     <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
-    <!-- 百度网站收录-->
+    <!-- baidu-->
     <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
-    <!-- 谷歌网站收录-->
+    <!-- google-->
     <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
-    <title>macOs下环境配置记录 | 尖椒土豆sss</title>
-    <link rel="icon" type="image/png" href="/medias/favicon.png">
+    <title>搭建自己的图床 | 尖椒土豆sss</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
@@ -46,7 +47,7 @@
             <div class="brand-logo" style="display: flex">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img" alt="LOGO">
+                    <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/logo.gif" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">尖椒土豆sss</span>
                 </a>
@@ -111,7 +112,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img circle responsive-img">
+        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/logo.gif" class="logo-img circle responsive-img">
         
         <div class="logo-name">尖椒土豆sss</div>
         <div class="logo-desc">
@@ -181,7 +182,7 @@
 </header>
 
             
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
         let pwd = '';
@@ -197,12 +198,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">macOs下环境配置记录</h1>
+                    <h1 class="description center-align post-title">搭建自己的图床</h1>
                 </div>
             </div>
         </div>
@@ -215,7 +216,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -319,14 +320,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js/">
-                                <span class="chip bg-color">js</span>
+                            <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                                <span class="chip bg-color">图床</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                工具
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -335,7 +345,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-20
+                    2022-01-19
                 </div>
                 
 
@@ -344,14 +354,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -362,79 +372,95 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="记录个人使用-macOs-时配置开发环境"><a href="#记录个人使用-macOs-时配置开发环境" class="headerlink" title="记录个人使用 macOs 时配置开发环境"></a>记录个人使用 macOs 时配置开发环境</h2><h3 id="mac-环境变量相关"><a href="#mac-环境变量相关" class="headerlink" title="mac 环境变量相关"></a>mac 环境变量相关</h3><p>Mac 系统的环境变量，加载顺序为：<br>系统级别：<br>/etc/profile<br>/etc/paths<br>用户级别：<br>~/.bash_profile<br>~/.bash_login<br>~/.profile ~/.bashrc</p>
-<p>如果没特殊说明,设置 PATH 变量 的语法都为：<br><code>export PATH=&lt;PATH 1&gt;:&lt;PATH 2&gt;:.....:&lt;PATH N&gt;:$PATH</code><br>推荐写法：<br><code>export PATH=${PATH}:/opt/homebrew/opt/mysql@.5.7/bin</code><br>写法 2:<br><code>export PATH="you url:$PATH"</code></p>
-<p>修改配置文件立即生效：<br><code>source ~/.bash_profile</code><br>查看是否生效<br><code>echo $PATH</code></p>
-<p>注意：<br>mac 默认使用的是 bash shell，<br>如果你在 Mac 上使用了 zsh 等其他 shell 工具，需要再做配置，来达到环境变量设置的永久生效。<br>bash 的配置文件是.bashrc, zsh 的配置文件是.zshrc，当你使用 zsh 作为默认的 shell 工具的时候，它启动时并不会加载 bash 的这两个配置文件.bashrc 和.bash_profile，而只会加载自己的配置文件.zshrc；我的终端设置默认为 zsh；</p>
-<p>vim ~/.zshrc</p>
-<h3 id="mac-用户级别的环境变量配置"><a href="#mac-用户级别的环境变量配置" class="headerlink" title="mac 用户级别的环境变量配置"></a>mac 用户级别的环境变量配置</h3><ul>
-<li>.bash_profile 文件<br>~/.bash_profile：用户级，用来设置用户级的环境变量，可以是 PATH，也可以是自定义的环境变量，当用户登录时，会读取该文件，一般只会读取一次，如果不存在可以在～根目录下创建 .bash_profile</li>
-<li>.zshrc 终端<br>我使用了 zsh 作为默认终端，～目录下添加配置文件</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">touch</span> .zshrc
-<span class="token function">open</span> ~/.zshrc  or  vim ~/.zshrc
-shift+ ： wq保存退出
-重载文件：
-<span class="token function">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h3><ul>
-<li>安装使用</li>
-<li>常用指令<br>brew install xxx<br>brew install –cask xxx<br>brew:主要用来下载一些不带界面的命令行下的工具和第三方库来进行二次开发<br>brew –cask:主要用来下载一些<strong>带界面的应用软件</strong>，已经编译好了的应用包 （.dmg/.pkg），仅仅是下载解压，放在统一的目录中（/opt/homebrew-cask/Caskroom），省掉了自己去下载、解压、拖拽（安装）等步骤，同样，卸载相当容易与干净。这个对一般用户来说会比较方便，包含很多在 AppStore 里没有的常用软件。</li>
-</ul>
-<p>ps: 如果安装 mac 图形界面软件，推荐先在苹果官方商店里搜索下载，没有的话去 brew cask 试试，如果还没有，只能去这个软件的官方网站去下载了。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">brew -v
-brew home
-brew list 查看已安装的软件
-brew search xxx  搜索软件包
-brew uninstall xxx 卸载软件包
-brew services list 查看服务
-brew info xxx 查看包的详细信息
-brew update 自身更新
-brew outdated 查看那些包油新版本可更新
-brew upgrade 更新所有包
-brew upgrade xxx 更新指定包<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="mongodb-安装"><a href="#mongodb-安装" class="headerlink" title="mongodb 安装"></a>mongodb 安装</h3><p>MacBook M1、M2 芯片的默认配置目录如下：<br>/opt/homebrew/etc/mongod.conf<br>我的 mongodb 安装目录：<br>磁盘：/opt/homebrew/cellor/mongodb/5.0.7<br>brew 目录： opt/homebrew<br>brew 安装软件目录：opt/homebrew/cellor</p>
+                <h2 id="什么是图床？"><a href="#什么是图床？" class="headerlink" title="什么是图床？"></a>什么是图床？</h2><p>简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。</p>
+<h2 id="为什么要搭建图床？"><a href="#为什么要搭建图床？" class="headerlink" title="为什么要搭建图床？"></a>为什么要搭建图床？</h2><p>我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也不好管理。<br>为了解决这种问题，达到一劳永逸的目的解决方法就是搭建自己的图床，把需要用的图片地址变成网络地址，这样想在哪里用直接通过链接方式使用。</p>
+<h2 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h2><p>图床工具就是自动把本地图片转换成链接的一款工具！<br>网络上有很多图床工具 PicGo 是一款用 Electron-vue 开发的开源软件，可以支持微博，七牛云，腾讯云 COS，又拍云，GitHub，阿里云 OSS，SM.MS，imgur 等 8 种常用图床，功能强大，支持 Windowns，macOS 和 Linux 平台<br>github 下载地址：[<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases]">https://github.com/Molunerfinn/PicGo/releases]</a></p>
+<p>这么多图床有收费的有免费的，且对应我们个人用户来说免费的也完全够用，我们当然选择白嫖啦！哈哈哈~</p>
+<h2 id="搭建自己的图床"><a href="#搭建自己的图床" class="headerlink" title="搭建自己的图床"></a>搭建自己的图床</h2><p>按需下载安装完 PicGo 工具后，这里使用免费的 gitee、github 图床，先创建一个专门存储图片的仓库且设置为公开的。<br>生成一个新的个人令牌 token（需要注意的是生成后记得保存，该 token 只出现一次，后续是不可查看的）</p>
 <ul>
-<li><p>使用 brew 安装<br>MongoDB 不开源了，<code>brew install mongodb</code> 安装命令失效了，目前 brew 只能安装社区版<br>1：<code>brew tap mongodb/brew</code><br>这里直接安装 5.0 版本</p>
-<p>2：<code>brew install mongodb-community@5.0</code></p>
-<p>一般通过 brew 安装的文件都在 <code>/opt/homebrew/Cellar/目录下，我的在/opt/homebrew/Cellar/mongodb-community/5.0.7/bin</code></p>
-<p>3：mongod -version (如果失败需要配置环境变量)<br>4: 打开环境变量配置文件，配置环境变量,或者</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">open</span> ~/.bash_profile <span class="token punctuation">(</span>根据自己用的什么 shell 决定,我使用的是zsh<span class="token punctuation">)</span>：
-<span class="token function">open</span> ~/.zshrc
-配置环境变量:
-<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>:/opt/homebrew/Cellar/mongodb/5.0.7/bin
-重新加载配置文件:
-<span class="token function">source</span> ~/.zshrc
-配置成功后会显示刚才配置的路径
-<span class="token keyword">echo</span> <span class="token variable">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>重启终端执行： <code>mongod -version</code><br>我的 mongodb 配置文件路径：<br><code>/opt/homebrew/etc/mongod.conf</code></p>
+<li>使用 gitee 图床（不推荐）</li>
+</ul>
+<!-- ![](https://gitee.com/sisi001/picBed/raw/master/blog/picgo1.png) -->
+
+<p><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/pic1.png" alt=""><br>先在软件中安装 gitee 的插件来支持，安装完后在图床设置的最后就可以看到 gitee 点击进行配置 gitee<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/pic2.png" alt=""></p>
+<!-- ![](https://gitee.com/sisi001/picBed/raw/master/blog/picgo2.png) -->
+
+<p>repo: 仓库名称</p>
+<p>path: 存放图片的目录，可以不写，默认根路径</p>
+<p>token: 在 gitee 生成的 token</p>
+<p>其他选项可以不填</p>
+<p>然后就可以开心的使用了，在软件的上传区上传，这里很方便的是可以使用剪贴板的图片，这样我们拿微信或者其他截图工具随手截图后直接点击剪贴板图片就可以上传（注意剪贴板中必须要有图片否则会失败，如果有报错可以在设置中根据日志文件来定位问题）</p>
+<p>上传成功后远程仓库就会看到上传成功的图片，在工具左侧相册中也可以看到图片，还可以预览、修改、删除等操作，但是这里的删除操作只是删除本地图片，无法同步删除远程仓库的图床。</p>
+<p>gitee 作为图床：<br><strong>优点：</strong><br>免费<br>毕竟服务器在国内，访问速度比 github 更快<br><strong>缺点：</strong><br>gitee 本身还有 1 M 图片大小的限制，而且据了解现在不允许作为图床了，做了防盗链，使用图床的图片会变成 gitee 的 icon。</p>
+<ul>
+<li><p>使用 github 图床+jsDelivr<br>github 图床步骤和上面几乎一样; jsDelivr 下面详讲。</p>
 </li>
-<li><p>启动方式 1</p>
-<blockquote>
-<p>使用 brew 将 MongoDB 作为 MacOS 的服务器运行</p>
-</blockquote>
-<p>这种方式启动时 start 后面的 必须和按照时对应，我这里安装完修改了目录名称对应执行命令失败<br>启动：<br><code>brew services start mongodb/brew/mongodb-community@5.0</code><br>如果修改目录为 mongodb 执行如下命令失败<br><code>brew services start mongodb/brew/mongodb</code><br>停止：</p>
-<p><code>brew services stop mongodb/brew/mongodb-community@5.0</code></p>
-<p>出现如下说明启动、关闭成功，但不代表可以链接成功：<br>==&gt; <strong>Successfully started</strong> <code>mongodb-community@5.0</code> (label: <a href="mailto:homebrew.mxcl.mongodb-community@5.0">homebrew.mxcl.mongodb-community@5.0</a>)<br>==&gt; <strong>Successfully stopped</strong> <code>mongodb-community@5.0</code> (label: <a href="mailto:homebrew.mxcl.mongodb-community@5.0">homebrew.mxcl.mongodb-community@5.0</a>)</p>
-<p>启动成功访问：<a target="_blank" rel="noopener" href="http://127.0.0.1:27017">http://127.0.0.1:27017</a><br>出现：It looks like you are trying to access MongoDB over HTTP on the native driver port. 则成功。</p>
-</li>
-<li><p>启动方式 2</p>
-<blockquote>
-<p>使用配置文件启动 mongodb 服务，将 MongoDB 作为后端程序运行(我这里没成功待处理)</p>
-</blockquote>
-<p>命令参数，注意这里的目录要换成自己的<br><code>mogond --dbpath $dbpath (数据库数据文件路径)</code><br>  –logpath $logpath(日志文件的路径)<br>  –logappend(以追加的方式打开文件)<br>  –fork(将数据库服务放在后台运行)<br>  如：<br>  <code>mongod --dbpath /opt/homebrew/var/mongodb --logpath /opt/homebrew/var/log/mongodb/mongo.log --fork</code></p>
-<p>启动：<br><code>mongod --config /opt/homebrew/etc/mongod.conf</code><br>停止：<br><code>mongod --config /opt/homebrew/etc/mongod.conf</code></p>
-</li>
-<li><p>启动成功后 终端链接 <code>mongodb</code><br>链接数据库失败问题：<br>MongoDB shell version v5.0.7<br>connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&amp;gssapiServiceName=mongodb<br>Error: couldn’t connect to server 127.0.0.1:27017, connection attempt failed: SocketException: Error connecting to 127.0.0.1:27017 :: caused by :: Connection refused :<br><code>connect@src/mongo/shell/mongo.js:372:17</code><br>@(connect):2:6<br>exception: connect failed<br>exiting with code 1</p>
-<p>出现这个问题时，关闭服务，重新启动命令前加 <code>sudo</code>，启动后 重新打开终端，如果还报错 删除文件 <code>var/mongodb/mongodb.lock</code> 重新启动试试<br><code>mongo</code> 出现一下提示代表链接成功即可操作数据库</p>
-<pre class="line-numbers language-bash"><code class="language-bash">MongoDB shell version v5.0.7
-connecting to: mongodb://127.0.0.1:27017/?compressors<span class="token operator">=</span>disabled<span class="token operator">&amp;</span>gssapiServiceName<span class="token operator">=</span>mongodb
-Implicit session: session <span class="token punctuation">{</span> <span class="token string">"id"</span> <span class="token keyword">:</span> UUID<span class="token punctuation">(</span><span class="token string">"470b3bca-4d34-4371-b954-16c2ea60c230"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
-MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输入:<code>show dbs;</code> 查看所有数据库<br>退出: <code>shell： quit();</code></p>
+<li><p>免费的代价<br>图片大小有限制；众多免费图床服务注册条款里均有禁止商用说明，万一哪天你使用的服务挂掉了或者关闭了图片外链，那你所有的链接都无法访问了，对你造成的损失或许不小。例如：前几年的微博图床。</p>
 </li>
 </ul>
-<h3 id="mysql-安装"><a href="#mysql-安装" class="headerlink" title="mysql 安装"></a>mysql 安装</h3><p><code>brew install mysql@5.7</code><br>查看版本：<br><code>mysql -V</code></p>
-<p>启动 mysql：可以使用命令查看提示，<br><code>brew info mysql</code> 根据提示，有两种启动方式：<br>  <code>brew services start mysql</code><br>  <code>mysql.server start</code><br>  <code>mysql.server restart</code> // 重启<br>  关闭数据库：<br>  <code>mysql.server stop</code><br>  链接数据库：<br>  <code>mysql -u root</code><br>  修改密码：<br>  <code>mysql_secure_installation</code></p>
+<h2 id="github-jsDelivr-CDN加速访问"><a href="#github-jsDelivr-CDN加速访问" class="headerlink" title="github + jsDelivr CDN加速访问"></a>github + jsDelivr CDN加速访问</h2><p>地址： ![<a href="https://www.jsdelivr.com]">https://www.jsdelivr.com]</a><br>jsDelivr 不支持加载超过 20M 的资源<br>CDN 加速：可以通过 CDN 的就近访问原则加快图片的访问速度。</p>
+<ul>
+<li><p>为什么使用它？<br>因为 github 服务器在国外访问速度很慢所以我们使用 jsDelivr CDN 免费加速。<br>原本 github 的自定义域名应该是：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/[username]/[仓库名]">https://raw.githubusercontent.com/[username]/[仓库名]</a></p>
+<p>但是使用这种方式访问图片很慢，所以使用 jsdelivr 作为 cdn 加速。<br>使用简单改变域名即可，不需要任何其他配置。</p>
+</li>
+<li><p>jsDelivr 的 CDN 加速链接格式<br><code>https://cdn.jsdelivr.net/gh/GitHub用户名/仓库名@发布的版本号/图片路径</code><br>因为我们这里上传的只是图片，就不设置版本了，所以链接修改如下：<br><code>https://cdn.jsdelivr.net/gh/GitHub用户名/仓库名/图片路径</code></p>
+</li>
+<li><p>cdn 加速图片</p>
+</li>
+</ul>
+<p>例如我的 cdn 加速后的图片链接： <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/avtion.png" alt=""></p>
+<ul>
+<li><p>静态文件接入 cdn(重点!)<br>可以像cdn图片的方式一样把所有的css、js等文件的加载路径都修改下，从而让全站使用CDN加速！<br>因为js、css 等静态文件管理和图片有些不同，因为我们会编辑他，会加入新的内容。所以要对 GitHub 中静态文件进行<strong>版本发布</strong>，在 cdn 中引用对应的版本。CDN 中引用的是 GitHub 的“发布版本（release）”，不是“标签版本（Tags）”<br>在任意 JS/CSS 文件后添加 .min 能得到一个缩小版,如果它本身不存在，将会为你生成:<br><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js</a><br>测试:<br>浏览器打开-&gt;F12-&gt;Network-&gt;Ctrl + F5(强制刷新，即不使用缓存刷新)，然后看加载时间多少。</p>
+</li>
+<li><p>修改 PicGo 中的自定义链接<br>如下：<br><code>https://cdn.jsdelivr.net/gh/用户名/仓库名@main(好像不用@main)</code><br>现在我们直接上传图片，取得的链接就是 CDN 的链接了, 可以测试一下速度，还是很 nice 的。</p>
+<p>github博客使用cdn全站加速前:<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/sj.png" alt=""><br>cdn全站加速后资源确实快了:<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/sj2.png" alt=""></p>
+</li>
+</ul>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
+<li><p>picGo 上传动图 gif<br>如果直接复制网页上的动图，去上传的话是截取的某帧，是静图。应该下载到本地，然后在拖进去上传就可以了</p>
+</li>
+<li><p>github 图床设置</p>
+</li>
+</ul>
+<p>确保你的 GitHub 图床设置路径准确无误<br>检查仓库名不能出现空格，要有空格请用 - 来代替（因为 GitHub 中的空格默认换成-）<br> 图片上传成功到github了 但是访问加速后到链接404,检查发现<br> 在picgo中设置自定义域名时:<br> <code>https://cdn.jsdelivr.net/gh/silin001/silin001.io/@main</code><br> 此处的仓库名称应该是<strong>图床的仓库名称!</strong>:<br> <code>https://cdn.jsdelivr.net/gh/silin001/仓库地址/@main</code></p>
+<ul>
+<li><p>picgo 上传图片报错 401<br>报错日志： “message”:”Bad credentials” 根据百度有的说重启软件也不好使，最后在 github 提了 issues 作者解释为无权限，建议删除 token，生成新的 token 解决。不过我第一天就这样试过不行，第二天发现突然可以了，给我整 emo 了！ 遇到这种情况如果反复检查配置没问题，就重新生成 token 试试。有时候都没问题可能是网络问题,多尝试几次.</p>
+</li>
+<li><p>mac电脑按照配置完无法上传成功!<br>我从我的win10配置完后,来到mac使用picGo配置相同参数后上传失败,最后发现中win上github生成的token,来到mac上上不存在的,需要生成一个新的token</p>
+</li>
+<li><p>picgo 上传 github 后图片无法显示？</p>
+</li>
+</ul>
+<p>原因是 github 屏蔽掉了图片，解决办法就是修改 host<br>win 路径：C:\Windows\System32\drivers\etc\hosts<br>添加如下：</p>
+<pre class="line-numbers language-js"><code class="language-js">  # GitHub Start
+<span class="token number">140.82</span><span class="token punctuation">.</span><span class="token number">113.3</span>      github<span class="token punctuation">.</span>com
+<span class="token number">140.82</span><span class="token punctuation">.</span><span class="token number">114.20</span>     gist<span class="token punctuation">.</span>github<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    assets<span class="token operator">-</span>cdn<span class="token punctuation">.</span>github<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    raw<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    gist<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    cloud<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    camo<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars0<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars0<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">28.133</span>     avatars1<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars1<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars2<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">28.133</span>     avatars2<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars3<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars3<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars4<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars4<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars5<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars5<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars6<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars6<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars7<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars7<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars8<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars8<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+# GitHub End
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>cmd 执行：<br><code>ipconfig /flushdns</code> 刷新一下本机的 DNS 解析<br>picgo 重启后相册中查看图片正常；刷新 github 页面发现图标可以显示了</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -478,7 +504,7 @@ MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sisi001.gitee.io/posts/7817.html">https://sisi001.gitee.io/posts/7817.html</a>
+                    <a href="https://sisi001.gitee.io/posts/3e2v.html">https://sisi001.gitee.io/posts/3e2v.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -516,21 +542,21 @@ MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js/">
-                                    <span class="chip bg-color">js</span>
+                                <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                                    <span class="chip bg-color">图床</span>
                                 </a>
                             
                         </div>
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/share/css/share.min.css">
 
 <div id="article-share">
     
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -558,18 +584,17 @@ MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7817.html">
+                <a href="/posts/ba04.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="macOs下环境配置记录">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="macOs开发环境配置">
                         
-                        <span class="card-title">macOs下环境配置记录</span>
+                        <span class="card-title">macOs开发环境配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -579,23 +604,26 @@ MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            尖椒土豆sss
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/macOs/" class="post-category">
+                                    macOs
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js/">
-                        <span class="chip bg-color">js</span>
+                    <a href="/tags/macOs/">
+                        <span class="chip bg-color">macOs</span>
                     </a>
                     
                 </div>
@@ -613,22 +641,22 @@ MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/14.jpg" class="responsive-img" alt="vite+vue3+ts项目遇到的问题">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="从0到1搭建vue3+ts项目">
                         
-                        <span class="card-title">vite+vue3+ts项目遇到的问题</span>
+                        <span class="card-title">从0到1搭建vue3+ts项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言在自学搭建 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
+                            前言在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
 从 0 到 1 搭建 vue3+ts 项目配置 eslint
-为
+为什么
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
                             </span>
                         <span class="publish-author">
                             
@@ -670,21 +698,21 @@ MongoDB server version: 5.0.7<span aria-hidden="true" class="line-numbers-rows">
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -712,7 +740,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -807,7 +835,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24k</span>&nbsp;字
+                class="white-color">26.6k</span>&nbsp;字
             
             
             
@@ -832,10 +860,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     var days = hours * 24;
                     var years = days * 365;
                     var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "4";
-                    var startDate = "5";
-                    var startHour = "12";
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "10";
+                    var startHour = "15";
                     var startMinute = "0";
                     var startSecond = "0";
                     var todayYear = today.getFullYear();
@@ -917,10 +945,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/js/search.min.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
                         <!-- 回到顶部按钮 -->
@@ -931,12 +959,12 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
-                            <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-                            <script src="/libs/aos/aos.js"></script>
-                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-                            <script src="/js/matery.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/js/matery.js"></script>
                             <!-- 点击烟花爆炸效果 -->
                             <!--
                             <canvas class="fireworks"
@@ -983,12 +1011,12 @@ $(function () {
 </script>
 
                                         
-                                            <script src="/libs/others/clicklove.js"
+                                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/others/clicklove.js"
                                                 async="async"></script>
                                             
                                                 
                                                     <script async
-                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                     
 
                                                         
@@ -1003,7 +1031,7 @@ $(function () {
 
                                                                                                     
                                                                                                         <script
-                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                            src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/instantpage/instantpage.js"
                                                                                                             type="module"></script>
                                                                                                         
     

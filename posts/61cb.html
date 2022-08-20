@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="vue3 eslint配置遇到的问题,vue3 ts eslint配置,vite vue3 ts,ts vue3项目">
-    <meta name="description" content="前言在自学搭建 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
+    <meta name="description" content="前言在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
 从 0 到 1 搭建 vue3+ts 项目配置 eslint
-为">
+为什么">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,22 +17,22 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- 必应网站收录-->
     <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
-    <!-- 百度网站收录-->
+    <!-- baidu-->
     <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
-    <!-- 谷歌网站收录-->
+    <!-- google-->
     <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
-    <title>vite+vue3+ts项目遇到的问题 | 尖椒土豆sss</title>
-    <link rel="icon" type="image/png" href="/medias/favicon.png">
+    <title>从0到1搭建vue3+ts项目 | 尖椒土豆sss</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
@@ -48,7 +48,7 @@
             <div class="brand-logo" style="display: flex">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img" alt="LOGO">
+                    <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/logo.gif" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">尖椒土豆sss</span>
                 </a>
@@ -113,7 +113,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img circle responsive-img">
+        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/logo.gif" class="logo-img circle responsive-img">
         
         <div class="logo-name">尖椒土豆sss</div>
         <div class="logo-desc">
@@ -183,7 +183,7 @@
 </header>
 
             
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
         let pwd = '';
@@ -199,12 +199,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vite+vue3+ts项目遇到的问题</h1>
+                    <h1 class="description center-align post-title">从0到1搭建vue3+ts项目</h1>
                 </div>
             </div>
         </div>
@@ -217,7 +217,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -354,7 +354,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-02
+                    2021-10-05
                 </div>
                 
 
@@ -381,7 +381,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在自学搭建 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~</p>
 <h2 id="从-0-到-1-搭建-vue3-ts-项目配置-eslint"><a href="#从-0-到-1-搭建-vue3-ts-项目配置-eslint" class="headerlink" title="从 0 到 1 搭建 vue3+ts 项目配置 eslint"></a>从 0 到 1 搭建 vue3+ts 项目配置 eslint</h2><ul>
 <li><p>为什么要用 eslint?<br>目的：为了规范团队成员代码格式，以及保持统一的代码风格，此项目采用当前业界最火的 Airbnb 规范，并引入代码风格管理工具 Prettier。</p>
 </li>
@@ -816,13 +816,13 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/share/css/share.min.css">
 
 <div id="article-share">
     
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -854,29 +854,34 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7817.html">
+                <a href="/posts/3e2v.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="macOs下环境配置记录">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="搭建自己的图床">
                         
-                        <span class="card-title">macOs下环境配置记录</span>
+                        <span class="card-title">搭建自己的图床</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~
+                            什么是图床？简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。
+为什么要搭建图床？我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            尖椒土豆sss
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -884,8 +889,8 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js/">
-                        <span class="chip bg-color">js</span>
+                    <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                        <span class="chip bg-color">图床</span>
                     </a>
                     
                 </div>
@@ -899,31 +904,33 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/ba1f.html">
+                <a href="/posts/f34e.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/23.jpg" class="responsive-img" alt="个人开发中遇到的问题">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="h5接入浙里办爬坑">
                         
-                        <span class="card-title">个人开发中遇到的问题</span>
+                        <span class="card-title">h5接入浙里办爬坑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            个人开发中问题记录
-
-面试完整回答例子说一说你开发中遇到哪些问题是如何解决的？栗子：我（最近的一个时间）在做（怎样的一个产品／程序），这个产品／程序的目的是（帮助用户完成什么事），其中有一个（什么模块），为了实现（什么功能），用到了（什么技
+                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接手一个公司之前使用vue2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。 刚开始可能由于该项目的负责人没有讲的太清楚，导致我和后端哥们二脸懵逼！！！就简
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            尖椒土豆sss
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%BA%94%E7%94%A8-h5/" class="post-category">
+                                    浙里办应用 h5
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -931,8 +938,12 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
-                        <span class="chip bg-color">个人开发问题记录</span>
+                    <a href="/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/">
+                        <span class="chip bg-color">浙里办对接</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/">
+                        <span class="chip bg-color">浙里办</span>
                     </a>
                     
                 </div>
@@ -948,21 +959,21 @@ settings<span class="token punctuation">:</span> <span class="token punctuation"
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -990,7 +1001,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1085,7 +1096,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24k</span>&nbsp;字
+                class="white-color">26.6k</span>&nbsp;字
             
             
             
@@ -1110,10 +1121,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     var days = hours * 24;
                     var years = days * 365;
                     var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "4";
-                    var startDate = "5";
-                    var startHour = "12";
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "10";
+                    var startHour = "15";
                     var startMinute = "0";
                     var startSecond = "0";
                     var todayYear = today.getFullYear();
@@ -1195,10 +1206,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/js/search.min.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
                         <!-- 回到顶部按钮 -->
@@ -1209,12 +1220,12 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
-                            <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-                            <script src="/libs/aos/aos.js"></script>
-                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-                            <script src="/js/matery.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/js/matery.js"></script>
                             <!-- 点击烟花爆炸效果 -->
                             <!--
                             <canvas class="fireworks"
@@ -1261,12 +1272,12 @@ $(function () {
 </script>
 
                                         
-                                            <script src="/libs/others/clicklove.js"
+                                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/others/clicklove.js"
                                                 async="async"></script>
                                             
                                                 
                                                     <script async
-                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                     
 
                                                         
@@ -1281,7 +1292,7 @@ $(function () {
 
                                                                                                     
                                                                                                         <script
-                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                            src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/instantpage/instantpage.js"
                                                                                                             type="module"></script>
                                                                                                         
     

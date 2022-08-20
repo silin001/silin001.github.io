@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="vue2源码学习,vue2源码探秘">
     <meta name="description" content="vue2.0 实现原理探秘vue底层渲染过程大致可以分成4个阶段：
-template 模板解析后生成AST语法树模板解析：通过正则等方式提取出  模板里的标签元素、属性、变量等信息，并解析成抽象语法树 AST
-AST树解析生成对应的rend">
+template 模板解析后生成AST语法树模板解析：通过正则等方式提取出 &amp;lt;template&amp;gt;&amp;lt;/template&amp;gt; 模板里的标签元素、属性、变量">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,22 +16,22 @@ AST树解析生成对应的rend">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- 必应网站收录-->
     <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
-    <!-- 百度网站收录-->
+    <!-- baidu-->
     <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
-    <!-- 谷歌网站收录-->
+    <!-- google-->
     <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
     <title>vue2源码探秘 | 尖椒土豆sss</title>
-    <link rel="icon" type="image/png" href="/medias/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/css/my.css">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
@@ -48,7 +47,7 @@ AST树解析生成对应的rend">
             <div class="brand-logo" style="display: flex">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img" alt="LOGO">
+                    <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/logo.gif" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">尖椒土豆sss</span>
                 </a>
@@ -113,7 +112,7 @@ AST树解析生成对应的rend">
 
     <div class="mobile-head bg-color">
         
-        <img src="/images/loading.gif" data-original="/medias/0.gif" class="logo-img circle responsive-img">
+        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/logo.gif" class="logo-img circle responsive-img">
         
         <div class="logo-name">尖椒土豆sss</div>
         <div class="logo-desc">
@@ -183,7 +182,7 @@ AST树解析生成对应的rend">
 </header>
 
             
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
         let pwd = '';
@@ -199,7 +198,7 @@ AST树解析生成对应的rend">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -217,7 +216,7 @@ AST树解析生成对应的rend">
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -346,7 +345,7 @@ AST树解析生成对应的rend">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-23
+                    2021-02-25
                 </div>
                 
 
@@ -374,9 +373,9 @@ AST树解析生成对应的rend">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="vue2-0-实现原理探秘"><a href="#vue2-0-实现原理探秘" class="headerlink" title="vue2.0 实现原理探秘"></a>vue2.0 实现原理探秘</h1><h2 id="vue底层渲染过程大致可以分成4个阶段："><a href="#vue底层渲染过程大致可以分成4个阶段：" class="headerlink" title="vue底层渲染过程大致可以分成4个阶段："></a>vue底层渲染过程大致可以分成4个阶段：</h2><ul>
-<li>template 模板解析后生成AST语法树<br>模板解析：通过正则等方式提取出 <template></template> 模板里的标签元素、属性、变量等信息，并解析成抽象语法树 AST</li>
+<li>template 模板解析后生成AST语法树<br>模板解析：通过正则等方式提取出 <code>&lt;template&gt;&lt;/template&gt;</code> 模板里的标签元素、属性、变量等信息，并解析成抽象语法树 AST</li>
 <li>AST树解析生成对应的render函数：<br>AST是Abstract Syntax Tree的简称，Vue使用HTML的Parser将HTML模板解析为<strong>AST语法树</strong>，并且对AST进行一些优化的标记处理，提取最大的静态树，方便Virtual DOM时直接跳过Diff。</li>
-<li>数据通过render函数（渲染函数）解析生成VNode<br>Virtual DOM：虚拟DOM树，Vue的Virtual DOM Patching算法是基于<code>Snabbdom</code>库的实现，并在些基础上作了很多的调整和改进。</li>
+<li>数据通过render函数（渲染函数）解析生成VNode<br>Virtual DOM：虚拟DOM树，Vue的Virtual DOM Patching算法是基于 <code>Snabbdom</code>库的实现，并在些基础上作了很多的调整和改进。</li>
 <li>VNode经过diff和patch后生成真实DOM展示</li>
 </ul>
 <h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h3><p>用js模拟dom结构，计算最小变更，操作dom</p>
@@ -419,7 +418,7 @@ js描述如下：
 </ul>
 <h3 id="vue中的-render函数"><a href="#vue中的-render函数" class="headerlink" title="vue中的 render函数"></a>vue中的 render函数</h3><ul>
 <li>什么是render函数？<br>vue中在一些复杂场景下使用template模板不太方便，例如需要引入大量子组件时，使用template模板会使代码重复冗余，这时用render函数就可以轻松解决问题，而用render函数构建DOM，vue也免了去转译的过程。<br>在vue中我们使用模板HTML语法组建页面的，使用render函数我们可以用js语言来构建DOM。</li>
-<li>render函数作用？<br>生成虚拟DOM<br>当使用render函数描述虚拟DOM时，vue提供一个函数，这个函数是就构建虚拟DOM所需要的工具。官网上给他起了个名字叫<code>createElement</code> 还有约定的简写叫<code>h</code>, vm中有一个方法<code>_c</code>,也是这个函数的别名。</li>
+<li>render函数作用？<br>生成虚拟DOM<br>当使用render函数描述虚拟DOM时，vue提供一个函数，这个函数是就构建虚拟DOM所需要的工具。官网上给他起了个名字叫 <code>createElement</code> 还有约定的简写叫 <code>h</code>, vm中有一个方法 <code>_c</code>,也是这个函数的别名。</li>
 <li><code>render</code>函数的使用<br>比如说我们需要写很多 if 判断的时候</li>
 </ul>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
@@ -453,20 +452,20 @@ js描述如下：
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="数组数据响应式的处理原理"><a href="#数组数据响应式的处理原理" class="headerlink" title="数组数据响应式的处理原理"></a>数组数据响应式的处理原理</h3><p>重新数组方法，以<code>Arrap.prototype</code>为原型创建了一个<code>arrayMethods</code>的对象，在使用<code>es6</code>的一个强硬的方法<code>object.setPrototytypeOf(o,arrayMethods)</code>,让数组的<strong>proto</strong>指向<code>arrayMethods</code></p>
+<h3 id="数组数据响应式的处理原理"><a href="#数组数据响应式的处理原理" class="headerlink" title="数组数据响应式的处理原理"></a>数组数据响应式的处理原理</h3><p>重新数组方法，以 <code>Arrap.prototype</code>为原型创建了一个 <code>arrayMethods</code>的对象，在使用 <code>es6</code>的一个强硬的方法 <code>object.setPrototytypeOf(o,arrayMethods)</code>,让数组的<strong>proto</strong>指向 <code>arrayMethods</code></p>
 <h2 id="vue2-0-源码地址"><a href="#vue2-0-源码地址" class="headerlink" title="vue2.0 源码地址"></a>vue2.0 源码地址</h2><ul>
 <li>项目地址：<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue">https://github.com/vuejs/vue</a></li>
-<li>文件结构核心部分<pre><code>src
-compiler 编译器相关
-core 核心代码
-  components 通用组件，如 keep-alive
-  global-api 全局 api，如$set、$delete
-  instance 构造函数等
-  observer 响应式相关
-  util
-  vdom 虚拟 dom</code></pre></li>
+<li>文件结构核心部分</li>
 </ul>
-<h2 id="vue2响应式原理-底层源码核心类"><a href="#vue2响应式原理-底层源码核心类" class="headerlink" title="vue2响应式原理-底层源码核心类"></a>vue2响应式原理-底层源码核心类</h2><p>栗子：</p>
+<pre><code>src
+  compiler 编译器相关
+  core 核心代码
+    components 通用组件，如 keep-alive
+    global-api 全局 api，如$set、$delete
+    instance 构造函数等
+    observer 响应式相关
+    util
+    vdom 虚拟 dom</code></pre><h2 id="vue2响应式原理-底层源码核心类"><a href="#vue2响应式原理-底层源码核心类" class="headerlink" title="vue2响应式原理-底层源码核心类"></a>vue2响应式原理-底层源码核心类</h2><p>栗子：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"mvvm-app"</span><span class="token operator">></span>
   <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"word"</span><span class="token operator">></span>
   <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>word<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
@@ -493,18 +492,10 @@ core 核心代码
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实现这种数据双向绑定的效果，需要以下几大模块：</p>
 <ul>
-<li><p><code>Compile -模板编译</code>：对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数.<br>Compile主要做的事情是解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的<em>观察者watcher</em>，将来一旦数据有变动，收到通知触发回调函数进行更新视图。</p>
-</li>
-<li><p><code>Observer -数据劫持</code>：能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者.<br>Observer的核心是通过Obeject.defineProperty()来监听数据的变动，这个函数内部可以定义setter和getter，每当数据发生变化，就会触发setter。这时候Observer就要通知订阅者，订阅者就是Watcher。<br>get里: 初始化订阅数据变化时 往dep里添加观察者与其关联<br>set里: 通知；数据发生变化时dep去通知<em>观察者watcher</em></p>
-</li>
-<li><p><code>dep类 -发布者</code>：<br>作用：收集对应<em>观察者watcher</em>、通知watcher更新。<br>有多少属性dep里就有多少个watcher</p>
-</li>
-<li><p>订阅：addSub()*</p>
-</li>
-<li><p>发布：notify()*</p>
-</li>
-<li><p><code>Watcher -观察者（订阅者）</code>：作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，在更改数据时进行watcher监听，把新值callback。</p>
-</li>
+<li><code>Compile -模板编译</code>：对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数.<br>Compile主要做的事情是解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的<em>观察者watcher</em>，将来一旦数据有变动，收到通知触发回调函数进行更新视图。</li>
+<li><code>Observer -数据劫持</code>：能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者.<br>Observer的核心是通过Obeject.defineProperty()来监听数据的变动，这个函数内部可以定义setter和getter，每当数据发生变化，就会触发setter。这时候Observer就要通知订阅者，订阅者就是Watcher。<br>get里: 初始化订阅数据变化时 往dep里添加观察者与其关联<br>set里: 通知；数据发生变化时dep去通知<em>观察者watcher</em></li>
+<li><code>dep类 -发布者</code>：<br>作用：收集对应<em>观察者watcher*、通知watcher更新。<br>有多少属性dep里就有多少个watcher<br>*订阅：addSub()</em><br><em>发布：notify()</em></li>
+<li><code>Watcher -观察者（订阅者）</code>：作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，在更改数据时进行watcher监听，把新值callback。</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -595,13 +586,13 @@ core 核心代码
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/share/css/share.min.css">
 
 <div id="article-share">
     
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -637,7 +628,7 @@ core 核心代码
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/12.jpg" class="responsive-img" alt="js相关">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="js相关">
                         
                         <span class="card-title">js相关</span>
                     </div>
@@ -645,12 +636,12 @@ core 核心代码
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            js重点为什么使用es6的class类OOP 即 面向对象编程 （Object Oriented Programming）ES6 开始引入class的概念。实际上，JavaScript 中class的本质也是基于原型prototype的实现
+                            js重点（待完善）为什么使用es6的class类OOP 即 面向对象编程 （Object Oriented Programming）ES6 开始引入class的概念。实际上，JavaScript 中class的本质也是基于原型prototy
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                         </span>
                         <span class="publish-author">
                             
@@ -666,6 +657,10 @@ core 核心代码
                 </div>
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%B8%AA%E4%BA%BA/">
+                        <span class="chip bg-color">个人</span>
+                    </a>
                     
                     <a href="/tags/js/">
                         <span class="chip bg-color">js</span>
@@ -686,7 +681,7 @@ core 核心代码
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="ts入门">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="ts入门">
                         
                         <span class="card-title">ts入门</span>
                     </div>
@@ -699,7 +694,7 @@ core 核心代码
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
                             </span>
                         <span class="publish-author">
                             
@@ -733,21 +728,21 @@ core 核心代码
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -775,7 +770,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -870,7 +865,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24k</span>&nbsp;字
+                class="white-color">26.6k</span>&nbsp;字
             
             
             
@@ -895,10 +890,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     var days = hours * 24;
                     var years = days * 365;
                     var today = new Date();
-                    var startYear = "2020";
-                    var startMonth = "4";
-                    var startDate = "5";
-                    var startHour = "12";
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "10";
+                    var startHour = "15";
                     var startMinute = "0";
                     var startSecond = "0";
                     var todayYear = today.getFullYear();
@@ -980,10 +975,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="/js/search.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/js/search.min.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
                         <!-- 回到顶部按钮 -->
@@ -994,12 +989,12 @@ $(function () {
 </div>
 
 
-                            <script src="/libs/materialize/materialize.min.js"></script>
-                            <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-                            <script src="/libs/aos/aos.js"></script>
-                            <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-                            <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-                            <script src="/js/matery.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/materialize/materialize.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/aos/aos.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/js/matery.js"></script>
                             <!-- 点击烟花爆炸效果 -->
                             <!--
                             <canvas class="fireworks"
@@ -1046,12 +1041,12 @@ $(function () {
 </script>
 
                                         
-                                            <script src="/libs/others/clicklove.js"
+                                            <script src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/others/clicklove.js"
                                                 async="async"></script>
                                             
                                                 
                                                     <script async
-                                                        src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                        src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/others/busuanzi.pure.mini.js"></script>
                                                     
 
                                                         
@@ -1066,7 +1061,7 @@ $(function () {
 
                                                                                                     
                                                                                                         <script
-                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                            src="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/instantpage/instantpage.js"
                                                                                                             type="module"></script>
                                                                                                         
     

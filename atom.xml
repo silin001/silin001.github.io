@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sisi001.gitee.io/"/>
-  <updated>2022-08-10T03:59:18.137Z</updated>
+  <updated>2022-08-15T11:45:21.056Z</updated>
   <id>https://sisi001.gitee.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>macOs下环境配置记录</title>
-    <link href="https://sisi001.gitee.io/posts/7817.html"/>
-    <id>https://sisi001.gitee.io/posts/7817.html</id>
-    <published>2022-07-20T14:12:03.000Z</published>
-    <updated>2022-08-10T03:59:18.137Z</updated>
+    <title>macOs开发环境配置</title>
+    <link href="https://sisi001.gitee.io/posts/ba04.html"/>
+    <id>https://sisi001.gitee.io/posts/ba04.html</id>
+    <published>2022-05-02T11:40:45.000Z</published>
+    <updated>2022-08-15T11:45:21.056Z</updated>
     
     <summary type="html">
     
@@ -36,17 +36,19 @@
     </summary>
     
     
+      <category term="macOs" scheme="https://sisi001.gitee.io/categories/macOs/"/>
     
-      <category term="js" scheme="https://sisi001.gitee.io/tags/js/"/>
+    
+      <category term="macOs" scheme="https://sisi001.gitee.io/tags/macOs/"/>
     
   </entry>
   
   <entry>
-    <title>vite+vue3+ts项目遇到的问题</title>
-    <link href="https://sisi001.gitee.io/posts/61cb.html"/>
-    <id>https://sisi001.gitee.io/posts/61cb.html</id>
-    <published>2022-03-02T15:05:33.000Z</published>
-    <updated>2022-08-10T03:59:18.147Z</updated>
+    <title>搭建自己的图床</title>
+    <link href="https://sisi001.gitee.io/posts/3e2v.html"/>
+    <id>https://sisi001.gitee.io/posts/3e2v.html</id>
+    <published>2022-01-19T05:35:54.000Z</published>
+    <updated>2022-08-20T06:47:12.107Z</updated>
     
     <summary type="html">
     
@@ -54,7 +56,35 @@
       
         
         
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在自学搭建 vue3 + vite + ts
+          &lt;h2 id=&quot;什么是图床？&quot;&gt;&lt;a href=&quot;#什么是图床？&quot; class=&quot;headerlink&quot; title=&quot;什么是图床？&quot;&gt;&lt;/a&gt;什么是图床？&lt;/h2&gt;&lt;p&gt;简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="图床" scheme="https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从0到1搭建vue3+ts项目</title>
+    <link href="https://sisi001.gitee.io/posts/61cb.html"/>
+    <id>https://sisi001.gitee.io/posts/61cb.html</id>
+    <published>2021-10-05T15:05:33.000Z</published>
+    <updated>2022-08-15T12:07:47.732Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在自学 vue3 + vite + ts
         
       
     
@@ -73,38 +103,11 @@
   </entry>
   
   <entry>
-    <title>个人开发中遇到的问题</title>
-    <link href="https://sisi001.gitee.io/posts/ba1f.html"/>
-    <id>https://sisi001.gitee.io/posts/ba1f.html</id>
-    <published>2022-01-12T08:07:04.000Z</published>
-    <updated>2022-08-14T09:34:45.937Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;个人开发中问题记录&quot;&gt;&lt;a href=&quot;#个人开发中问题记录&quot; class=&quot;headerlink&quot; title=&quot;个人开发中问题记录&quot;&gt;&lt;/a&gt;个人开发中问题记录&lt;/h1&gt;&lt;!-- ## 开发中遇到的难点、痛点技术问题 --&gt;
-
-&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="个人开发问题记录" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>h5接入浙里办爬坑!</title>
-    <link href="https://sisi001.gitee.io/posts/a6b9.html"/>
-    <id>https://sisi001.gitee.io/posts/a6b9.html</id>
-    <published>2021-08-19T05:35:54.000Z</published>
-    <updated>2022-06-09T16:07:37.583Z</updated>
+    <title>h5接入浙里办爬坑</title>
+    <link href="https://sisi001.gitee.io/posts/f34e.html"/>
+    <id>https://sisi001.gitee.io/posts/f34e.html</id>
+    <published>2021-07-19T05:35:54.000Z</published>
+    <updated>2022-08-15T11:59:51.755Z</updated>
     
     <summary type="html">
     
@@ -129,11 +132,11 @@
   </entry>
   
   <entry>
-    <title>开发环境配置相关</title>
-    <link href="https://sisi001.gitee.io/posts/69af.html"/>
-    <id>https://sisi001.gitee.io/posts/69af.html</id>
-    <published>2021-04-02T13:15:33.000Z</published>
-    <updated>2022-08-10T03:59:18.160Z</updated>
+    <title>js常用方法</title>
+    <link href="https://sisi001.gitee.io/posts/7a45.html"/>
+    <id>https://sisi001.gitee.io/posts/7a45.html</id>
+    <published>2021-04-01T08:42:23.000Z</published>
+    <updated>2022-08-15T03:05:23.900Z</updated>
     
     <summary type="html">
     
@@ -141,48 +144,15 @@
       
         
         
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;日常开发中用到的一些开发工具、环境配置使用等遇到的问题，也借鉴了网上很多资料实践解决；特以此篇记录我的日常踩坑之路/(ㄒ o
+          &lt;h2 id=&quot;记录-js-常用方法&quot;&gt;&lt;a href=&quot;#记录-js-常用方法&quot; class=&quot;headerlink&quot; title=&quot;记录 js 常用方法&quot;&gt;&lt;/a&gt;记录 js 常用方法&lt;/h2&gt;&lt;h2 id=&quot;js-类型判断&quot;&gt;&lt;a href=&quot;#js-类型判断&quot;
         
       
     
     </summary>
     
     
-      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
-    
-      <category term="vscode" scheme="https://sisi001.gitee.io/tags/vscode/"/>
-    
-      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue3优势!</title>
-    <link href="https://sisi001.gitee.io/posts/8d7.html"/>
-    <id>https://sisi001.gitee.io/posts/8d7.html</id>
-    <published>2021-01-02T06:36:31.000Z</published>
-    <updated>2022-06-09T15:53:28.497Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;vue3-x-开始&quot;&gt;&lt;a href=&quot;#vue3-x-开始&quot; class=&quot;headerlink&quot; title=&quot;vue3.x 开始&quot;&gt;&lt;/a&gt;vue3.x 开始&lt;/h2&gt;&lt;p&gt;2020年 9.18发布3.0版本、代号： One Piece
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue3" scheme="https://sisi001.gitee.io/categories/vue3/"/>
-    
-    
-      <category term="vue3优势" scheme="https://sisi001.gitee.io/tags/vue3%E4%BC%98%E5%8A%BF/"/>
-    
-      <category term="vue3起步" scheme="https://sisi001.gitee.io/tags/vue3%E8%B5%B7%E6%AD%A5/"/>
+      <category term="js" scheme="https://sisi001.gitee.io/tags/js/"/>
     
   </entry>
   
@@ -190,8 +160,8 @@
     <title>js相关</title>
     <link href="https://sisi001.gitee.io/posts/e9a0.html"/>
     <id>https://sisi001.gitee.io/posts/e9a0.html</id>
-    <published>2020-08-01T13:18:57.000Z</published>
-    <updated>2022-08-10T03:59:18.121Z</updated>
+    <published>2021-03-18T13:18:57.000Z</published>
+    <updated>2022-08-15T12:05:16.320Z</updated>
     
     <summary type="html">
     
@@ -199,7 +169,7 @@
       
         
         
-          &lt;h1 id=&quot;js重点&quot;&gt;&lt;a href=&quot;#js重点&quot; class=&quot;headerlink&quot; title=&quot;js重点&quot;&gt;&lt;/a&gt;js重点&lt;/h1&gt;&lt;h2 id=&quot;为什么使用es6的class类&quot;&gt;&lt;a href=&quot;#为什么使用es6的class类&quot;
+          &lt;h1 id=&quot;js重点（待完善）&quot;&gt;&lt;a href=&quot;#js重点（待完善）&quot; class=&quot;headerlink&quot; title=&quot;js重点（待完善）&quot;&gt;&lt;/a&gt;js重点（待完善）&lt;/h1&gt;&lt;h2 id=&quot;为什么使用es6的class类&quot;&gt;&lt;a
         
       
     
@@ -209,6 +179,8 @@
       <category term="javaScript" scheme="https://sisi001.gitee.io/categories/javaScript/"/>
     
     
+      <category term="个人" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
       <category term="js" scheme="https://sisi001.gitee.io/tags/js/"/>
     
   </entry>
@@ -217,8 +189,8 @@
     <title>vue2源码探秘</title>
     <link href="https://sisi001.gitee.io/posts/9108.html"/>
     <id>https://sisi001.gitee.io/posts/9108.html</id>
-    <published>2020-07-23T14:52:33.000Z</published>
-    <updated>2022-08-10T03:59:18.117Z</updated>
+    <published>2021-02-25T14:52:33.000Z</published>
+    <updated>2022-08-15T02:53:13.587Z</updated>
     
     <summary type="html">
     
@@ -244,8 +216,8 @@
     <title>ts入门</title>
     <link href="https://sisi001.gitee.io/posts/4d03.html"/>
     <id>https://sisi001.gitee.io/posts/4d03.html</id>
-    <published>2020-05-19T08:40:33.000Z</published>
-    <updated>2022-06-09T15:53:29.908Z</updated>
+    <published>2021-02-13T12:40:33.000Z</published>
+    <updated>2022-08-15T03:02:08.729Z</updated>
     
     <summary type="html">
     
@@ -271,8 +243,8 @@
     <title>vue多服务启动</title>
     <link href="https://sisi001.gitee.io/posts/e22d.html"/>
     <id>https://sisi001.gitee.io/posts/e22d.html</id>
-    <published>2020-04-20T12:53:30.000Z</published>
-    <updated>2022-06-09T15:53:30.338Z</updated>
+    <published>2021-01-24T14:53:30.000Z</published>
+    <updated>2022-08-15T03:01:44.594Z</updated>
     
     <summary type="html">
     
@@ -297,36 +269,11 @@
   </entry>
   
   <entry>
-    <title>js常用方法</title>
-    <link href="https://sisi001.gitee.io/posts/7a45.html"/>
-    <id>https://sisi001.gitee.io/posts/7a45.html</id>
-    <published>2020-04-12T08:42:23.000Z</published>
-    <updated>2022-06-27T06:51:51.352Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;记录-js-常用方法&quot;&gt;&lt;a href=&quot;#记录-js-常用方法&quot; class=&quot;headerlink&quot; title=&quot;记录 js 常用方法&quot;&gt;&lt;/a&gt;记录 js 常用方法&lt;/h2&gt;&lt;h2 id=&quot;js-类型判断&quot;&gt;&lt;a href=&quot;#js-类型判断&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="js" scheme="https://sisi001.gitee.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vim简单使用</title>
     <link href="https://sisi001.gitee.io/posts/9cde.html"/>
     <id>https://sisi001.gitee.io/posts/9cde.html</id>
-    <published>2020-04-09T11:44:31.000Z</published>
-    <updated>2022-08-10T03:59:18.151Z</updated>
+    <published>2021-01-22T11:44:31.000Z</published>
+    <updated>2022-08-15T02:59:58.214Z</updated>
     
     <summary type="html">
     
@@ -349,11 +296,40 @@
   </entry>
   
   <entry>
+    <title>vue3优势!</title>
+    <link href="https://sisi001.gitee.io/posts/8d7.html"/>
+    <id>https://sisi001.gitee.io/posts/8d7.html</id>
+    <published>2021-01-17T13:36:31.000Z</published>
+    <updated>2022-08-15T02:58:26.563Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;vue3-x-开始&quot;&gt;&lt;a href=&quot;#vue3-x-开始&quot; class=&quot;headerlink&quot; title=&quot;vue3.x 开始&quot;&gt;&lt;/a&gt;vue3.x 开始&lt;/h2&gt;&lt;p&gt;2020年 9.18发布3.0版本、代号： One Piece
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue3" scheme="https://sisi001.gitee.io/categories/vue3/"/>
+    
+    
+      <category term="vue3优势" scheme="https://sisi001.gitee.io/tags/vue3%E4%BC%98%E5%8A%BF/"/>
+    
+      <category term="vue3起步" scheme="https://sisi001.gitee.io/tags/vue3%E8%B5%B7%E6%AD%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Markdown基础</title>
     <link href="https://sisi001.gitee.io/posts/f82e.html"/>
     <id>https://sisi001.gitee.io/posts/f82e.html</id>
-    <published>2020-04-07T13:56:43.000Z</published>
-    <updated>2022-06-09T15:53:29.908Z</updated>
+    <published>2021-01-15T13:56:43.000Z</published>
+    <updated>2022-08-15T12:03:12.036Z</updated>
     
     <summary type="html">
     
@@ -376,11 +352,65 @@
   </entry>
   
   <entry>
+    <title>开发中遇到的问题</title>
+    <link href="https://sisi001.gitee.io/posts/ba1f.html"/>
+    <id>https://sisi001.gitee.io/posts/ba1f.html</id>
+    <published>2021-01-13T13:00:04.000Z</published>
+    <updated>2022-08-15T12:06:03.412Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;个人开发中遇到的问题记录总结&quot;&gt;&lt;a href=&quot;#个人开发中遇到的问题记录总结&quot; class=&quot;headerlink&quot; title=&quot;个人开发中遇到的问题记录总结&quot;&gt;&lt;/a&gt;个人开发中遇到的问题记录总结&lt;/h1&gt;&lt;!-- ## 开发中遇到的难点、痛点技术问题
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="个人" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人开发环境配置相关</title>
+    <link href="https://sisi001.gitee.io/posts/69af.html"/>
+    <id>https://sisi001.gitee.io/posts/69af.html</id>
+    <published>2021-01-11T13:15:33.000Z</published>
+    <updated>2022-08-17T15:19:06.444Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;日常开发中用到的一些开发工具、环境配置使用等遇到的问题，也借鉴了网上很多资料实践解决；特以此篇记录我的日常踩坑之路/(ㄒ o
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="个人" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>个人常用方法、终端指令记录</title>
     <link href="https://sisi001.gitee.io/posts/c9f9.html"/>
     <id>https://sisi001.gitee.io/posts/c9f9.html</id>
-    <published>2020-04-05T12:18:31.000Z</published>
-    <updated>2022-08-10T03:59:18.157Z</updated>
+    <published>2021-01-10T12:18:31.000Z</published>
+    <updated>2022-08-15T12:08:33.083Z</updated>
     
     <summary type="html">
     
@@ -398,8 +428,6 @@
     
       <category term="终端命令 cmd git linux" scheme="https://sisi001.gitee.io/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4-cmd-git-linux/"/>
     
-    
-      <category term="nvm" scheme="https://sisi001.gitee.io/tags/nvm/"/>
     
       <category term="git" scheme="https://sisi001.gitee.io/tags/git/"/>
     
