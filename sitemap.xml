@@ -216,14 +216,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/js/</loc>
+    <loc>https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/</loc>
+    <loc>https://sisi001.gitee.io/tags/js/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -244,14 +244,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/vim/</loc>
+    <loc>https://sisi001.gitee.io/tags/ts/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/ts/</loc>
+    <loc>https://sisi001.gitee.io/tags/vim/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -286,13 +286,6 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2022-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sisi001.gitee.io/tags/eslint/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -301,6 +294,13 @@
   
   <url>
     <loc>https://sisi001.gitee.io/tags/vue3/</loc>
+    <lastmod>2022-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -407,14 +407,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://sisi001.gitee.io/categories/eslint-vite-ts/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/eslint-vite-ts/</loc>
+    <loc>https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
