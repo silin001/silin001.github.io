@@ -247,14 +247,14 @@ mark {
 .container .row {
     margin-bottom: 0;
     position: relative;
-    /* z-index: 100; */
+    z-index: 100;
 }
 
 /*主题颜色*/
 .bg-color {
     /* background-image: linear-gradient(to right, #BF4643 0%, #6C9D8F 100%); */
     background-image: linear-gradient(to right, #f0f 0%, #6C9D8F 100%);
-    opacity: 0.6;
+    /* opacity: 0.6; */
 }
 
 .text-color {
@@ -597,7 +597,7 @@ header .go-back i {
 .bg-cover .container {
     position: relative;
     color: #fff;
-    /* z-index: 100; */
+    z-index: 100;
 }
 
 .bg-cover .title {
