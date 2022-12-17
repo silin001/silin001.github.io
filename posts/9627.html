@@ -20,7 +20,7 @@
     <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
     <!-- google-->
     <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
-    <title>docker初识 | 尖椒土豆sss</title>
+    <title>Docker初识 | 尖椒土豆sss</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/awesome/css/all.css">
@@ -201,12 +201,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">docker初识</h1>
+                    <h1 class="description center-align post-title">Docker初识</h1>
                 </div>
             </div>
         </div>
@@ -348,7 +348,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-02
+                    2022-11-12
                 </div>
                 
 
@@ -387,19 +387,14 @@
 <p>更简单的更新管理(高效)<br>使用 Dockerfile，只需要很少的配置修改，就可以替代以往大量的更新工作。并且所有修改都是以增量的方式进行分发和更新，从而实现自动化和高效的容器管理。</p>
 <h2 id="docker基础指令"><a href="#docker基础指令" class="headerlink" title="docker基础指令"></a>docker基础指令</h2><p>docker version 查看docker版本<br>docker info 查看docker详细信息<br>sudo service docker start 启动服务<br>sudo service docker stop 停止服务<br>sudo service docker restart 重启服务</p>
 <ul>
-<li><p>docker镜像命令<br>docker images 查看docker镜像<br>docker images -a列出本地所有的镜像<br>docker images -p只显示镜像ID docker rmi imageid 删除镜像<br>docker build -t xxx . 打包镜像</p>
-</li>
-<li><p>docker镜像导入导出<br>如果网络不好或者pull不下来镜像，只能在其它网络比较好的机器上pull下来镜像，导出成一个文件，再下载上传到网络不好的机器上，然后再从文件中导出来，这样在网络不好的机器上也能使用docker镜像了 有两种方式，但是不可混用。</p>
-</li>
+<li>docker镜像命令<br>docker images 查看docker镜像<br>docker images -a列出本地所有的镜像<br>docker images -p只显示镜像ID docker rmi imageid 删除镜像<br>docker build -t xxx . 打包镜像</li>
+<li>docker镜像导入导出<br>如果网络不好或者pull不下来镜像，只能在其它网络比较好的机器上pull下来镜像，导出成一个文件，再下载上传到网络不好的机器上，然后再从文件中导出来，这样在网络不好的机器上也能使用docker镜像了 有两种方式，但是不可混用。</li>
 </ul>
 <p>save/load （推荐）</p>
 <ul>
-<li><p>docker save 根据 ID 将镜像打包<br>docker save 0fdf2b4c26d3 &gt; hangge_server.tar</p>
-</li>
-<li><p>同时打包多个image，如将镜像 postgres 和 mongo<br>docker save -o images.tar postgres:9.6 mongo:3.4</p>
-</li>
-<li><p>导入<br>docker load &lt; images.tar</p>
-</li>
+<li>docker save 根据 ID 将镜像打包<br>docker save 0fdf2b4c26d3 &gt; hangge_server.tar</li>
+<li>同时打包多个image，如将镜像 postgres 和 mongo<br>docker save -o images.tar postgres:9.6 mongo:3.4</li>
+<li>导入<br>docker load &lt; images.tar</li>
 </ul>
 <p>复制代码<br>import/export</p>
 <p>根据指定镜像id导出成一个文件<br>docker export eb516548c180 &gt; coredns.tar</p>
@@ -415,14 +410,10 @@
 <p>主要用来制作基础镜像，比如我们从一个 ubuntu 镜像启动一个容器，然后安装一些软件和进行一些设置后，使用 docker export 保存为一个基础镜像。然后，把这个镜像分发给其他人使用，比如作为基础的开发环境。</p>
 </blockquote>
 <ul>
-<li><p>镜像是否重命名<br>docker import 可以为镜像指定新名称<br>docker load 不能对载入的镜像重命名</p>
-</li>
-<li><p>文件大小<br>export 导出的镜像文件体积小于 save 保存的镜像</p>
-</li>
-<li><p>是否包含镜像历史<br>export 导出（import 导入）是根据容器拿到的镜像，再导入时会丢失镜像所有的历史记录和元数据信息（即仅保存容器当时的快照状态），所以无法进行回滚操作。</p>
-</li>
-<li><p>save 保存（load 加载）的镜像，没有丢失镜像的历史，可以回滚到之前的层（layer）。</p>
-</li>
+<li>镜像是否重命名<br>docker import 可以为镜像指定新名称<br>docker load 不能对载入的镜像重命名</li>
+<li>文件大小<br>export 导出的镜像文件体积小于 save 保存的镜像</li>
+<li>是否包含镜像历史<br>export 导出（import 导入）是根据容器拿到的镜像，再导入时会丢失镜像所有的历史记录和元数据信息（即仅保存容器当时的快照状态），所以无法进行回滚操作。</li>
+<li>save 保存（load 加载）的镜像，没有丢失镜像的历史，可以回滚到之前的层（layer）。</li>
 </ul>
 <h2 id="docker容器命令"><a href="#docker容器命令" class="headerlink" title="docker容器命令"></a>docker容器命令</h2><p>每一个容器其实就是一个linux系统可以执行linux命令。</p>
 <p>使用镜像启动容器<br>新建并且启动一个容器: docker run -itd -p 5000:3000 test1:v1.0<br>OPTIONS说明:</p>
@@ -457,7 +448,7 @@
 <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>win10的linux子系统启动docker失败<br>打开ubuntu 启动docker服务后，docker ps 报错如下：<br><code>“Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?”</code></p>
 <p>解决：<br>先确定Docker本身已经安装， docker -v</p>
 <ul>
-<li>查看 docker daemon 是否在运行：<br>ps aux | grep docker</li>
+<li>查看 docker daemon 是否在运行：ps aux | grep docker</li>
 <li>再次查看<br><code>ps aux | grep docker</code><br>复制代码<br>先关闭docker服务<br><code>service docker stop</code></li>
 </ul>
 <p>再重新启动docker<br><code>service docker start</code></p>
@@ -505,7 +496,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sisi001.gitee.io/posts/1208.html">https://sisi001.gitee.io/posts/1208.html</a>
+                    <a href="https://sisi001.gitee.io/posts/9627.html">https://sisi001.gitee.io/posts/9627.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,13 +581,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/posts/1208.html">
+                <a href="/posts/9627.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="docker初识">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="Docker初识">
                         
-                        <span class="card-title">docker初识</span>
+                        <span class="card-title">Docker初识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -608,7 +599,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
                             </span>
                         <span class="publish-author">
                             
