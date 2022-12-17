@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue3优势!, 尖椒土豆sss">
-    <meta name="description" content="vue3.x 开始2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。
-vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问">
+    <meta name="keywords" content="docker初识,docker安装">
+    <meta name="description" content="前言进几年docker在前端领域中也有着越来越广泛的应用，本文主要介绍docker基础指令以及如何在win10、linux上安装docker服务；其中也在网上借鉴了不少资料，通过自己一步步实践最终成功，谨以此篇记录自己学习的爬坑之路。
+如果">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
     <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
     <!-- google-->
     <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
-    <title>vue3优势! | 尖椒土豆sss</title>
+    <title>docker初识 | 尖椒土豆sss</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/libs/awesome/css/all.css">
@@ -201,12 +201,12 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue3优势!</h1>
+                    <h1 class="description center-align post-title">docker初识</h1>
                 </div>
             </div>
         </div>
@@ -323,12 +323,8 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/vue3%E4%BC%98%E5%8A%BF/">
-                                <span class="chip bg-color">vue3优势</span>
-                            </a>
-                        
-                            <a href="/tags/vue3%E8%B5%B7%E6%AD%A5/">
-                                <span class="chip bg-color">vue3起步</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
                     </div>
@@ -339,8 +335,8 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/vue3/" class="post-category">
-                                vue3
+                            <a href="/categories/docker/" class="post-category">
+                                docker
                             </a>
                         
                     </div>
@@ -352,7 +348,7 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-17
+                    2022-11-02
                 </div>
                 
 
@@ -361,14 +357,14 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    9 分
                 </div>
                 
 
@@ -379,75 +375,93 @@ vue2.x 面临的问题vue2.x版本发布于数年前，基于es5的技术架构�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="vue3-x-开始"><a href="#vue3-x-开始" class="headerlink" title="vue3.x 开始"></a>vue3.x 开始</h2><p>2020年 9.18发布3.0版本、代号： One Piece (海贼王)，耗时两年，2600+提交，99位贡献者。</p>
-<h2 id="vue2-x-面临的问题"><a href="#vue2-x-面临的问题" class="headerlink" title="vue2.x 面临的问题"></a>vue2.x 面临的问题</h2><p>vue2.x版本发布于数年前，基于es5的技术架构，受限于当时通用浏览器的版本问题，在某些功能方面做了一些妥协：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>进几年docker在前端领域中也有着越来越广泛的应用，本文主要介绍docker基础指令以及如何在win10、linux上安装docker服务；其中也在网上借鉴了不少资料，通过自己一步步实践最终成功，谨以此篇记录自己学习的爬坑之路。</p>
+<p>如果文章对你有用，麻烦点击链接关注我的<a target="_blank" rel="noopener" href="https://juejin.cn/user/2041110775208184/posts">掘金社区账号</a> 更多技术分享请移步我的掘金哦~</p>
+<p>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群) - 掘金 (juejin.cn)</a> 加微信拉你进 前端学习交流群！</p>
+<h2 id="docker-是什么？"><a href="#docker-是什么？" class="headerlink" title="docker 是什么？"></a>docker 是什么？</h2><p>docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱;容器所处的操作系统环境就好比货船或港口，程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系。</p>
+<p>因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，不会再有“在我的环境上可以运行的啊！！！”</p>
+<h2 id="docker-优点"><a href="#docker-优点" class="headerlink" title="docker 优点"></a>docker 优点</h2><p>环境隔离(‘隔离，安全’)<br>Docker 实现了资源隔离，一台机器运行多个容器互无影响。</p>
+<p>更高效的资源利用(节约成本)<br>Docker 容器的运行不需要额外的虚拟化管理程序的支持，它是内核级的虚拟化，可以实现更高的性能，同时对资源的额外需求很低。</p>
+<p>更快速的交付部署(敏捷)<br>使用 Docker，开发人员可以利用镜像快速构建一套标准的研发环境，开发完成后，测试和运维人员可以直接通过使用相同的环境来部署代码。</p>
+<p>更易迁移扩展(可移植性)<br>Docker 容器几乎可以在任意的平台上运行，包括虚拟机、公有云、私有云、个人电脑、服务器等，这种兼容性让用户可以在不同平台之间轻松的迁移应用。</p>
+<p>更简单的更新管理(高效)<br>使用 Dockerfile，只需要很少的配置修改，就可以替代以往大量的更新工作。并且所有修改都是以增量的方式进行分发和更新，从而实现自动化和高效的容器管理。</p>
+<h2 id="docker基础指令"><a href="#docker基础指令" class="headerlink" title="docker基础指令"></a>docker基础指令</h2><p>docker version 查看docker版本<br>docker info 查看docker详细信息<br>sudo service docker start 启动服务<br>sudo service docker stop 停止服务<br>sudo service docker restart 重启服务</p>
 <ul>
-<li>监听数据的方法 <code>Object.definePerproty</code>, 不能对Object类型做深度监听。而为了深度监听，以及为了达到目的所要付出的代价，也就是<strong>递归遍历</strong>侦听数据</li>
-<li><code>optionsApi</code>存在问题，功能分块混乱，我们需要把逻辑分别散落在 <code>data，methods、computed</code>对象里，新增一个需求就需要分别在各项里修改，来回滚动</li>
-<li>vue2.0缺少一种较为简洁的低成本的机制来完成逻辑复用，虽然可以minxis完成逻辑复用，但是当mixin变多的时候，会使得难以找到对应的data、computed或者method来源于哪个mixin，使得类型推断难以进行</li>
-<li>ts支持不友好</li>
+<li><p>docker镜像命令<br>docker images 查看docker镜像<br>docker images -a列出本地所有的镜像<br>docker images -p只显示镜像ID docker rmi imageid 删除镜像<br>docker build -t xxx . 打包镜像</p>
+</li>
+<li><p>docker镜像导入导出<br>如果网络不好或者pull不下来镜像，只能在其它网络比较好的机器上pull下来镜像，导出成一个文件，再下载上传到网络不好的机器上，然后再从文件中导出来，这样在网络不好的机器上也能使用docker镜像了 有两种方式，但是不可混用。</p>
+</li>
 </ul>
-<h2 id="2-0-3-0-实现原理"><a href="#2-0-3-0-实现原理" class="headerlink" title="2.0 / 3.0 实现原理"></a>2.0 / 3.0 实现原理</h2><ul>
-<li>Vue2.0： 实现MVVM(双向数据绑定)的原理是通过 <code>Object.defineProperty</code> 来劫持各个属性的 <code>setter、getter</code>在数据变动时发布消息给订阅者，触发相应的监听回调。<br>缺点：<br>基于 <code>Object.defineProperty</code> 不具备监听数组的能力，需要重写数组的原型方法来达到响应式。<br><code>Object.defineProperty</code> 无法检测到对象属性的添加和删除 。<br>由于Vue会在初始化实例时对属性执行getter/setter转化，所有属性必须在data对象上存在才能让Vue将它转换为响应式。<br>深度监听需要一次性递归，对性能影响比较大</li>
-<li>Vue3.0： 重构响应式系统，使用 <code>Proxy</code>代理 + <code>Reflect</code>反射，替换 <code>Object.defineProperty</code><br>使用Proxy代理优势：<br>可直接监听数组类型的数据变化<br>监听的目标为对象本身，不需要像Object.defineProperty一样<em>递归遍历每个属性</em>，有一定的性能提升<br>可拦截apply、ownKeys、has等13种方法，而Object.defineProperty不行<br>不需要一次性遍历data的属性，可以显著提高性能。<br>因为Proxy是ES6新增的属性，有些浏览器还不支持,只能兼容到IE11<br>源码:</li>
-</ul>
-<pre class="line-numbers language-javascript"><code class="language-javascript"> <span class="token keyword">const</span> proxyData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-   <span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span><span class="token punctuation">{</span> 
-     <span class="token comment" spellcheck="true">// 只处理本身(非原型)的属性</span>
-     <span class="token keyword">const</span> ownKeys <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">ownKeys</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
-     <span class="token keyword">if</span><span class="token punctuation">(</span>ownKeys<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 监听</span>
-     <span class="token punctuation">}</span>
-     <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">,</span>receive<span class="token punctuation">)</span>
-     <span class="token keyword">return</span> result
-   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-   <span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span> reveive<span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token comment" spellcheck="true">// 重复的数据，不处理</span>
-     <span class="token keyword">const</span> oldVal <span class="token operator">=</span> target<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
-     <span class="token keyword">if</span><span class="token punctuation">(</span>val <span class="token operator">==</span> oldVal<span class="token punctuation">)</span><span class="token punctuation">{</span>
-       <span class="token keyword">return</span> <span class="token boolean">true</span>
-     <span class="token punctuation">}</span>
-     <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> val<span class="token punctuation">,</span>reveive<span class="token punctuation">)</span>
-     <span class="token keyword">return</span> result
-   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-   <span class="token comment" spellcheck="true">// 删除属性</span>
-   <span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">const</span> result <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>key<span class="token punctuation">)</span>
-     <span class="token keyword">return</span> result
-   <span class="token punctuation">}</span>
- <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="vue3带来了什么？"><a href="#vue3带来了什么？" class="headerlink" title="vue3带来了什么？"></a>vue3带来了什么？</h2><p>打包大小减少41%、初次渲染快55%、更新渲染快133%、内存减少54%</p>
+<p>save/load （推荐）</p>
 <ul>
-<li>新增 <code>Composition API</code>更好的逻辑复用和代码组织<br>Vue2.0中，随着功能的增加，组件变得越来越复杂，越来越难维护，而难以维护的根本原因是Vue的API设计迫使开发者使用watch，computed，methods选项组织代码，而不是实际的业务逻辑。<br><code>Composition Api</code>的出现，主要是也是为了解决Option API带来的问题<br>第一个是代码组织问题，Compostion API可以让开发者根据业务逻辑组织自己的代码，让代码具备更好的可读性和可扩展性，也就是说当下一个开发者接触这一段不是他自己写的代码时，他可以更好的利用代码的组织反推出实际的业务逻辑，或者根据业务逻辑更好的理解代码。<br>第二个是实现代码的逻辑提取与复用，当然mixin也可以实现逻辑提取与复用，但是像前面所说的，多个mixin作用在同一个组件时，很难看出property是来源于哪个mixin，来源不清楚，另外，多个mixin的property存在变量命名冲突的风险。而Composition API刚好解决了这两个问题。</li>
-<li>重构 <code>Virtual DOM</code><br>Vue2 中的虚拟dom 是进行全量对比<br>Vue3 新增静态标记，模板编译时的优化，将一些静态节点编译成常量<br>slot优化，将slot编译为lazy函数，将slot的渲染的决定权交给子组件<br>模板中内联事件的提取并重用（原本每次渲染都重新生成内联函数）</li>
+<li><p>docker save 根据 ID 将镜像打包<br>docker save 0fdf2b4c26d3 &gt; hangge_server.tar</p>
+</li>
+<li><p>同时打包多个image，如将镜像 postgres 和 mongo<br>docker save -o images.tar postgres:9.6 mongo:3.4</p>
+</li>
+<li><p>导入<br>docker load &lt; images.tar</p>
+</li>
 </ul>
-<h2 id="Vue3-x搭建起步"><a href="#Vue3-x搭建起步" class="headerlink" title="Vue3.x搭建起步"></a>Vue3.x搭建起步</h2><p>安装好vue-cli后， 终端输入vue -V  出现4.5.x以上版本为3.x的脚手架。</p>
-<pre class="line-numbers language-bash"><code class="language-bash">使用脚手架创建第一个3.x项目：
-Vue create vue3demo01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>使用 <code>Vite</code>创建项目:</p>
-<pre class="line-numbers language-bash"><code class="language-bash">全局安装vite：
-<span class="token function">npm</span> <span class="token function">install</span> -g create-vite-app
-创建项目
-create-vite-app yourProjectName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>复制代码<br>import/export</p>
+<p>根据指定镜像id导出成一个文件<br>docker export eb516548c180 &gt; coredns.tar</p>
 <ul>
-<li>npm:</li>
+<li>导入<br>docker import /usr/local/coredns.tar<br>复制代码<br>两种方式应用场景及区别</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> init @vitejs/app  按照提示操作
-or
-<span class="token function">npm</span> init @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>docker save 的应用场景：</p>
+<blockquote>
+<p>如果我们的应用是使用 docker-compose.yml 编排的多个镜像组合，但我们要部署的客户服务器并不能连外网。这时就可以使用 docker save 将用到的镜像打个包，然后拷贝到客户服务器上使用 docker load 载入。</p>
+</blockquote>
+<p>docker export 的应用场景：</p>
+<blockquote>
+<p>主要用来制作基础镜像，比如我们从一个 ubuntu 镜像启动一个容器，然后安装一些软件和进行一些设置后，使用 docker export 保存为一个基础镜像。然后，把这个镜像分发给其他人使用，比如作为基础的开发环境。</p>
+</blockquote>
 <ul>
-<li>yarn:</li>
+<li><p>镜像是否重命名<br>docker import 可以为镜像指定新名称<br>docker load 不能对载入的镜像重命名</p>
+</li>
+<li><p>文件大小<br>export 导出的镜像文件体积小于 save 保存的镜像</p>
+</li>
+<li><p>是否包含镜像历史<br>export 导出（import 导入）是根据容器拿到的镜像，再导入时会丢失镜像所有的历史记录和元数据信息（即仅保存容器当时的快照状态），所以无法进行回滚操作。</p>
+</li>
+<li><p>save 保存（load 加载）的镜像，没有丢失镜像的历史，可以回滚到之前的层（layer）。</p>
+</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">yarn create @vitejs/app  按照提示操作
-or
-yarn create @vitejs/app my-vue-app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="docker容器命令"><a href="#docker容器命令" class="headerlink" title="docker容器命令"></a>docker容器命令</h2><p>每一个容器其实就是一个linux系统可以执行linux命令。</p>
+<p>使用镜像启动容器<br>新建并且启动一个容器: docker run -itd -p 5000:3000 test1:v1.0<br>OPTIONS说明:</p>
+<p>-i: 交互式操作<br>-t: 终端<br>-d: 后台运行<br>–name：指定容器的名称<br>-p: 表示指定端口映射，（5000：3000）表示（本机端口：容器端口）<br>镜像名后面的:v1.0：表示打的tag号<br>-v: 文件映射，将主机本地的文件映射到容器中，这样我们本地修改文件内容，可以动态看到页面的变化了;windwos下需指定文件的绝对路径<br>查看容器<br>docker ps 列出当前所有正在运行的容器<br>docker ps -a列出所有的容器<br>docker logs 容器id 查看容器日志 docker ps -l列出最近创建的容器</p>
+<p>启动退出停止容器<br>000参数：容器ID或容器名称<br>exit 退出并停止容器<br>Ctrl+p+q 只退出容器，不停止容器<br>docker start 000 启动容器<br>docker restart 000 重新启动容器<br>docker stop 000 停止容器<br>docker kill 000 强制停止容器</p>
+<p>删除容器<br>docker rm 000删除容器<br>docker rm -f 000强制删除容器<br>docker rm -f $(docker ps -a -q)删除多个容器</p>
+<p>docker容器文件拷贝到宿主机<br>docker cp 容器ID:容器内的文件路径 宿主机路径 从容器内拷贝文件到宿主机<br>如：docker cp f9e29e8455a5:/tmp/yum.log /root</p>
+<p>宿主机文件拷贝到docker容器<br>docker cp 你的文件路径 容器ID:docker容器中路径<br>如（注意.tar后面的.gz）：<br>docker cp D:\NDM下载\Compressed\nvm-0.39.2.tar.gz f9e29e8455a5:/home</p>
+<p>cmd进入某个容器<br>docker exec -it 容器id /bin/bash</p>
+<h2 id="win10-安装使用docker"><a href="#win10-安装使用docker" class="headerlink" title="win10 安装使用docker"></a>win10 安装使用docker</h2><p>windows系统直接在 官网 下载 docker desktop 客户端 安装使用。</p>
+<p>win10家庭版安装最新版本docker，已经不再需要hyper-v虚拟机，也不用修改windows版本注册表，最新版windows docker采用了wsl容器（适用于 Linux 的 Windows 子系统）</p>
+<p>安装完成后打开终端验证是否安装成功<br>docker -v</p>
+<p>现在就可以打开上面安装好的docker客户端基于图形工具使用docker了,也可以在cmd终端操作docker</p>
+<h2 id="win10-安装子系统linux"><a href="#win10-安装子系统linux" class="headerlink" title="win10 安装子系统linux"></a>win10 安装子系统linux</h2><p>因为想在linux上操作docker，但是用的是win10本，所以需要先想办法安装一个liunx（我这里安装的是ubuntu 20.04LTS）系统；<br>参考这篇文章完成安装 <a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaofeivip_top/article/details/98665312">Windows10下开启第二个系统：Linux！</a></p>
+<h2 id="linux-安装使用docker"><a href="#linux-安装使用docker" class="headerlink" title="linux 安装使用docker"></a>linux 安装使用docker</h2><p>通过上面的操作我们现在可以在win10上使用linux系统了，现在需要在linux上安装 linux版的docker 打开cmd输入bash进入linux 终端，或者直接在菜单就有Ubuntu的程序，点击进入。</p>
+<p>linux安装docker服务<br>ps:注意如下命令都需要加 sudo</p>
+<p>查看当前linux系统是否有安装docker<br><code>sudo systemctl start docker</code></p>
+<p> 出现 <code>System has not been booted with systemd as init system (PID 1). Can't operate. Failed to connect to bus: Host is down</code> 说明没有安装</p>
+<p>更新源<br>sudo apt-get update</p>
+<p>安装以下软件包 允许apt通过HTTPS使用存储库<br><code>sudo apt-get install apt-transport-https ca-certificates curl software-properties-common</code></p>
+<p>添加Docker官方的GPG密钥</p>
+<p>curl -fsSL <a target="_blank" rel="noopener" href="https://download.docker.com/linux/ubuntu/gpg">https://download.docker.com/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
+<p>安装stable存储库<br><code>sudo add-apt-repository \ "deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable"</code></p>
+<p>ps:这里需要注意网络不佳的情况会失败，多尝试几次</p>
+<p>查看docker-ce的版本<br><code>apt-cache madison docker-ce</code></p>
+<p>安装docker社区版 <code>sudo apt-get install docker-ce</code></p>
+<p>查看版本<br><code>docker -v</code></p>
+<p>启动docker<br>启动docker服务<br><code>sudo service docker start</code></p>
+<p>查看镜像<br><code>docker images</code></p>
+<p>至此我们完成了：<br>在windows上安装客户端docker<br>在windows上安装子系统linux -&gt; 子系统安装docker</p>
+<p>注意区分<br>此时我们电脑上有两个版本docker，如图所示cmd查看镜像时是基于客户端的docker，所以必须先双击启动docker程序才可操作。<br>而cmd通过bash进入子系统linux系统后操作的docker是属于子系统的</p>
+<h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>win10的linux子系统启动docker失败<br>打开ubuntu 启动docker服务后，docker ps 报错如下：<br><code>“Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?”</code></p>
+<p>解决：<br>先确定Docker本身已经安装， docker -v</p>
 <ul>
-<li>你还可以通过附加的命令行选项直接指定项目名称和你想要使用的模板</li>
+<li>查看 docker daemon 是否在运行：<br>ps aux | grep docker</li>
+<li>再次查看<br><code>ps aux | grep docker</code><br>复制代码<br>先关闭docker服务<br><code>service docker stop</code></li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">例如，要构建一个 Vite + Vue 项目运行:
-yarn create @vitejs/app my-vue-app --template vue
-例如创建 vue+ts：
-yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>再重新启动docker<br><code>service docker start</code></p>
+<p><code>docker ps</code> 查看时发现此时正常</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -491,7 +505,7 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sisi001.gitee.io/posts/8d7.html">https://sisi001.gitee.io/posts/8d7.html</a>
+                    <a href="https://sisi001.gitee.io/posts/1208.html">https://sisi001.gitee.io/posts/1208.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,12 +543,8 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/vue3%E4%BC%98%E5%8A%BF/">
-                                    <span class="chip bg-color">vue3优势</span>
-                                </a>
-                            
-                                <a href="/tags/vue3%E8%B5%B7%E6%AD%A5/">
-                                    <span class="chip bg-color">vue3起步</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
                         </div>
@@ -575,47 +585,49 @@ yarn create @vitejs/app my-vue-app --template vue-ts<span aria-hidden="true" cla
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/9cde.html">
+                <a href="/posts/1208.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="vim简单使用">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="docker初识">
                         
-                        <span class="card-title">vim简单使用</span>
+                        <span class="card-title">docker初识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            vim 是什么？vim/vi 是 Unix / Linux 上最常用的文本编辑器而且功能非常强大。但是【只有命令，没有菜单】
-Vscode vim 基础使用：y 复制（先选中）yy 复制一行nyy 复制多行（n 为行数）p 粘贴u 撤销移动
+                            前言进几年docker在前端领域中也有着越来越广泛的应用，本文主要介绍docker基础指令以及如何在win10、linux上安装docker服务；其中也在网上借鉴了不少资料，通过自己一步步实践最终成功，谨以此篇记录自己学习的爬坑之路。
+如果
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-                                    其他
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vim/">
-                        <span class="chip bg-color">vim</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
@@ -629,31 +641,31 @@ Vscode vim 基础使用：y 复制（先选中）yy 复制一行nyy 复制多行
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/f82e.html">
+                <a href="/posts/ba04.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Markdown基础">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="macOs开发环境配置">
                         
-                        <span class="card-title">Markdown基础</span>
+                        <span class="card-title">macOs开发环境配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是Markdown？Markdown 设计灵感主要来源于纯文本电子邮件的格式，目标是让人们能够使用易读、易写的纯文本格式编写文档，而且这些文档可以转换为 HTML（Hyper Text Markup Language，超文本标记语言）文
+                            记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-                                    其他
+                            <a href="/categories/macOs/" class="post-category">
+                                    macOs
                                 </a>
                             
                             
@@ -663,8 +675,8 @@ Vscode vim 基础使用：y 复制（先选中）yy 复制一行nyy 复制多行
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/macOs/">
+                        <span class="chip bg-color">macOs</span>
                     </a>
                     
                 </div>

@@ -348,7 +348,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-19
+                    2021-07-28
                 </div>
                 
 
@@ -357,7 +357,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
@@ -415,9 +415,12 @@
 <ul>
 <li><p>静态文件接入 cdn(重点!)<br>可以像cdn图片的方式一样把所有的css、js等文件的加载路径都修改下，从而让全站使用CDN加速！<br>因为js、css 等静态文件管理和图片有些不同，因为我们会编辑他，会加入新的内容。所以要对 GitHub 中静态文件进行<strong>版本发布</strong>，在 cdn 中引用对应的版本。CDN 中引用的是 GitHub 的“发布版本（release）”，不是“标签版本（Tags）”<br>在任意 JS/CSS 文件后添加 .min 能得到一个缩小版,如果它本身不存在，将会为你生成:<br><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js</a><br>测试:<br>浏览器打开-&gt;F12-&gt;Network-&gt;Ctrl + F5(强制刷新，即不使用缓存刷新)，然后看加载时间多少。</p>
 </li>
-<li><p>修改 PicGo 中的自定义链接<br>如下：<br><code>https://cdn.jsdelivr.net/gh/用户名/仓库名@main(好像不用@main)</code><br>现在我们直接上传图片，取得的链接就是 CDN 的链接了, 可以测试一下速度，还是很 nice 的。</p>
+<li><p>修改 PicGo 中的自定义链接<br>如下：<br><code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code><br>现在我们直接上传图片，取得的链接就是 CDN 的链接了, 可以测试一下速度，还是很 nice 的。</p>
 <p>github博客使用cdn全站加速前:<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/sj.png" alt=""><br>cdn全站加速后资源确实快了:<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/sj2.png" alt=""></p>
 </li>
+</ul>
+<ul>
+<li>jsDelivr 缓存问题<br>部分文件github已经修改更新，但是jsDelivr访问到的确没有更新，网上找了常见刷新缓存方法也无效，无奈下只好把没有更新的cdn资源替换为本地资源</li>
 </ul>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
 <li><p>picGo 上传动图 gif<br>如果直接复制网页上的动图，去上传的话是截取的某帧，是静图。应该下载到本地，然后在拖进去上传就可以了</p>
@@ -429,7 +432,7 @@
 <ul>
 <li><p>picgo 上传图片报错 401<br>报错日志： “message”:”Bad credentials” 根据百度有的说重启软件也不好使，最后在 github 提了 issues 作者解释为无权限，建议删除 token，生成新的 token 解决。不过我第一天就这样试过不行，第二天发现突然可以了，给我整 emo 了！ 遇到这种情况如果反复检查配置没问题，就重新生成 token 试试。有时候都没问题可能是网络问题,多尝试几次.</p>
 </li>
-<li><p>mac电脑按照配置完无法上传成功!<br>我从我的win10配置完后,来到mac使用picGo配置相同参数后上传失败,最后发现中win上github生成的token,来到mac上上不存在的,需要生成一个新的token</p>
+<li><p>mac电脑按照配置完无法上传成功!<br>我从我的win10配置完后,来到mac 使用picGo配置相同参数后上传失败,最后发现中win上github生成的token,来到mac上不存在了（这个暂时无解，我生成过30天、3个月、永久的token要么刷新就消失，要么过一段时间在刷新就消失很奇怪；虽然消失了但是之前使用的token好像还可以用） 只好需要生成一个新的token。</p>
 </li>
 <li><p>picgo 上传 github 后图片无法显示？</p>
 </li>
@@ -464,6 +467,11 @@
 # GitHub End
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>cmd 执行：<br><code>ipconfig /flushdns</code> 刷新一下本机的 DNS 解析<br>picgo 重启后相册中查看图片正常；刷新 github 页面发现图标可以显示了</p>
+<h3 id="2022-后续更新"><a href="#2022-后续更新" class="headerlink" title="2022 后续更新"></a>2022 后续更新</h3><p> 后来发现jsDelivr在国内死掉了; jsDelivr + github图床根本访问不了，暂时使用聚合图床</p>
+<ul>
+<li>聚合图床</li>
+</ul>
+<p>我的示例图片：<img src="/images/loading.gif" data-original="https://pic.imgdb.cn/item/6315abba16f2c2beb157672b.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -591,55 +599,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/ba04.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="macOs开发环境配置">
-                        
-                        <span class="card-title">macOs开发环境配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/macOs/" class="post-category">
-                                    macOs
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/macOs/">
-                        <span class="chip bg-color">macOs</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/61cb.html">
                     <div class="card-image">
                         
@@ -653,14 +612,13 @@
                     <div class="summary block-with-text">
                         
                             前言在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
-从 0 到 1 搭建 vue3+ts 项目配置 eslint
-为什么
+如果文章对你有用，麻烦点击链接关注我的掘金社区账号 更多技术分享请移
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -686,6 +644,61 @@
                     
                     <a href="/tags/vue3/">
                         <span class="chip bg-color">vue3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/f34e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="h5接入浙里办爬坑">
+                        
+                        <span class="card-title">h5接入浙里办爬坑</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！如果文章对你有用，麻烦点击链接关注我的掘金社区账号 更多技术分享请移步我的掘金哦~
+点击链接 学习交流群(前端微信群) - 掘金 (juejin.cn) 加微信拉你进 前端学习交流群！
+背
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%BA%94%E7%94%A8-h5/" class="post-category">
+                                    浙里办应用 h5
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/">
+                        <span class="chip bg-color">浙里办对接</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/">
+                        <span class="chip bg-color">浙里办</span>
                     </a>
                     
                 </div>
@@ -838,7 +851,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.7k</span>&nbsp;字
+                class="white-color">30.5k</span>&nbsp;字
             
             
             

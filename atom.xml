@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sisi001.gitee.io/"/>
-  <updated>2022-08-15T11:45:21.056Z</updated>
+  <updated>2022-12-17T13:38:24.674Z</updated>
   <id>https://sisi001.gitee.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker初识</title>
+    <link href="https://sisi001.gitee.io/posts/1208.html"/>
+    <id>https://sisi001.gitee.io/posts/1208.html</id>
+    <published>2022-11-02T15:52:33.000Z</published>
+    <updated>2022-12-17T13:38:24.674Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://sisi001.gitee.io/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://sisi001.gitee.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>macOs开发环境配置</title>
@@ -44,39 +71,11 @@
   </entry>
   
   <entry>
-    <title>搭建自己的图床</title>
-    <link href="https://sisi001.gitee.io/posts/3e2v.html"/>
-    <id>https://sisi001.gitee.io/posts/3e2v.html</id>
-    <published>2022-01-19T05:35:54.000Z</published>
-    <updated>2022-08-20T06:47:12.107Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;什么是图床？&quot;&gt;&lt;a href=&quot;#什么是图床？&quot; class=&quot;headerlink&quot; title=&quot;什么是图床？&quot;&gt;&lt;/a&gt;什么是图床？&lt;/h2&gt;&lt;p&gt;简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="图床" scheme="https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/"/>
-    
-  </entry>
-  
-  <entry>
     <title>从0到1搭建vue3+ts项目</title>
     <link href="https://sisi001.gitee.io/posts/61cb.html"/>
     <id>https://sisi001.gitee.io/posts/61cb.html</id>
     <published>2021-10-05T15:05:33.000Z</published>
-    <updated>2022-08-15T12:07:47.732Z</updated>
+    <updated>2022-12-17T13:34:38.267Z</updated>
     
     <summary type="html">
     
@@ -103,11 +102,39 @@
   </entry>
   
   <entry>
+    <title>搭建自己的图床</title>
+    <link href="https://sisi001.gitee.io/posts/3e2v.html"/>
+    <id>https://sisi001.gitee.io/posts/3e2v.html</id>
+    <published>2021-07-28T07:35:54.000Z</published>
+    <updated>2022-09-05T08:13:57.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是图床？&quot;&gt;&lt;a href=&quot;#什么是图床？&quot; class=&quot;headerlink&quot; title=&quot;什么是图床？&quot;&gt;&lt;/a&gt;什么是图床？&lt;/h2&gt;&lt;p&gt;简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="图床" scheme="https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>h5接入浙里办爬坑</title>
     <link href="https://sisi001.gitee.io/posts/f34e.html"/>
     <id>https://sisi001.gitee.io/posts/f34e.html</id>
     <published>2021-07-19T05:35:54.000Z</published>
-    <updated>2022-08-15T11:59:51.755Z</updated>
+    <updated>2022-12-17T13:36:36.217Z</updated>
     
     <summary type="html">
     
@@ -161,7 +188,7 @@
     <link href="https://sisi001.gitee.io/posts/e9a0.html"/>
     <id>https://sisi001.gitee.io/posts/e9a0.html</id>
     <published>2021-03-18T13:18:57.000Z</published>
-    <updated>2022-08-15T12:05:16.320Z</updated>
+    <updated>2022-12-17T13:09:40.147Z</updated>
     
     <summary type="html">
     
@@ -169,7 +196,7 @@
       
         
         
-          &lt;h1 id=&quot;js重点（待完善）&quot;&gt;&lt;a href=&quot;#js重点（待完善）&quot; class=&quot;headerlink&quot; title=&quot;js重点（待完善）&quot;&gt;&lt;/a&gt;js重点（待完善）&lt;/h1&gt;&lt;h2 id=&quot;为什么使用es6的class类&quot;&gt;&lt;a
+          &lt;h2 id=&quot;为什么使用es6的class类&quot;&gt;&lt;a href=&quot;#为什么使用es6的class类&quot; class=&quot;headerlink&quot; title=&quot;为什么使用es6的class类&quot;&gt;&lt;/a&gt;为什么使用es6的class类&lt;/h2&gt;&lt;p&gt;OOP 即 面向对象编程
         
       
     
@@ -356,7 +383,7 @@
     <link href="https://sisi001.gitee.io/posts/ba1f.html"/>
     <id>https://sisi001.gitee.io/posts/ba1f.html</id>
     <published>2021-01-13T13:00:04.000Z</published>
-    <updated>2022-08-15T12:06:03.412Z</updated>
+    <updated>2022-09-13T07:49:09.812Z</updated>
     
     <summary type="html">
     

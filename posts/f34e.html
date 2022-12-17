@@ -5,7 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="对接浙里办,浙里办,h5应用接入浙里办">
-    <meta name="description" content="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！背景最近接手一个公司之前使用vue2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。 刚开始可能由于该项目的负责人没有讲的太清楚，导致我和后端哥们二脸懵逼！！！就简">
+    <meta name="description" content="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！如果文章对你有用，麻烦点击链接关注我的掘金社区账号 更多技术分享请移步我的掘金哦~
+点击链接 学习交流群(前端微信群) - 掘金 (juejin.cn) 加微信拉你进 前端学习交流群！
+背">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -360,7 +362,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
@@ -378,7 +380,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！"><a href="#记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！" class="headerlink" title="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！"></a>记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近接手一个公司之前使用vue2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。 刚开始可能由于该项目的负责人没有讲的太清楚，导致我和后端哥们二脸懵逼！！！<br>就简单告诉我们app改造接入浙里办，然后群发了 语雀(<a target="_blank" rel="noopener" href="https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8">https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8</a>) 这篇文档。 也没和我们讲’浙里办’是什么？之前的app是干嘛用的！我是挺无语的. 对于没接触过这个方向的同学来说简直是懵逼，直接去阅读这么长一篇文档的话也是晕头转向,无从下手的我们只好先请教了之前接触过这方面的同事给我们大致讲了讲流程才大体明白了我们需要做什么。接下来在开发过程中发现要注意的东西还是挺多的，踩了很多坑，特以此篇记录，也为能帮助到初次接触这方面的同学.</p>
+                <h1 id="记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！"><a href="#记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！" class="headerlink" title="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！"></a>记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！</h1><p>如果文章对你有用，麻烦点击链接关注我的<a target="_blank" rel="noopener" href="https://juejin.cn/user/2041110775208184/posts">掘金社区账号</a> 更多技术分享请移步我的掘金哦~</p>
+<p>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群) - 掘金 (juejin.cn)</a> 加微信拉你进 前端学习交流群！</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近接手一个公司之前使用vue2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。 刚开始可能由于该项目的负责人没有讲的太清楚，导致我和后端哥们二脸懵逼！！！<br>就简单告诉我们app改造接入浙里办，然后群发了 语雀(<a target="_blank" rel="noopener" href="https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8">https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8</a>) 这篇文档。 也没和我们讲’浙里办’是什么？之前的app是干嘛用的！我是挺无语的. 对于没接触过这个方向的同学来说简直是懵逼，直接去阅读这么长一篇文档的话也是晕头转向,无从下手的我们只好先请教了之前接触过这方面的同事给我们大致讲了讲流程才大体明白了我们需要做什么。接下来在开发过程中发现要注意的东西还是挺多的，踩了很多坑，特以此篇记录，也为能帮助到初次接触这方面的同学.</p>
 <h3 id="文档阅读"><a href="#文档阅读" class="headerlink" title="文档阅读"></a>文档阅读</h3><p>拿到对接浙里办的文档时，一定要多阅读几遍！！！因为第一次看这东西，内容也多，理解能力不是特别强的同学没几遍还真整不明白。整个文档内容基本了解以后就可以专注前端开发部分了。</p>
 <h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>首先问项目负责人要文档中说的 <em>应用开发管理平台相关账号</em>，这个平台也就是浙里办的应用中台。我们的h5应用开发完打包后需要上传到这个平台，然后测试、发布上线.<br>我们应用一部分内容需要调用浙里办的 <code>JSBridge API</code>调用原生功能, 而这个api只能在浙里办环境下运行,浏览器访问是不可以的! 所以要下载官网提供的debug工具,后面接口调试需要用.</p>
 <h3 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h3><p>浙里办是硬性要求用户数据都是要走他那边的登录的，针对这个要求，需要把登录操作的页面跳转直接改为浙里办提供的登录地址。<em>参考文档 1.1.7.3 个人登录</em><br>首先单点登录分为：个人用户的单点登录和法人用户的单点登录,我这里只做了<em>个人用户*登录。<br>个人登录又分为：浙里办app环境登录 和 浙里办-支付宝小程序环境登录.<br>*环境判断见文档：1.1.7.1.浙里办APP、支付宝-浙里办小程序的判断代码</em></p>
@@ -551,33 +555,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/61cb.html">
+                <a href="/posts/3e2v.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="从0到1搭建vue3+ts项目">
+                        <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/silin001.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="搭建自己的图床">
                         
-                        <span class="card-title">从0到1搭建vue3+ts项目</span>
+                        <span class="card-title">搭建自己的图床</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
-从 0 到 1 搭建 vue3+ts 项目配置 eslint
-为什么
+                            什么是图床？简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。
+为什么要搭建图床？我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/eslint-vite-ts/" class="post-category">
-                                    eslint vite ts
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
                                 </a>
                             
                             
@@ -587,16 +590,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ts/">
-                        <span class="chip bg-color">ts</span>
-                    </a>
-                    
-                    <a href="/tags/eslint/">
-                        <span class="chip bg-color">eslint</span>
-                    </a>
-                    
-                    <a href="/tags/vue3/">
-                        <span class="chip bg-color">vue3</span>
+                    <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                        <span class="chip bg-color">图床</span>
                     </a>
                     
                 </div>
@@ -799,7 +794,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.7k</span>&nbsp;字
+                class="white-color">30.5k</span>&nbsp;字
             
             
             

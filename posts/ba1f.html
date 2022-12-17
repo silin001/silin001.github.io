@@ -349,14 +349,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -375,7 +375,6 @@
 </li>
 <li><p>switch 语句代码优化</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getResult</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 使用 switch case 语句，根据颜色找出对应的水果</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
       <span class="token keyword">return</span> <span class="token string">"待发货"</span><span class="token punctuation">;</span>
@@ -386,7 +385,7 @@
     <span class="token keyword">default</span><span class="token punctuation">:</span>
       <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>type 类型为多个类型，代码使用 switch 循环判断处理。<br><strong>优化方法 1:</strong> 使用 object 对象结构存储<br>对象形式建立key-value映射关系</p>
 <pre class="line-numbers language-js"><code class="language-js">  <span class="token keyword">const</span> statusDes <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token number">1</span><span class="token punctuation">:</span><span class="token string">'待发货'</span><span class="token punctuation">,</span>
@@ -420,10 +419,37 @@
 <p><strong>模块化</strong><br>防止命名污染，保持作用域、变量的独立性<br>可以使用立即执行函数<br>可以使用命名空间<br>使用 umd 封装成模块<br><strong>样式隔离</strong><br>数据配置从外面传入，事件在外面处理<br>对 props 做数据校验<br>留有 slot</p>
 </blockquote>
 <ul>
-<li>tabs 组件<br>支持默认选中，设置宽高，横向纵向展示</li>
-<li>省份地区的 list 列表组件<br><strong>dom：</strong><br>主要分为 title、conten 两部分<br>content 中添加了一个 subTitle 的 slot 用于展示副标题，且使用 v-if=’$slots.subTitle’显隐该 dom<br>list 循环展示列表数据<br><strong>props：</strong><br>data 对象<br>itle 字段<br><strong>事件：</strong><br>title 中 close 图片点击 emit 关闭事件<br>list 上添加 row-click</li>
-<li>公共二级表单组件<br><strong>dom：</strong><br>正常表单<br><strong>props：</strong><br>typeIndex：模块类型索引<br><strong>方法：</strong><br>引入公共 api.js 文件 导出多个模块增、删、查接口<br>全局定义 apiFunObj 对象<br>写一个 initApiFun 方法，判断 typeIndex 重载全局 apiFunObj 中的 add、del、find 方法</li>
-<li>echarts 图表封装<br>首先使用插件库 vue-echarts 封装好的 v-chart，在这基础上封装一层全局的 chart 组件，该组件接受传入的图表的 options 配置且通过计算属性合并渲染。<br>封装其他图表时，只需要引入公共 chart 组件，计算属性方法中传入对应图表参数，处理逻辑即可。</li>
+<li><p>echarts 图表封装<br>首先使用插件库 vue-echarts 封装好的 v-chart，在这基础上封装一层全局的 chart 组件，该组件接受传入的图表的 options 配置且通过计算属性合并渲染。<br>封装其他图表时，只需要引入公共 chart 组件，计算属性方法中传入对应图表参数，处理逻辑即可</p>
+</li>
+<li><p>省份地区的 list 列表组件<br><strong>dom：</strong><br>主要分为 title、conten 两部分<br>content 中添加了一个 subTitle 的 slot 用于展示副标题，且使用 v-if=’$slots.subTitle’显隐该 dom<br>list 循环展示列表数据<br><strong>props：</strong><br>data 对象<br>itle 字段<br><strong>事件：</strong><br>title 中 close 图片点击 emit 关闭事件<br>list 上添加 row-click</p>
+</li>
+<li><p>基于el-dialog 封装全局layer弹窗组件</p>
+</li>
+</ul>
+<pre class="line-numbers language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-drag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.show<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-dialog</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layerShow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">:title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.title<span class="token punctuation">"</span></span>
+        <span class="token attr-name">:width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.width<span class="token punctuation">"</span></span>
+        <span class="token attr-name">center</span>
+        <span class="token attr-name">@close</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>closeHandler<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.showButton<span class="token punctuation">"</span></span> <span class="token attr-name">#footer</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>确认<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>close<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>取消<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-dialog</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <strong>dom：</strong><br> 预留一个默认插槽<br> <strong>props：</strong><br>  接受一个 layer 的props对象，包含show、title、showButton字段</p>
+<p>  <strong>事件：</strong><br>  emit一个confirm确认事件<br>  @close Dialog 关闭的回调中关闭当前弹窗；</p>
+<ul>
+<li><p>tabs 组件<br>支持默认选中，设置宽高，横向纵向展示</p>
+</li>
+<li><p>公共二级表单组件<br><strong>dom：</strong><br>正常表单<br><strong>props：</strong><br>typeIndex：模块类型索引<br><strong>方法：</strong><br>引入公共 api.js 文件 导出多个模块增、删、查接口<br>全局定义 apiFunObj 对象<br>写一个 initApiFun 方法，判断 typeIndex 重载全局 apiFunObj 中的 add、del、find 方法</p>
+</li>
 </ul>
 <h2 id="工作中遇到的问题、代码优化"><a href="#工作中遇到的问题、代码优化" class="headerlink" title="工作中遇到的问题、代码优化"></a>工作中遇到的问题、代码优化</h2><h3 id="遇到的代码层面问题及解决方案"><a href="#遇到的代码层面问题及解决方案" class="headerlink" title="遇到的代码层面问题及解决方案"></a>遇到的代码层面问题及解决方案</h3><ul>
 <li>计时器问题，a 页面使用后 b 页面还在运行，长时间导致栈溢出？<br>在 beforeDestroy 生命周期去清除定时器；<br>推荐($once)方案：</li>
@@ -938,7 +964,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.7k</span>&nbsp;字
+                class="white-color">30.5k</span>&nbsp;字
             
             
             
