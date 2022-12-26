@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/friends/index.html</loc>
+    <loc>https://sisi001.gitee.io/categories/index.html</loc>
     
     <lastmod>2021-09-07</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/index.html</loc>
+    <loc>https://sisi001.gitee.io/friends/index.html</loc>
     
     <lastmod>2021-09-07</lastmod>
     
@@ -246,14 +246,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/Markdown/</loc>
+    <loc>https://sisi001.gitee.io/tags/macOs/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/macOs/</loc>
+    <loc>https://sisi001.gitee.io/tags/Markdown/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -316,6 +316,34 @@
   </url>
   
   <url>
+    <loc>https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2022-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2022-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/</loc>
+    <lastmod>2022-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/</loc>
+    <lastmod>2022-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sisi001.gitee.io/tags/git/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -338,34 +366,6 @@
   
   <url>
     <loc>https://sisi001.gitee.io/tags/vscode%E7%BB%88%E7%AB%AF/</loc>
-    <lastmod>2022-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sisi001.gitee.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2022-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/</loc>
-    <lastmod>2022-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/</loc>
-    <lastmod>2022-12-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sisi001.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -395,14 +395,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://sisi001.gitee.io/categories/macOs/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/macOs/</loc>
+    <loc>https://sisi001.gitee.io/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -437,14 +437,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4-cmd-git-linux/</loc>
+    <loc>https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://sisi001.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -458,7 +458,7 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://sisi001.gitee.io/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4-cmd-git-linux/</loc>
     <lastmod>2022-12-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
