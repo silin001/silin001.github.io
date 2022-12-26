@@ -5,9 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="对接浙里办,浙里办,h5应用接入浙里办">
-    <meta name="description" content="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！如果文章对你有用，麻烦点击链接关注我的掘金社区账号 更多技术分享请移步我的掘金哦~
-点击链接 学习交流群(前端微信群) - 掘金 (juejin.cn) 加微信拉你进 前端学习交流群！
-背">
+    <meta name="description" content="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！如果文章对你有帮助，可以点击链接关注我的掘金社区账号 更多技术分享请移步我的掘金哦~ 😀😀😀
+点击链接 学习交流群(前端微信群) - 掘金 (juejin.cn) 加vx拉你进 前端">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -380,8 +379,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！"><a href="#记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！" class="headerlink" title="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！"></a>记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！</h1><p>如果文章对你有用，麻烦点击链接关注我的<a target="_blank" rel="noopener" href="https://juejin.cn/user/2041110775208184/posts">掘金社区账号</a> 更多技术分享请移步我的掘金哦~</p>
-<p>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群) - 掘金 (juejin.cn)</a> 加微信拉你进 前端学习交流群！</p>
+                <h1 id="记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！"><a href="#记录个人遇到的-h5应用接入’浙里办’-的爬坑之路！" class="headerlink" title="记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！"></a>记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！</h1><p><strong>如果文章对你有帮助，可以点击链接关注我的<a target="_blank" rel="noopener" href="https://juejin.cn/user/2041110775208184/posts">掘金社区账号</a> 更多技术分享请移步我的掘金哦~</strong> 😀😀😀</p>
+<p>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群) - 掘金 (juejin.cn)</a> 加vx拉你进 <strong>前端学习交流群</strong> 让我们一起 <del>好好学习</del>（🐟🐟🐟）吧😎😎😎</p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近接手一个公司之前使用vue2搭建的一个H5项目，现在要求接入到 浙里办APP、浙里办-支付宝小程序。 刚开始可能由于该项目的负责人没有讲的太清楚，导致我和后端哥们二脸懵逼！！！<br>就简单告诉我们app改造接入浙里办，然后群发了 语雀(<a target="_blank" rel="noopener" href="https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8">https://odynww.yuque.com/docs/share/525e3e8a-ad52-421b-90da-2d76808e3050?#DB3a8</a>) 这篇文档。 也没和我们讲’浙里办’是什么？之前的app是干嘛用的！我是挺无语的. 对于没接触过这个方向的同学来说简直是懵逼，直接去阅读这么长一篇文档的话也是晕头转向,无从下手的我们只好先请教了之前接触过这方面的同事给我们大致讲了讲流程才大体明白了我们需要做什么。接下来在开发过程中发现要注意的东西还是挺多的，踩了很多坑，特以此篇记录，也为能帮助到初次接触这方面的同学.</p>
 <h3 id="文档阅读"><a href="#文档阅读" class="headerlink" title="文档阅读"></a>文档阅读</h3><p>拿到对接浙里办的文档时，一定要多阅读几遍！！！因为第一次看这东西，内容也多，理解能力不是特别强的同学没几遍还真整不明白。整个文档内容基本了解以后就可以专注前端开发部分了。</p>
 <h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>首先问项目负责人要文档中说的 <em>应用开发管理平台相关账号</em>，这个平台也就是浙里办的应用中台。我们的h5应用开发完打包后需要上传到这个平台，然后测试、发布上线.<br>我们应用一部分内容需要调用浙里办的 <code>JSBridge API</code>调用原生功能, 而这个api只能在浙里办环境下运行,浏览器访问是不可以的! 所以要下载官网提供的debug工具,后面接口调试需要用.</p>
@@ -794,7 +793,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
              -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.5k</span>&nbsp;字
+                class="white-color">30.6k</span>&nbsp;字
             
             
             
