@@ -33,12 +33,28 @@
     }
 }
 
+body::-webkit-scrollbar {
+    width: 6px;
+}
+body::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #8b8b8b;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #606060;
+}
 body {
-    /* background-color: #eaeaea; */
-    background-color: #C1E6C6;
+    /* height: calc(100vh + 64px); */
+    background-color: #eaeaea;
+    /* background-color: #C1E6C6; */
     margin: 0;
     color: #34495e;
+    overflow-x: hidden;
 }
+
 
 h1 {
     margin: 48px 0 22px -5px;
@@ -236,6 +252,8 @@ mark {
 }
 
 .card {
+    margin-top: 20px;
+    /* margin-top: 150px; */
     border-radius: 10px;
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
 }
@@ -302,16 +320,17 @@ header .nav-transparent {
 header nav .brand-span {
     font-size: 1.45rem;
 }
-
+header .brand-logo a{
+    display: flex;
+    align-items: center;
+}
 header .brand-logo .logo-img {
-    height: 45px;
-    vertical-align: middle;
-    padding-bottom: 6px;
+    height: 40px;
 }
 
 header .brand-logo .logo-span {
-    font-size: 1.3rem;
-    /* margin-left: 5px; */
+    font-size: 1.2rem;
+    margin-left: 10px;
 }
 
 header .button-collapse i {
@@ -377,6 +396,11 @@ header .side-nav .social-link {
     display: inline;
     padding: 0 12px;
     cursor: pointer;
+
+}
+.mydiv{
+    position: relative;
+    z-index: 100;
 }
 
 .cover-btns {
@@ -531,8 +555,9 @@ header .side-nav .social-link {
     position: fixed;
     top: 35%;
     right: 0;
-    z-index: 600;
+    z-index: 8999;
 }
+
 .cover-social-link a,.cover-social-link .mydiv{
     padding: 0 15px;
     font-size: 1.35rem;
@@ -620,6 +645,7 @@ header .go-back i {
     font-weight: 400;
 }
 
+/* 遮罩背景 */
 @-webkit-keyframes rainbow {
 
     0%,
@@ -629,7 +655,8 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(156, 39, 176, 0.65) 100%);
     }
-    16% {
+
+    35% {
         background: rgba(132, 13, 121, 0.3);
         background: linear-gradient(45deg, rgba(132, 13, 121, 0.3) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.3) 0%, rgba(132, 13, 121, 0.65) 100%);
@@ -637,7 +664,7 @@ header .go-back i {
     }
 
 
-    32% {
+    65% {
         background: rgba(0,0,0,.3);
         background: linear-gradient(45deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.3) 100%);
         background: -moz-linear-gradient(135deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,.3) 100%);
@@ -651,18 +678,12 @@ header .go-back i {
         background: -webkit-linear-gradient(135deg, rgba(255, 87, 34, .3) 0%, rgba(255, 87, 34, 0.65) 100%);
     } */
 
-    /* 64% {
-        background: rgba(255, 160, 0, .3);
-        background: linear-gradient(45deg, rgba(255, 160, 0, .3) 0%, rgba(255, 160, 0, 0.65) 100%);
-        background: -moz-linear-gradient(135deg, rgba(255, 160, 0, .3) 0%, rgba(255, 112, 66, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(255, 160, 0, .3) 0%, rgba(255, 160, 0, 0.65) 100%);
-    } */
 
     80% {
-        background: rgba(233, 30, 99, .3);
-        background: linear-gradient(45deg, rgba(233, 30, 99, .3) 0%, rgba(233, 30, 99, 0.65) 100%);
-        background: -moz-linear-gradient(135deg, rgba(233, 30, 99, .3) 0%, rgba(233, 30, 99, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, .3) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: rgba(233, 30, 99, .1);
+        background: linear-gradient(45deg, rgba(233, 30, 99, .1) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -moz-linear-gradient(135deg, rgba(233, 30, 99, .1) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, .1) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
 }
 
@@ -918,6 +939,9 @@ article .card {
     border-radius: 8px;
     overflow: hidden;
 }
+article .card .publish-info{
+    font-size: 14px;
+}
 
 article .card-image {
     background-color: #222;
@@ -925,7 +949,8 @@ article .card-image {
 }
 
 article .card-image img {
-    height: 220px;
+    height: 150px;
+    height: 170px;
     border-radius: 0.3rem;
     opacity: .7;
 }
@@ -935,7 +960,7 @@ article .tag-image img {
 }
 
 article .card .card-content {
-    padding: 15px 15px 12px 18px;
+    padding: 8px 15px 8px 15px;
 }
 
 article .article-content .summary {
@@ -962,7 +987,7 @@ article .article-content .publish-author {
 }
 
 article .card .card-action {
-    padding: 10px 15px 10px 18px;
+    padding: 3px 15px 3px 18px;
     border-radius: 0 0 8px 8px !important;
 }
 
@@ -1003,19 +1028,16 @@ article .article-tags .chip {
     right: 10px;
 }
 
-.paging {
-    margin-bottom: 15px;
-}
-
 .paging .row {
     margin-left: 0;
     margin-right: 0;
+    display: flex;
+    align-items: center;
 }
 
 .paging .page-info {
     font-size: 1.4rem;
     color: #888;
-    padding-top: 1rem;
 }
 
 .paging i {
@@ -1633,7 +1655,7 @@ thead {
     text-align: center;
 }
 
-#aboutme .social-link a, #aboutme .social-link #mywx {
+#aboutme .social-link a, #aboutme .social-link #wxicon {
     display: inline-block;
     width: 2.3rem;
     height: 2.3rem;
@@ -1646,7 +1668,6 @@ thead {
     font-size: 0.9rem;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .21), 0 2px 3px rgba(0, 0, 0, .1);
-    cursor: pointer;
 }
 
 .profile .avatar-img {
@@ -1700,8 +1721,8 @@ thead {
 .my-projects .title,
 .my-skills .title,
 .my-gallery .title {
-    font-size: 2rem;
-    margin-bottom: 2.25rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .my-projects .info {
@@ -1912,21 +1933,19 @@ footer .copy-right {
     display: none;
     position: fixed;
     right: 15px;
-    bottom: 15px;
-    padding-top: 15px;
-    margin-bottom: 0;
+    bottom: 10px;
     z-index: 998;
 }
 
 .top-scroll .btn-floating {
     background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
 }
 
 .top-scroll .btn-floating i {
-    line-height: 48px;
-    font-size: 1.8rem;
+    line-height: 40px;
+    font-size: 1.5rem;
 }
 
 @media screen and (min-width: 368px) and (max-width: 767px) {
@@ -2002,11 +2021,11 @@ footer .copy-right {
     /* use this value to count block height */
     line-height: 1.5em;
     /* max-height = line-height (1.2) * lines max number (3) */
-    max-height: 4.5em;
+    max-height: 3.2em;
     /* fix problem when last visible word doesn't adjoin right side  */
     text-align: justify;
     /* place for '...' */
-    margin-right: -1em;
+    margin-right: -0.5em;
     padding-right: 1em;
 }
 

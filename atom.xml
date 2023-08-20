@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sisi001.gitee.io/"/>
-  <updated>2022-12-26T03:14:35.014Z</updated>
+  <updated>2023-08-18T02:04:59.707Z</updated>
   <id>https://sisi001.gitee.io/</id>
   
   <author>
@@ -15,6 +15,149 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开源之旅：初次贡献与PR提交流程</title>
+    <link href="https://sisi001.gitee.io/posts/6690.html"/>
+    <id>https://sisi001.gitee.io/posts/6690.html</id>
+    <published>2023-07-31T08:38:01.000Z</published>
+    <updated>2023-08-18T02:04:59.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="pr" scheme="https://sisi001.gitee.io/categories/pr/"/>
+    
+    
+      <category term="github" scheme="https://sisi001.gitee.io/tags/github/"/>
+    
+      <category term="pr" scheme="https://sisi001.gitee.io/tags/pr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue2应用性能优化：首屏FCP指标提升约80%</title>
+    <link href="https://sisi001.gitee.io/posts/9a81.html"/>
+    <id>https://sisi001.gitee.io/posts/9a81.html</id>
+    <published>2023-04-16T13:34:55.000Z</published>
+    <updated>2023-08-09T08:07:05.813Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue2性能优化" scheme="https://sisi001.gitee.io/categories/vue2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+    
+      <category term="vue2" scheme="https://sisi001.gitee.io/tags/vue2/"/>
+    
+      <category term="vue2项目性能优化" scheme="https://sisi001.gitee.io/tags/vue2%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue2项目dist瘦身——打包体积压缩73%、速度提升90%</title>
+    <link href="https://sisi001.gitee.io/posts/40eb.html"/>
+    <id>https://sisi001.gitee.io/posts/40eb.html</id>
+    <published>2023-04-06T13:23:09.000Z</published>
+    <updated>2023-08-09T08:07:05.802Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;随着前端技术的不断发展，网页应用程序变得越来越复杂，并且需要更多的资源来加载和运行。在使用 Vue2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue2打包" scheme="https://sisi001.gitee.io/categories/vue2%E6%89%93%E5%8C%85/"/>
+    
+    
+      <category term="vue2" scheme="https://sisi001.gitee.io/tags/vue2/"/>
+    
+      <category term="vue项目打包" scheme="https://sisi001.gitee.io/tags/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pnpm报错：/gifsicle  postinstall$ node lib/install.js</title>
+    <link href="https://sisi001.gitee.io/posts/f812e.html"/>
+    <id>https://sisi001.gitee.io/posts/f812e.html</id>
+    <published>2023-03-16T10:06:31.000Z</published>
+    <updated>2023-08-09T08:07:05.783Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;遇到问题&quot;&gt;&lt;a href=&quot;#遇到问题&quot; class=&quot;headerlink&quot; title=&quot;遇到问题&quot;&gt;&lt;/a&gt;遇到问题&lt;/h2&gt;&lt;p&gt;最近在使用 pnpm 安装依赖时遇到了报错，死活都下载不下来。 &lt;code&gt;pnpm add xxx&lt;/code&gt; 或者
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="webpack" scheme="https://sisi001.gitee.io/tags/webpack/"/>
+    
+      <category term="npm" scheme="https://sisi001.gitee.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>url-loader图片不显示-踩坑</title>
+    <link href="https://sisi001.gitee.io/posts/f82e.html"/>
+    <id>https://sisi001.gitee.io/posts/f82e.html</id>
+    <published>2023-03-13T11:52:07.000Z</published>
+    <updated>2023-08-09T08:07:05.793Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="url-loader" scheme="https://sisi001.gitee.io/categories/url-loader/"/>
+    
+    
+      <category term="webpack" scheme="https://sisi001.gitee.io/tags/webpack/"/>
+    
+      <category term="url-loader" scheme="https://sisi001.gitee.io/tags/url-loader/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker初识</title>
@@ -40,6 +183,33 @@
     
     
       <category term="docker" scheme="https://sisi001.gitee.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决image-webpack-loader打包报错</title>
+    <link href="https://sisi001.gitee.io/posts/f182e.html"/>
+    <id>https://sisi001.gitee.io/posts/f182e.html</id>
+    <published>2022-06-03T11:19:52.000Z</published>
+    <updated>2023-08-09T08:07:05.737Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;报错问题&quot;&gt;&lt;a href=&quot;#报错问题&quot; class=&quot;headerlink&quot; title=&quot;报错问题&quot;&gt;&lt;/a&gt;报错问题&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="image-webpack-loader" scheme="https://sisi001.gitee.io/tags/image-webpack-loader/"/>
+    
+      <category term="webpack" scheme="https://sisi001.gitee.io/tags/webpack/"/>
     
   </entry>
   
@@ -155,6 +325,35 @@
       <category term="浙里办对接" scheme="https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/"/>
     
       <category term="浙里办" scheme="https://sisi001.gitee.io/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务端相关问题</title>
+    <link href="https://sisi001.gitee.io/posts/b032.html"/>
+    <id>https://sisi001.gitee.io/posts/b032.html</id>
+    <published>2021-04-23T09:05:13.000Z</published>
+    <updated>2023-08-09T08:07:05.772Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;关于服务请求-服务端部署等相关相关问题记录&quot;&gt;&lt;a href=&quot;#关于服务请求-服务端部署等相关相关问题记录&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="node 服务器" scheme="https://sisi001.gitee.io/categories/node-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="node服务" scheme="https://sisi001.gitee.io/tags/node%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="axios" scheme="https://sisi001.gitee.io/tags/axios/"/>
     
   </entry>
   
@@ -353,10 +552,10 @@
   
   <entry>
     <title>Markdown基础</title>
-    <link href="https://sisi001.gitee.io/posts/f82e.html"/>
-    <id>https://sisi001.gitee.io/posts/f82e.html</id>
+    <link href="https://sisi001.gitee.io/posts/f82f.html"/>
+    <id>https://sisi001.gitee.io/posts/f82f.html</id>
     <published>2021-01-15T13:56:43.000Z</published>
-    <updated>2022-08-15T12:03:12.036Z</updated>
+    <updated>2023-08-09T08:07:05.762Z</updated>
     
     <summary type="html">
     
@@ -375,94 +574,6 @@
     
     
       <category term="Markdown" scheme="https://sisi001.gitee.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开发中遇到的问题</title>
-    <link href="https://sisi001.gitee.io/posts/ba1f.html"/>
-    <id>https://sisi001.gitee.io/posts/ba1f.html</id>
-    <published>2021-01-13T13:00:04.000Z</published>
-    <updated>2022-09-13T07:49:09.812Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;个人开发中遇到的问题记录总结&quot;&gt;&lt;a href=&quot;#个人开发中遇到的问题记录总结&quot; class=&quot;headerlink&quot; title=&quot;个人开发中遇到的问题记录总结&quot;&gt;&lt;/a&gt;个人开发中遇到的问题记录总结&lt;/h1&gt;&lt;!-- ## 开发中遇到的难点、痛点技术问题
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="个人" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人开发环境配置相关</title>
-    <link href="https://sisi001.gitee.io/posts/69af.html"/>
-    <id>https://sisi001.gitee.io/posts/69af.html</id>
-    <published>2021-01-11T13:15:33.000Z</published>
-    <updated>2022-08-20T09:12:58.638Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;日常开发中用到的一些开发工具、环境配置使用等遇到的问题，也借鉴了网上很多资料实践解决；特以此篇记录我的日常踩坑之路/(ㄒ o
-        
-      
-    
-    </summary>
-    
-    
-      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="个人" scheme="https://sisi001.gitee.io/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-      <category term="开发工具、环境配置" scheme="https://sisi001.gitee.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人常用方法、终端指令记录</title>
-    <link href="https://sisi001.gitee.io/posts/c9f9.html"/>
-    <id>https://sisi001.gitee.io/posts/c9f9.html</id>
-    <published>2021-01-10T12:18:31.000Z</published>
-    <updated>2022-09-05T03:11:39.505Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h1 id=&quot;个人常用方法、终端指令记录&quot;&gt;&lt;a href=&quot;#个人常用方法、终端指令记录&quot; class=&quot;headerlink&quot; title=&quot;个人常用方法、终端指令记录&quot;&gt;&lt;/a&gt;个人常用方法、终端指令记录&lt;/h1&gt;&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="终端命令 cmd git linux" scheme="https://sisi001.gitee.io/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4-cmd-git-linux/"/>
-    
-    
-      <category term="git" scheme="https://sisi001.gitee.io/tags/git/"/>
-    
-      <category term="cmd" scheme="https://sisi001.gitee.io/tags/cmd/"/>
-    
-      <category term="linux" scheme="https://sisi001.gitee.io/tags/linux/"/>
-    
-      <category term="vscode终端" scheme="https://sisi001.gitee.io/tags/vscode%E7%BB%88%E7%AB%AF/"/>
     
   </entry>
   
