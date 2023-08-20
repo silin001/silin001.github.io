@@ -288,13 +288,6 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/vue2%E6%BA%90%E7%A0%81/</loc>
-    <lastmod>2023-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sisi001.gitee.io/tags/image-webpack-loader/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -303,6 +296,13 @@
   
   <url>
     <loc>https://sisi001.gitee.io/tags/webpack/</loc>
+    <lastmod>2023-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/vue2%E6%BA%90%E7%A0%81/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -323,6 +323,13 @@
   </url>
   
   <url>
+    <loc>https://sisi001.gitee.io/tags/Markdown/</loc>
+    <lastmod>2023-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sisi001.gitee.io/tags/macOs/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -330,7 +337,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/Markdown/</loc>
+    <loc>https://sisi001.gitee.io/tags/ts/</loc>
+    <lastmod>2023-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/npm/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -351,21 +365,14 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/tags/npm/</loc>
-    <lastmod>2023-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sisi001.gitee.io/tags/ts/</loc>
-    <lastmod>2023-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sisi001.gitee.io/tags/url-loader/</loc>
+    <lastmod>2023-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/tags/vim/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -380,13 +387,6 @@
   
   <url>
     <loc>https://sisi001.gitee.io/tags/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/</loc>
-    <lastmod>2023-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sisi001.gitee.io/tags/vim/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -535,13 +535,6 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/macOs/</loc>
-    <lastmod>2023-08-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sisi001.gitee.io/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -549,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://sisi001.gitee.io/categories/node-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <loc>https://sisi001.gitee.io/categories/macOs/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -557,6 +550,13 @@
   
   <url>
     <loc>https://sisi001.gitee.io/categories/ts/</loc>
+    <lastmod>2023-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sisi001.gitee.io/categories/node-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2023-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

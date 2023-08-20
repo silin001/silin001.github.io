@@ -1,0 +1,1283 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="开发中遇到的问题, 尖椒土豆sss">
+    <meta name="description" content="个人开发中遇到的问题记录总结
+
+面试完整回答例子说一说你开发中遇到哪些问题是如何解决的？栗子：我（最近的一个时间）在做（怎样的一个产品／程序），这个产品／程序的目的是（帮助用户完成什么事），其中有一个（什么模块），为了实现（什么功能），用到">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>开发中遇到的问题 | 尖椒土豆sss</title>
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+        <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+        <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = 'f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">开发中遇到的问题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA/">
+                                <span class="chip bg-color">个人</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-02
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="个人开发中遇到的问题记录总结"><a href="#个人开发中遇到的问题记录总结" class="headerlink" title="个人开发中遇到的问题记录总结"></a>个人开发中遇到的问题记录总结</h1><!-- ## 开发中遇到的难点、痛点技术问题 -->
+
+<h2 id="面试完整回答例子"><a href="#面试完整回答例子" class="headerlink" title="面试完整回答例子"></a>面试完整回答例子</h2><h3 id="说一说你开发中遇到哪些问题是如何解决的？"><a href="#说一说你开发中遇到哪些问题是如何解决的？" class="headerlink" title="说一说你开发中遇到哪些问题是如何解决的？"></a>说一说你开发中遇到哪些问题是如何解决的？</h3><p>栗子：<br>我（最近的一个时间）在做（怎样的一个产品／程序），这个产品／程序的目的是（帮助用户完成什么事），其中有一个（什么模块），为了实现（什么功能），用到了（什么技术），但是（遇到了什么挑战／难点／bug），我通过（怎样的手段）定位问题所在，问题出现的原因是（简要的点到技术点的描述），我在（至少两个资料来源）上找到了参考，最后基于（怎样的决策标准）决定采用（何种解决方法），运用了（哪种技术），最后成功解决了问题／实现了功能，结果是这个产品／程序（对用户，系统，性能，可用性，资源等产生了何种正面的影响）。下一步，我认为我应该研究（何种更先进的方式），进一步（怎样让产品／程序做得更好）</p>
+<ul>
+<li><p>文件上传 404 问题<br>我（之前）做的（智慧监管中心项目），这个产品的目的是（让客户更直观、更清晰有效的对指标数据结果信息进行解读）。其中有一个（在线会商模块），为了实现（在线视频会议中有个文件上传功能），（在实现文件上传的功能点时遇到了文件上传接口 404 问题）<br>首先排查问题：<br>1、排查接口路径是否正确；<br>2、上传不同类型文件测试是否有同样问题；<br>测试发现上传较大一点的文件就会失败、上传小于 10kb 的文件就没问题<br>定位到问题后，紧接着我在（知乎、csdn 博客）上找到了参考，联系后端查看 nginx 配置，问题发现出现的原因是（nginx 默认的<em>传输字节</em>数大小默认是 1M，当用户上传超过 10kb 内容后接口就报错）最后修改了 nginx 配置传输字节字段：<code>client_max_body_size 500M</code>成功解决了问题</p>
+</li>
+<li><p>switch 语句代码优化</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getResult</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token string">"待发货"</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token string">"已发货"</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token string">"已完成"</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>type 类型为多个类型，代码使用 switch 循环判断处理。<br><strong>优化方法 1:</strong> 使用 object 对象结构存储<br>对象形式建立key-value映射关系</p>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token keyword">const</span> statusDes <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token number">1</span><span class="token punctuation">:</span><span class="token string">'待发货'</span><span class="token punctuation">,</span>
+    <span class="token number">2</span><span class="token punctuation">:</span><span class="token string">'已发货'</span><span class="token punctuation">,</span>
+    <span class="token number">3</span><span class="token punctuation">:</span><span class="token string">'已完成'</span>
+  <span class="token punctuation">}</span>；
+  <span class="token keyword">function</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> statusDes<span class="token punctuation">[</span>code<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>方案 2:</strong> 使用 map 数据结构</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> orderStatus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"待发货"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"已发货"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"已完成"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getOrderStatus</span><span class="token punctuation">(</span>statusCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> orderStatus<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>statusCode<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>免密登陆<br>系统所有用户必须登录才能进入首页，<br>需求： 网监司页面直接输入路由地址就可以访问无需账号登陆<br><strong>实现免密登录：</strong><br>定义一个白名单whiteList, 添加paht 和 state 字段<br><code>router.beforeEach</code>中判断如果to.path 不等于 login<br>如果等于白名单的某一项，执行对应的login方法进行免密登录（白名单对象里的login方法中，变更state状态如果为真允许跳转访问当前路由，且mock基础userinfo数据存储到缓存中；反之跳转login）</p>
+</li>
+<li><p>详情页面选择区县更新数据<br>市级地图页面点击打点进入详情页面（分为 4 个 tab 模块）、详情页面点击当前地图区域信息 dom 弹出区域列表，选择区县直接更新当前详情页面数据为当前选择的区县数据</p>
+<p><strong>具体实现：</strong><br>首先分析 4 个 tab 模块都用到了地图信息的 dom，抽离地图信息为单组件，inject 引入数据来源；并且包含点击弹出区域选择列表弹窗（这里区域列表弹窗使用了 vue3 teleport 优雅实现 ）</p>
+<p>地图页面 使用 provide 获取当前地图数据为上面地图信息组件使用（这里使用父子组件传值就有点麻烦了）</p>
+<p>详情页面 4 个模块页面分别引入 地图信息组件，当该 dom 点击时弹出区域列表选择后拿到其区域 id，当前页面所有接口都需要这个区域 id 来更新数据</p>
+</li>
+</ul>
+<h3 id="封装过组件吗？具体说说"><a href="#封装过组件吗？具体说说" class="headerlink" title="封装过组件吗？具体说说"></a>封装过组件吗？具体说说</h3><p>封装一个公共组件需要考虑什么？<br>低耦合高内聚、可扩展性、复用性</p>
+<blockquote>
+<p><strong>模块化</strong><br>防止命名污染，保持作用域、变量的独立性<br>可以使用立即执行函数<br>可以使用命名空间<br>使用 umd 封装成模块<br><strong>样式隔离</strong><br>数据配置从外面传入，事件在外面处理<br>对 props 做数据校验<br>留有 slot</p>
+</blockquote>
+<ul>
+<li>echarts 图表封装<br>首先使用插件库 vue-echarts 封装好的 v-chart，在这基础上封装一层全局的 chart 组件，该组件接受传入的图表的 options 配置且通过计算属性合并渲染。<br>封装其他图表时，只需要引入公共 chart 组件，计算属性方法中传入对应图表参数，处理逻辑即可</li>
+<li>省份地区的 list 列表组件<br><strong>dom：</strong><br>主要分为 title、conten 两部分<br>content 中添加了一个 subTitle 的 slot 用于展示副标题，且使用 v-if=’$slots.subTitle’显隐该 dom<br>list 循环展示列表数据<br><strong>props：</strong><br>data 对象<br>itle 字段<br><strong>事件：</strong><br>title 中 close 图片点击 emit 关闭事件<br>list 上添加 row-click</li>
+<li>基于el-dialog 封装全局layer弹窗组件</li>
+</ul>
+<pre class="line-numbers language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-drag</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.show<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-dialog</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layerShow<span class="token punctuation">"</span></span>
+        <span class="token attr-name">:title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.title<span class="token punctuation">"</span></span>
+        <span class="token attr-name">:width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.width<span class="token punctuation">"</span></span>
+        <span class="token attr-name">center</span>
+        <span class="token attr-name">@close</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>closeHandler<span class="token punctuation">"</span></span>
+      <span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layer.showButton<span class="token punctuation">"</span></span> <span class="token attr-name">#footer</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>确认<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>close<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>取消<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-dialog</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <strong>dom：</strong><br> 预留一个默认插槽<br> <strong>props：</strong><br>  接受一个 layer 的props对象，包含show、title、showButton字段</p>
+<p>  <strong>事件：</strong><br>  emit一个confirm确认事件<br>  @close Dialog 关闭的回调中关闭当前弹窗；</p>
+<ul>
+<li>tabs 组件<br>支持默认选中，设置宽高，横向纵向展示</li>
+<li>公共二级表单组件<br><strong>dom：</strong><br>正常表单<br><strong>props：</strong><br>typeIndex：模块类型索引<br><strong>方法：</strong><br>引入公共 api.js 文件 导出多个模块增、删、查接口<br>全局定义 apiFunObj 对象<br>写一个 initApiFun 方法，判断 typeIndex 重载全局 apiFunObj 中的 add、del、find 方法</li>
+</ul>
+<h2 id="工作中遇到的问题、代码优化"><a href="#工作中遇到的问题、代码优化" class="headerlink" title="工作中遇到的问题、代码优化"></a>工作中遇到的问题、代码优化</h2><h3 id="遇到的代码层面问题及解决方案"><a href="#遇到的代码层面问题及解决方案" class="headerlink" title="遇到的代码层面问题及解决方案"></a>遇到的代码层面问题及解决方案</h3><ul>
+<li>计时器问题，a 页面使用后 b 页面还在运行，长时间导致栈溢出？<br>在 beforeDestroy 生命周期去清除定时器；<br>推荐($once)方案：</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 某些定时器操作</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 通过$once来监听定时器，在beforeDestroy钩子可以被清除。</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$once</span><span class="token punctuation">(</span><span class="token string">"hook:beforeDestroy"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果页面使用 keep-aklive 组件缓存后需要在 <code>activated、deactivated</code>生命周期中销毁</p>
+<ul>
+<li><p>请求头 header 自定义参数获取不到？<br>排查原因，是因为 nginx 默认将带<em>_</em>下划线的 header 自定义参数中的下划线忽略<br>解决办法：将 nginx 的配置 <code>underscores_in_headers 参数设置成on</code><br>该参数默认为 off 会替换下划线，导致获取带有下下划线的参数获取不到</p>
+</li>
+<li><p>echarts 实现中国地图时使用 <code>geoJson</code>数据渲染；地图区域点击事件后返回的区域数据中没有地图区域等级的区分字段？<br>在 github 上找一份整理好的各地区 code、level 的集合数据；当地图点击后拿到地区 code 从集合中筛选拿到对应 level</p>
+</li>
+<li><p>includes 替代 if<br>多个 if 判断</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span>identityId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>identityId <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">||</span> identityId <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">||</span> identityId <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"100"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"500"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>三元操作符+includes 优化</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span>identityId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>identityId<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">"100"</span> <span class="token punctuation">:</span> <span class="token string">"500"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>大屏项目使用scale问题<br>在vue大屏项目中，为了适配所有屏幕的分辨率，在#app元素上使用transform:scale()对整体做了缩放，<br>高德地图点位点击的时候会出现 点位偏移</p>
+<p><strong>思路1：</strong><br>将地图功能通过iframe引入，把地图功能单独抽出来配置路由（或者直接单独拿js实现高德地图的封装）然后通过iframe引入，但性能和体验极差，因为通过iframe去引入，相当于重新加载了整个项目，严重消耗性能，iframe会长时间的空白，而且不方便添加功能</p>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token operator">&lt;</span>iframe
+     className<span class="token operator">=</span><span class="token string">"map_iframe"</span>
+     width<span class="token operator">=</span><span class="token string">"808px"</span>
+     height<span class="token operator">=</span><span class="token string">"953px"</span>
+     src<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token string">`http://</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>host<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/maprouter`</span></span><span class="token punctuation">}</span>
+     frameBorder<span class="token operator">=</span><span class="token string">"0"</span>
+   <span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>看到一篇文章这样说：</strong><br>待验证：<br>经过摸索，最终发现，只要通过scale，把地图最外层的dom缩小回原来的大小即可，比如#app的scale(0.5,0.4)，只需要设置 .map的 scale(2,2.5) 就可以让点击事件偏移正常。计算公式为 (1 / #app的scale)</p>
+<p><strong>思路2:</strong><br>将地图反向缩放，比如你整个页面元素 缩放比列是 1920 / 960 = 0.5<br>那么地图的缩放比列就是 960 / 1920 = 0.0489296636086<br>反向缩放即可解决</p>
+</li>
+<li><p>h5 应用接入浙里办需要适老化？<br>一个项目两个版本路由，根据不同环境跳转不同路由实现</p>
+</li>
+</ul>
+<h3 id="做过哪些性能优化"><a href="#做过哪些性能优化" class="headerlink" title="做过哪些性能优化"></a>做过哪些性能优化</h3><ul>
+<li>vue 项目代码层面优化<br>第三方 ui 组件库按需引入<br>对于图片过多的页面图片懒加载（如：vue-lazyload 插件）<br>路由懒加载（懒加载把页面进行划分，需要时才加载，减少首页加载速度，）<br>合理使用 v-if v-show 减少 dom 消耗<br>当需要进行数值计算依赖其他数据的时候使用 computed 计算属性因为他有缓存的特性避免每次获取值重新计算<br>长列表性能优化（单纯的数据展示列表 使用 object.freeze(obj)来冻结一个对象禁止 vue 劫持监听数据，这能很明显的减少组件初始化时间 ）<br>事件及时的销毁（addEventListener()、removeEventListener() 组件销毁时手动进行销毁事件避免内存泄漏）<br>vue 使用 <code>keep-akive</code> 组件缓存列表页面</li>
+<li>防止重复提交<br>会议列表进入会议按钮连续点击后，多次触发该事件？<br>使用第三方库 lodash 中的 debounce（防抖函数）解决按钮连续点击问题</li>
+<li>引用第三方类库 api，其中初始化方法多处需要使用？<br>其中 类似 onReady 方法封装到全局函数中，使用到的地方直接使用全局函数使用</li>
+</ul>
+<h3 id="配置层面优化（webpack）"><a href="#配置层面优化（webpack）" class="headerlink" title="配置层面优化（webpack）"></a>配置层面优化（webpack）</h3><p>include、exclude 配置项来缩⼩ loader 的处理范围<br>vue 打包开启 gzip： productionGzip: true, // false 不开启 gizp，true 开启<br>nginx 开启 gzip 压缩</p>
+<h2 id="遇到的环境、依赖配置问题"><a href="#遇到的环境、依赖配置问题" class="headerlink" title="遇到的环境、依赖配置问题"></a>遇到的环境、依赖配置问题</h2><ul>
+<li>vue 项目使用 axios 请求设置请求头为 <code>application/json;charset=utf-8;</code>结尾包含分号导致服务端 node 拿不到 req.body 的值</li>
+<li>yarn 安装依赖后启动报错如下<br><code>Could not resolve "pdfast" (mark it as external to exclude it from the bundle)</code></li>
+</ul>
+<p><code>@antv/g2plot</code> 使用此依赖源码中引用了 <code>pdfast</code>, 重新单独 yarn add ‘依赖库’<br>一般出现 <code>Could not resolve "xxx"</code> 大部分原因是依赖下载失败，就重新下载对应的依赖就行。</p>
+<ul>
+<li>vite 打包部署服务器接口 404 需要 nginx 配置代理！</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"> <span class="token comment" spellcheck="true"># 配置接口 解决404</span>
+    location /api <span class="token punctuation">{</span>
+                proxy_set_header   Host             <span class="token variable">$host</span><span class="token punctuation">;</span>
+                proxy_set_header   x-forwarded-for  <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+                proxy_set_header   X-Real-IP        <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+                proxy_pass http://123.60.111.103:5000/api<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true"># 接口地址，如果在同一个服务器上，可以直接这样写</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="第三方框架库相关"><a href="#第三方框架库相关" class="headerlink" title="第三方框架库相关"></a>第三方框架库相关</h2><h3 id="高德地图使用遇到的问题"><a href="#高德地图使用遇到的问题" class="headerlink" title="高德地图使用遇到的问题"></a>高德地图使用遇到的问题</h3><ul>
+<li><p>高德 1.x 版本和 2.x 版本踩坑</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// index.html 引入高德注意事项</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"https://webapi.amap.com/maps?v=1.4.15&amp;key=xxx&amp;plugin=AMap.MarkerClusterer"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token comment" spellcheck="true">// 2.0</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"https://webapi.amap.com/maps?v=2.0&amp;key=xxx&amp;plugin=AMap.MarkerCluster"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>高德地图版本为 1.x 和 2.x。 两者部分 api 语法不同， 且插件名称 部分不同<br>（2.0 地图渲染比 1.x 快一些）<br>如 点聚合插件：<br>2.0: AMap.MarkerCluster<br>1.x: AMap.MarkerClusterer</p>
+</blockquote>
+</li>
+<li><p>高德地图点聚合 2.0 写法</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 初始化聚合点</span>
+<span class="token keyword">function</span> <span class="token function">initPointPolymerization</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pointsList<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pointsList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>LNT<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> pointsList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>LAT<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>pointPolymerizationMarkers<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        data<span class="token punctuation">:</span> pointsList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 自定义的属性数据用于 非聚合点点击时获取</span>
+        lnglat<span class="token punctuation">:</span> <span class="token punctuation">[</span>pointsList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>LNT<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pointsList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>LAT<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 点聚合数据必须为此格式</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 聚合点自定义</span>
+state<span class="token punctuation">.</span>cluster <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AMap<span class="token punctuation">.</span>MarkerCluster</span><span class="token punctuation">(</span>
+  state<span class="token punctuation">.</span>map<span class="token punctuation">,</span>
+  state<span class="token punctuation">.</span>pointPolymerizationMarkers<span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    gridSize<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span>
+    renderClusterMarker<span class="token punctuation">:</span> _renderClusterMarker<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 点聚合样式完全自定义</span>
+    renderMarker<span class="token punctuation">:</span> _renderMarker<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//  非聚合点样式设置， 点聚合缩放到最小的marker需要单独设置</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// 设置聚合样式</span>
+    <span class="token keyword">function</span> _renderClusterMarker <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> countLength <span class="token operator">=</span> state<span class="token punctuation">.</span>pointPolymerizationMarkers<span class="token punctuation">.</span>length
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> marker<span class="token punctuation">,</span> count <span class="token punctuation">}</span> <span class="token operator">=</span> context
+        <span class="token keyword">let</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+        div<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> count
+        div<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'markersClass1'</span> <span class="token comment" spellcheck="true">//添加class</span>
+        <span class="token keyword">let</span> size <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token number">30</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>count <span class="token operator">/</span> countLength<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">70</span><span class="token punctuation">)</span>
+        div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> size <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+        div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>lineHeight <span class="token operator">=</span> size <span class="token operator">+</span> <span class="token string">'px'</span>
+        marker<span class="token punctuation">.</span><span class="token function">setOffset</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AMap<span class="token punctuation">.</span>Pixel</span><span class="token punctuation">(</span><span class="token operator">-</span>size <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span>size <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        marker<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 聚合点添加事件})</span>
+        marker<span class="token punctuation">.</span><span class="token function">setContent</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 非聚合点样式 + click事件 必须在此函数添加</span>
+    <span class="token keyword">function</span> _renderMarker <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> dataArr <span class="token operator">=</span> context<span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> marker <span class="token punctuation">}</span> <span class="token operator">=</span> context
+        marker<span class="token punctuation">.</span><span class="token function">setExtData</span><span class="token punctuation">(</span>dataArr<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+        marker<span class="token punctuation">.</span><span class="token function">setIcon</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AMap<span class="token punctuation">.</span>Icon</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        image<span class="token punctuation">:</span> markerIcon3<span class="token punctuation">,</span>
+        size<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AMap<span class="token punctuation">.</span>Size</span><span class="token punctuation">(</span><span class="token number">58</span><span class="token punctuation">,</span> <span class="token number">58</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        imageSize<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AMap<span class="token punctuation">.</span>Size</span><span class="token punctuation">(</span><span class="token number">58</span><span class="token punctuation">,</span> <span class="token number">58</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        marker<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> data <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">getExtData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// console.log('聚合点缩小最后为普通点-事件绑定', data)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 聚合点清除</span>
+    <span class="token keyword">function</span> pointPolymerizationMarkersDestroy <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">.</span>pointPolymerizationMarkers<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            state<span class="token punctuation">.</span>cluster<span class="token punctuation">.</span><span class="token function">setMap</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 清空cluster</span>
+            state<span class="token punctuation">.</span>pointPolymerizationMarkers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><ul>
+<li>windows 文件压缩 zip 后，其中中文图片乱码，导致编译时报错无法解析，mac 系统则正常？<br>因为 windows 的编码和 mac 的编码不兼容造成的。</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/ba1f.html">https://sisi001.gitee.io/posts/ba1f.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%B8%AA%E4%BA%BA/">
+                                    <span class="chip bg-color">个人</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/69af.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/23.jpg" class="responsive-img" alt="个人开发环境配置相关">
+                        
+                        <span class="card-title">个人开发环境配置相关</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言日常开发中用到的一些开发工具、环境配置使用等遇到的问题，也借鉴了网上很多资料实践解决；特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
+开发工具使用相关
+nvm 工具
+nvm list available 显示所有可安装的node版本
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    开发工具、环境配置
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%B8%AA%E4%BA%BA/">
+                        <span class="chip bg-color">个人</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+                        <span class="chip bg-color">开发工具、环境配置</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/c9f9.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/14.jpg" class="responsive-img" alt="个人常用方法、终端指令记录">
+                        
+                        <span class="card-title">个人常用方法、终端指令记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+个人常用方法、终端指令记录快速删除 node_moduleswindows 系统在项目目录下打开 cmd 窗口， 使用如下命令快速删除：rd /s /q node_modulesor如果是 powershell，使用命令：rd -r no
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4-cmd-git-linux/" class="post-category">
+                                    终端命令 cmd git linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                    <a href="/tags/cmd/">
+                        <span class="chip bg-color">cmd</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/vscode%E7%BB%88%E7%AB%AF/">
+                        <span class="chip bg-color">vscode终端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">39.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://juejin.cn/favicon.ico') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>

@@ -1,0 +1,1407 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="vue3 eslint配置遇到的问题,vue3 ts eslint配置,vite vue3 ts,ts vue3项目">
+    <meta name="description" content="前言在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
+如果文章对你有帮助，可以点击链接关注我的掘金社区账号 更多技术分享请">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>从0到1搭建vue3+ts项目 | 尖椒土豆sss</title>
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+        <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+        <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">从0到1搭建vue3+ts项目</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ts/">
+                                <span class="chip bg-color">ts</span>
+                            </a>
+                        
+                            <a href="/tags/eslint/">
+                                <span class="chip bg-color">eslint</span>
+                            </a>
+                        
+                            <a href="/tags/vue3/">
+                                <span class="chip bg-color">vue3</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/eslint-vite-ts/" class="post-category">
+                                eslint vite ts
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-10-05
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~</p>
+<p><strong>如果文章对你有帮助，可以点击链接关注我的<a target="_blank" rel="noopener" href="https://juejin.cn/user/2041110775208184/posts">掘金社区账号</a> 更多技术分享请移步我的掘金哦~</strong> 😀😀😀</p>
+<p>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群) - 掘金 (juejin.cn)</a> 加vx拉你进 <strong>前端学习交流群</strong> 让我们一起 <del>好好学习</del>（🐟🐟🐟）吧😎😎😎</p>
+<h2 id="从-0-到-1-搭建-vue3-ts-项目配置-eslint"><a href="#从-0-到-1-搭建-vue3-ts-项目配置-eslint" class="headerlink" title="从 0 到 1 搭建 vue3+ts 项目配置 eslint"></a>从 0 到 1 搭建 vue3+ts 项目配置 eslint</h2><ul>
+<li><p>为什么要用 eslint?<br>目的：为了规范团队成员代码格式，以及保持统一的代码风格，此项目采用当前业界最火的 Airbnb 规范，并引入代码风格管理工具 Prettier。</p>
+</li>
+<li><p>为什么 ts 项目不用 tslint 而用于 eslint ?<br>因为 tslint 已经不维护了！！！</p>
+</li>
+<li><p>我的电脑本地环境版本：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">vscode: 1.68.1
+node:   16.13.2
+pnpm: 6.32.2
+vue-cli: 5.0.0-bate.3
+yarn: 1.22.10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>node 版本下载链接: <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">https://nodejs.org/en/download/releases/</a></p>
+</li>
+<li><p>项目开始：<br><code>pnpm create vite</code> 我这种创建项目方式一些配置文件需要手动创建配置如.eslintrc.js<br>输入项目名称<br>选择项目模板 <code>vue -&gt; vue-ts</code><br>cd project 下载依赖 <code>pnpm i</code></p>
+</li>
+</ul>
+<h3 id="配置-eslint-以及相关依赖"><a href="#配置-eslint-以及相关依赖" class="headerlink" title="配置 eslint 以及相关依赖"></a>配置 eslint 以及相关依赖</h3><p>eslint 只有开发阶段需要，因此添加到开发阶段的依赖中即可;根目录创建 .eslintrc.js 文件</p>
+<p>eslint: eslint 的核心代码<br>eslint-plugin-vue ：vue 官方 ESLint 插件，检查 .vue 文件中 template、script 中的语法错误、指令等<br>安装：<code>pnpm i eslint eslint-plugin-vue -D</code></p>
+<ul>
+<li><p>配置 eslint 对.ts 文件的支持</p>
+<p><code>@typescript-eslint/eslint-plugin</code>：这是一个 ESLint 插件，包含了各类定义好的检测 Typescript 代码的规范<br><code>@typescript-eslint/parser</code> eslint 解析器用于支持解析 typescript，从而检查和规范 Typescript 代码<br>安装：<br><code>pnpm i @typescript-eslint/eslint-plugin @typescript-eslint/parser -D</code></p>
+</li>
+<li><p>eslint 具体校验规则配置<br>eslint 规则有很多，我们可以根据自己的需求自行配置，但是过于麻烦！目前业界有三个流行开源配置方案，分别是 Airbnb、 Standard、 Google，严格程度对比是 Airbnb &gt; Google &gt; Standard，所以普遍使用 Airbnb 较多,所有我这里使用安装 Airbnb<br><code>pnpm i eslint-config-airbnb-base -D</code></p>
+</li>
+</ul>
+<h3 id="prettier-配置以及解决-eslint-和-prettier-冲突"><a href="#prettier-配置以及解决-eslint-和-prettier-冲突" class="headerlink" title="prettier 配置以及解决 eslint 和 prettier 冲突"></a>prettier 配置以及解决 eslint 和 prettier 冲突</h3><ul>
+<li>prettier 安装：<code>pnpm i prettier -D</code></li>
+<li>解决 eslint 和 prettier 冲突<br>eslint-config-prettier: 关闭所有和 prettier 冲突的 eslint 规则<br>eslint-plugin-prettier: 告诉 eslint 应该怎么按照 prettier 的方式去格式化文档。<br><code>pnpm i eslint-config-prettier eslint-plugin-prettier -D</code></li>
+<li>具体 prettierrc 规则配置,根目录创建.prettierrc.js 以及忽略文件.prettierignore</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// printWidth: 100, // 一行最多 100 字符</span>
+  <span class="token comment" spellcheck="true">// tabWidth: 2, // 使用 4 个空格缩进</span>
+  <span class="token comment" spellcheck="true">// semi: false, // 行尾需要有分号</span>
+  semi<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 行尾需要有分号</span>
+  trailingComma<span class="token punctuation">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 末尾不需要逗号</span>
+  singleQuote<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 使用单引号而不是双引号</span>
+  <span class="token comment" spellcheck="true">// useTabs: false, // 用制表符而不是空格缩进行</span>
+  <span class="token comment" spellcheck="true">// quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号</span>
+  <span class="token comment" spellcheck="true">// jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号</span>
+  <span class="token comment" spellcheck="true">// bracketSpacing: true, // 大括号内的首尾需要空格</span>
+  <span class="token comment" spellcheck="true">// bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行</span>
+  <span class="token comment" spellcheck="true">// arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid</span>
+  <span class="token comment" spellcheck="true">// rangeStart: 0, // 每个文件格式化的范围是开头-结束</span>
+  <span class="token comment" spellcheck="true">// rangeEnd: Infinity, // 每个文件格式化的范围是文件的全部内容</span>
+  <span class="token comment" spellcheck="true">// requirePragma: false, // 不需要写文件开头的 @prettier</span>
+  <span class="token comment" spellcheck="true">// insertPragma: false, // 不需要自动在文件开头插入 @prettier</span>
+  <span class="token comment" spellcheck="true">// proseWrap: 'preserve', // 使用默认的折行标准 always</span>
+  <span class="token comment" spellcheck="true">// htmlWhitespaceSensitivity: 'css', // 根据显示样式决定 html 要不要折行</span>
+  <span class="token comment" spellcheck="true">// vueIndentScriptAndStyle: false, //（默认值）对于 .vue 文件，不缩进 &lt;script> 和 &lt;style> 里的内容</span>
+  <span class="token comment" spellcheck="true">// // endOfLine: 'lf', // 换行符使用 lf 在Linux和macOS以及git存储库内部通用\n</span>
+  <span class="token comment" spellcheck="true">// embeddedLanguageFormatting: 'auto' //（默认值）允许自动格式化内嵌的代码块</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>保证 plugin:prettier/recommended 放在.eslintrc extends 中最后</p>
+<ul>
+<li><p>运行时对代码进行 eslint 校验<br>这样配置完重启编辑器项目应该不会有报错，因为需要执行 eslint 命令去检测文件中不符合规则的代码这不是我们期望的<br>我们期望的是代码运行期间如果不符合 eslint 规范就报错提示。这里使用的是 rollup 的 eslint 插件<br><code>pnpm i @rollup/plugin-eslint -D</code><br>vite 配置文件里 plugins 开启 eslint:</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ...,</span>
+  <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 开启eslint</span>
+      <span class="token operator">...</span><span class="token function">eslint</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// include: ['src</span><span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>vue<span class="token string">', '</span>src<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>js'<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// fix: true, // 自动修复</span>
+        include<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'src/**/*.js'</span><span class="token punctuation">,</span> <span class="token string">'src/**/*.ts'</span><span class="token punctuation">,</span> <span class="token string">'src/**/*.vue'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 需要检查的文件</span>
+        <span class="token comment" spellcheck="true">// exclude: ['src</span><span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>js<span class="token string">',  '</span>src<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>vue'<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 忽略文件</span>
+        throwOnError<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 有错误抛出</span>
+        throwOnWarning<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 有警告抛出</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      enforce<span class="token punctuation">:</span> <span class="token string">'pre'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<p>这时重启项目，运行时某个文件代码不符合 eslint 规则就会直接报错，必须修复后才可以运行成功，至此到达了我们预期的效果。</p>
+<blockquote>
+<p>packge.josn 所有依赖</p>
+</blockquote>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"vite"</span><span class="token punctuation">,</span>
+    <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"vue-tsc --noEmit &amp;&amp; vite build"</span><span class="token punctuation">,</span>
+    <span class="token string">"preview"</span><span class="token punctuation">:</span> <span class="token string">"vite preview"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 环境变量</span>
+    <span class="token string">"dev1"</span><span class="token punctuation">:</span> <span class="token string">"vite --mode development"</span><span class="token punctuation">,</span>
+    <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token string">"vite --mode test"</span><span class="token punctuation">,</span>
+    <span class="token string">"prod"</span><span class="token punctuation">:</span> <span class="token string">"vite --mode production"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// lint 检查./src下所有这些结尾的文件</span>
+    <span class="token string">"lint"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext .js,.jsx,.ts,.tsx,.vue ./src"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// eslint  fix修复问题(只能修复部分)</span>
+    <span class="token string">"fix"</span><span class="token punctuation">:</span> <span class="token string">"eslint --ext .js,.jsx,.ts,.tsx,.vue ./src --fix"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"@element-plus/icons-vue"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.4"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 饿了么plus-icon</span>
+    <span class="token string">"@types/node"</span><span class="token punctuation">:</span> <span class="token string">"^17.0.42"</span><span class="token punctuation">,</span>
+    <span class="token string">"axios"</span><span class="token punctuation">:</span> <span class="token string">"^0.27.2"</span><span class="token punctuation">,</span>
+    <span class="token string">"element-plus"</span><span class="token punctuation">:</span> <span class="token string">"^2.2.5"</span><span class="token punctuation">,</span>
+    <span class="token string">"mockjs"</span><span class="token punctuation">:</span> <span class="token string">"^1.1.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"pinia"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.14"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue"</span><span class="token punctuation">:</span> <span class="token string">"^3.2.25"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-router"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.16"</span><span class="token punctuation">,</span>
+    <span class="token string">"vuex"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.2"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+ <span class="token string">"devDependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// rollup插件开启eslint检查</span>
+    <span class="token string">"@rollup/plugin-eslint"</span><span class="token punctuation">:</span> <span class="token string">"^8.0.2"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// ts解析器 让eslint支持对ts文件检查</span>
+    <span class="token string">"@typescript-eslint/eslint-plugin"</span><span class="token punctuation">:</span> <span class="token string">"^5.28.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"@typescript-eslint/parser"</span><span class="token punctuation">:</span> <span class="token string">"^5.28.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"@vitejs/plugin-vue"</span><span class="token punctuation">:</span> <span class="token string">"^2.3.3"</span><span class="token punctuation">,</span>
+    <span class="token string">"consola"</span><span class="token punctuation">:</span> <span class="token string">"^2.15.3"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// airbnb 比较火的eslint开源配置方案</span>
+    <span class="token string">"eslint-config-airbnb-base"</span><span class="token punctuation">:</span> <span class="token string">"^15.0.0"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// "eslint-import-resolver-typescript": "^2.7.1",</span>
+    <span class="token comment" spellcheck="true">// 对 mport/export的语法进行linting，并防止文件路径和导入名称拼写错误的问题</span>
+    <span class="token string">"eslint-plugin-import"</span><span class="token punctuation">:</span> <span class="token string">"^2.26.0"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// prettier 以及 解决prettier和eslint冲突</span>
+    <span class="token string">"prettier"</span><span class="token punctuation">:</span> <span class="token string">"^2.7.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-config-prettier"</span><span class="token punctuation">:</span> <span class="token string">"^8.5.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-prettier"</span><span class="token punctuation">:</span> <span class="token string">"^4.0.0"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 基础eslint</span>
+    <span class="token string">"eslint"</span><span class="token punctuation">:</span> <span class="token string">"^8.17.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"eslint-plugin-vue"</span><span class="token punctuation">:</span> <span class="token string">"^9.1.1"</span><span class="token punctuation">,</span>
+    <span class="token string">"less"</span><span class="token punctuation">:</span> <span class="token string">"^4.1.3"</span><span class="token punctuation">,</span>
+    <span class="token string">"less-loader"</span><span class="token punctuation">:</span> <span class="token string">"^11.0.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"typescript"</span><span class="token punctuation">:</span> <span class="token string">"^4.5.4"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 饿了么css样式按需引入</span>
+    <span class="token string">"vite-plugin-style-import"</span><span class="token punctuation">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 饿了么plus 组件按需引入</span>
+    <span class="token string">"unplugin-auto-import"</span><span class="token punctuation">:</span> <span class="token string">"^0.8.8"</span><span class="token punctuation">,</span>
+    <span class="token string">"unplugin-vue-components"</span><span class="token punctuation">:</span> <span class="token string">"^0.19.6"</span><span class="token punctuation">,</span>
+    <span class="token string">"vite"</span><span class="token punctuation">:</span> <span class="token string">"^2.9.9"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue-tsc"</span><span class="token punctuation">:</span> <span class="token string">"^0.34.7"</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="vue3-ts-项目配置-eslint-遇到的具体问题"><a href="#vue3-ts-项目配置-eslint-遇到的具体问题" class="headerlink" title="vue3+ts 项目配置 eslint 遇到的具体问题"></a>vue3+ts 项目配置 eslint 遇到的具体问题</h3><p>eslint 问题所有相关配置都在根目录 .eslintrc.js 文件下配置<br>此项目 eslint 使用的是 <code>@rollup/plugin-eslint</code> 这个插件依赖</p>
+<ul>
+<li><p>vue3 一直报错 error: Parsing error: Unexpected token ?<br>我在引入 element-plus 类型时 type 这里 eslint 一直报这个错<br><code>import type { FormInstance, FormRules } from 'element-plus'</code><br><strong>vue3+ts 解决方法</strong><br>需要先安装 ts 解析器依赖： <code>yarn add @typescript-eslint/parser -D</code></p>
+<pre class="line-numbers language-js"><code class="language-js">parserOptions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    parser<span class="token punctuation">:</span> <span class="token string">'@typescript-eslint/parser'</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>vue3+ts 解决 The template root requires exactly one element.eslintvue/no-multiple-template-root 问题？</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment" spellcheck="true">// 解决根元素报错问题</span>
+    <span class="token string">'plugin:vue/vue3-essential'</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//  vue3 推使用这个规则支持.vue文件校验</span>
+    <span class="token string">'plugin:vue/vue3-recommended'</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>error Parsing error: ‘＞‘ expected ？<br>让 eslint 检测.vue 代码<br><strong>解决</strong>：<br><code>parser: 'vue-eslint-parser',</code></p>
+</li>
+<li><p>Missing file extension “ts” for “xxx” import/extensions ？<br>导入/扩展缺少文件扩展名“ts”<br>使用了 airbnb-base 规则后，如引入 <code>import components from './components'</code> 文件报错，必须写到 components 下的 index.ts<br><strong>解决</strong>：rulse 规则配置忽略</p>
+<pre class="line-numbers language-js"><code class="language-js">rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'import/extensions'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token string">'error'</span><span class="token punctuation">,</span>
+  <span class="token string">'ignorePackages'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+    js<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span>
+    jsx<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span>
+    ts<span class="token punctuation">:</span> <span class="token string">'never'</span><span class="token punctuation">,</span>
+    tsx<span class="token punctuation">:</span> <span class="token string">'never'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Unable to resolve path to module xxx import/no-unresolved ？<br>配置别名后：无法解析模块 xxx 导入的路径/未解析路径<br><strong>解决</strong>：<br>vite.config 里配置别名<br>网上说还需要在 ts.config.json paths 配置同上的别名，但是配置了 eslint 还是会不通过；<br>安装： <code>pnpm i eslint-import-resolver-alias</code> 这个包是一个配合 eslint-plugin-import 使用的 resolver，用来 resolve 带别名的路径。<br>配置 eslint</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// .eslomtrc.js</span>
+settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'import/resolver'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 别名同vite.config</span>
+    alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      map<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">'@'</span><span class="token punctuation">,</span> <span class="token string">'./src'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token string">'@mock'</span><span class="token punctuation">,</span> <span class="token string">'./src/mock'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">//...</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">,</span> <span class="token string">'.ts'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span><span class="token punctuation">,</span> <span class="token string">'.tsx'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<!-- -------------------------------------------------------- -->
+
+<h3 id="其他报错问题"><a href="#其他报错问题" class="headerlink" title="其他报错问题"></a>其他报错问题</h3><ul>
+<li><p>找不到模块“xxx”或其相应的类型声明？<br>没有相关的声明文件，在 ts 项目里面，.ts 文件是识别不了.vue 文件，.vue 文件也识别不了.ts 文件，这时候就需要在 src 下 创建 env.d.ts 声明文件来解决:</p>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token comment" spellcheck="true">/// &lt;reference types="vite/client" /></span>
+  declare module <span class="token string">'*.vue'</span> <span class="token punctuation">{</span>
+    <span class="token keyword">import</span> type <span class="token punctuation">{</span> DefineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+    <span class="token comment" spellcheck="true">// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types</span>
+    <span class="token keyword">const</span> component<span class="token punctuation">:</span> DefineComponent<span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> any<span class="token operator">></span>
+    <span class="token keyword">export</span> <span class="token keyword">default</span> component
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是我遇到的问题是自己写的 ts 文件： <code>import { getProducts, IProduct } from '@mock/pages/shop'</code> 也提示找不到模块“@mock/pages/shop”或其相应的类型声明。 但不影响运行<br>在 ts 文件中定义好有关的 interface 接口使用，在其他文件中引入的时候出现了该问题<br>一般出现这个问题都是路径问题！！！建议别名只配置一个 [‘@’, ‘./src’]</p>
+</li>
+</ul>
+<h2 id="vue3-vite-项目中遇到的代码问题"><a href="#vue3-vite-项目中遇到的代码问题" class="headerlink" title="vue3+vite 项目中遇到的代码问题"></a>vue3+vite 项目中遇到的代码问题</h2><h3 id="Element-Plus-官网推荐的自动引入组件方式部分组件-css-无法引入"><a href="#Element-Plus-官网推荐的自动引入组件方式部分组件-css-无法引入" class="headerlink" title="Element Plus 官网推荐的自动引入组件方式部分组件 css 无法引入"></a>Element Plus 官网推荐的自动引入组件方式部分组件 css 无法引入</h3><p>官网推荐使用这个两个插件 <code>npm install -D unplugin-vue-components unplugin-auto-import</code> 实现自动按需导入</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// vite.config.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vite"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> AutoImport <span class="token keyword">from</span> <span class="token string">"unplugin-auto-import/vite"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Components <span class="token keyword">from</span> <span class="token string">"unplugin-vue-components/vite"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ElementPlusResolver <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"unplugin-vue-components/resolvers"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+    <span class="token function">AutoImport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      resolvers<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      resolvers<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">ElementPlusResolver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如：引入 ElMessage 为例<br><code>import { ElMessage } from 'element-plus'</code><br><code>ElMessage.warning('warning')</code><br>如果不采用 import 的方式引入，会直接报错：ElMessage 没有定义，所以这个 import 是省不了的，但是 import 了之后，消息弹窗是出来了，但此时发现没有对应的样式！</p>
+<ul>
+<li>解决方案 1 （不推荐）：<br>使用官网说的手动导入的 <code>unplugin-element-plus</code>的插件，但是很麻烦，不同组件需要手动引入不同的 css</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">"element-plus/es/components/message/style/css"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// import 'element-plus/es/components/用到的组件/style/css'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ElMessage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"element-plus"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>解决方案 2 （推荐）：<br>使用 <code>vite-plugin-style-import</code> 插件可以实现按需引入 css；<br>安装完成后在 vite.config.js 下 plugins: [] 使用。<br>该插件可以按需引入 VantResolve、 ElementPlusResolve 等 ui 样式<br>因为该插件的使用了 <code>consola</code> 包，所以还需要安装 <code>npm i consola -D OR yarn add consola -D</code></li>
+</ul>
+<blockquote>
+<p>1.x 写法</p>
+</blockquote>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> styleImport <span class="token keyword">from</span> <span class="token string">'vite-plugin-style-import'</span>
+<span class="token function">styleImport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      libs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        libraryName<span class="token punctuation">:</span> <span class="token string">'element-plus'</span><span class="token punctuation">,</span>
+        esModule<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        resolveStyle<span class="token punctuation">:</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`element-plus/theme-chalk/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.css`</span></span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// resolveComponent: (name) => {</span>
+        <span class="token comment" spellcheck="true">//   return `element-plus/lib/components/${name}`</span>
+        <span class="token comment" spellcheck="true">// },</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>2.x 写法</p>
+</blockquote>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStyleImportPlugin<span class="token punctuation">,</span> VantResolve <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vite-plugin-style-import'</span><span class="token punctuation">;</span>
+<span class="token function">createStyleImportPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            resolves<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">VantResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="引入-Element-Plus-遇到的其他问题"><a href="#引入-Element-Plus-遇到的其他问题" class="headerlink" title="引入 Element Plus 遇到的其他问题"></a>引入 Element Plus 遇到的其他问题</h3><h3 id="本地环境无任何报错，部署上线后报错"><a href="#本地环境无任何报错，部署上线后报错" class="headerlink" title="本地环境无任何报错，部署上线后报错"></a>本地环境无任何报错，部署上线后报错</h3><ul>
+<li>报错 Cannot read properties of null (reading ‘insertBefore‘)<br>本地项目启动操作无任何报错，部署后开始报这个错, 经过排查上网查资料原因总结如下：</li>
+</ul>
+<blockquote>
+<p>v-if 导致<br>在 v-if 值为 false 时，如果操作了 v-if 控制的 DOM，可能会因为该 DOM 元素不存在而报错。<br><strong>解决方</strong>：v-show 替换 v-if</p>
+</blockquote>
+<blockquote>
+<p>el-table 组件导致<br>el-table-column 渲染时报错，若 scope.row.xxx （xxx 为任意字段值）不存在，对其直接执行 split、toString() 等方法时报错。<br>我是因为这个报错<br><strong>解决方</strong>：<br>可选链操作符： <code>scope.row.field?.split</code></p>
+</blockquote>
+<blockquote>
+<p>el-dialog 组件导致<br>默认弹框是关闭的，DOM 中没有弹框中的内容。打开弹框再关闭后，弹框中的 DOM 元素没有被销毁，可能会因为不该存在的 DOM 元素而报错<br><strong>解决方</strong>：给 el-dialog 组件增加 destroy-on-close 属性</p>
+</blockquote>
+<h3 id="jsx-使用"><a href="#jsx-使用" class="headerlink" title="jsx 使用"></a>jsx 使用</h3><ul>
+<li><p>安装<br><code>npm i @vitejs/plugin-vue-jsx</code></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// vite.config.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vite"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+    <span class="token function">vueJsx</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>然后就可以创建.jsx 文件使用 jsx 语法</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"tsx的使用"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> clickFunc1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"没有参数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> clickFunc2 <span class="token operator">=</span> <span class="token punctuation">(</span>msg <span class="token operator">=</span> <span class="token string">"默认值"</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"接收到的："</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span><span class="token operator">></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>async<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>str<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>clickFunc1<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>不传参数点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc2</span><span class="token punctuation">(</span><span class="token string">"额外参数"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>传参数点击<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或者 .vue 里 script 写 jsx</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> lang<span class="token operator">=</span>jsx  tsx好像都可以 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jsx<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  setup <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'script lang=jsx写法'</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> clickFunc1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'没有参数'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> clickFunc2 <span class="token operator">=</span> <span class="token punctuation">(</span>msg <span class="token operator">=</span> <span class="token string">'默认值'</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'接收到的：'</span> <span class="token operator">+</span> msg<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">'jsxBox'</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">{</span>str<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">clickFunc2</span><span class="token punctuation">(</span><span class="token string">'额外参数'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>传参数点击<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>less<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+  <span class="token selector"><span class="token class">.jsxBox</span></span><span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid red<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/61cb.html">https://sisi001.gitee.io/posts/61cb.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/ts/">
+                                    <span class="chip bg-color">ts</span>
+                                </a>
+                            
+                                <a href="/tags/eslint/">
+                                    <span class="chip bg-color">eslint</span>
+                                </a>
+                            
+                                <a href="/tags/vue3/">
+                                    <span class="chip bg-color">vue3</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/ba04.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="macOs开发环境配置">
+                        
+                        <span class="card-title">macOs开发环境配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录个人使用 macOs 时配置开发环境mac 环境变量相关Mac 系统的环境变量，加载顺序为：系统级别：/etc/profile/etc/paths用户级别：~/.bash_profile~/.bash_login~/.profile ~
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/macOs/" class="post-category">
+                                    macOs
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/macOs/">
+                        <span class="chip bg-color">macOs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/3e2v.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/20.jpg" class="responsive-img" alt="搭建自己的图床">
+                        
+                        <span class="card-title">搭建自己的图床</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            什么是图床？简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。
+为什么要搭建图床？我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                        <span class="chip bg-color">图床</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">39.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://juejin.cn/favicon.ico') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>
