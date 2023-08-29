@@ -1,0 +1,1150 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="vue2项目性能优化,vue项目首屏FCP指标提升80%">
+    <meta name="description" content="背景一个vue2的项目，打包部署后，发现首屏加载速度慢，FCP白屏时间大约需要8s左右，从输入系统地址按下回车后，就一直转啊转啊转，加载缓慢，导致用户的体验非常不好！所以今天针对这个问题来做一些性能优化。
+期望的结果就是首屏加载速度快一点，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>vue2应用性能优化：首屏FCP指标提升约80% | 尖椒土豆sss</title>
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+    
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">vue2应用性能优化：首屏FCP指标提升约80%</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue2/">
+                                <span class="chip bg-color">vue2</span>
+                            </a>
+                        
+                            <a href="/tags/vue2%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                <span class="chip bg-color">vue2项目性能优化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/vue2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-category">
+                                vue2性能优化
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-16
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一个vue2的项目，打包部署后，发现首屏加载速度慢，FCP白屏时间大约需要8s左右，从输入系统地址按下回车后，就一直转啊转啊转，加载缓慢，导致用户的体验非常不好！所以今天针对这个问题来做一些性能优化。</p>
+<p>期望的结果就是首屏加载速度快一点，白屏时间缩短，从而<strong>提升用户体验</strong>。</p>
+<p>项目优化的方式、方向有很多。本文记录了我自己在项目中实践的一些优化操作，各项关键指标得到明显提升。</p>
+<p><strong>往期推荐：</strong>  <a target="_blank" rel="noopener" href="https://juejin.cn/post/7218763788605440056">vue2项目dist瘦身——打包体积压缩73%、速度提升90%</a></p>
+<h2 id="性能优化的重要性"><a href="#性能优化的重要性" class="headerlink" title="性能优化的重要性"></a>性能优化的重要性</h2><p>无论是在开发 Web 应用还是移动应用，优化项目和性能优化都是至关重要的。  </p>
+<ul>
+<li>优化项目<br>可以使我们更高效地组织和管理代码，<strong>提高代码质量</strong>和可读性，并确保应用程序的<strong>稳定性和可维护性</strong>。  </li>
+<li>性能优化<br>针对性的性能优化，可以提高应用程序的<strong>响应速度</strong>、提高页面加载速度和用户体验，从而吸引更多用户并提高用户留存率。</li>
+</ul>
+<h2 id="【优化前】性能表现"><a href="#【优化前】性能表现" class="headerlink" title="【优化前】性能表现"></a>【优化前】性能表现</h2><p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78c5bbe8a676403cb56ec32d355055e1~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h2 id="优化前入口文件体积"><a href="#优化前入口文件体积" class="headerlink" title="优化前入口文件体积"></a>优化前入口文件体积</h2><p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e977f6c1d950455f8db2c0557649e99b~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<ul>
+<li>所有chunks总大小为 <strong>11.9 MB</strong>  </li>
+<li>首屏使用文件大小<br>chunk-vendors: <strong>3.79 MB</strong><br>index.js：<strong>2.37 MB</strong></li>
+</ul>
+<h3 id="图片相关"><a href="#图片相关" class="headerlink" title="图片相关"></a>图片相关</h3><p>项目使用了<code>url-loader</code>处理图片，压缩指定大小图片，减少http请求。但是这一步处理完后发现我们的js文件体积变大了，这是因为部分图片被打包到了js中，不着急，我们接着优化。</p>
+<p><strong>all(12.59mb)<br>chunk-vendors：3.79mb<br>index.xxx.js： 大小 2.91mb</strong><br><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2942c1353c91459b9cae75aafb517de4~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h3 id="第三方插件优化"><a href="#第三方插件优化" class="headerlink" title="第三方插件优化"></a>第三方插件优化</h3><ul>
+<li>剔除pafmake、xlsx</li>
+</ul>
+<p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65008cafe77147cb8d32862d3c579e73~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9c62428476e40fa8b6edd3b25b44a99~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"><br>  仔细观察我发现上面打包出的chunk里有一个<code>pafmake</code>、<code>xlsx</code> 文件、我的项目是没有安装这个依赖的，仔细排查后发现是项目中使用了 <code>amecharts</code>库、而它就是其子依赖，其中还包含了 <code>xlsx</code>，我们是用不到这两个依赖的，所以要干掉他们！通过 <code>webpack</code> 的 <code>externals</code> 进行判断后剔除。</p>
+<ul>
+<li><p>moment 优化</p>
+<p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5f417035ee74586baaf1db3debc11c4~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>我的项目中只用到了moment的中文包、但是它默认会把所有语言都打包进来了，所以我们要剔除其他的语言包减少依赖</p>
+<pre class="line-numbers language-js"><code class="language-js">     plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token comment" spellcheck="true">// 剔除moment的其他语言包</span>
+        <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>ContextReplacementPlugin</span><span class="token punctuation">(</span>
+          <span class="token regex">/moment[/\\]locale$/</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 替换的模块名称正则表达式</span>
+          <span class="token operator">/</span>zh<span class="token operator">-</span>cn<span class="token operator">/</span> <span class="token comment" spellcheck="true">// 替换模块的上下文路径</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  这一步优化后打包：<br>  <strong>all(9.89mb)<br>  chunk-vendors：3.56mb<br>  index.xxx.js： 大小 2.91mb</strong> </p>
+<p>  <img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/baaa5b2cb78b444fa196e39521151533~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+</li>
+</ul>
+<h2 id="【优化中】的性能表现"><a href="#【优化中】的性能表现" class="headerlink" title="【优化中】的性能表现"></a>【优化中】的性能表现</h2><p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a5abf6196044ffe90d72127035e7344~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h3 id="大体积无用文件处理"><a href="#大体积无用文件处理" class="headerlink" title="大体积无用文件处理"></a>大体积无用文件处理</h3><p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac128cfa6fc242aa9d37ff75153addef~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f522ac092f8b4c4cbe1f3ffdb80edda2~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<blockquote>
+<p>仔细观察项目后发现有一个不小的json文件、还有一个文件夹下注册了很多的弹出组件，且经过排查发现这些组件在项目中是没有用到的！这里不清楚之前这里要做什么，所以这里我就先直接注释掉。</p>
+</blockquote>
+<h2 id="路由懒加载（关键）"><a href="#路由懒加载（关键）" class="headerlink" title="路由懒加载（关键）"></a>路由懒加载（关键）</h2><blockquote>
+<p>仔细观察index.xxx.js文件发现很多文件是首页没有用到的页面，但是也被打包了进来，导致体积高达2.91mb<br>因为项目页面比较多，我对路由进行了重构，全部采用路由赖加载处理。</p>
+</blockquote>
+<h3 id="路由懒加载中遇到的问题"><a href="#路由懒加载中遇到的问题" class="headerlink" title="路由懒加载中遇到的问题"></a>路由懒加载中遇到的问题</h3><ul>
+<li><p>使用魔法注释方式</p>
+<pre class="line-numbers language-js"><code class="language-js">  component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment" spellcheck="true">/* webpackChunkName: "[request]" */</span> <span class="token template-string"><span class="token string">`@/views/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.vue`</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>最先开始我使用这种方式，通过魔法注释加载路由。由于路由页面比较多，写了一个方法动态去生成上面这段代码，但是项目中报错提示如下：</p>
+<p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bee640ef6c542299a373c22851d8c8b~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>  项目打包后也直接报错提示找不到对应文件，反复确认过这个<strong>动态路由</strong>的路径是对的。</p>
+</li>
+<li><p>import动态引入<br>  尝试直接import动态引入也是不行的</p>
+<pre class="line-numbers language-js"><code class="language-js">  component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`@/views/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>path<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.vue`</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p> 网上也有说使用<code>@babel/plugin-syntax-dynamic-import</code>插件可以支持解析动态语法，我尝试后还是会报错。 如果有朋友有好的解决方法欢迎评论区指点！<br>查询资料也有说 webpack4 不支持<strong>路由动态变量</strong>引入的方式。</p>
+<p>此时，在想要是vue3环境就好了，有专门的异步api很方便。所以这里我只好乖乖的一个一个静态去引入路由了。</p>
+</li>
+</ul>
+<p>所有路由赖加载方式引入改造后，此时我们打包再来看：</p>
+<p><strong>all(8.3mb)<br>chunk-vendors：3.33mb</strong></p>
+<p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75625fdbee3c4658acf6ef920a7ac8a3~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p><strong>index.xxx.js： 大小 26kb</strong><br><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25b8999cac5147fb9d7db010fba1b474~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h2 id="优化后入口文件体积"><a href="#优化后入口文件体积" class="headerlink" title="优化后入口文件体积"></a>优化后入口文件体积</h2><ul>
+<li>所有chunks总大小为 <strong>8.3 MB</strong>  </li>
+<li>首屏使用文件大小<br>chunk-vendors: <strong>3.33 MB</strong><br>index.js：<strong>25.93 KB</strong></li>
+</ul>
+<p><strong>总chunks 大小减少了 30%，首屏使用文件大小减少了 12%</strong></p>
+<h2 id="【优化后】性能表现"><a href="#【优化后】性能表现" class="headerlink" title="【优化后】性能表现"></a>【优化后】性能表现</h2><ul>
+<li>不开启gzip</li>
+</ul>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52c2ecd85a20452287a5df28cf116bb2~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e7560f0fc594dfc8e5e6ac9d5431215~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<ul>
+<li>开启gzip</li>
+</ul>
+<p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a2ccdf1903d4f3eba05f0309db73262~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54c66a84c6a04673a664a03fa5bff60c~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>我们发现不开启gzip时，性能相比优化前也是有提升的。开启的话提升会更明显，效果更佳，具体怎么配置开启，在之前文章中也实践过，这里就略过了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>经过上述操作配置后，主要指标提升结果：</p>
+<ul>
+<li>FCP： 从 <strong>8s</strong> 提升到最快—&gt; <strong>1.6s，提升约80%</strong></li>
+<li>SI： 从 <strong>8s</strong> 提升到最快—&gt; <strong>3.7s，提升约54%</strong></li>
+<li>LCP： 从 <strong>18.3s</strong> 提升到最快—&gt; <strong>13.6s，提升约26%</strong></li>
+<li>TTI：从 <strong>25.9s</strong> 提升到最快—&gt; <strong>15.2s，提升约41%</strong></li>
+<li>TBT：从 <strong>300ms</strong> 提升到最快—&gt; <strong>120ms，提升约60%</strong></li>
+</ul>
+<p>总的来说通过上述一系列操作后，各方面指标还是有提升的。虽然都是一些基础的优化操作，可能你也听过，也见过，但关键的是你得在项目中运用起来。往往普通简单的东西在细节操作中稍加注意，才会在大的项目或事情中体现出细节的至关重要的作用！</p>
+<p>本次优化之旅就先到这里，我相信肯定还有优化的空间和方向、欢迎大家评论区指点、讨论，一起学习、进步。</p>
+<p><strong>如果文章对你有帮助，可以点赞、评论、收藏、转发互动支持哈</strong>😀😀😀<br>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254" title="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群)</a> 加vx拉你进 <strong>前端学习交流群</strong> 让我们一起 <del>好好学习</del>（🐟🐟🐟）吧😎😎😎</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/9a81.html">https://sisi001.gitee.io/posts/9a81.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/vue2/">
+                                    <span class="chip bg-color">vue2</span>
+                                </a>
+                            
+                                <a href="/tags/vue2%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                    <span class="chip bg-color">vue2项目性能优化</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/6690.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/21.jpg" class="responsive-img" alt="开源之旅：初次贡献与PR提交流程">
+                        
+                        <span class="card-title">开源之旅：初次贡献与PR提交流程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景作为一名程序员，一直在公司项目上写代码，却从来没有参与过开源项目。虽然早之前了解过开源项目是什么？如何参加？但由于开源项目的规范要求严格和一些代码检查工具只是耳闻目睹，促使我望而却步。加上自己工作项目较忙、休息的时候也犯懒（主要是因为懒
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/pr/" class="post-category">
+                                    pr
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                    <a href="/tags/pr/">
+                        <span class="chip bg-color">pr</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/40eb.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/8.jpg" class="responsive-img" alt="vue2项目dist瘦身——打包体积压缩73%、速度提升90%">
+                        
+                        <span class="card-title">vue2项目dist瘦身——打包体积压缩73%、速度提升90%</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景随着前端技术的不断发展，网页应用程序变得越来越复杂，并且需要更多的资源来加载和运行。在使用 Vue2 构建的项目中，打包后的文件大小可能会非常大。
+我的一个可视化系统项目，文件约1302个、有效代码行数约 257217行、项目整体资源算
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vue2%E6%89%93%E5%8C%85/" class="post-category">
+                                    vue2打包
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue2/">
+                        <span class="chip bg-color">vue2</span>
+                    </a>
+                    
+                    <a href="/tags/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/">
+                        <span class="chip bg-color">vue项目打包</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">39.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://juejin.cn/favicon.ico') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        $('a').each(function() {
+          const $this = $(this);
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>
