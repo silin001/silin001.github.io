@@ -1,0 +1,1172 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PicGo图床工具使用">
+    <meta name="description" content="什么是图床？简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。
+为什么要搭建图床？我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 解决外链图片403不显示问题 -->
+    <meta name="referrer" content="no-referrer"/>
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <meta name="baidu-site-verification" content="codeva-Dqe9kh6zZZ" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>搭建自己的图床 | 尖椒土豆sss</title>
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">搭建自己的图床</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                                <span class="chip bg-color">图床</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                工具
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-07-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="什么是图床？"><a href="#什么是图床？" class="headerlink" title="什么是图床？"></a>什么是图床？</h2><p>简单理解为将图片上传存储到服务器，同时可以在公网中通过 url 访问图片。</p>
+<h2 id="为什么要搭建图床？"><a href="#为什么要搭建图床？" class="headerlink" title="为什么要搭建图床？"></a>为什么要搭建图床？</h2><p>我们在写 Markdown 文档时对于文档里面的图片，如果不使用图床，图片都是存放在本地，其他地方要用的话还得复制来复制去很不方便，也不好管理。<br>为了解决这种问题，达到一劳永逸的目的解决方法就是搭建自己的图床，把需要用的图片地址变成网络地址，这样想在哪里用直接通过链接方式使用。</p>
+<h2 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h2><p>图床工具就是自动把本地图片转换成链接的一款工具！<br>网络上有很多图床工具 PicGo 是一款用 Electron-vue 开发的开源软件，可以支持微博，七牛云，腾讯云 COS，又拍云，GitHub，阿里云 OSS，SM.MS，imgur 等 8 种常用图床，功能强大，支持 Windowns，macOS 和 Linux 平台<br>github 下载地址：[<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases]">https://github.com/Molunerfinn/PicGo/releases]</a></p>
+<p>这么多图床有收费的有免费的，且对应我们个人用户来说免费的也完全够用，我们当然选择白嫖啦！哈哈哈~</p>
+<h2 id="搭建自己的图床"><a href="#搭建自己的图床" class="headerlink" title="搭建自己的图床"></a>搭建自己的图床</h2><p>按需下载安装完 PicGo 工具后，这里使用免费的 gitee、github 图床，先创建一个专门存储图片的仓库且设置为公开的。<br>生成一个新的个人令牌 token（需要注意的是生成后记得保存，该 token 只出现一次，后续是不可查看的）</p>
+<ul>
+<li>使用 gitee 图床（不推荐）</li>
+</ul>
+<!-- ![](https://gitee.com/sisi001/picBed/raw/master/blog/picgo1.png) -->
+
+<p><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/pic1.png" alt=""><br>先在软件中安装 gitee 的插件来支持，安装完后在图床设置的最后就可以看到 gitee 点击进行配置 gitee<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/pic2.png" alt=""></p>
+<!-- ![](https://gitee.com/sisi001/picBed/raw/master/blog/picgo2.png) -->
+
+<p>repo: 仓库名称</p>
+<p>path: 存放图片的目录，可以不写，默认根路径</p>
+<p>token: 在 gitee 生成的 token</p>
+<p>其他选项可以不填</p>
+<p>然后就可以开心的使用了，在软件的上传区上传，这里很方便的是可以使用剪贴板的图片，这样我们拿微信或者其他截图工具随手截图后直接点击剪贴板图片就可以上传（注意剪贴板中必须要有图片否则会失败，如果有报错可以在设置中根据日志文件来定位问题）</p>
+<p>上传成功后远程仓库就会看到上传成功的图片，在工具左侧相册中也可以看到图片，还可以预览、修改、删除等操作，但是这里的删除操作只是删除本地图片，无法同步删除远程仓库的图床。</p>
+<p>gitee 作为图床：<br><strong>优点：</strong><br>免费<br>毕竟服务器在国内，访问速度比 github 更快<br><strong>缺点：</strong><br>gitee 本身还有 1 M 图片大小的限制，而且据了解现在不允许作为图床了，做了防盗链，使用图床的图片会变成 gitee 的 icon。</p>
+<ul>
+<li><p>使用 github 图床+jsDelivr<br>github 图床步骤和上面几乎一样; jsDelivr 下面详讲。</p>
+</li>
+<li><p>免费的代价<br>图片大小有限制；众多免费图床服务注册条款里均有禁止商用说明，万一哪天你使用的服务挂掉了或者关闭了图片外链，那你所有的链接都无法访问了，对你造成的损失或许不小。例如：前几年的微博图床。</p>
+</li>
+</ul>
+<h2 id="github-jsDelivr-CDN加速访问"><a href="#github-jsDelivr-CDN加速访问" class="headerlink" title="github + jsDelivr CDN加速访问"></a>github + jsDelivr CDN加速访问</h2><p>地址： ![<a href="https://www.jsdelivr.com]">https://www.jsdelivr.com]</a><br>jsDelivr 不支持加载超过 20M 的资源<br>CDN 加速：可以通过 CDN 的就近访问原则加快图片的访问速度。</p>
+<ul>
+<li><p>为什么使用它？<br>因为 github 服务器在国外访问速度很慢所以我们使用 jsDelivr CDN 免费加速。<br>原本 github 的自定义域名应该是：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/[username]/[仓库名]">https://raw.githubusercontent.com/[username]/[仓库名]</a></p>
+<p>但是使用这种方式访问图片很慢，所以使用 jsdelivr 作为 cdn 加速。<br>使用简单改变域名即可，不需要任何其他配置。</p>
+</li>
+<li><p>jsDelivr 的 CDN 加速链接格式<br><code>https://cdn.jsdelivr.net/gh/GitHub用户名/仓库名@发布的版本号/图片路径</code><br>因为我们这里上传的只是图片，就不设置版本了，所以链接修改如下：<br><code>https://cdn.jsdelivr.net/gh/GitHub用户名/仓库名/图片路径</code></p>
+</li>
+<li><p>cdn 加速图片</p>
+</li>
+</ul>
+<p>例如我的 cdn 加速后的图片链接： <img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/avtion.png" alt=""></p>
+<ul>
+<li><p>静态文件接入 cdn(重点!)<br>可以像cdn图片的方式一样把所有的css、js等文件的加载路径都修改下，从而让全站使用CDN加速！<br>因为js、css 等静态文件管理和图片有些不同，因为我们会编辑他，会加入新的内容。所以要对 GitHub 中静态文件进行<strong>版本发布</strong>，在 cdn 中引用对应的版本。CDN 中引用的是 GitHub 的“发布版本（release）”，不是“标签版本（Tags）”<br>在任意 JS/CSS 文件后添加 .min 能得到一个缩小版,如果它本身不存在，将会为你生成:<br><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js</a><br>测试:<br>浏览器打开-&gt;F12-&gt;Network-&gt;Ctrl + F5(强制刷新，即不使用缓存刷新)，然后看加载时间多少。</p>
+</li>
+<li><p>修改 PicGo 中的自定义链接<br>如下：<br><code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code><br>现在我们直接上传图片，取得的链接就是 CDN 的链接了, 可以测试一下速度，还是很 nice 的。</p>
+<p>github博客使用cdn全站加速前:<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/sj.png" alt=""><br>cdn全站加速后资源确实快了:<br><img src="/images/loading.gif" data-original="https://cdn.jsdelivr.net/gh/silin001/picBed@main/blog/sj2.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li>jsDelivr 缓存问题<br>部分文件github已经修改更新，但是jsDelivr访问到的确没有更新，网上找了常见刷新缓存方法也无效，无奈下只好把没有更新的cdn资源替换为本地资源</li>
+</ul>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
+<li><p>picGo 上传动图 gif<br>如果直接复制网页上的动图，去上传的话是截取的某帧，是静图。应该下载到本地，然后在拖进去上传就可以了</p>
+</li>
+<li><p>github 图床设置</p>
+</li>
+</ul>
+<p>确保你的 GitHub 图床设置路径准确无误<br>检查仓库名不能出现空格，要有空格请用 - 来代替（因为 GitHub 中的空格默认换成-）<br> 图片上传成功到github了 但是访问加速后到链接404,检查发现<br> 在picgo中设置自定义域名时:<br> <code>https://cdn.jsdelivr.net/gh/silin001/silin001.io/@main</code><br> 此处的仓库名称应该是<strong>图床的仓库名称!</strong>:<br> <code>https://cdn.jsdelivr.net/gh/silin001/仓库地址/@main</code></p>
+<ul>
+<li><p>picgo 上传图片报错 401<br>报错日志： “message”:”Bad credentials” 根据百度有的说重启软件也不好使，最后在 github 提了 issues 作者解释为无权限，建议删除 token，生成新的 token 解决。不过我第一天就这样试过不行，第二天发现突然可以了，给我整 emo 了！ 遇到这种情况如果反复检查配置没问题，就重新生成 token 试试。有时候都没问题可能是网络问题,多尝试几次.</p>
+</li>
+<li><p>mac电脑按照配置完无法上传成功!<br>我从我的win10配置完后,来到mac 使用picGo配置相同参数后上传失败,最后发现中win上github生成的token,来到mac上不存在了（这个暂时无解，我生成过30天、3个月、永久的token要么刷新就消失，要么过一段时间在刷新就消失很奇怪；虽然消失了但是之前使用的token好像还可以用） 只好需要生成一个新的token。</p>
+</li>
+<li><p>picgo 上传 github 后图片无法显示？</p>
+</li>
+</ul>
+<p>原因是 github 屏蔽掉了图片，解决办法就是修改 host<br>win 路径：C:\Windows\System32\drivers\etc\hosts<br>添加如下：</p>
+<pre class="line-numbers language-js"><code class="language-js">  # GitHub Start
+<span class="token number">140.82</span><span class="token punctuation">.</span><span class="token number">113.3</span>      github<span class="token punctuation">.</span>com
+<span class="token number">140.82</span><span class="token punctuation">.</span><span class="token number">114.20</span>     gist<span class="token punctuation">.</span>github<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    assets<span class="token operator">-</span>cdn<span class="token punctuation">.</span>github<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    raw<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    gist<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    cloud<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    camo<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars0<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars0<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">28.133</span>     avatars1<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars1<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars2<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">28.133</span>     avatars2<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars3<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars3<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars4<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars4<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars5<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars5<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars6<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars6<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars7<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars7<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">151.101</span><span class="token punctuation">.</span><span class="token number">184.133</span>    avatars8<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+<span class="token number">199.232</span><span class="token punctuation">.</span><span class="token number">68.133</span>     avatars8<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+# GitHub End
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>cmd 执行：<br><code>ipconfig /flushdns</code> 刷新一下本机的 DNS 解析<br>picgo 重启后相册中查看图片正常；刷新 github 页面发现图标可以显示了</p>
+<h3 id="2022-后续更新"><a href="#2022-后续更新" class="headerlink" title="2022 后续更新"></a>2022 后续更新</h3><p> 后来发现jsDelivr在国内死掉了; jsDelivr + github图床根本访问不了，暂时使用聚合图床</p>
+<ul>
+<li>聚合图床</li>
+</ul>
+<p>我的示例图片：<img src="/images/loading.gif" data-original="https://pic.imgdb.cn/item/6315abba16f2c2beb157672b.png" alt=""></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/3e2v.html">https://sisi001.gitee.io/posts/3e2v.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                                    <span class="chip bg-color">图床</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/61cb.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="从0到1搭建vue3+ts项目">
+                        
+                        <span class="card-title">从0到1搭建vue3+ts项目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言在自学 vue3 + vite + ts 项目时遇到的一些问题，都是一步一坑踩过来最终解决的，也借鉴了网上很多资料，特以此篇记录我的日常踩坑之路/(ㄒ o ㄒ)/~~
+如果文章对你有帮助，可以点击链接关注我的掘金社区账号 更多技术分享请
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/eslint-vite-ts/" class="post-category">
+                                    eslint vite ts
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ts/">
+                        <span class="chip bg-color">ts</span>
+                    </a>
+                    
+                    <a href="/tags/eslint/">
+                        <span class="chip bg-color">eslint</span>
+                    </a>
+                    
+                    <a href="/tags/vue3/">
+                        <span class="chip bg-color">vue3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/f34e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="h5接入浙里办爬坑">
+                        
+                        <span class="card-title">h5接入浙里办爬坑</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录个人遇到的 h5应用接入’浙里办’ 的爬坑之路！如果文章对你有帮助，可以点击链接关注我的掘金社区账号 更多技术分享请移步我的掘金哦~ 😀😀😀
+点击链接 学习交流群(前端微信群) - 掘金 (juejin.cn) 加vx拉你进 前端
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%BA%94%E7%94%A8-h5/" class="post-category">
+                                    浙里办应用 h5
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%99%E9%87%8C%E5%8A%9E%E5%AF%B9%E6%8E%A5/">
+                        <span class="chip bg-color">浙里办对接</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%99%E9%87%8C%E5%8A%9E/">
+                        <span class="chip bg-color">浙里办</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">39.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,d=o();function o(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=o());for(var e,i=0;i<d.length;i++)0<=(e=(e=d[i]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,a,n,o=d[i];e=function(){d=d.filter(function(t){return o!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(o)},(t=o).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,n=t.getAttribute("data-original"),a.onload=function(){t.src=n,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=n},t.src!==n&&(a.src=n)))}()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)}(this);</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>
