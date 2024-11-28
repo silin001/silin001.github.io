@@ -1,0 +1,1262 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="vue2打包优化,vue2打包优化">
+    <meta name="description" content="背景随着前端技术的不断发展，网页应用程序变得越来越复杂，并且需要更多的资源来加载和运行。在使用 Vue2 构建的项目中，打包后的文件大小可能会非常大。
+我的一个可视化系统项目，文件约1302个、有效代码行数约 257217行、项目整体资源算">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 解决外链图片403不显示问题 -->
+    <meta name="referrer" content="no-referrer"/>
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <meta name="baidu-site-verification" content="codeva-Dqe9kh6zZZ" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>vue2项目dist瘦身——打包体积压缩73%、速度提升90% | 尖椒土豆sss</title>
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">vue2项目dist瘦身——打包体积压缩73%、速度提升90%</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue2/">
+                                <span class="chip bg-color">vue2</span>
+                            </a>
+                        
+                            <a href="/tags/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/">
+                                <span class="chip bg-color">vue项目打包</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/vue2%E6%89%93%E5%8C%85/" class="post-category">
+                                vue2打包
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-04-06
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>随着前端技术的不断发展，网页应用程序变得越来越复杂，并且需要更多的资源来加载和运行。在使用 Vue2 构建的项目中，打包后的文件大小可能会非常大。</p>
+<p>我的一个可视化系统项目，文件约<strong>1302个</strong>、有效代码行数约 <strong>257217行</strong>、项目整体资源算是比较多。</p>
+<p><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/325f88c31be84bd0a29dd757ba2c44d5~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>主要技术栈：vue-cli3、vue2、vuex、axios、webpack4、echarts、less等</p>
+<p>这么多内容就会导致在打包时出现 <strong>构建速度慢</strong>、构建<strong>产物体积庞大</strong>的问题</p>
+<p>遇到紧急情况需要最快速度发版时，项目打包时间高达4-5分钟，同时如果使用ftp工具上传源码时，由于打包产物体积过大，也会影响上传速度！  </p>
+<p>打包速度慢、体积庞大成了项目的痛点。<br>本文介绍了一些针对 Vue2 项目的打包瘦身策略，在瘦身的这个过程中我也在网上学习了很多资料，谨以此篇记录我的一次项目优化学习、实践的过程。</p>
+<p><strong>如果文章对你有帮助，可以点赞、评论、收藏、转发互动支持哈</strong>😀😀😀<br>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254" title="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群)</a> 加vx拉你进 <strong>前端学习交流群</strong> 让我们一起 <del>好好学习</del>（🐟🐟🐟）吧😎😎😎</p>
+<h2 id="打包体积优化"><a href="#打包体积优化" class="headerlink" title="打包体积优化"></a>打包体积优化</h2><p><strong>优化前：dist包大小为207.8mb，相当大！</strong></p>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd357cdc15264e53a2834136b233261c~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h3 id="字体文件大小优化"><a href="#字体文件大小优化" class="headerlink" title="字体文件大小优化"></a>字体文件大小优化</h3><p>常见字体格式<br><strong>不推荐：</strong> </p>
+<ul>
+<li>eot：IE系列专属字体方案</li>
+<li>ttf：兼容性好，但是字体文件较大</li>
+<li>svg：不是真的字体，存在很多兼容问题（IE古老浏览器）</li>
+</ul>
+<p><strong>推荐：</strong></p>
+<ul>
+<li>woff：W3C标准，兼容性好</li>
+<li>woff2：W3C标准，但是不兼容IE</li>
+</ul>
+<blockquote>
+<p>关于字体大小优化，网上看到的方案大部分都是使用字蛛、Fontmin、或者放cdn处理。<br>我没有尝试，我这里直接使用了在线转换工具先将大文件转换为woff格式（以后直接找ui给我们woff格式的字体文件，会小很多）<br><a target="_blank" rel="noopener" href="https://convertio.co/zh/">Convertio — 文件转换器</a></p>
+</blockquote>
+<p>如果大家有什么更优雅处理字体文件过大的方案欢迎评论区讨论！</p>
+<p>初始字体大小 29.5mb：<br><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24bfb86b880c4939859e1b99381f3335~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>转换三个比较大的字体为woff格式后18.1mb：<br><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/231d4d349be94b7d8496c9e60d1734cd~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h3 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h3><p>由于项目中图片用的比较多、打包后图片文件很大导致dist包体积很大，这时候想通过webpack插件去处理图片资源、从而瘦身dist包体积。</p>
+<ul>
+<li><p>url-loader  </p>
+<blockquote>
+<p>这里踩过坑，详情请移步：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7209934991043412023">url-loader图片不显示、不报错踩坑 - 掘金 (juejin.cn)</a></p>
+<p>用url-loader转换图片为base64（图片打包成字符串，放到js中），减少文件请求次数。</p>
+</blockquote>
+<p><strong>问题：</strong><br>这种方式仅适合于比较小的图片资源，如果一个图片文件很大这样又会导致构建出的 <code>.js</code> 文件变大，导致加载缓慢。所以需要配合 <code>image-webpack-loader</code> 使用</p>
+</li>
+<li><p>image-webpack-loader  </p>
+<blockquote>
+<p>使用url-loader的 <code>limit</code> 字段控制指定大小图片才转base64（我这里也使用url-loader处理了字体文件）<br>然后使用 <code>image-webpack-loader</code> 来压缩超过limit阈值的大图片。这样就是小图片转base64、大图片压缩完还打包到指定路径中。</p>
+</blockquote>
+<p><code>yarn add -D url-loader image-webpack-loader</code></p>
+<p>ps：<code>image-webpack-loader</code>下载失败可以尝试用cnpm</p>
+<pre class="line-numbers language-js"><code class="language-js"> configureWebpack<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.(png|jpe?g|gif|webp)(\?.*)?$/i</span><span class="token punctuation">,</span>
+                exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+                include<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span>
+                    loader<span class="token punctuation">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+                    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                      esModule<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 不转换esm规范</span>
+                      name<span class="token punctuation">:</span> <span class="token string">'img/[name].[hash:2].[ext]'</span><span class="token punctuation">,</span>
+                      limit<span class="token punctuation">:</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">12</span>
+                    <span class="token punctuation">}</span>
+                  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">{</span>
+                    loader<span class="token punctuation">:</span> <span class="token string">'image-webpack-loader'</span><span class="token punctuation">,</span>
+                    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                      mozjpeg<span class="token punctuation">:</span> <span class="token punctuation">{</span> progressive<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> quality<span class="token punctuation">:</span> <span class="token number">50</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 压缩JPEG图像</span>
+                      optipng<span class="token punctuation">:</span> <span class="token punctuation">{</span> enabled<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 压缩PNG图像</span>
+                      pngquant<span class="token punctuation">:</span> <span class="token punctuation">{</span> quality<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.65</span><span class="token punctuation">]</span><span class="token punctuation">,</span> speed<span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 压缩PNG图像</span>
+                      <span class="token comment" spellcheck="true">// gifsicle: { interlaced: false }, // 压缩GIF图像</span>
+                      <span class="token comment" spellcheck="true">// webp: { quality: 75 } // 压缩webp</span>
+                    <span class="token punctuation">}</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>字体+图片处理后此时的dist包体积：<strong>80.5mb</strong>， <strong>dist包体积压缩提升60%</strong></p>
+<p> <img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebd8f0839bc94a9aa80b111a97168f03~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"><br> 此时打包速度为：289s</p>
+<p> <img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d45176b447aa45c59343e7c890c94b0a~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+</li>
+</ul>
+<h3 id="前端开启Gzip压缩"><a href="#前端开启Gzip压缩" class="headerlink" title="前端开启Gzip压缩"></a>前端开启Gzip压缩</h3><ul>
+<li><p>compression-webpack-plugin （Gzip压缩）</p>
+<blockquote>
+<p>nginx可以启动静态和动态压缩，如果能在Vue打包过程就压缩好，就可以<strong>缓解一些服务器CPU的压力</strong>。该插件可以打包文件压缩为.gz格式（最终发布生产环境时需要nginx配置开启gzip才能生效）</p>
+</blockquote>
+<p>ps: 插件版本需要和webpack匹配对应<br><code>yarn add -D compression-webpack-plugin</code> </p>
+<pre class="line-numbers language-js"><code class="language-js"> configureWebpack<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token comment" spellcheck="true">// gizp压缩</span>
+            <span class="token keyword">new</span> <span class="token class-name">CompressionWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+              test<span class="token punctuation">:</span> <span class="token regex">/\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i</span><span class="token punctuation">,</span>
+              threshold<span class="token punctuation">:</span> <span class="token number">10240</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 对10K以上的数据进行压缩</span>
+              deleteOriginalAssets<span class="token punctuation">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>gzip压缩后此时dist包：<strong>56.8mb</strong>，观察发现js等其他文件夹对应文件也压缩了不少（且生成了.gz文件） </p>
+<p><strong>此时相比首次dist包体积207.8mb，我们做到了压缩提升73%</strong><br>  <img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ff07e16867c42e8b0a47e5b5274ae55~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"><br>  此时打包速度：302s<br>  <img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8aecbcfcd47940d0b38647949a4f3ab1~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+</li>
+</ul>
+<h3 id="nginx配置开启gzip"><a href="#nginx配置开启gzip" class="headerlink" title="nginx配置开启gzip"></a>nginx配置开启gzip</h3><p>前端项目配置了gzip压缩、且删除原文件后部署访问404<br><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a56a42fbee86410298b56a91f2261197~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"><br>这时候就需要nginx 配置开启gzip了</p>
+<ul>
+<li><p>nginx配置：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">  <span class="token comment" spellcheck="true">#开启gzip功能</span>
+  <span class="token function">gzip</span> on<span class="token punctuation">;</span> 
+  <span class="token comment" spellcheck="true">#开启gzip静态压缩功能</span>
+  gzip_static on<span class="token punctuation">;</span> 
+  <span class="token comment" spellcheck="true">#gzip缓存大小</span>
+  gzip_buffers 4 16k<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">#gzip http版本</span>
+  gzip_http_version 1.1<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">#gzip 压缩级别 1-10 r</span>
+  gzip_comp_level 5<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">#gzip 压缩类型</span>
+  gzip_types text/plain application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">#配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持</span>
+  gzip_disable   <span class="token string">"MSIE [1-6]\."</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>gzip_static的作用</p>
+<blockquote>
+<p>nginx在设置了gzip on 后就已经打开了gzip压缩功能，不过这时候nginx所使用的是<strong>动态压缩</strong>。在动态压缩的情况下nginx会自动的将文件压缩成.gz文件，这时候就算不配置vue也能达到一样的效果。<br>但是动态压缩无疑会占用服务器的资源来进行此操作。  </p>
+</blockquote>
+<blockquote>
+<p>nginx也提供了<strong>静态压缩模式</strong>，也就是<strong>gzip_static</strong>，在这个模式下nginx会去寻找对应文件的.gz文件，只有.gz文件不存在的时候才会去压缩对应文件，这样就不会过度占用服务器资源。</p>
+</blockquote>
+<p>最后访问部署地址后查看http请求看到<strong>content-Encodeing: gzip</strong> 就代表gzip已经成功开启了</p>
+<p><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aae3a1f734504eaf9f2859e9c6b833e8~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+</li>
+</ul>
+<h2 id="打包速度优化"><a href="#打包速度优化" class="headerlink" title="打包速度优化"></a>打包速度优化</h2><p>处理完打包体积后，来看看此时的打包速度：<br>255s还是比较慢的，现在这个配置我这台机器打包时间基本上都在250-300s<br><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63efc80de9a5421cbf6262d209ece77d~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h3 id="合理使用缓存cache-loader"><a href="#合理使用缓存cache-loader" class="headerlink" title="合理使用缓存cache-loader"></a>合理使用缓存cache-loader</h3><blockquote>
+<p>Webpack4 中还可以使用 cache-loader 实现与 Webpack5 相似的通用<strong>持久化缓存</strong>功能。<strong>仅需要在一些性能开销较大的 loader 之前添加此 loader</strong><br>cache-loader 缓存的是对应loader的处理结果，将结果缓存到磁盘里，显著提升二次构建速度。</p>
+</blockquote>
+<p> 安装：<code>yarn add -D cache-loader</code><br> 这里我在处理图片的<code>image-webpack-loader</code>前使用。  </p>
+<p> 刚开始在<code>url-loader</code>前使用时发现二次打包后部分<strong>图片会丢失</strong>，部署后部分图片404（<strong>尚未解决！</strong>）如果有大佬遇到过希望评论区指点！</p>
+<pre class="line-numbers language-js"><code class="language-js">   configureWebpack<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                  test<span class="token punctuation">:</span> <span class="token regex">/\.(png|jpe?g|gif)(\?.*)?$/</span><span class="token punctuation">,</span>
+                  use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span>
+                      loader<span class="token punctuation">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+                      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        name<span class="token punctuation">:</span> <span class="token string">'img/[name].[hash:6].[ext]'</span><span class="token punctuation">,</span>
+                        limit<span class="token punctuation">:</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">1024</span>
+                      <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                      loader<span class="token punctuation">:</span> <span class="token string">'cache-loader'</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                      loader<span class="token punctuation">:</span> <span class="token string">'image-webpack-loader'</span>
+                    <span class="token punctuation">}</span>
+                  <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这时第一次打包速度来到了23s，相比上面的的250s <strong>打包速度提升了约90%</strong><br><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/527516997f284a24ba753445257b442f~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>再次打包速度：19s<br><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31b6082d873f47a6bf37c2c174ee01d9~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>再次打包速度：23s<br><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdf1dcb7bfff4894ae3f996455157e0f~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>使用缓存后基本上打包速度都在20s左右，终于可以和漫长的打包时间说拜拜啦！</p>
+<h2 id="关于启动速度"><a href="#关于启动速度" class="headerlink" title="关于启动速度"></a>关于启动速度</h2><p>开发环境不配置任何loader、plugins启动时间：<br>14s<br><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61a80c12fb314b32a8a52ae2a68ffa55~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"><br>13s<br><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/605d8b89395f4ccaae2f486c8682e57f~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>配置后：45s<br><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6fae6771add4740aeed46db07e0ecd6~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p>这里我使用了npm 和 yarn 分别多次启动测试发现时间都不一样。拿我的win（运行内存16g、磁盘1.5g）跑的话有时候竟然高达6位数，烦躁的很！可能电脑配置不行吧，每次起这个项目风扇就起飞了、有时候还会出现卡顿😂 条件允许还是上mac吧，真挺丝滑的。</p>
+<p>经过多次测试，我发现开发环境如果也配置一些loader、plugins 后会<strong>增加启动时间</strong>，得不偿失。 没有上vite是因为项目内容太多了，改造成本太高。新项目的话还是建议直接vite吧，不得不说还是vite开发丝滑呀！  </p>
+<blockquote>
+<p>所以我这里开发环境直接不配置任何loader、plugins。然后区分开发环境，加载不同配置文件。</p>
+</blockquote>
+<p>  因为项目默认用的是vue-cli-service服务，当执行<code>npm run build</code> 和 <code>npm run dev</code>时可以在config文件中通过<code>process.env.NODE_ENV</code>获取到当前环境</p>
+<pre><code>先在根目录创建config目录，再分别创建webpack.prod、webpack.dev配置文件，分别配置后通过module.exports暴露出来。
+
+最后根目录`vue.config.js`文件根据不同环境引入：
+```js
+console.log('当前环境：', process.env.NODE_ENV)
+const config = process.env.NODE_ENV === 'production' ? require('./config/webpack.prod') : require('./config/webpack.dev')
+
+module.exports = {
+  ...config
+}
+```</code></pre><p>   vue2项目随着版本的迭代，资源越来越多，启动时速度就越来越慢，如果业界大佬有什么好的解决方案能够解决vue2+webpack4老项目启动速度问题，欢迎评论区指点！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>经过上述一系列操作配置后最终结果如下：</p>
+<ul>
+<li><strong>打包体积由开始的207.8MB -&gt; 优化到56.8MB，提升约 73%</strong></li>
+<li><strong>打包速度由250s -&gt; 优化到约20s，提升约 90%</strong></li>
+</ul>
+<p>本次瘦身之旅，只尝试了这部分内容，总体来说还是有效果的。很多知识仅仅停留在熟悉、了解还不够，最终还是要亲自去实践才能真正学习和掌握。 </p>
+<p>我相信肯定还有很多优化方案、方向，学无止境，欢迎大家评论区讨论交流。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/40eb.html">https://sisi001.gitee.io/posts/40eb.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/vue2/">
+                                    <span class="chip bg-color">vue2</span>
+                                </a>
+                            
+                                <a href="/tags/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/">
+                                    <span class="chip bg-color">vue项目打包</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/9a81.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vue2应用性能优化：首屏FCP指标提升约80%">
+                        
+                        <span class="card-title">vue2应用性能优化：首屏FCP指标提升约80%</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景一个vue2的项目，打包部署后，发现首屏加载速度慢，FCP白屏时间大约需要8s左右，从输入系统地址按下回车后，就一直转啊转啊转，加载缓慢，导致用户的体验非常不好！所以今天针对这个问题来做一些性能优化。
+期望的结果就是首屏加载速度快一点，
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vue2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-category">
+                                    vue2性能优化
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue2/">
+                        <span class="chip bg-color">vue2</span>
+                    </a>
+                    
+                    <a href="/tags/vue2%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">vue2项目性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/f812e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="pnpm报错：/gifsicle  postinstall$ node lib/install.js">
+                        
+                        <span class="card-title">pnpm报错：/gifsicle  postinstall$ node lib/install.js</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            遇到问题最近在使用 pnpm 安装依赖时遇到了报错，死活都下载不下来。 pnpm add xxx 或者 pnpm i
+都报错如下：.../node_modules/gifsicle  postinstall$ node lib/instal
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            尖椒土豆sss
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
+                    </a>
+                    
+                    <a href="/tags/npm/">
+                        <span class="chip bg-color">npm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">41.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>

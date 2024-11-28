@@ -1,0 +1,1151 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="首次pr记录,开源项目pr流程,给开源项目pr过吗">
+    <meta name="description" content="背景作为一名程序员，一直在公司项目上写代码，却从来没有参与过开源项目。虽然早之前了解过开源项目是什么？如何参加？但由于开源项目的规范要求严格和一些代码检查工具只是耳闻目睹，促使我望而却步。加上自己工作项目较忙、休息的时候也犯懒（主要是因为懒">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 解决外链图片403不显示问题 -->
+    <meta name="referrer" content="no-referrer"/>
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <meta name="baidu-site-verification" content="codeva-Dqe9kh6zZZ" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>开源之旅：初次贡献与PR提交流程 | 尖椒土豆sss</title>
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">开源之旅：初次贡献与PR提交流程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/github/">
+                                <span class="chip bg-color">github</span>
+                            </a>
+                        
+                            <a href="/tags/pr/">
+                                <span class="chip bg-color">pr</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/pr/" class="post-category">
+                                pr
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-31
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>作为一名程序员，一直在公司项目上写代码，却从来没有参与过开源项目。虽然早之前了解过开源项目是什么？如何参加？但由于开源项目的规范要求严格和一些代码检查工具只是耳闻目睹，促使我望而却步。加上自己工作项目较忙、休息的时候也犯懒（主要是因为懒） 这件事就变成了只是想想，然后就搁置了。</p>
+<p>最近看到了 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7256599901593124921">我们正在开发一套组件库，欢迎你的加入~ </a><br>这篇文章后，我下决心打算真正的参与进来。</p>
+<p>俗话说万事开头难，但只要有了开始的心就算迈出一大步了。</p>
+<p>由于第一次参加开源项目加上平常<code>git</code>用的较少（公司一直在用 svn），一些具体流程让我很迷 😭，于是我很多问题请教了项目中的 <a target="_blank" rel="noopener" href="https://juejin.cn/user/3523264471898008">大飞同学</a>，真的很棒，帮我解惑。还有些问题也有询问过作者、以及群里的部分同学，大家也积极帮助解决，十分感谢！这种氛围真的很不错！</p>
+<p>于是我打算梳理下开源流程，记录自己第一次开源经历，也希望能帮助到其他同学。</p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/ecaps1038/yike-design-dev">yike-design-dev: Vue3+Ts+Less 开发的前端 UI 框架 (github.com)</a><br>欢迎大家积极参与</p>
+<h2 id="fork-项目到自己仓库"><a href="#fork-项目到自己仓库" class="headerlink" title="fork 项目到自己仓库"></a>fork 项目到自己仓库</h2><p>第一步的话就是找到你要参与的开源项目 <code>github</code>仓库地址（我们叫它<strong>上游仓库</strong>）然后点击 <code>fork</code> 后，就会在自己仓库下看到一个与<strong>上游仓库</strong>一样的仓库，之后我们就要基于这个仓库去写代码。</p>
+<ul>
+<li><p>克隆 fork 的仓库到本地<br> <code>git clone xxx</code></p>
+</li>
+<li><p>查看关联的远程仓库</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>添加主仓库为远程仓库之一（只需操作一次）</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> remote add upstream xxx上游仓库地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="创建需求分支规范"><a href="#创建需求分支规范" class="headerlink" title="创建需求分支规范"></a>创建需求分支规范</h2><p>建议一个分支处理一个需求。</p>
+<p>格式： <code>${type}/${component}/${feat}</code><br>例子：</p>
+<ul>
+<li><code>feature/base/add-markdown-pure</code></li>
+<li><code>feature/button/add-style</code></li>
+<li><code>fix/icon/alignment-issue</code></li>
+<li><code>docs/upload/add-picture-demo</code></li>
+<li><code>refactor/base/refactor-router</code></li>
+</ul>
+<p>git 创建并切换分支：<br><code>git checkout -b feature/progress/init</code></p>
+<h2 id="commit-提交规范"><a href="#commit-提交规范" class="headerlink" title="commit 提交规范"></a>commit 提交规范</h2><p>commmit 包含三部分内容 与分支规范类似： <code>${type}(${component}): ${commit-word}</code></p>
+<p>例子：</p>
+<ul>
+<li><p><code>feat(button): add styles for button component</code></p>
+</li>
+<li><p><code>fix(icon): resolve alignment issue in icon component</code></p>
+</li>
+<li><p><code>docs(upload): update README file</code></p>
+</li>
+<li><p><code>refactor(base): refactor router module</code></p>
+</li>
+<li><p><code>feat(merge code): merge the upstream to update code</code></p>
+</li>
+</ul>
+<p>git 操作：<br><code>git commit -m 'feat(merge): 合并上游仓库代码'</code></p>
+<p>ps：其中符号都是英文格式，冒号后面必须有空格，因为项目有 <code>commit</code> 校验，不符合规范提交时是校验失败、提交失败的。</p>
+<h3 id="我遇到的-commit-失败问题"><a href="#我遇到的-commit-失败问题" class="headerlink" title="我遇到的 commit 失败问题"></a>我遇到的 commit 失败问题</h3><p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9c0667a616f46218da56fef758d2b75~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<p><code>commit</code> 时直接报错： <code>npm ERR! Unexpected token '.'</code><br>打开日志文件也看不到啥有价值的信息，这个报错是在 win10 机器上出现的，然而在另外一台机器上就很正常。</p>
+<p>请教大飞同学得知是因为执行 <code>husky</code> 脚本失败了、感觉 <code>npx</code> 有问题。但是切换了不同版本 <code>node</code>也没能解决。很是头疼，我是使用 <code>nvm</code> 管理的 <code>node</code> 环境，最后我卸载了 <code>nvm</code>，重装了较新版本后问题解决。有遇到这个问题的同学可以试试。</p>
+<h2 id="写代码"><a href="#写代码" class="headerlink" title="写代码"></a>写代码</h2><p>当你认领好你想开发的任务，或者想解决的问题，创建好需求分支后，这一步没什么好说的就是写代码了。但需要注意的开源项目一般都有代码规范，使用了一些代码检查工具，如：<code>eslint</code>、<code>stylelint</code>等，写的时候需要注意下。</p>
+<h2 id="与上游仓库同步（重点）"><a href="#与上游仓库同步（重点）" class="headerlink" title="与上游仓库同步（重点）"></a>与上游仓库同步（重点）</h2><p>因为当你 fork 完项目后此时你的代码和上游仓库是同步的，但是当你再进行自己的需求开发时，会有其他同学陆续提交 pr，更新上游仓库。此时你就需要让你的代码和上游仓库保持同步。</p>
+<h3 id="1、更新上游仓库代码"><a href="#1、更新上游仓库代码" class="headerlink" title="1、更新上游仓库代码"></a>1、更新上游仓库代码</h3><p><code>git fetch upstream</code></p>
+<p>upstream 就代表上游仓库，开始新需求开发时先更新。</p>
+<h3 id="2、合并上游仓库代码"><a href="#2、合并上游仓库代码" class="headerlink" title="2、合并上游仓库代码"></a>2、合并上游仓库代码</h3><p><code>git merge upstream/monorepo-dev</code></p>
+<p>此步骤将更新到的上游代码合并到你当前本地仓库<code>monorepo-dev</code>主分支上（其他分支是不会一起合并的！）如果此时更新到的上游仓库代码和你本地代码有冲突就需要先在编辑器中手动<strong>解决冲突、合并代码后</strong>再提交（见步骤 3）</p>
+<h5 id="更新遇到冲突暂存代码"><a href="#更新遇到冲突暂存代码" class="headerlink" title="更新遇到冲突暂存代码"></a>更新遇到冲突暂存代码</h5><p>如果文件冲突可以一一解决，如果没有冲突可以选择暂存你本地的代码，再合并，合并完后再取出暂存代码继续开发。</p>
+<ul>
+<li><p>暂存代码<br><code>git stash</code></p>
+</li>
+<li><p>查看暂存<br><code>git stash list</code></p>
+</li>
+<li><p>取出暂存的代码<br><code>git stash pop</code></p>
+</li>
+</ul>
+<h3 id="3、更新同步自己-fork-后的仓库"><a href="#3、更新同步自己-fork-后的仓库" class="headerlink" title="3、更新同步自己 fork 后的仓库"></a>3、更新同步自己 fork 后的仓库</h3><p>当完成第 1、2 步时，此时只是你本地代码和上游仓库保持了一致，但<strong>你 fork 后的远程仓库还没有同步</strong>，需要将本地代码提交（如果有冲突需要先解决才能提交）</p>
+<p>提交本地代码到自己 fork 后到远程仓库：<br><code>git push</code></p>
+<p>这一步操作没问题后，此时你本地代码和 fork 后的远程仓库的代码都和上游仓库代码保持同步了。</p>
+<h3 id="4、需求分支注意"><a href="#4、需求分支注意" class="headerlink" title="4、需求分支注意"></a>4、需求分支注意</h3><p>如果在同步上游代码之前你已经创建了新的需求分支进行开发了，这时候你的需求分支代码和你主分支（monorepo-dev）<strong>是不同步的！</strong></p>
+<p>需要先切换到需求分支<code>git checkout xxx需求分支</code> 然后把本地主分支代码再合并到需求分支保持同步：<code>git merge xxx主分支</code></p>
+<p>这样你的主分支、需求分支代码也都同步了，可以继续你的新需求开发，然后提交更新 fork 后远程仓库的需求分支代码。</p>
+<p><strong>ps：</strong><br>如果项目涉及到的多人修改同一文件情况较少、冲突就会少，这种情况就建议先在自己的需求分支开发，等完全开发完毕了再一次性的去拉取更新上游仓库代码、然后合并（有冲突解决）同步自己本地仓库、然后提交同步自己 fork 的远程仓库。</p>
+<h2 id="提交-pr"><a href="#提交-pr" class="headerlink" title="提交 pr"></a>提交 pr</h2><p>当你负责的一个需求开发完毕后，此时就可以去 <code>github</code> 中提交 <code>PR（pull request）</code></p>
+<p>PR 将由具备权限的贡献者 <code>CR（Code Review）</code> 后进行 <code>merge</code>，如果有问题也会给你提意见，然后你可以修改好再提交。</p>
+<p>如果没问题，恭喜你，你的 <strong>PR</strong> 就会被合并到上游仓库，此刻就完成了开源项目的一次贡献流程。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个项目对于没参加过开源的同学很友好，虽然刚开始完成的都是一些基础组件，且这些基础组件已经在业界内有实现 如：<code>element-ui</code>、<code>ant design</code> 等。</p>
+<p>但等你真正的参与到项目中去开发实现的时候就会发现一个看上去简单的组件是需要考虑到很多细节问题的。</p>
+<p>项目计划后期也会从基础组件出发，开始封装功能性组件、封装前后端组件。是一个很好的循序渐进的过程。</p>
+<p>我相信如果能坚持开源这件事，日积月累编码和阅读源码的能力都会有很大的提升。</p>
+<p><strong>如果文章对你有帮助，可以点击链接关注我的<a target="_blank" rel="noopener" href="https://juejin.cn/user/2041110775208184/posts">掘金社区账号</a> 更多技术分享请移步我的掘金哦~</strong> 😀😀😀</p>
+<p>点击链接 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7146908831438602254">学习交流群(前端微信群) - 掘金 (juejin.cn)</a> 加 vx 拉你进 <strong>前端学习交流群</strong> 让我们一起 <del>好好学习</del>（🐟🐟🐟）吧 😎😎😎</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/6690.html">https://sisi001.gitee.io/posts/6690.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/github/">
+                                    <span class="chip bg-color">github</span>
+                                </a>
+                            
+                                <a href="/tags/pr/">
+                                    <span class="chip bg-color">pr</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/2c5.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="GitHub Actions 体验CICD">
+                        
+                        <span class="card-title">GitHub Actions 体验CICD</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景工作后，经常听闻同行提到自动化部署、CICD等关键词。出于好奇也去网上看了一些相关资料得以了解。由于我还没接触到有相关配置的项目，但自己也一直想尝试体验一下这个东西。但奈何自己相关知识匮乏，水平有限，之前尝试过几次最终以失败告终。
+再加
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/cicd/" class="post-category">
+                                    cicd
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cicd/">
+                        <span class="chip bg-color">cicd</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/9a81.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="vue2应用性能优化：首屏FCP指标提升约80%">
+                        
+                        <span class="card-title">vue2应用性能优化：首屏FCP指标提升约80%</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景一个vue2的项目，打包部署后，发现首屏加载速度慢，FCP白屏时间大约需要8s左右，从输入系统地址按下回车后，就一直转啊转啊转，加载缓慢，导致用户的体验非常不好！所以今天针对这个问题来做一些性能优化。
+期望的结果就是首屏加载速度快一点，
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vue2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-category">
+                                    vue2性能优化
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue2/">
+                        <span class="chip bg-color">vue2</span>
+                    </a>
+                    
+                    <a href="/tags/vue2%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">vue2项目性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">41.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>

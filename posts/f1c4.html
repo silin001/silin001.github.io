@@ -1,0 +1,1216 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ts重构基于rollup,ts重构基于rollup的npm包踩坑">
+    <meta name="description" content="前言在之前实现了一个npm包 我的第一个npm包：plugin-zip-pack - 掘金 (juejin.cn)
+但源码是js编写的，最近想的使用ts进行重构一下。 最开始直接将源码中原来文件都修改为 .ts后缀后遇到了一系列报错问题、以">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 解决外链图片403不显示问题 -->
+    <meta name="referrer" content="no-referrer"/>
+    <!-- 必应网站收录-->
+    <meta name="msvalidate.01" content="065D3DC65583F377FF68DB494BF2447A" />
+    <!-- baidu-->
+    <meta name="baidu-site-verification" content="code-GAmxX4Dzkd" />
+    <meta name="baidu-site-verification" content="codeva-Dqe9kh6zZZ" />
+    <!-- google-->
+    <meta name="google-site-verification" content="rTX_ff5C1B_O_KKXSrsL8CDnyt2KykM-6Weq172Sfwk" />
+    <title>用ts重构基于rollup的npm包踩坑记录 | 尖椒土豆sss</title>
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/loading/loading.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="/css/matery2.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="icon" type="image/png" href="/medias/favicon.png">
+
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="尖椒土豆sss" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-hopscotch.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <img class='wxImg' src="/images/loading.gif" data-original="/images/mywx.jpg"/>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/">
+                    
+                    <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    
+                    <div class="logo-span">尖椒土豆sss</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/images/loading.gif" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">尖椒土豆sss</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">用ts重构基于rollup的npm包踩坑记录</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 30px;
+        bottom: 146px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/rollup/">
+                                <span class="chip bg-color">rollup</span>
+                            </a>
+                        
+                            <a href="/tags/typescript/">
+                                <span class="chip bg-color">typescript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-17
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在之前实现了一个npm包 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7282692942720204858#heading-16">我的第一个npm包：plugin-zip-pack - 掘金 (juejin.cn)</a></p>
+<p>但源码是<code>js</code>编写的，最近想的使用<code>ts</code>进行重构一下。 最开始直接将源码中原来文件都修改为 <code>.ts</code>后缀后遇到了一系列报错问题、以及打包后出现的报错问题，经过一步步踩坑，最终都成功解决。谨以此篇记录自己的学习的过程，也希望能帮助到其他同学。</p>
+<p>npm包地址：<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/plugin-zip-pack?activeTab=readme">plugin-zip-pack - npm (npmjs.com)</a></p>
+<p>文档地址：<br><a target="_blank" rel="noopener" href="https://silin001.github.io/docs/blogs/utils/pluginZipPack.html">https://silin001.github.io/docs/blogs/utils/pluginZipPack.html</a></p>
+<h2 id="一、ts文件在vscode编辑器中报错问题"><a href="#一、ts文件在vscode编辑器中报错问题" class="headerlink" title="一、ts文件在vscode编辑器中报错问题"></a>一、ts文件在vscode编辑器中报错问题</h2><h3 id="编辑器提示找不到-require"><a href="#编辑器提示找不到-require" class="headerlink" title="编辑器提示找不到 require"></a>编辑器提示找不到 require</h3><p>  <img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bd2712322204916bd0a05d98c22877f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1053&amp;h=153&amp;s=79994&amp;e=png&amp;b=262628" alt="image.png"></p>
+<p>根据提示，安装 <code>@types/node</code> 可解决：<code>pnpm i @types/node -D</code></p>
+<h3 id="ts文件中提示无法重新声明块范围变量"><a href="#ts文件中提示无法重新声明块范围变量" class="headerlink" title=".ts文件中提示无法重新声明块范围变量"></a>.ts文件中提示无法重新声明块范围变量</h3><p>由于之前js版本都是使用的<strong>CommonJS</strong>语法， 在 <code>util/index.ts</code> 中声明一个变量使用  <code>module.exports</code> 导出变量：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> sucess <span class="token operator">=</span> chalk<span class="token punctuation">.</span>green<span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  sucess<span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在 <code>index.ts</code> 中 使用<code>require</code> 引入</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> sucess <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./src/util/index'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// ...</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  <img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db95b222edf3467a8803960bbb5dda08~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1573&amp;h=546&amp;s=311683&amp;e=png&amp;b=262235" alt="image.png"></p>
+<p><strong>原因：</strong><br>因为直接修改了文件为 <code>.ts</code> , 当在 <code>TypeScript</code> 中遇到变量重新声明的问题时，通常是因为在不同的文件中重复定义了同一个变量名。</p>
+<p><strong>解决：</strong> 需要使用 <code>TypeScript</code> 的模块系统，也就是  <code>import、export</code> 的方式来导入导出ts文件中的模块，并避免在不同的文件中重复声明相同的变量名。使用 es6 规范导入导出后问题解决。</p>
+<h3 id="Did-you-mean-to-set-the-‘moduleResolution’-option-to-‘nodenext’-or-to-add-aliases-to-the-‘paths’-option"><a href="#Did-you-mean-to-set-the-‘moduleResolution’-option-to-‘nodenext’-or-to-add-aliases-to-the-‘paths’-option" class="headerlink" title="Did you mean to set the ‘moduleResolution’ option to ‘nodenext’, or to add aliases to the ‘paths’ option?"></a>Did you mean to set the ‘moduleResolution’ option to ‘nodenext’, or to add aliases to the ‘paths’ option?</h3><p>引入第三方依赖时报错：<br><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53930d28d8af4a6a83e29470cd47473b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=802&amp;h=297&amp;s=98594&amp;e=png&amp;b=1d1a26" alt="image.png"></p>
+<p>根据提示在 <code>tsconfig.json</code> 中 <code>compilerOptions</code> 字段加入此配置后解决： <code>"moduleResolution": "nodenext"</code></p>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f74bd7bea76e4172ae8ccbb52ba671d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=604&amp;h=547&amp;s=107236&amp;e=png&amp;b=272336" alt="image.png"></p>
+<h3 id="找不到模块“-package-json”。请考虑使用-“–resolveJsonModule”-导入带-“-json”-扩展的模块"><a href="#找不到模块“-package-json”。请考虑使用-“–resolveJsonModule”-导入带-“-json”-扩展的模块" class="headerlink" title="找不到模块“../package.json”。请考虑使用 “–resolveJsonModule” 导入带 “.json” 扩展的模块"></a>找不到模块“../package.json”。请考虑使用 “–resolveJsonModule” 导入带 “.json” 扩展的模块</h3><p>在.ts文件中引入json文件，vscode报错：</p>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abf7613cb9b54e4c8a14b51a313f6ec2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=904&amp;h=291&amp;s=96945&amp;e=png&amp;b=1d1a26" alt="image.png"><br><strong>解决：</strong><br><code>tsconfig.json</code> 中 <code>compilerOptions</code> 字段加入如下配置后解决：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token string">"esModuleInterop"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token string">"resolveJsonModule"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="二、rollup-打包遇到的报错"><a href="#二、rollup-打包遇到的报错" class="headerlink" title="二、rollup 打包遇到的报错"></a>二、rollup 打包遇到的报错</h2><h3 id="Error-Cannot-find-module-‘typescript’"><a href="#Error-Cannot-find-module-‘typescript’" class="headerlink" title="Error: Cannot find module ‘typescript’"></a>Error: Cannot find module ‘typescript’</h3><blockquote>
+<p>ps: 找不到模块“typescript”</p>
+</blockquote>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2280b84711f4fffa9c529f7db5deade~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1051&amp;h=289&amp;s=48355&amp;e=png&amp;b=262335" alt="image.png"></p>
+<p><strong>报错原因：</strong>  源码工程中没有安装 ts</p>
+<p><strong>解决：</strong><br>安装ts: <code>pnpm i typescript -D</code></p>
+<p>安装完ts还是不行，打包发现提示：</p>
+<p> <code>(plugin typescript) Error: @rollup/plugin-typescript: Could not find module 'tslib', which is required by this plugin. Is it installed?</code></p>
+<p> 然后根据提示安装 <code>tslib</code> ：<code>pnpm i tslib -D</code></p>
+<p> 重新使用 <code>rollup</code> 打包成功解决：</p>
+<p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f4208d778344a1080dcac3cde1b7c2a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=649&amp;h=153&amp;s=12312&amp;e=png&amp;b=262335" alt="image.png"></p>
+<h3 id="Uncaught-ReferenceError-require-is-not-defined"><a href="#Uncaught-ReferenceError-require-is-not-defined" class="headerlink" title="Uncaught ReferenceError: require is not defined"></a>Uncaught ReferenceError: require is not defined</h3><p><code>Rollup</code> 打包代码时，在代码中使用了<code>CommonJS语法</code>（如：使用了<code>require</code>），但 <code>Rollup</code> 默认使用ES6模块语法（如：<code>import、export</code>）</p>
+<p><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d97c0c84669d4befaa1e802cd8638e3e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=885&amp;h=76&amp;s=7959&amp;e=png&amp;b=fceded" alt="image.png"></p>
+<p><strong>报错原因：</strong></p>
+<p>而我这里是因为我的源码中用 <code>require</code> 引入了node环境的一些api，如：fs等。 然后用 <code>Rollup</code>工具打包后生成.js 在浏览器环境（html中script引入）中使用时，此时浏览器就会报这个错： <code>require is not defined</code></p>
+<p><strong><code>require</code> 是 <code>CommonJS</code> 规范中用于导入模块的关键字，而浏览器环境下是不认识 <code>require</code>的！</strong></p>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li><p>在代码中使用ES6模块语法替换CommonJS语法</p>
+</li>
+<li><p>在Rollup的配置文件中使用插件解决（例如 <code>@rollup/plugin-commonjs</code>），以便 <code>Rollup</code> 能够识别并正确处理<code>CommonJS</code>语法。</p>
+</li>
+</ul>
+<h3 id="SyntaxError-Cannot-use-import-statement-outside-a-module"><a href="#SyntaxError-Cannot-use-import-statement-outside-a-module" class="headerlink" title="SyntaxError: Cannot use import statement outside a module"></a>SyntaxError: Cannot use import statement outside a module</h3><blockquote>
+<p>ps: SyntaxError:不能在模块外使用 import 语句</p>
+</blockquote>
+<p><strong>报错原因：</strong>   在js文件中是无法直接使用 <code>import/export</code> es6语法</p>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li><p>在 <code>package.json</code> 中设置type字段 <code>“type”:“module”</code></p>
+</li>
+<li><p>使用 <code>.mjs</code> 的扩展名（从 Node.js v13.2 版本开始，Node.js 已经默认打开了 ES6 模块支持。Node.js 要求 ES6 模块采用 <code>.mjs</code> 的后缀文件名）</p>
+</li>
+</ul>
+<h3 id="Error-ERR-REQUIRE-ESM-require-of-ES-Module"><a href="#Error-ERR-REQUIRE-ESM-require-of-ES-Module" class="headerlink" title="Error [ERR_REQUIRE_ESM]: require() of ES Module"></a>Error [ERR_REQUIRE_ESM]: require() of ES Module</h3><p><img src="/images/loading.gif" data-original="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/478f5c2c4f564864aa3b03de23c93ecd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1032&amp;h=271&amp;s=47379&amp;e=png&amp;b=262335" alt="image.png"></p>
+<blockquote>
+<p>ps: 试图在 <code>index.umd.js</code> 文件中使用了 <code>require()</code> 引入了一个 ES 模块（ES Module），但在这种情况下是不被支持的；<br>要解决这个问题，你需要调整 <code>xxx/index.umd.js</code> 文件中的代码。</p>
+</blockquote>
+<p><strong>报错原因：</strong></p>
+<p>错误 <code>[ERR_REQUIRE_ESM]</code> 表示： <code>require()</code> 函数试图引入一个 ES 模块，但在这个文件的上下文环境中不被支持。</p>
+<p>对应到我的这个npm包的源码中是因为我使用 <code>require</code> 引入了 <code>chalk</code> 依赖</p>
+<p><strong>解决：</strong><br>将 <code>require</code> 修改为 <code>import</code> 方式引入后解决</p>
+<h4 id="chalk-依赖库"><a href="#chalk-依赖库" class="headerlink" title="chalk 依赖库"></a>chalk 依赖库</h4><p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe13c7c573264510bb7c75b8a0afdf90~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=973&amp;h=244&amp;s=96386&amp;e=png&amp;b=262134" alt="image.png"></p>
+<p>查看 <code>chalk</code> 源码发现是使用 <code>cjs</code> 规范导出的。</p>
+<p>在 <code>Rollup</code> 打包后的项目中，即使 <code>chalk</code> 包只导出了 <code>CommonJS</code> 规范（CJS），仍然需要使用动态 <code>import</code> 引入的主要原因是为了<strong>确保代码的兼容性和可靠性</strong>。</p>
+<h3 id="Error-Cannot-find-module-‘-package-json’"><a href="#Error-Cannot-find-module-‘-package-json’" class="headerlink" title="Error: Cannot find module ‘../package.json’"></a>Error: Cannot find module ‘../package.json’</h3><p>源码中使用 require 引入package.json 文件后打包后报错<br><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f395f8fed6fb4c4cb24040fe1bb12bcf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1005&amp;h=634&amp;s=120338&amp;e=png&amp;b=272336" alt="image.png"></p>
+<p><strong>报错原因：</strong>  默认情况下<code>rollup.js</code> 不支持导入 json 模块， 无论是 <code>require</code> 还是 <code>import</code> 方式</p>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li><p>安装@rollup/plugin-json插件支持使用 import 导入json文件<br><code>pnpm i -D @rollup/plugin-json</code></p>
+</li>
+<li><p>使用 node的 fs.readFileSync 读取文件</p>
+</li>
+</ul>
+<p>使用node模块的 <code>resolve</code> 获取真实的json文件的路径，然后使用fs模块的<code>readFileSync</code>方法读取文件内容，从而获取到json中name、version等内容。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> version <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">getPackJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> getPackJson <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> pkg <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    version<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 使用 resolve 获取真实的json文件 path路径</span>
+  <span class="token keyword">const</span> packageJsonPath <span class="token operator">=</span> <span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"package.json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 读取文件内容</span>
+    <span class="token keyword">const</span> packageJsonString <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>packageJsonPath<span class="token punctuation">,</span> <span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> version <span class="token punctuation">}</span> <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>packageJsonString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pkg<span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    pkg<span class="token punctuation">.</span>version <span class="token operator">=</span> version<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"无法读取npm包的 package.json 文件:"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"pkg--"</span><span class="token punctuation">,</span> pkg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> pkg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、其他"><a href="#三、其他" class="headerlink" title="三、其他"></a>三、其他</h2><h3 id="rollup打包ts类型文件"><a href="#rollup打包ts类型文件" class="headerlink" title="rollup打包ts类型文件"></a>rollup打包ts类型文件</h3><p>使用<code>pnpm i -D rollup-plugin-dts</code>插件来生成ts类型文件</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> dts <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"rollup-plugin-dts"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token comment" spellcheck="true">// …</span>
+  <span class="token punctuation">{</span>
+    input<span class="token punctuation">:</span> <span class="token string">"./src/index.ts"</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> file<span class="token punctuation">:</span> <span class="token string">"build/index.d.ts"</span><span class="token punctuation">,</span> format<span class="token punctuation">:</span> <span class="token string">"es"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">dts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置完成后 当执行 <code>rollup -c</code> 时会根据配置文件自动打包到 <code>build/index.d.ts</code><br><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51d9813677a3460fbb23601904fab053~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=822&amp;h=643&amp;s=287957&amp;e=png&amp;b=282336" alt="image.png"></p>
+<p>此时，使用es语法导入时就有了智能提示：<br><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/188c2daca87245b2b7ad5d71b2f08933~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1132&amp;h=174&amp;s=59933&amp;e=png&amp;b=211f2b" alt="image.png"></p>
+<p>当错误使用导出的方法时也会有ts类型提示：</p>
+<p><img src="/images/loading.gif" data-original="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09818d945d6646438c783d2c5a3bdd38~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=696&amp;h=229&amp;s=52339&amp;e=png&amp;b=1b1924" alt="image.png"></p>
+<h3 id="重构前-npm插件在vite中使用警告"><a href="#重构前-npm插件在vite中使用警告" class="headerlink" title="重构前 npm插件在vite中使用警告"></a>重构前 npm插件在vite中使用警告</h3><p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6d30718d5eb45ef8be4bd79fba9152f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=634&amp;h=451&amp;s=113840&amp;e=png&amp;b=1c1a25" alt="image.png"></p>
+<p>使用ts编写源码，给导出的 vite函数 添加一个 type 类型来约束：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">/** 支持vite插件类型 */</span>
+<span class="token keyword">export</span> type VitePluginZipPackType <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+  apply<span class="token punctuation">:</span> <span class="token string">"build"</span><span class="token punctuation">;</span>
+  closeBundle<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、npm包发布相关"><a href="#四、npm包发布相关" class="headerlink" title="四、npm包发布相关"></a>四、npm包发布相关</h2><h3 id="npm-发布时使用-opt码进行二次验证"><a href="#npm-发布时使用-opt码进行二次验证" class="headerlink" title="npm 发布时使用 opt码进行二次验证"></a>npm 发布时使用 opt码进行二次验证</h3><p>由于我设置了npm二次验证，发布时需要输入在手机 <code>Authenticator App</code> 上输入 <code>opt</code> 验证码即可：</p>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5a698dd5a524694b4f0f273351f4d19~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&amp;h=321&amp;s=36343&amp;e=png&amp;b=262335" alt="image.png"></p>
+<p>发布成功会有邮件通知：<br><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07a08ff5920a495388a67ca9f5359bd4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=621&amp;h=187&amp;s=9412&amp;e=png&amp;b=fdfdfd" alt="image.png"></p>
+<h3 id="npm-login报错"><a href="#npm-login报错" class="headerlink" title="npm login报错"></a>npm login报错</h3><p><img src="/images/loading.gif" data-original="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45a54873c3b149c087abdedaebf49123~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1291&amp;h=286&amp;s=56308&amp;e=png&amp;b=262335" alt="image.png"></p>
+<p><strong>原因：</strong> 使用了代理软件网络环境有问题、设置的proxy代理环境有问题，可能会有缓存</p>
+<p><strong>解决：</strong> 关闭代理软件后重新login尝试（可能需要多次尝试）、清除npm缓存</p>
+<h3 id="npm-unpublish-删除已发布包的指定版本"><a href="#npm-unpublish-删除已发布包的指定版本" class="headerlink" title="npm unpublish 删除已发布包的指定版本"></a>npm unpublish 删除已发布包的指定版本</h3><p>npm login 登录后直接删除指定版本： <code>npm unpublish 包名称@版本号</code></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>不允许撤销发布已经超过 24 小时的包，撤销发布 24 小时内的包需要加 <code>--force</code> 参数</li>
+<li>撤销之前发布的包，再次发布的时候不能与之前被撤销的<code>包的名称/版本</code>其中之一相同，因为这两者构成的唯一性已经被占用，官方并没有随着撤销而删除</li>
+</ul>
+<h3 id="npm-deprecate-弃用发布的包"><a href="#npm-deprecate-弃用发布的包" class="headerlink" title="npm deprecate 弃用发布的包"></a>npm deprecate 弃用发布的包</h3><p><code>npm unpublish</code> 官方推荐的替代命令 <code>npm deprecate</code></p>
+<p><code>npm deprecate 包名称@版本号</code></p>
+<p><code>npm deprecate</code> 命令不会在 <code>npm</code>官网上撤销对应的包，而是会在使用安装该包时给出下面的提示信息：</p>
+<blockquote>
+<p>If you no longer wish to maintain a package, or if you would like to encourage users to update to a new or different version, you can <a target="_blank" rel="noopener" href="https://npm.nodejs.cn/deprecating-and-undeprecating-packages-or-package-versions#">deprecate</a> it. Deprecating a package or version will print a message to the terminal when a user installs it.</p>
+</blockquote>
+<h3 id="npm-发布新版本后使用时版本号不更新"><a href="#npm-发布新版本后使用时版本号不更新" class="headerlink" title="npm 发布新版本后使用时版本号不更新"></a>npm 发布新版本后使用时版本号不更新</h3><p>npm包发布新的版本号后，在项目里直接 <code>pnpm install</code> 进行安装时可能暂时还是旧版本号，但是npm官网已经显示有了新版本号，这是因为刚发布的包可能还没更新好，需要等待一段时间（我是当天发布了新版本npm包，次日安装时版本号才自动更新最新的）重新安装查看</p>
+<h2 id="五、最终npm包使用"><a href="#五、最终npm包使用" class="headerlink" title="五、最终npm包使用"></a>五、最终npm包使用</h2><h3 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h3><p>在.js配置文件中使用 es模块 <code>import</code> 时会报错： <code>SyntaxError: Cannot use import statement outside a module</code></p>
+<p>所以需要使用cjs模块导入： <code>const { test, pluginZipPackVite } = require('plugin-zip-pack')</code></p>
+<h3 id="vite-config-ts"><a href="#vite-config-ts" class="headerlink" title="vite.config.ts"></a>vite.config.ts</h3><p>在.ts配置文件中可以使用时 es、cjs模块引入都支持：</p>
+<p><code>import { test, pluginZipPackVite } from 'test-plugin-zip-pack'</code><br>or<br><code>const { test, pluginZipPackVite } = require('plugin-zip-pack')</code></p>
+<p><img src="/images/loading.gif" data-original="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d01360086e9446d8a2f50589bcfbbd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1015&amp;h=286&amp;s=40523&amp;e=png&amp;b=262335" alt="image.png"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io" rel="external nofollow noreferrer">尖椒土豆sss</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sisi001.gitee.io/posts/f1c4.html">https://sisi001.gitee.io/posts/f1c4.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/rollup/">
+                                    <span class="chip bg-color">rollup</span>
+                                </a>
+                            
+                                <a href="/tags/typescript/">
+                                    <span class="chip bg-color">typescript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/92f9.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="从github定时任务到云函数实践">
+                        
+                        <span class="card-title">从github定时任务到云函数实践</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言基于上篇 消息推送到微信：给我的npm插件加上消息推送 - 掘金 (juejin.cn)   实现了我的npm插件添加了消息推送功能，之后在项目打包使用时，可以将打包消息推送到微信，目前对于我来说体验还是不错的；于是我决定现在进一步实现
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%91%E5%87%BD%E6%95%B0/" class="post-category">
+                                    云函数
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%91%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">云函数</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/930f.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/6.jpg" class="responsive-img" alt="vuepress@2.x 报错问题分享">
+                        
+                        <span class="card-title">vuepress@2.x 报错问题分享</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            背景在使用vuepress@2.x 搭建博客项目时，使用 github actions部署时失败了很多次，踩过的坑汇总记录一下自己的学习过程，也希望可以帮助到其他同学。
+打包时出现的错误config.js配置遇到的问题配置文件使用confi
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vuepress/" class="post-category">
+                                    vuepress
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vuepress/">
+                        <span class="chip bg-color">vuepress</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+    <script>
+// 时间计算
+function siteTime() {
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000;
+var minutes = seconds * 60;
+var hours = minutes * 60;
+var days = hours * 24;
+var years = days * 365;
+var today = new Date();
+var startYear = "2020";
+var startMonth = "10";
+var startDate = "12";
+var startHour = "15";
+var startMinute = "0";
+var startSecond = "0";
+var todayYear = today.getFullYear();
+var todayMonth = today.getMonth() + 1;
+var todayDate = today.getDate();
+var todayHour = today.getHours();
+var todayMinute = today.getMinutes();
+var todaySecond = today.getSeconds();
+var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+var diff = t2 - t1;
+var diffYears = Math.floor(diff / years);
+var diffDays = Math.floor((diff / days) - diffYears * 365);
+var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+    minutes);
+var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+    diffMinutes * minutes) / seconds);
+if (startYear == todayYear) {
+    // document.getElementById("year").innerHTML = todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
+        " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+} else {
+    // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+    document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
+        " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+}
+}
+</script>
+<footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom:10px">
+        <div class="col s12 m8 l8 copy-right">
+            <!-- 注释了链接
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="https://sisi001.gitee.io" target="_blank">尖椒土豆sss</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br/>
+            -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">41.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <br/>
+            
+                <span id="sitetime">载入运行时间...</span>
+                <script>
+                    setInterval(siteTime, 1000);
+                </script>
+            
+            <br/>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/silin001/" title="github" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:862956812@qq.com" title="QQ邮箱" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <div id='wxicon'  class="tooltipped mydiv 111" title="微信">
+        <i class="fab fa-weixin"></i>
+    </div>
+
+
+
+
+    <a href="https://juejin.cn/user/2041110775208184/posts"
+    style="display: flex;
+    align-items: center;
+    justify-content: center;"
+    title="掘金" class="tooltipped" target="_blank" data-tooltip="关注我的掘金" data-position="top" data-delay="50">
+        <div style="width:22px;height:22px;background:url('https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg') no-repeat center/100% 100%"></div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+    <!--自定义的 Loading Page-->
+    
+        
+  <div id="loader-box">
+     <div class="loader-wrapper">
+        <div class="loader">
+            <div class="logo">加载中...</div>
+        </div>
+        <div class="loader-text">
+            <div>L</div>
+            <div>O</div>
+            <div>A</div>
+            <div>D</div>
+            <div>I</div>
+            <div>N</div>
+            <div>G</div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+  </div>
+  <script>
+    var endLoading = function () {
+        setTimeout(() => {
+          document.getElementById('loader-box').remove();
+        }, 1500)
+    }
+    // window.addEventListener('load',endLoading);
+    endLoading()
+  </script>
+  <!--
+  <img class="logo" src="/images/loading.gif" data-original="/medias/favicon.png"/>
+  -->
+
+
+
+
+
+    
+    <script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js"
+            async="async"></script>
+    
+    
+        <script async
+            src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script
+            src="/libs/instantpage/instantpage.js"
+            type="module"></script>
+    
+    <!-- 注释点击烟花爆炸效果 -->
+    <!--
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    -->
+    <!-- 樱花飘落效果 -->
+    <!-- <script type="text/javascript">
+        // 只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>'); }
+    </script>
+    -->
+    <!--
+    <script type="text/javascript">
+        // 只在桌面版网页启用天气
+        WIDGET = { FID: 'vwB3EHDqWF' }
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+    </script>
+    -->
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+
+
+
+
+<script>
+$(function () {
+    const dom  = $('#wxicon')
+    const wxImg = $('.wxImg')
+    dom.click(function(){
+        const parentDom = $(this).parent()[0]
+        wxImg.hide()
+        wxImg.show(1200)
+        if($(parentDom).hasClass('social-link')){
+            wxImg.css({top: '60%'})
+        }
+    })
+    dom.mouseleave(()=>{
+        setTimeout(() => {
+        wxImg.hide(1000)
+        }, 2500)
+    })
+})
+</script>
+</html>
